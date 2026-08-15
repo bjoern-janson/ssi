@@ -1,0 +1,64 @@
+name: V3 physical-energy capability probe
+
+on:
+  push:
+    branches:
+      - agent/energy-suite
+
+permissions:
+  contents: read
+
+jobs:
+  probe-macos:
+    runs-on: macos-14
+    timeout-minutes: 10
+    steps:
+      - name: Environment
+        shell: bash
+        run: |
+          set -euxo pipefail
+          uname -a
+          sw_vers
+          sysctl -n machdep.cpu.brand_string || true
+          uname -m
+          command -v powermetrics || true
+          sudo -n true
+
+      - name: Probe powermetrics help
+        shell: bash
+        run: |
+          set -o pipefail
+          sudo powermetrics --help 2>&1 | tee powermetrics_help.txt || true
+
+      - name: Probe idle CPU power sampler
+        shell: bash
+        run: |
+          set -o pipefail
+          sudo powermetrics --samplers cpu_power -i 200 -n 8 2>&1 | tee powermetrics_idle.txt || true
+
+      - name: Probe loaded CPU power sampler
+        shell: bash
+        run: |
+          set -o pipefail
+          python3 - <<'PY' &
+          import hashlib, time
+          deadline = time.time() + 4.0
+          x = b'v3-energy-capability-probe'
+          while time.time() < deadline:
+              for _ in range(10000):
+                  x = hashlib.blake2b(x, digest_size=32).digest()
+          print(x.hex())
+          PY
+          LOAD_PID=$!
+          sudo powermetrics --samplers cpu_power -i 200 -n 15 2>&1 | tee powermetrics_load.txt || true
+          wait "$LOAD_PID" || true
+
+      - name: Summarize raw capability
+        shell: bash
+        run: |
+          printf '\n=== help ===\n'
+          sed -n '1,220p' powermetrics_help.txt || true
+          printf '\n=== idle ===\n'
+          sed -n '1,260p' powermetrics_idle.txt || true
+          printf '\n=== load ===\n'
+          sed -n '1,320p' powermetrics_load.txt || true
