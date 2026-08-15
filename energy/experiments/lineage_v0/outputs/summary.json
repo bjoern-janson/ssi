@@ -1,0 +1,88 @@
+{
+  "K_star_Q1": 1.0,
+  "K_star_Q3": 1.0,
+  "K_star_crossed_worlds": 64,
+  "K_star_median": 1.0,
+  "episodes_per_world": 96,
+  "evidence_ladder": {
+    "admissible_net_economy": true,
+    "gross_economy": true,
+    "net_economy": true,
+    "quality_admissible": true,
+    "reuse": true
+  },
+  "fraction_episodes_A_cheaper": 0.8722330729166666,
+  "fraction_episodes_A_more_expensive": 0.045572916666666664,
+  "fraction_episodes_equal": 0.08219401041666667,
+  "mean_E_rediscover_A": 1.56591796875,
+  "mean_E_rediscover_B": 16.5751953125,
+  "mean_J_corr_A": 11.56591796875,
+  "mean_J_corr_B": 26.5751953125,
+  "mean_candidates_tested_A": 1.52197265625,
+  "mean_candidates_tested_B": 6.525065104166667,
+  "mean_delta_J_95pct_CI": [
+    -15.28173828125,
+    -14.73681640625
+  ],
+  "mean_delta_J_A_minus_B": -15.00927734375,
+  "mean_delta_rediscover_95pct_CI": [
+    -15.28173828125,
+    -14.73681640625
+  ],
+  "mean_delta_rediscover_A_minus_B": -15.00927734375,
+  "mean_gross_savings_K96_95pct_CI": [
+    1414.734375,
+    1467.046875
+  ],
+  "mean_gross_savings_K96_per_world": 1440.890625,
+  "mean_lineage_infrastructure_K96_95pct_CI": [
+    134.16000000000005,
+    134.16000000000005
+  ],
+  "mean_lineage_infrastructure_K96_per_world": 134.16000000000005,
+  "mean_net_savings_K96_95pct_CI": [
+    1280.574375,
+    1332.886875
+  ],
+  "mean_net_savings_K96_per_world": 1306.730625,
+  "noise_tier_diagnostics": [
+    {
+      "episodes": 3072,
+      "fraction_A_cheaper": 0.9186197916666666,
+      "fraction_A_more_expensive": 0.005208333333333333,
+      "mean_J_A": 10.1826171875,
+      "mean_J_B": 26.6298828125,
+      "mean_delta_J_A_minus_B": -16.447265625,
+      "mean_n_tested_A": 1.0608723958333333,
+      "mean_n_tested_B": 6.543294270833333,
+      "noise_p": 0.15
+    },
+    {
+      "episodes": 2048,
+      "fraction_A_cheaper": 0.86328125,
+      "fraction_A_more_expensive": 0.05029296875,
+      "mean_J_A": 11.66259765625,
+      "mean_J_B": 26.48681640625,
+      "mean_delta_J_A_minus_B": -14.82421875,
+      "mean_n_tested_A": 1.55419921875,
+      "mean_n_tested_B": 6.49560546875,
+      "noise_p": 0.25
+    },
+    {
+      "episodes": 1024,
+      "fraction_A_cheaper": 0.7509765625,
+      "fraction_A_more_expensive": 0.1572265625,
+      "mean_J_A": 15.5224609375,
+      "mean_J_B": 26.587890625,
+      "mean_delta_J_A_minus_B": -11.0654296875,
+      "mean_n_tested_A": 2.8408203125,
+      "mean_n_tested_B": 6.529296875,
+      "noise_p": 0.35
+    }
+  ],
+  "quality_contract_all_worlds": true,
+  "scope": "Synthetic compute-cost proxy; not physical joules.",
+  "status": "SUPPORTED_IN_FROZEN_SYNTHETIC_SCOPE",
+  "total_paired_episodes": 6144,
+  "worlds": 64
+}
