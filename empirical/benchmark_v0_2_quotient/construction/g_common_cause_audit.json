@@ -1,0 +1,67 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "audit_identity": "VFA-0.2-G-COMMON-CAUSE-ATTACK-1",
+  "G_adjudication": "PASS",
+  "future_obligation_accessed": false,
+  "G_activation": "PROHIBITED",
+  "attack_results": {
+    "static_no_treatment_input": {
+      "pass": true,
+      "selector_parameters": ["candidates", "freeze_timestamp"],
+      "bundle_parameters": ["trace", "payload", "evidence", "selected_at", "bundle_committed_at", "disclose_at", "deadline_at"],
+      "arm_view_parameters": ["bundle"],
+      "forbidden_selector_inputs_accepted": 0,
+      "forbidden_selector_inputs_tested": 7,
+      "forbidden_inputs": ["arm", "treatment", "Gamma", "Phi_path", "M_Gamma", "outcome", "performance"]
+    },
+    "selector_invariance": {
+      "pass": true,
+      "synthetic_scenarios": 128,
+      "candidate_order_comparisons": 384,
+      "treatment_label_swap_comparisons": 128,
+      "mismatch_count": 0,
+      "no_qualifying_semantics": true,
+      "first_qualifying_no_substitution": true
+    },
+    "common_bundle": {
+      "pass": true,
+      "common_view_comparisons": 64,
+      "mismatch_count": 0,
+      "bundle_immutable": true,
+      "arm_argument_rejected": true,
+      "arm_metadata_smuggling_rejected": true,
+      "bundle_has_no_arm_field": true
+    },
+    "temporal": {
+      "pass": true,
+      "invalid_temporal_cases": 3,
+      "invalid_temporal_cases_rejected": 3,
+      "valid_commit_before_disclosure": true
+    },
+    "realized_certificate_template": {
+      "pass": true,
+      "status": "UNINSTANTIATED_TEMPLATE",
+      "required_realized_fields_present": true,
+      "pre_filled_realized_fields": []
+    }
+  },
+  "fixture_provenance": {
+    "initial_synthetic_decoy_error": "intended pre-freeze decoy was initially timestamped after the synthetic freeze",
+    "disposition": "corrected before adjudication; no benchmark treatment, selector rule, or prospective source contract changed",
+    "corrected_pre_freeze_decoy_timestamp": "2034-12-31T12:00:00Z",
+    "synthetic_freeze_timestamp": "2035-01-01T00:00:00Z"
+  },
+  "scope": {
+    "prospective_pool": "external source rule and candidate schema are frozen; a concrete real future candidate pool is intentionally not known pre-freeze",
+    "attack_data": "synthetic blinded candidate streams only",
+    "realized_certificate": "instantiated only after external selection and committed before arm disclosure; it records execution conformance and cannot repair authorization",
+    "common_cause_claim": "selection, bundle construction, disclosure timestamp, evidence bytes, and deadline have no treatment-conditioned interface"
+  },
+  "authority_boundary": {
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}
