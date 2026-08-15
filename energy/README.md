@@ -71,9 +71,20 @@ Rediscovery is tracked as an attribution variable rather than automatically adde
 
 The accounting boundary must include any material infrastructure used by the treatment, including memory maintenance, retrieval, tool calls, adaptation, validation, and recovery.
 
-## First experiment
+## Experiment ladder
 
-The first narrow causal test is the lineage intervention:
+The lineage program currently has four rungs:
+
+- **V0 — synthetic traversal economy:** supported in its frozen synthetic scope.
+- **V1 — executed-work economy:** supported in its frozen executable CPU scope.
+- **V2 — heterogeneous executed corrective-work economy:** supported in its frozen heterogeneous executable CPU scope.
+- **V3 — measured physical energy:** **not run** because the current runtime does not expose a preregistration-admissible physical-energy boundary.
+
+V3 explicitly forbids substituting CPU time or wall time for joules. `NOT_RUN_MEASUREMENT_BOUNDARY_NOT_IDENTIFIED` is neither support nor contradiction.
+
+## First mechanism
+
+The narrow causal test is the lineage intervention:
 
 $$
 A=\text{persistent validated correction lineage},
@@ -81,30 +92,28 @@ A=\text{persistent validated correction lineage},
 B=\text{same system with lineage unavailable between episodes}.
 $$
 
-The systems are matched as closely as possible on present capability, ordinary adaptability, baseline resource cost, and held-out challenge exposure.
-
 The hypothesized mechanism is
 
 $$
 \Lambda_{\rm preserved}
 \overset{?}{\longrightarrow}
-E_{\rm rediscover}\downarrow
+\text{less corrective traversal/work}
 \overset{?}{\longrightarrow}
-J_{\rm corr}\downarrow
-\overset{?}{\longrightarrow}
-N_\Lambda>0.
+\text{lower lifecycle correction cost}.
 $$
 
-See [`LINEAGE_CORRECTIVE_ECONOMY.md`](LINEAGE_CORRECTIVE_ECONOMY.md) for the protocol.
+See [`LINEAGE_CORRECTIVE_ECONOMY.md`](LINEAGE_CORRECTIVE_ECONOMY.md) and `experiments/lineage_v*/` for the frozen protocols and adjudications.
 
 ## Failure discipline
 
 Distinct outcomes remain distinct:
 
-- lineage may be reused without producing gross energy savings;
+- lineage may be reused without producing gross savings;
 - gross savings may fail to exceed lineage infrastructure cost;
+- fewer candidates may still cost more when candidate work is heterogeneous;
+- executable compute savings may fail to translate into physical energy savings;
 - net savings may be purchased through worse correction quality and therefore be inadmissible;
-- a null or failed energy mechanism does not by itself falsify Axis I or SSI as a whole.
+- a null, failed, or nonidentified energy mechanism does not by itself falsify Axis I or SSI as a whole.
 
 `NOT_IDENTIFIED` must remain distinct from zero and from a negative effect. Missing or nonidentified energy components are not to be silently imputed.
 
