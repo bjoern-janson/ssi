@@ -24,6 +24,7 @@
     "path_surfaces": null,
     "kernel_adjudication": null,
     "grounding_envelope_sha256": null,
+    "realized_common_cause_certificate_sha256": null,
     "bundle_commit_timestamp_utc": null,
     "disclosure_timestamp_utc": null,
     "deadline_timestamp_utc": null,
