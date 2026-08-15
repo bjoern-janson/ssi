@@ -24,11 +24,13 @@
     "path_surfaces": null,
     "kernel_adjudication": null,
     "grounding_envelope_sha256": null,
-    "realized_common_cause_certificate_sha256": null,
     "bundle_commit_timestamp_utc": null,
     "disclosure_timestamp_utc": null,
     "deadline_timestamp_utc": null,
-    "realized_common_cause_conformance": null
+    "realized_common_cause_conformance": {
+      "status": null,
+      "certificate_sha256": null
+    }
   },
   "execution": {
     "loaded_execution_root_sha256": null,
