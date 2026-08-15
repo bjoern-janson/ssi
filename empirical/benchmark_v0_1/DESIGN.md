@@ -218,104 +218,41 @@ Before disclosure, freeze:
 
 - primary endpoint(s);
 - secondary endpoint(s);
+- confirmatory direction;
 - unit of analysis;
-- equivalence margins for $Q_{\rm state}$ and $Q_{\rm adapt}$;
-- confirmatory effect direction;
-- uncertainty interval/test procedure;
-- missingness and timeout rules;
+- uncertainty/test procedure;
+- equivalence margins;
+- multiplicity rule if needed;
+- timeout/stopping rule;
+- missingness rule;
 - failure/abstention semantics;
-- collateral-damage accounting;
-- multiplicity handling, if needed;
-- exclusion criteria;
+- collateral accounting;
+- exclusion rule;
 - theory-update scope.
 
-The first benchmark should keep endpoints separate rather than collapsing them into a convenience score.
+## 11. Construction audit and authorization
 
-Candidate future endpoints remain:
+The A–I audit is the authorization gate, not a narrative appendix.
 
-$$
-H_{\rm recover},
-\quad
-T_{\rm recover},
-\quad
-C_{\rm revise},
-\quad
-R_{\rm collateral},
-\quad
-R_{\rm reopen},
-\quad
-\Delta V_{\rm future}.
-$$
+The exact predicate definitions live in `CONSTRUCTION_AUDIT.md`. The current machine-readable adjudication lives in `AUDIT_STATUS.json`; it is intentionally separate so evidence collection does not rewrite the predicate specification after seeing an audit rebound.
 
-## 11. Freeze packet
+A failed material predicate stops the confirmatory shot. It is not repaired by passing other predicates or by a later large effect.
 
-The unit of scientific identity is
+Current construction status:
 
-$$
-\mathcal B_{\rm frozen}
-=
-\left(
-\Phi_A,\Phi_B,
-Q_{\rm state}^A,Q_{\rm state}^B,
-Q_{\rm adapt}^A,Q_{\rm adapt}^B,
-\mathcal H,\mathcal R,\mathcal H_{\rm residual},
-O_{\rm future},
-\mathcal E
-\right).
-$$
+```text
+A = PASS
+B = PASS
+C = PASS
+D = FAIL
+E = NOT_EVALUATED
+F = NOT_EVALUATED
+G = NOT_EVALUATED
+H = NOT_EVALUATED
+I = NOT_EVALUATED
+RUN = NOT_AUTHORIZED
+```
 
-The packet must be content-addressed and timestamped before the qualifying future obligation is disclosed.
+The D failure is preserved in `evidence/C_D_PRE_FREEZE_AUDIT.md`. Therefore this A/B construction cannot be frozen or executed as the confirmatory benchmark.
 
-Required ordering:
-
-$$
-t_{\rm construct}
-\le t_{\rm freeze}
-< t_{\rm disclose}
-\le t_{\rm outcome}.
-$$
-
-Within the confirmatory workflow:
-
-$$
-\frac{\partial\mathcal B_{\rm frozen}}
-{\partial Y_{\rm future}}=0.
-$$
-
-## 12. Interpretation boundary
-
-The preregistered confirmatory direction is
-
-$$
-\Phi_A-\Phi_B
-\longrightarrow
-Y_A-Y_B.
-$$
-
-The following move is prohibited:
-
-$$
-Y_A-Y_B
-\longrightarrow
-\text{retroactive redefinition, reweighting, or replacement of }\Phi.
-$$
-
-Outcome magnitude does not increase identification authority.
-
-A large effect from an unauthorized or confounded shot is exploratory. A null result from an authorized, faithfully executed shot is a valid negative rebound.
-
-## 13. Execution boundary
-
-No `RUNNER.py` should be committed as the confirmatory runner until the construction audit issues an authorization certificate.
-
-Authorization validates the design. After execution, result validity additionally requires faithful execution against the frozen packet:
-
-$$
-\boxed{
-\text{valid confirmatory shot}
-=
-\text{authorized design}
-+
-\text{faithful execution}.
-}
-$$
+> **Outcome magnitude does not increase identification authority.**
