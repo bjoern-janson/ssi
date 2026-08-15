@@ -1,0 +1,72 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "predicate": "G_FUTURE_OBLIGATION_INDEPENDENCE_WITH_CONSEQUENCE_GROUNDING",
+  "schema_version": "1",
+  "inherits": [
+    "construction/G_COMMON_CAUSE_MANIFEST.json",
+    "construction/FUTURE_EXECUTION_ARTIFACT_CONTRACT.json",
+    "construction/FUTURE_CONSEQUENCE_GROUNDING_CONTRACT.json"
+  ],
+  "governing_rule": "The selected future event, its executable artifact, its witness consequences, the complete grounded distinction table, packaging, disclosure, and deadline are one global treatment-free causal chain before either arm gains access.",
+  "global_sequence": [
+    "select exactly one first-qualifying release under A/G",
+    "bind its exact version string and selected candidate ID",
+    "resolve exactly one official linux-x64-glibc CLI artifact under FUTURE_EXECUTION_ARTIFACT_CONTRACT",
+    "if artifact is identified, run the same executable twice on each of the six frozen witness filesystems; otherwise mark all six witness consequences NOT_IDENTIFIED",
+    "derive all three frozen grounding-unit statuses and all twelve deterministic relation-kind lifts",
+    "create one canonical GroundingEnvelope containing event identity, artifact status/hashes, six consequence statuses/hashes, three grounding rows, twelve surfaces, kernel-domain adjudication, and contract digests",
+    "content-address the envelope before arm access",
+    "commit one common bundle containing the common obligation descriptor plus exactly that envelope",
+    "disclose the same bundle object at the same time with the same deadline to both arms"
+  ],
+  "temporal_contract": "t_freeze < t_select <= t_artifact_resolve <= t_ground <= t_grounding_commit <= t_bundle_commit < t_disclose < t_deadline",
+  "grounding_envelope": {
+    "arm_fields": "PROHIBITED",
+    "Gamma_fields": "PROHIBITED",
+    "Phi_fields": "PROHIBITED",
+    "reachability_fields": "PROHIBITED",
+    "downstream_outcome_fields": "PROHIBITED",
+    "grounding_rows": 3,
+    "path_surfaces": 12,
+    "all_rows_required": true,
+    "NOT_IDENTIFIED_preserved": true,
+    "favorable_subset_selection": "PROHIBITED"
+  },
+  "common_obligation_descriptor": {
+    "required_fields": ["selected_candidate_id","selected_version","published_at","release_id","selection_trace_sha256"],
+    "treatment_fields": "PROHIBITED",
+    "semantics": "identifies the single external event only; it does not contain A/B or reachability information"
+  },
+  "artifact_failure_semantics": "If the exact frozen artifact rule cannot identify an executable, the selected release is not replaced. The GroundingEnvelope carries NOT_IDENTIFIED consequences/grounding statuses and the first endpoint cannot claim a kernel inclusion or generativity result from missing evidence.",
+  "realized_certificate_template": "construction/G_GROUNDING_REALIZED_CERTIFICATE_TEMPLATE.json",
+  "automatic_fail": [
+    "artifact version differs from the A/G selected release version",
+    "a source build or platform fallback is used",
+    "artifact or grounding logic receives treatment/Gamma/arm input",
+    "not all six witnesses are processed or retained as NOT_IDENTIFIED",
+    "not all three grounding units or all twelve path surfaces are packaged",
+    "a favorable grounded subset is selected",
+    "grounding envelope differs across arms",
+    "one arm accesses the event, artifact, grounding rows, or envelope before global commitment",
+    "bundle disclosure time or deadline differs across arms",
+    "a later release substitutes for the selected event"
+  ],
+  "attack_scope": {
+    "real_future_obligation_accessed": false,
+    "synthetic_selected_events": true,
+    "synthetic_artifact_bytes": true,
+    "synthetic_grounding_rows": true,
+    "treatment_smuggling": true,
+    "row_order_and_pair_orientation_metamorphs": true
+  },
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED",
+    "realized_T_future": "NOT_EVALUATED",
+    "realized_J_future": "NOT_EVALUATED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}

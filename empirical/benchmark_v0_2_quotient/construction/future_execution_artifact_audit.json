@@ -1,0 +1,53 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "audit_identity": "VFA-0.2-FUTURE-CLI-ARTIFACT-ATTACK-1",
+  "future_obligation_accessed": false,
+  "artifact_contract_adjudication": "PASS",
+  "attack_results": {
+    "static_independence": {
+      "pass": true,
+      "runtime_signature": ["selected_version","wrapper_tarball","wrapper_integrity","platform_tarball","platform_integrity"],
+      "forbidden_treatment_identifier_hits": 0
+    },
+    "positive_control": {
+      "pass": true,
+      "status": "IDENTIFIED",
+      "deterministic": true,
+      "wrapper_tar_content_addressed": true,
+      "platform_tar_content_addressed": true,
+      "executable_content_addressed": true
+    },
+    "fail_closed_matrix": {
+      "pass": true,
+      "cases": {
+        "wrapper_integrity": "NOT_IDENTIFIED",
+        "platform_integrity": "NOT_IDENTIFIED",
+        "wrapper_version": "NOT_IDENTIFIED",
+        "dependency_version": "NOT_IDENTIFIED",
+        "os": "NOT_IDENTIFIED",
+        "cpu": "NOT_IDENTIFIED",
+        "libc": "NOT_IDENTIFIED",
+        "missing_binary": "NOT_IDENTIFIED",
+        "symlink_binary": "NOT_IDENTIFIED",
+        "duplicate_binary": "NOT_IDENTIFIED"
+      }
+    },
+    "smuggling": {
+      "pass": true,
+      "forbidden_inputs_tested": ["arm","Gamma","M_Gamma","Phi_path","DeltaPi","outcome","performance"],
+      "accepted": 0
+    }
+  },
+  "pre_freeze_packaging_basis": {
+    "wrapper_package": "@biomejs/biome@2.5.8 at cutoff declares exact-version optional dependency @biomejs/cli-linux-x64@2.5.8",
+    "launcher": "cutoff bin/biome resolves linux x64 to @biomejs/cli-linux-x64/biome",
+    "platform_manifest": "cutoff @biomejs/cli-linux-x64 declares os linux, cpu x64, libc glibc",
+    "future_rule": "apply the same exact-version official-package relation to the version selected by A/G; packaging drift yields NOT_IDENTIFIED, not a fallback"
+  },
+  "scope": "Synthetic npm-style tarballs only. No future package or release was fetched.",
+  "authority_boundary": {
+    "realized_artifact": "NOT_EVALUATED",
+    "realized_artifact_hashes": "NOT_EVALUATED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}

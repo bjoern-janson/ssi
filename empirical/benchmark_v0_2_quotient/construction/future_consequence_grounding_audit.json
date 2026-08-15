@@ -1,0 +1,102 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "audit_identity": "VFA-0.2-FUTURE-CONSEQUENCE-GROUNDING-ATTACK-1",
+  "future_obligation_accessed": false,
+  "G_activation": "PROHIBITED",
+  "grounding_contract_adjudication": "PASS",
+  "attack_results": {
+    "static_independence": {
+      "pass": true,
+      "forbidden_runtime_inputs_tested": ["arm", "Gamma", "M_Gamma", "Phi_path", "DeltaPi", "outcome", "performance"],
+      "forbidden_runtime_inputs_accepted": 0,
+      "forbidden_ast_name_hits": 0
+    },
+    "domain_completeness": {
+      "pass": true,
+      "q_kernel_path_pairs": 12,
+      "unique_grounding_units": 3,
+      "manifest_path_surfaces": 12,
+      "relation_kind_surface_multiplier": 4,
+      "surface_independence_claim": false,
+      "favorable_subset_omissions": 0
+    },
+    "witness_manifest": {
+      "pass": true,
+      "fact_count": 6,
+      "all_W_facts_covered": true,
+      "source_manifest_blob_refs_present": true,
+      "nested_full_filesystem_paths_frozen": true,
+      "source_shape_review": "evidence/FUTURE_WITNESS_SOURCE_REVIEW.md"
+    },
+    "extractor_semantics": {
+      "pass": true,
+      "written_multifile_format_attack": true,
+      "dry_run_multifile_format_attack": true,
+      "snapshot_middle_dot_reversal": true,
+      "unknown_mode_rejected": true,
+      "note": "Extractor code was attacked on deterministic replicas of the two frozen upstream snapshot formats; immutable upstream blob forms were separately content-addressed and reviewed."
+    },
+    "effect_semantics": {
+      "pass": true,
+      "equal_effect_despite_different_prehistory": 128,
+      "different_future_effect_detected": 128,
+      "representation_mismatches": 0,
+      "array_order_preserved_as_semantic": true,
+      "pre_state_values_excluded_from_effect_signature": true
+    },
+    "fail_closed": {
+      "pass": true,
+      "cases": {
+        "not_completed": "NOT_IDENTIFIED",
+        "nonzero_exit": "NOT_IDENTIFIED",
+        "missing_files": "NOT_IDENTIFIED",
+        "path_set_drift": "NOT_IDENTIFIED",
+        "strict_json_parse_failure": "NOT_IDENTIFIED",
+        "nondeterministic_repeats": "NOT_IDENTIFIED"
+      }
+    },
+    "table_and_kernel": {
+      "pass": true,
+      "grounding_rows": 3,
+      "lifted_path_surfaces": 12,
+      "surfaces_per_grounding_unit": 4,
+      "all_equivalent_adjudication": "INCLUSION_ON_FROZEN_KERNEL_DOMAIN",
+      "one_distinguished_adjudication": "NONINCLUSION_WITNESS",
+      "missing_adjudication": "NOT_IDENTIFIED",
+      "missing_row_preserved": true
+    }
+  },
+  "correction_provenance": {
+    "initial_grounding_draft_error": "assumed every frozen snapshot supplied one written biome.json",
+    "discrepancy": "case:nested is a three-file dry-run snapshot",
+    "repair": "full-filesystem cutoff-result witnesses with explicit written versus dry-run extraction modes",
+    "timing": "corrected before grounding adjudication",
+    "treatment_changed": false,
+    "future_information_used": false
+  },
+  "interpretation": "A treatment-blind, consequence-derived J_future is now identified at construction level: the selected future release's observable migration effect on all six frozen cutoff-result witness filesystems determines three complete source-fact distinction statuses, which are then lifted to the twelve q-kernel relation-kind reachability surfaces. No hand-authored future pair status or favorable subset is permitted.",
+  "scope": {
+    "realized_future_execution": "NOT_PERFORMED",
+    "attack_data": "pre-freeze manifests, immutable-source review, and synthetic migration outcomes only",
+    "realized_conformance": "must later verify selected-release identity, isolated invocation, repeated-output determinism, exact witness path sets, and common treatment-blind grounding before any arm access"
+  },
+  "authorization_effect": {
+    "H_challenge_recognizability": "CANDIDATE_BLOCKED_BY_CONSEQUENCE_GROUNDING_NOT_YET_AUTHORIZED",
+    "H_quotient_interpretation": "CANDIDATE_BLOCKED_BY_REFERENCE_SEMANTICS_NOT_YET_AUTHORIZED",
+    "H_evaluator": "CANDIDATE_BLOCKED_BY_PAIR_REACHABILITY_EVALUATOR_NOT_YET_AUTHORIZED",
+    "E_reaudit": "REQUIRED",
+    "F_reaudit": "REQUIRED",
+    "G_reaudit": "REQUIRED_BECAUSE_COMMON_EVIDENCE_BUNDLE_GAINS_GROUNDED_CONSEQUENCE_TABLE",
+    "H": "REMAINS_FAIL",
+    "I": "NOT_EVALUATED"
+  },
+  "authority_boundary": {
+    "realized_T_future": "NOT_EVALUATED",
+    "realized_J_future": "NOT_EVALUATED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}
