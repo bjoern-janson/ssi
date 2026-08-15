@@ -1,0 +1,144 @@
+# Repository Status and Navigation
+
+Status snapshot: 2026-08-15.
+
+This file is a **navigation and authority map**, not a scientific artifact. It does not override frozen benchmark bytes, authorization certificates, preregistrations, or preserved negative results. If a summary here conflicts with a content-addressed scientific object, the scientific object governs.
+
+## Current repository shape
+
+The repository intentionally contains several kinds of material:
+
+1. **foundation theory** — the core SSI state, Future Sufficiency, CCA/CARS, and the closed V0.x localization program;
+2. **preserved scientific lineage** — failed, rejected, superseded, and authorized benchmark states retained for provenance;
+3. **active prospective experiment** — VFA-0.2 Packet 7, frozen and authorized but not yet realized;
+4. **post-authorization interpretation/theory** — blind outcome adjudication and Future-Safe Option Structure, explicitly outside Packet 7;
+5. **parallel research tracks** — archival recovery, A1 statehood work, energy experiments, and competition work that do not automatically inherit authority from VFA.
+
+The repository should therefore not be read as "latest filename wins." Scientific authority is local to an explicitly identified lineage and object.
+
+## Authoritative VFA state
+
+The current prospective benchmark is:
+
+```text
+BENCHMARK = VFA-0.2-QUOTIENT-REVISION-TOPOLOGY
+PACKET = VFA-0.2-FROZEN-PACKET-7
+A = PASS
+B = PASS
+C = PASS
+D = PASS
+E = PASS
+F = PASS
+G = PASS
+H = PASS
+I = PASS
+STATE = AUTHORIZED_FUTURE_NOT_YET_REALIZED
+FUTURE_OBLIGATION_ACCESSED = FALSE
+FUTURE_RUN = NOT_EXECUTED
+```
+
+Authoritative routing:
+
+- `empirical/benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json` — current A-I and authority state.
+- `empirical/benchmark_v0_2_quotient/construction/I_FREEZE_PACKET_V7.json` — frozen Packet 7 manifest.
+- `empirical/benchmark_v0_2_quotient/construction/I_FREEZE_ANCHOR_V7.json` — packet-to-Git freeze anchor.
+- `empirical/benchmark_v0_2_quotient/construction/I_AUTHORIZATION_CERTIFICATE.json` — issued authorization certificate.
+- `empirical/benchmark_v0_2_quotient/evidence/I_CHAIN_OF_CUSTODY_PASS.md` — predicate-I interpretation and external execution evidence.
+- `research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json` — blind interpretation map; **no execution authority**.
+- `theory/FUTURE_SAFE_OPTION_STRUCTURE.md` — post-authorization theory note; **not a Packet 7 member**.
+
+Packet 7 identifiers:
+
+```text
+PACKET_SHA256 = 2d8b64e28f8207b51d1acae2459d0cf89774e7be0c10cb5a2a04808029ade3b7
+EXECUTION_ROOT_SHA256 = 56d2f3a996f6dc71183fa7325af06d738e8ba994f9b62a2ba454f85c5fe8fe1d
+FREEZE_COMMIT = b8c39ebc751c30f9d2e3164160fc5ca31904ba46
+FREEZE_TIMESTAMP_UTC = 2026-08-15T18:50:48Z
+AUTHORIZATION_CERTIFICATE_SHA256 = 17335f0a5893406763fb7660e4f23c06b9343cc0818a1bc63db3abad9e0e4e1e
+```
+
+The next scientific transition is externally generated:
+
+```text
+AUTHORIZED_FUTURE_NOT_YET_REALIZED
+    -> AUTHORIZED_FUTURE_REALIZED
+```
+
+No Packet 7 engineering, selector peeking, post-freeze guard addition, or outcome-contingent repair is permitted.
+
+## VFA lineage and stacked PR topology
+
+The active VFA history is intentionally stacked so rejected states remain reviewable:
+
+```text
+main
+  |
+  +-- PR #3  independent future-adaptation specification / VFA-0.1
+        |
+        +-- PR #5  dormant corrective reserve
+              |    preserved failed/superseded construction
+              |
+              +-- PR #6  quotient revision topology
+                    |
+                    +-- PR #9  consequence-grounded future distinctions
+                          |
+                          +-- PR #11  Packet 7 freeze + authorization
+                                |
+                                +-- PR #12  blind adjudication + FSO theory
+```
+
+Interpretation:
+
+- **PR #3** establishes the independent benchmark contract; its first concrete A/B construction was later rejected at predicate D for treatment-mechanism leakage into ordinary adaptation.
+- **PR #5** preserves the dormant-reserve route, including semantic and capability-boundary failures. It is scientific provenance, not the current treatment definition.
+- **PR #6** changes the treatment identity to identical validated facts with different revision-equivalence topology.
+- **PR #9** repairs future semantic grounding by deriving distinctions from observable future migration consequences.
+- **PR #11** freezes and authorizes Packet 7; this is the execution-authority lineage.
+- **PR #12** constrains later interpretation and develops FSO theory without changing Packet 7.
+
+Do not squash this stack merely to reduce PR count. The intermediate failures are part of the evidence chain.
+
+## Other repository tracks
+
+These tracks are scientifically separate unless a later artifact explicitly establishes a bridge:
+
+- **PR #2 — V0.x archival preservation.** Preserves recovered frozen artifacts separately from the VFA stack; one manifest-listed runner remains explicitly unreconstructed.
+- **PR #7 — A1 corrective-statehood preregistration.** Separate state-sufficiency experiment; it does not inherit VFA execution authority.
+- **PR #4 — energy suite.** Merged isolated energy/computation lineage. Its evidence cannot retroactively redefine SSI core theory or VFA.
+- **PR #8 / #10 — CUHK-X competition work.** Historical/closed competition branches; not part of the VFA causal chain.
+
+Because several tracks branch independently from `main`, a single branch is not necessarily the union of every repository experiment.
+
+## What is intentionally not cleaned up
+
+The following may look redundant but are **provenance-bearing** and should not be renamed, moved, coalesced, or deleted casually:
+
+- rejected VFA constructions;
+- old A-I re-audit/addendum files;
+- hostile attack scripts and their result JSON;
+- failed H/post-gate semantic candidates;
+- Packet 1-6 candidates and rejection evidence;
+- failed and repaired predicate-I attack fixtures;
+- freeze anchors and content-addressed manifests;
+- exact files named in Packet 7.
+
+In particular, the crowded `empirical/benchmark_v0_2_quotient/construction/` directory is an append-only scientific lineage more than a conventional software package.
+
+## Reader path
+
+For a fast but correct pass through the repository:
+
+1. `README.md` — program thesis and current empirical boundary.
+2. `ARCHITECTURE.md` — core state/authority architecture.
+3. `retrospective/LOCALIZATION_CALCULUS.md` — V0.x localization grammar.
+4. `benchmarks/V0X_LINEAGE.md` — closed synthetic benchmark lineage.
+5. `empirical/README.md` — empirical lineage index.
+6. `empirical/benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json` — current VFA authority state.
+7. `research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json` — blind post-shot interpretation tree.
+8. `theory/FUTURE_SAFE_OPTION_STRUCTURE.md` — current theory extension outside the authorized shot.
+
+## Cleanup rule
+
+Repository cleanliness is subordinate to scientific identity:
+
+> **Clean navigation aggressively; clean evidence destructively only when no scientific identity, provenance, or future reproducibility depends on it.**
