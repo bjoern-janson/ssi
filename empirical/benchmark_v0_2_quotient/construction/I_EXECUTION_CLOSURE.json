@@ -1,6 +1,6 @@
 {
   "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
-  "closure_id": "VFA-0.2-I-EXECUTION-CLOSURE-1",
+  "closure_id": "VFA-0.2-I-EXECUTION-CLOSURE-2",
   "principle": "Anything capable of changing the declared experiment must be either a frozen packet member or a realized object admitted by a frozen prospective rule.",
   "runtime": {
     "python_implementation": "CPython",
@@ -43,6 +43,12 @@
     "packet_member_identity": "Git blob SHA-1 computed over loaded bytes must equal the manifest member blob",
     "packet_root_identity": "canonical packet-manifest SHA-256 must equal the authorization certificate",
     "execution_root_identity": "canonical execution-required member-set SHA-256 must equal the authorization certificate",
+    "freeze_anchor_identity": "certificate must bind the exact content-addressed freeze anchor that links packet bytes to the Git freeze commit/tree and timestamp verified during I adjudication",
+    "packet_schema": "CLOSED_EXACT",
+    "packet_member_schema": "CLOSED_EXACT",
+    "freeze_anchor_schema": "CLOSED_EXACT",
+    "authorization_certificate_schema": "CLOSED_EXACT",
+    "realized_record_schema": "CLOSED_EXACT",
     "extra_loaded_member": "RUN_REJECTED",
     "missing_loaded_member": "RUN_REJECTED",
     "same_path_wrong_blob": "RUN_REJECTED"
@@ -50,16 +56,25 @@
   "authorization_identity": {
     "certificate_must_bind": [
       "benchmark_id",
+      "packet_manifest_git_blob_sha",
       "packet_sha256",
       "execution_root_sha256",
+      "freeze_anchor_git_blob_sha",
+      "freeze_anchor_sha256",
       "freeze_commit_sha",
+      "freeze_tree_sha",
       "freeze_timestamp_utc",
+      "authorization_timestamp_utc",
       "A_through_I_PASS",
       "evaluation_rule_blob",
       "future_obligation_rule_blob",
-      "H_residual_set"
+      "common_cause_rule_blob",
+      "H_residual_set",
+      "I_evidence_blob"
     ],
-    "old_pass_labels_on_new_packet": "RUN_REJECTED"
+    "old_pass_labels_on_new_packet": "RUN_REJECTED",
+    "rehashed_packet_under_old_certificate": "RUN_REJECTED",
+    "new_certificate_with_undeclared_control_field": "RUN_REJECTED"
   },
   "realized_object_policy": {
     "realized_record_may_append": [
@@ -73,9 +88,19 @@
       "commit/disclosure/deadline timestamps",
       "execution record and result identities"
     ],
+    "realized_record_may_add_undeclared_key": false,
     "realized_record_may_override_frozen_rule": false,
     "realized_record_may_change_packet_digest": false,
     "realized_record_may_change_authorization_certificate": false
+  },
+  "provenance_threat_model": {
+    "trusted_external_history": "GitHub commit/tree/blob identity as observed and recorded at predicate-I adjudication",
+    "not_claimed": [
+      "cryptographic defense against a malicious repository administrator rewriting all remote history",
+      "SHA-1 collision resistance beyond Git repository identity assumptions",
+      "OS-level sandboxing"
+    ],
+    "goal": "prevent accidental, post-hoc, mixed-lineage, stale-certificate, and undeclared-control drift in the confirmatory workflow"
   },
   "state_machine": [
     "CONSTRUCTION_AH_PASS_I_OPEN",
@@ -83,5 +108,5 @@
     "AUTHORIZED_FUTURE_REALIZED",
     "AUTHORIZED_EXECUTED_RESULT_IMMUTABLE"
   ],
-  "fail_closed": "Any undeclared dependency or identity mismatch rejects execution; no statistical compensation, repair, or fallback is permitted inside the confirmatory lineage."
+  "fail_closed": "Any undeclared dependency, schema extension, or identity mismatch rejects execution; no statistical compensation, repair, or fallback is permitted inside the confirmatory lineage."
 }
