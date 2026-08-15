@@ -1,0 +1,30 @@
+{
+  "status": "NOT_SUPPORTED_IN_FROZEN_COST_AWARE_ROUTING_SCOPE",
+  "authoritative_execution": true,
+  "preregistration_git_blob": "3d8850ce934399e368efd0b2d8c2362f681746fc",
+  "runner_git_blob": "e3e609dae6dc604b460623462f7c1bca666f22d5",
+  "local_preregistration_git_blob": "3d8850ce934399e368efd0b2d8c2362f681746fc",
+  "local_runner_git_blob": "e3e609dae6dc604b460623462f7c1bca666f22d5",
+  "master_seed": 20260821,
+  "bootstrap_seed": 20260822,
+  "worlds": 64,
+  "episodes_per_world": 96,
+  "outputs": {
+    "summary.json": {
+      "sha256": "820f798057ebc6fd656f763c1e240ac438a0e898ef61f047a355b86f949ebaa2",
+      "bytes": 4450
+    },
+    "episode_results.csv": {
+      "sha256": "1145912f8ad567517c21895a4da5e76aa7f03a9a166d72c5dc14ddb5e9b1bc28",
+      "bytes": 965838
+    },
+    "candidate_results.csv": {
+      "sha256": "5672395ac65d0a452255625e7b47c325ad7937f3bd630f01241c60fdea16d05a",
+      "bytes": 688951
+    },
+    "world_results.csv": {
+      "sha256": "c1fdfeebb576364da25ec0a2d62571d9302243f96bdb42a2c36eb147da94f788",
+      "bytes": 7534
+    }
+  }
+}
