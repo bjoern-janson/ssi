@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Fail-closed identity guard for VFA-0.2 freeze, authorization, and execution.
+"""Fail-closed predicate-I identity guard for VFA-0.2.
 
-Predicate-I v2: packet and certificate are validated from loaded bytes; critical
-rule identities are role-bound; realized/execution records are closed schemas.
-The future may instantiate declared fields only. It may not extend the control
-surface or alter frozen authority.
+V3 separates four identities:
+  frozen packet -> freeze anchor -> authorization certificate -> realized record.
+All control schemas are closed. A changed-and-rehashed packet is a new identity;
+it is rejected by any certificate/anchor issued for the prior identity.
 """
 from __future__ import annotations
 
@@ -16,37 +16,51 @@ PASS = "PASS"
 AUTHORIZED = "AUTHORIZED"
 BENCHMARK_ID = "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY"
 
-REALIZED_KEYS = frozenset({
-    "selected_candidate_id",
-    "selected_version",
-    "selection_trace_sha256",
-    "published_at",
-    "release_id",
-    "wrapper_tar_sha256",
-    "platform_tar_sha256",
-    "executable_sha256",
-    "artifact_integrity_status",
-    "witness_execution_records",
-    "T_future_consequences",
-    "J_future_grounding_rows",
-    "path_surfaces",
-    "kernel_adjudication",
-    "grounding_envelope_sha256",
-    "bundle_commit_timestamp_utc",
-    "disclosure_timestamp_utc",
-    "deadline_timestamp_utc",
-    "realized_common_cause_conformance",
+PACKET_KEYS = frozenset({
+    "schema_version", "benchmark_id", "packet_id", "lineage",
+    "source_snapshot_commit", "construction_rule", "evaluation_rule_blob",
+    "future_obligation_rule_blob", "common_cause_rule_blob", "H_residual_set",
+    "future_unknowns_not_packet_members", "superseded_or_non_authorized_runtime_artifacts",
+    "execution_root_sha256", "members", "previous_candidates", "packet_sha256",
+})
+MEMBER_KEYS = frozenset({"path", "git_blob_sha", "role", "execution_required"})
+PREVIOUS_CANDIDATE_KEYS = frozenset({"packet_id", "packet_sha256", "status", "authorization_certificate"})
+
+ANCHOR_KEYS = frozenset({
+    "schema_version", "benchmark_id", "anchor_id", "packet_id", "packet_path",
+    "packet_sha256", "execution_root_sha256", "packet_manifest_git_blob_sha",
+    "freeze_commit_sha", "freeze_tree_sha", "freeze_timestamp_utc",
+    "verification_basis", "anchor_sha256",
 })
 
+CERTIFICATE_KEYS = frozenset({
+    "schema_version", "benchmark_id", "packet_manifest_git_blob_sha",
+    "packet_sha256", "execution_root_sha256", "freeze_anchor_git_blob_sha",
+    "freeze_anchor_sha256", "freeze_commit_sha", "freeze_tree_sha",
+    "freeze_timestamp_utc", "authorization_timestamp_utc", "predicates",
+    "H_residual_set", "future_obligation_rule_blob", "evaluation_rule_blob",
+    "common_cause_rule_blob", "I_evidence_blob", "authorization", "state",
+    "certificate_sha256",
+})
+
+REALIZED_TOP_KEYS = frozenset({"schema_version", "benchmark_id", "frozen_identity", "realized", "execution"})
+FROZEN_IDENTITY_KEYS = frozenset({
+    "packet_sha256", "execution_root_sha256", "authorization_certificate_sha256",
+    "freeze_commit_sha", "freeze_timestamp_utc",
+})
+REALIZED_KEYS = frozenset({
+    "selected_candidate_id", "selected_version", "selection_trace_sha256",
+    "published_at", "release_id", "wrapper_tar_sha256", "platform_tar_sha256",
+    "executable_sha256", "artifact_integrity_status", "witness_execution_records",
+    "T_future_consequences", "J_future_grounding_rows", "path_surfaces",
+    "kernel_adjudication", "grounding_envelope_sha256", "bundle_commit_timestamp_utc",
+    "disclosure_timestamp_utc", "deadline_timestamp_utc",
+    "realized_common_cause_conformance",
+})
 EXECUTION_KEYS = frozenset({
-    "loaded_execution_root_sha256",
-    "packet_identity_check",
-    "certificate_identity_check",
-    "member_set_check",
-    "runtime_conformance",
-    "first_endpoint_results",
-    "result_sha256",
-    "execution_status",
+    "loaded_execution_root_sha256", "packet_identity_check", "certificate_identity_check",
+    "member_set_check", "runtime_conformance", "first_endpoint_results",
+    "result_sha256", "execution_status",
 })
 
 CRITICAL_ROLE_FIELDS = {
@@ -67,8 +81,7 @@ def sha256_obj(obj: Any) -> str:
 def git_blob_sha1(data: bytes) -> str:
     if type(data) is not bytes:
         raise TypeError("member bytes required")
-    header = f"blob {len(data)}\0".encode("ascii")
-    return hashlib.sha1(header + data).hexdigest()
+    return hashlib.sha1(f"blob {len(data)}\0".encode("ascii") + data).hexdigest()
 
 
 def _hex(value: Any, n: int) -> bool:
@@ -79,6 +92,10 @@ def _hex(value: Any, n: int) -> bool:
     except ValueError:
         return False
     return True
+
+
+def _utc(value: Any) -> bool:
+    return type(value) is str and value.endswith("Z") and len(value) >= 20
 
 
 def _json_object(data: bytes, label: str) -> dict[str, Any]:
@@ -107,77 +124,73 @@ def execution_root_sha256(packet: Mapping[str, Any]) -> str:
     members = packet.get("members")
     if type(members) is not list:
         raise TypeError("members list required")
-    root = []
-    for member in members:
-        if type(member) is not dict:
-            raise TypeError("member dict required")
-        if member.get("execution_required") is True:
-            root.append({
-                "path": member.get("path"),
-                "git_blob_sha": member.get("git_blob_sha"),
-                "role": member.get("role"),
-            })
+    root = [
+        {"path": m.get("path"), "git_blob_sha": m.get("git_blob_sha"), "role": m.get("role")}
+        for m in members if m.get("execution_required") is True
+    ]
     return sha256_obj(sorted(root, key=lambda x: x["path"]))
 
 
 def validate_packet(packet: Mapping[str, Any]) -> None:
-    if type(packet) is not dict:
-        raise TypeError("packet must be dict")
-    if packet.get("benchmark_id") != BENCHMARK_ID:
-        raise ValueError("wrong benchmark identity")
-    if packet.get("schema_version") != "2":
-        raise ValueError("wrong packet schema")
-    if not _hex(packet.get("source_snapshot_commit"), 40):
+    if type(packet) is not dict or set(packet) != PACKET_KEYS:
+        raise ValueError("packet must match exact frozen schema")
+    if packet["benchmark_id"] != BENCHMARK_ID or packet["schema_version"] != "3":
+        raise ValueError("wrong packet identity/schema")
+    if not _hex(packet["source_snapshot_commit"], 40):
         raise ValueError("source snapshot commit required")
 
-    residuals = packet.get("H_residual_set")
+    residuals = packet["H_residual_set"]
     if type(residuals) is not list or not residuals or len(residuals) != len(set(residuals)):
         raise ValueError("unique nonempty H residual set required")
     if not all(type(x) is str and x for x in residuals):
         raise TypeError("H residual IDs must be strings")
 
-    members = packet.get("members")
+    previous = packet["previous_candidates"]
+    if type(previous) is not list or len(previous) < 2:
+        raise ValueError("rejected predecessor lineage required")
+    for row in previous:
+        if type(row) is not dict or set(row) != PREVIOUS_CANDIDATE_KEYS:
+            raise ValueError("previous-candidate record schema drift")
+        if not _hex(row["packet_sha256"], 64) or row["authorization_certificate"] != "NOT_ISSUED":
+            raise ValueError("invalid rejected predecessor record")
+
+    members = packet["members"]
     if type(members) is not list or not members:
         raise ValueError("nonempty member list required")
     seen_paths = set()
     role_members: dict[str, list[dict[str, Any]]] = {}
     for member in members:
-        if type(member) is not dict:
-            raise TypeError("member dict required")
-        path = member.get("path")
-        blob = member.get("git_blob_sha")
-        role = member.get("role")
-        flag = member.get("execution_required")
+        if type(member) is not dict or set(member) != MEMBER_KEYS:
+            raise ValueError("packet member must match exact schema")
+        path, blob, role, flag = (
+            member["path"], member["git_blob_sha"], member["role"], member["execution_required"]
+        )
         if type(path) is not str or not path or path in seen_paths:
             raise ValueError("unique member paths required")
-        if not _hex(blob, 40):
-            raise ValueError("member Git blob SHA-1 required")
-        if type(role) is not str or not role:
-            raise ValueError("member role required")
-        if type(flag) is not bool:
-            raise TypeError("execution_required must be bool")
+        if not _hex(blob, 40) or type(role) is not str or not role or type(flag) is not bool:
+            raise ValueError("invalid packet member")
         seen_paths.add(path)
         role_members.setdefault(role, []).append(member)
 
     for role, field in CRITICAL_ROLE_FIELDS.items():
         bound = role_members.get(role, [])
-        if len(bound) != 1:
-            raise ValueError(f"critical role {role} must appear exactly once")
-        if packet.get(field) != bound[0]["git_blob_sha"]:
+        if len(bound) != 1 or packet[field] != bound[0]["git_blob_sha"]:
             raise ValueError(f"critical role binding mismatch: {role}")
 
-    superseded = packet.get("superseded_or_non_authorized_runtime_artifacts")
+    superseded = packet["superseded_or_non_authorized_runtime_artifacts"]
     if type(superseded) is not list or not all(type(x) is str and x for x in superseded):
         raise TypeError("superseded runtime list required")
     execution_paths = {m["path"] for m in members if m["execution_required"] is True}
     if execution_paths & set(superseded):
         raise ValueError("superseded artifact present in execution root")
 
-    expected_exec = execution_root_sha256(packet)
-    if packet.get("execution_root_sha256") != expected_exec:
+    unknowns = packet["future_unknowns_not_packet_members"]
+    if type(unknowns) is not list or not unknowns or not all(type(x) is str and x for x in unknowns):
+        raise TypeError("future-unknown declaration required")
+
+    if packet["execution_root_sha256"] != execution_root_sha256(packet):
         raise ValueError("execution-root SHA-256 mismatch")
-    expected_packet = packet_sha256(packet)
-    if packet.get("packet_sha256") != expected_packet:
+    if packet["packet_sha256"] != packet_sha256(packet):
         raise ValueError("packet SHA-256 mismatch")
 
 
@@ -187,24 +200,57 @@ def validate_packet_bytes(packet_bytes: bytes) -> dict[str, Any]:
     return packet
 
 
+def anchor_core(anchor: Mapping[str, Any]) -> dict[str, Any]:
+    if type(anchor) is not dict:
+        raise TypeError("anchor must be dict")
+    return {k: v for k, v in anchor.items() if k != "anchor_sha256"}
+
+
+def anchor_sha256(anchor: Mapping[str, Any]) -> str:
+    return sha256_obj(anchor_core(anchor))
+
+
+def validate_freeze_anchor(packet: Mapping[str, Any], packet_bytes: bytes, anchor: Mapping[str, Any]) -> None:
+    validate_packet(packet)
+    if type(anchor) is not dict or set(anchor) != ANCHOR_KEYS:
+        raise ValueError("freeze anchor must match exact schema")
+    if anchor["schema_version"] != "1" or anchor["benchmark_id"] != packet["benchmark_id"]:
+        raise ValueError("freeze anchor identity mismatch")
+    if anchor["packet_id"] != packet["packet_id"] or anchor["packet_sha256"] != packet["packet_sha256"]:
+        raise ValueError("freeze anchor packet mismatch")
+    if anchor["execution_root_sha256"] != packet["execution_root_sha256"]:
+        raise ValueError("freeze anchor execution-root mismatch")
+    if anchor["packet_manifest_git_blob_sha"] != git_blob_sha1(packet_bytes):
+        raise ValueError("freeze anchor packet-file blob mismatch")
+    if not _hex(anchor["freeze_commit_sha"], 40) or not _hex(anchor["freeze_tree_sha"], 40):
+        raise ValueError("freeze Git identities required")
+    if not _utc(anchor["freeze_timestamp_utc"]):
+        raise ValueError("freeze UTC timestamp required")
+    if type(anchor["packet_path"]) is not str or not anchor["packet_path"].endswith("I_FREEZE_PACKET_V3.json"):
+        raise ValueError("wrong frozen packet path")
+    if anchor["verification_basis"] != "GITHUB_COMMIT_TREE_MEMBERSHIP_VERIFIED_AT_I_ADJUDICATION":
+        raise ValueError("unrecognized freeze verification basis")
+    if anchor["anchor_sha256"] != anchor_sha256(anchor):
+        raise ValueError("freeze anchor SHA-256 mismatch")
+
+
+def validate_freeze_anchor_bytes(packet_bytes: bytes, anchor_bytes: bytes) -> tuple[dict[str, Any], dict[str, Any]]:
+    packet = validate_packet_bytes(packet_bytes)
+    anchor = _json_object(anchor_bytes, "freeze anchor")
+    validate_freeze_anchor(packet, packet_bytes, anchor)
+    return packet, anchor
+
+
 def validate_loaded_execution(packet: Mapping[str, Any], loaded: Mapping[str, bytes]) -> None:
     validate_packet(packet)
     if type(loaded) is not dict:
         raise TypeError("loaded member map must be dict")
-    expected = {
-        m["path"]: m["git_blob_sha"]
-        for m in packet["members"]
-        if m["execution_required"] is True
-    }
+    expected = {m["path"]: m["git_blob_sha"] for m in packet["members"] if m["execution_required"] is True}
     if set(loaded) != set(expected):
-        missing = sorted(set(expected) - set(loaded))
-        extra = sorted(set(loaded) - set(expected))
-        raise ValueError(f"execution member-set mismatch missing={missing} extra={extra}")
+        raise ValueError("execution member-set mismatch")
     for path, expected_blob in expected.items():
         data = loaded[path]
-        if type(data) is not bytes:
-            raise TypeError(f"loaded member {path} is not bytes")
-        if git_blob_sha1(data) != expected_blob:
+        if type(data) is not bytes or git_blob_sha1(data) != expected_blob:
             raise ValueError(f"loaded member blob mismatch: {path}")
 
 
@@ -218,91 +264,81 @@ def certificate_sha256(certificate: Mapping[str, Any]) -> str:
     return sha256_obj(certificate_core(certificate))
 
 
-def validate_certificate(packet: Mapping[str, Any], packet_bytes: bytes, certificate: Mapping[str, Any]) -> None:
-    validate_packet(packet)
-    if type(certificate) is not dict:
-        raise TypeError("certificate must be dict")
-    if certificate.get("schema_version") != "1":
-        raise ValueError("wrong certificate schema")
-    if certificate.get("benchmark_id") != packet.get("benchmark_id"):
-        raise ValueError("certificate benchmark mismatch")
-    if certificate.get("packet_manifest_git_blob_sha") != git_blob_sha1(packet_bytes):
+def validate_certificate(
+    packet: Mapping[str, Any], packet_bytes: bytes,
+    anchor: Mapping[str, Any], anchor_bytes: bytes,
+    certificate: Mapping[str, Any],
+) -> None:
+    validate_freeze_anchor(packet, packet_bytes, anchor)
+    if type(certificate) is not dict or set(certificate) != CERTIFICATE_KEYS:
+        raise ValueError("authorization certificate must match exact schema")
+    if certificate["schema_version"] != "1" or certificate["benchmark_id"] != packet["benchmark_id"]:
+        raise ValueError("certificate identity mismatch")
+    if certificate["packet_manifest_git_blob_sha"] != git_blob_sha1(packet_bytes):
         raise ValueError("certificate packet-file blob mismatch")
-    if certificate.get("packet_sha256") != packet.get("packet_sha256"):
-        raise ValueError("certificate packet mismatch")
-    if certificate.get("execution_root_sha256") != packet.get("execution_root_sha256"):
-        raise ValueError("certificate execution-root mismatch")
-    if certificate.get("H_residual_set") != packet.get("H_residual_set"):
+    if certificate["packet_sha256"] != packet["packet_sha256"] or certificate["execution_root_sha256"] != packet["execution_root_sha256"]:
+        raise ValueError("certificate packet/root mismatch")
+    if certificate["freeze_anchor_git_blob_sha"] != git_blob_sha1(anchor_bytes):
+        raise ValueError("certificate freeze-anchor blob mismatch")
+    if certificate["freeze_anchor_sha256"] != anchor["anchor_sha256"]:
+        raise ValueError("certificate freeze-anchor SHA mismatch")
+    for field in ("freeze_commit_sha", "freeze_tree_sha", "freeze_timestamp_utc"):
+        if certificate[field] != anchor[field]:
+            raise ValueError(f"certificate freeze field mismatch: {field}")
+    if not _utc(certificate["authorization_timestamp_utc"]):
+        raise ValueError("authorization UTC timestamp required")
+    if certificate["H_residual_set"] != packet["H_residual_set"]:
         raise ValueError("certificate residual-set mismatch")
 
-    predicates = certificate.get("predicates")
-    if type(predicates) is not dict or set(predicates) != set("ABCDEFGHI"):
-        raise ValueError("certificate must bind predicates A-I")
-    if any(predicates[k] != PASS for k in "ABCDEFGHI"):
-        raise PermissionError("authorization predicate not PASS")
-    if certificate.get("authorization") != AUTHORIZED:
-        raise PermissionError("certificate not authorized")
-    if certificate.get("state") != "AUTHORIZED_FUTURE_NOT_YET_REALIZED":
-        raise ValueError("unexpected authorization state")
-    if not _hex(certificate.get("freeze_commit_sha"), 40):
-        raise ValueError("freeze commit required")
-    if type(certificate.get("freeze_timestamp_utc")) is not str or not certificate["freeze_timestamp_utc"].endswith("Z"):
-        raise ValueError("UTC freeze timestamp required")
-    if not _hex(certificate.get("I_evidence_blob"), 40):
+    predicates = certificate["predicates"]
+    if type(predicates) is not dict or set(predicates) != set("ABCDEFGHI") or any(predicates[k] != PASS for k in "ABCDEFGHI"):
+        raise PermissionError("certificate requires exact A-I PASS")
+    if certificate["authorization"] != AUTHORIZED or certificate["state"] != "AUTHORIZED_FUTURE_NOT_YET_REALIZED":
+        raise PermissionError("certificate not in pre-realization authorized state")
+    if not _hex(certificate["I_evidence_blob"], 40):
         raise ValueError("I evidence blob required")
-    if certificate.get("evaluation_rule_blob") != packet.get("evaluation_rule_blob"):
-        raise ValueError("evaluation rule identity mismatch")
-    if certificate.get("future_obligation_rule_blob") != packet.get("future_obligation_rule_blob"):
-        raise ValueError("future rule identity mismatch")
-    if certificate.get("common_cause_rule_blob") != packet.get("common_cause_rule_blob"):
-        raise ValueError("common-cause rule identity mismatch")
-    if certificate.get("certificate_sha256") != certificate_sha256(certificate):
+    for field in ("evaluation_rule_blob", "future_obligation_rule_blob", "common_cause_rule_blob"):
+        if certificate[field] != packet[field]:
+            raise ValueError(f"certificate rule identity mismatch: {field}")
+    if certificate["certificate_sha256"] != certificate_sha256(certificate):
         raise ValueError("certificate SHA-256 mismatch")
 
 
-def validate_certificate_bytes(packet_bytes: bytes, certificate_bytes: bytes) -> tuple[dict[str, Any], dict[str, Any]]:
-    packet = validate_packet_bytes(packet_bytes)
+def validate_certificate_bytes(packet_bytes: bytes, anchor_bytes: bytes, certificate_bytes: bytes):
+    packet, anchor = validate_freeze_anchor_bytes(packet_bytes, anchor_bytes)
     certificate = _json_object(certificate_bytes, "certificate")
-    validate_certificate(packet, packet_bytes, certificate)
-    return packet, certificate
+    validate_certificate(packet, packet_bytes, anchor, anchor_bytes, certificate)
+    return packet, anchor, certificate
 
 
 def validate_realized_record(certificate: Mapping[str, Any], realized: Mapping[str, Any]) -> None:
-    if type(realized) is not dict:
-        raise TypeError("realized record must be dict")
-    allowed_top = {"schema_version", "benchmark_id", "frozen_identity", "realized", "execution"}
-    if set(realized) != allowed_top:
+    if type(realized) is not dict or set(realized) != REALIZED_TOP_KEYS:
         raise ValueError("realized record top-level schema drift")
-    frozen = realized.get("frozen_identity")
-    if type(frozen) is not dict:
-        raise TypeError("frozen_identity required")
+    frozen = realized["frozen_identity"]
+    if type(frozen) is not dict or set(frozen) != FROZEN_IDENTITY_KEYS:
+        raise ValueError("frozen identity schema drift")
     expected_frozen = {
-        "packet_sha256": certificate.get("packet_sha256"),
-        "execution_root_sha256": certificate.get("execution_root_sha256"),
-        "authorization_certificate_sha256": certificate.get("certificate_sha256"),
-        "freeze_commit_sha": certificate.get("freeze_commit_sha"),
-        "freeze_timestamp_utc": certificate.get("freeze_timestamp_utc"),
+        "packet_sha256": certificate["packet_sha256"],
+        "execution_root_sha256": certificate["execution_root_sha256"],
+        "authorization_certificate_sha256": certificate["certificate_sha256"],
+        "freeze_commit_sha": certificate["freeze_commit_sha"],
+        "freeze_timestamp_utc": certificate["freeze_timestamp_utc"],
     }
     if frozen != expected_frozen:
         raise ValueError("realized record does not descend from authorized frozen identity")
-    if realized.get("benchmark_id") != certificate.get("benchmark_id") or realized.get("schema_version") != "1":
+    if realized["benchmark_id"] != certificate["benchmark_id"] or realized["schema_version"] != "1":
         raise ValueError("realized identity mismatch")
-
-    realized_fields = realized.get("realized")
-    execution_fields = realized.get("execution")
-    if type(realized_fields) is not dict or set(realized_fields) != REALIZED_KEYS:
+    if type(realized["realized"]) is not dict or set(realized["realized"]) != REALIZED_KEYS:
         raise ValueError("realized block must match exact frozen schema")
-    if type(execution_fields) is not dict or set(execution_fields) != EXECUTION_KEYS:
+    if type(realized["execution"]) is not dict or set(realized["execution"]) != EXECUTION_KEYS:
         raise ValueError("execution block must match exact frozen schema")
 
 
 def authorize_execution(
-    packet_bytes: bytes,
-    certificate_bytes: bytes,
-    loaded: Mapping[str, bytes],
-    realized: Mapping[str, Any],
+    packet_bytes: bytes, anchor_bytes: bytes, certificate_bytes: bytes,
+    loaded: Mapping[str, bytes], realized: Mapping[str, Any],
 ) -> str:
-    packet, certificate = validate_certificate_bytes(packet_bytes, certificate_bytes)
+    packet, _anchor, certificate = validate_certificate_bytes(packet_bytes, anchor_bytes, certificate_bytes)
     validate_loaded_execution(packet, loaded)
     validate_realized_record(certificate, realized)
     return "RUN_IDENTITY_ACCEPTED"
