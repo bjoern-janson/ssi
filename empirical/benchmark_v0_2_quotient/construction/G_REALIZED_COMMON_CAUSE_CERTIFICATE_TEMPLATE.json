@@ -1,0 +1,23 @@
+{
+  "certificate_type": "VFA-0.2-REALIZED-COMMON-CAUSE-CONFORMANCE",
+  "status": "UNINSTANTIATED_TEMPLATE",
+  "authorization_packet_digest": "TBD_AT_FREEZE",
+  "selected_candidate_id": "TBD_AFTER_FREEZE",
+  "selection_trace_sha256": "TBD_AFTER_FREEZE",
+  "selected_at": "TBD_AFTER_FREEZE",
+  "bundle_committed_at": "TBD_AFTER_FREEZE_BEFORE_DISCLOSURE",
+  "disclosed_at_A": "TBD_AFTER_FREEZE",
+  "disclosed_at_B": "TBD_AFTER_FREEZE",
+  "deadline_A": "TBD_AFTER_FREEZE",
+  "deadline_B": "TBD_AFTER_FREEZE",
+  "common_payload_sha256_A": "TBD_AFTER_FREEZE",
+  "common_payload_sha256_B": "TBD_AFTER_FREEZE",
+  "common_evidence_sha256_A": "TBD_AFTER_FREEZE",
+  "common_evidence_sha256_B": "TBD_AFTER_FREEZE",
+  "selector_conformance": "TBD_AFTER_FREEZE",
+  "implementation_independence_conformance": "TBD_AFTER_FREEZE",
+  "first_qualifying_rule_conformance": "TBD_AFTER_FREEZE",
+  "no_arm_access_before_bundle_commit": "TBD_AFTER_FREEZE",
+  "post_disclosure_validity": "NOT_EVALUATED",
+  "rule": "This certificate may record realized conformance only. It may not alter the frozen selector, eligibility rules, endpoint definitions, treatment, or authorization packet."
+}
