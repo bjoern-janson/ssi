@@ -1,0 +1,71 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "audit_identity": "VFA-0.2-FINAL-POSTGATE-EF-REAUDIT-1",
+  "future_obligation_accessed": false,
+  "G_activation": "PROHIBITED",
+  "E_postgate_reaudit": "PASS",
+  "F_postgate_reaudit": "PASS",
+  "attack_results": {
+    "semantic_coordinate_materialization": {
+      "pass": true,
+      "metamorphic_pairs": 64,
+      "mismatch_count": 0,
+      "matrix_bytes_A": 576,
+      "matrix_bytes_B": 576,
+      "A_off_diagonal_equality_bytes": 0,
+      "B_off_diagonal_equality_bytes": 24,
+      "materialization_trace_A": [24,24,24,576,576,576],
+      "materialization_trace_B": [24,24,24,576,576,576],
+      "representation_attacks": ["raw path-id renaming", "path-record reversal", "raw equivalence-label renaming", "equivalence-map insertion-order reversal"]
+    },
+    "fixed_runtime_and_treatment_sensitivity": {
+      "pass": true,
+      "DISTINGUISHED_reachable_A": 12,
+      "DISTINGUISHED_reachable_B": 0,
+      "EQUIVALENT_no_advantage": true,
+      "NOT_IDENTIFIED_preserved": true,
+      "pair_orientation_mismatches": 0,
+      "row_order_mismatches": 0,
+      "fixed_runtime_trace": [576,276,276,12,12],
+      "trace_fields": ["matrix_bytes_read","pair_slots_scanned","probe_generation_slots","target_surfaces_read","target_result_slots_written"],
+      "note": "Reachable-probe count is an endpoint value, not a logical-budget field. Both arms construct/process all 276 candidate-pair slots and all 12 target result slots."
+    },
+    "static_exposure_boundary": {
+      "pass": true,
+      "runtime_signature": ["matrix","coordinates","domain","grounded_surfaces"],
+      "raw_Gamma_input": false,
+      "arm_input": false,
+      "raw_path_id_input": false,
+      "raw_equivalence_label_input": false,
+      "forbidden_smuggling_attempts": 6,
+      "forbidden_smuggling_accepted": 0
+    },
+    "common_surface_symmetry": {
+      "pass": true,
+      "coordinate_count": 24,
+      "same_semantic_reference_domain": true,
+      "grounding_surface_refs_in_coordinate_domain": true,
+      "target_surface_count": 12,
+      "coordinate_object_common_to_arms": true,
+      "grounded_surface_object_common_to_arms": true
+    }
+  },
+  "E_interpretation": "The final candidate post-gate evaluator preserves the already-frozen deterministic logical opportunity: 576 treatment bytes, all 276 pair/probe-generation slots, and all 12 grounded target result slots are processed in both arms. No topology-dependent early stopping, dedup budget, or emitted-probe budget exists. This remains a logical-resource claim, not physical-time or energy equality.",
+  "F_interpretation": "Raw Gamma representation metadata terminates at a semantic-coordinate materialization boundary. The final runtime receives only the common semantic coordinate map, common grounded surface table, and the declared 576-byte equivalence treatment. All A/B endpoint differences are deterministic consequences of that declared treatment under common grounded statuses.",
+  "authorization_effect": {
+    "E": "CANDIDATE_REEARNED_PASS_ON_FINAL_POSTGATE_SURFACE",
+    "F": "CANDIDATE_REEARNED_PASS_ON_FINAL_POSTGATE_SURFACE",
+    "G": "REQUIRES_FRESH_GROUNDING_INTEGRATION_REAUDIT",
+    "H": "REMAINS_FAIL_UNTIL_G_AND_H_READJUDICATED",
+    "I": "NOT_EVALUATED"
+  },
+  "authority_boundary": {
+    "realized_T_future": "NOT_EVALUATED",
+    "realized_J_future": "NOT_EVALUATED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}
