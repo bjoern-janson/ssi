@@ -1,0 +1,148 @@
+{
+  "schema_version": "1",
+  "artifact_id": "VFA-0.2-BLIND-OUTCOME-ADJUDICATION-1",
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "status": "POST_AUTHORIZATION_PRE_REALIZATION_INTERPRETATION_ONLY",
+  "scope": {
+    "purpose": "Constrain interpretation of the already-authorized experiment before any real future obligation is observed.",
+    "may": [
+      "classify realized outcomes produced by the frozen protocol",
+      "separate kernel-law evidence from downstream mechanism localization",
+      "preserve negative-result localization"
+    ],
+    "may_not": [
+      "change Packet 7",
+      "change the authorization certificate",
+      "change the selector or qualifying-event rule",
+      "change future artifact resolution",
+      "change J_future grounding",
+      "change Gamma, q, W, semantic coordinates, evaluator, budgets, stopping rules, or runtime",
+      "exclude or substitute a realized future event",
+      "change any result after disclosure",
+      "override the frozen evaluation rule"
+    ],
+    "precedence": "If this interpretation artifact conflicts with Packet 7 or its frozen evaluation rule, Packet 7 governs execution and primary adjudication. This artifact may only narrow narrative claims, never broaden them."
+  },
+  "frozen_inferential_units": {
+    "grounding_unit_count": 3,
+    "reporting_surface_count": 12,
+    "rule": "The three source-fact q-kernel pairs are the independent future-consequence grounding units. The twelve relation-kind surfaces are deterministic lifts and are not twelve independent observations.",
+    "grounding_units": [
+      ["case:ariakit", "case:aws"],
+      ["case:issue_5465", "case:knip"],
+      ["case:nested", "case:sentry"]
+    ],
+    "relation_kinds": ["PROVENANCE", "CHALLENGE", "ALTERNATIVE", "REOPEN"]
+  },
+  "primary_kernel_adjudication": {
+    "domain": "the complete frozen q-kernel grounding domain",
+    "statuses": ["DISTINGUISHED", "EQUIVALENT", "NOT_IDENTIFIED"],
+    "rules": [
+      {
+        "condition": "at least one of the three grounding units is DISTINGUISHED",
+        "adjudication": "KERNEL_NONINCLUSION_WITNESSED",
+        "formal": "ker(q) not_subseteq ker(T_future)",
+        "claim": "The realized future obligation distinguishes at least one pair that q safely merged for the known ordinary domain.",
+        "notes": "Other grounding units may remain NOT_IDENTIFIED; one independently grounded distinction is sufficient for non-inclusion. Complete reporting remains mandatory."
+      },
+      {
+        "condition": "all three grounding units are EQUIVALENT",
+        "adjudication": "KERNEL_INCLUSION_ON_FROZEN_DOMAIN",
+        "formal": "ker(q) subseteq ker(T_future) on the frozen q-kernel domain",
+        "claim": "The realized future obligation does not require any distinction removed by q on the complete frozen grounding domain.",
+        "notes": "This is a realized-domain result, not a universal claim that q is safe for all possible futures."
+      },
+      {
+        "condition": "no grounding unit is DISTINGUISHED and at least one grounding unit is NOT_IDENTIFIED",
+        "adjudication": "KERNEL_RELATION_NOT_IDENTIFIED",
+        "formal": "ker(q) ? subseteq ker(T_future)",
+        "claim": "The realized evidence is insufficient to adjudicate future safety of the quotient on the frozen domain.",
+        "notes": "NOT_IDENTIFIED must not be recoded as EQUIVALENT, zero, failure, or future safety."
+      },
+      {
+        "condition": "the frozen external selector yields NO_QUALIFYING_OBLIGATION within the authorized horizon",
+        "adjudication": "PROSPECTIVE_TEST_NOT_INSTANTIATED",
+        "formal": "T_future unrealized under the frozen selector",
+        "claim": "No inference is licensed about kernel inclusion or non-inclusion from this benchmark instance.",
+        "notes": "No later release may be substituted to rescue the test."
+      }
+    ]
+  },
+  "downstream_outcome_tree": [
+    {
+      "requires": "KERNEL_NONINCLUSION_WITNESSED",
+      "condition": "DeltaPi_A equals DeltaPi_B on the frozen first endpoint",
+      "adjudication": "FUTURE_DISTINCTION_WITHOUT_GENERATIVE_TOPOLOGY_ADVANTAGE",
+      "claim": "A future-relevant distinction exists, but the frozen reopening/generative mechanism does not convert the preserved distinction into differential reachable corrective possibilities.",
+      "does_not_establish": ["future-safe quotient", "generative topology effect", "validated correction", "authorized persistence"]
+    },
+    {
+      "requires": "KERNEL_NONINCLUSION_WITNESSED",
+      "condition": "DeltaPi_A differs from DeltaPi_B in the preregistered treatment-sensitive direction on the frozen first endpoint",
+      "adjudication": "GENERATIVE_TOPOLOGY_EFFECT",
+      "claim": "Preserving the future-required revision distinction changes the reachable corrective possibility space under the frozen semantic operator.",
+      "does_not_establish": ["truth of generated probes", "fresh validation", "CCA warrant", "CARS persistence authority", "downstream viability gain"]
+    },
+    {
+      "requires": "a nonempty generated DeltaPi",
+      "condition": "fresh external evidence does not validate the generated route",
+      "adjudication": "GENERATION_WITHOUT_VALIDATION",
+      "claim": "The topology expands possibility but the generated continuation fails independent reality contact.",
+      "does_not_establish": ["CCA warrant", "CARS persistence authority", "successful correction"]
+    },
+    {
+      "requires": "fresh external evidence validates a generated route",
+      "condition": "CCA does not license the proposed causal correction",
+      "adjudication": "VALID_EVIDENCE_WITHOUT_CAUSAL_WARRANT",
+      "claim": "Fresh evidence exists, but it does not identify the causal revision strongly enough for commitment."
+    },
+    {
+      "requires": "CCA licenses a corrective candidate",
+      "condition": "CARS withholds persistence authority",
+      "adjudication": "WARRANT_WITHOUT_PERSISTENCE_AUTHORITY",
+      "claim": "A correction is warranted at the candidate level but is not authorized for persistent state change."
+    },
+    {
+      "requires": "CCA and CARS both pass",
+      "condition": "authorized correction persists but downstream viability does not improve",
+      "adjudication": "AUTHORIZED_CORRECTION_WITHOUT_VIABILITY_GAIN",
+      "claim": "The authority pipeline succeeds, but the downstream outcome does not support a viability benefit."
+    }
+  ],
+  "interpretive_separations": [
+    "future distinction != generative advantage",
+    "generative advantage != fresh validation",
+    "fresh validation != CCA warrant",
+    "CCA warrant != CARS persistence authority",
+    "authorized persistence != downstream viability gain",
+    "12 reporting surfaces != 12 independent observations",
+    "conditional A/B COMPARE reachability is mechanism localization, not a second independent future-distinction result"
+  ],
+  "forbidden_post_result_moves": [
+    "select a favorable subset of grounding units or relation-kind surfaces",
+    "treat NOT_IDENTIFIED as EQUIVALENT",
+    "replace the first qualifying future event",
+    "reweight Phi_path after seeing the result",
+    "introduce a scalar A-wins score as the primary result",
+    "count deterministic relation-kind lifts as independent replications",
+    "use downstream success to retroactively increase authorization authority",
+    "modify Packet 7 or its execution rules to accommodate a realized rebound"
+  ],
+  "primary_claim_order": [
+    "1. realized selector/common-cause conformance",
+    "2. three-unit J_future table and complete twelve-surface report",
+    "3. kernel inclusion/non-inclusion adjudication",
+    "4. conditional DeltaPi mechanism localization if a future-unsafe merge exists",
+    "5. fresh-evidence adjudication",
+    "6. CCA",
+    "7. CARS",
+    "8. downstream outcome/viability"
+  ],
+  "authority_boundary": {
+    "Packet_7_mutation": "PROHIBITED",
+    "future_selector_peeking": "PROHIBITED",
+    "real_future_obligation_accessed_by_this_artifact": false,
+    "scientific_execution_authority": "NONE",
+    "interpretive_commitment": "BLIND_PRE_REALIZATION"
+  }
+}
