@@ -1,0 +1,99 @@
+{
+  "D_pre_activation": {
+    "adjudication": "PASS",
+    "rule": "N AND Q_adapt_equivalence AND reserve_payload_symmetry AND Sep_Phi_reserve"
+  },
+  "authorization": {
+    "authorization_certificate": "NOT_ISSUED",
+    "freeze_packet": "NOT_FROZEN",
+    "future_run": "NOT_AUTHORIZED"
+  },
+  "benchmark_id": "VFA-0.2-DORMANT-CORRECTIVE-RESERVE",
+  "certificates": {
+    "N_noninterference": {
+      "gate": {
+        "arm_comparisons": 10,
+        "closed_gate_dereference_violations": [],
+        "gate_cases": 5,
+        "mismatch_count": 0,
+        "pass": true
+      },
+      "pass": true,
+      "static_architecture": {
+        "functions": {
+          "evaluate_gate": {
+            "args": ["evidence"],
+            "forbidden_reserve_symbols": [],
+            "pass": true
+          },
+          "forward_trace": {
+            "args": ["query", "shared_forward"],
+            "forbidden_reserve_symbols": [],
+            "pass": true
+          }
+        },
+        "pass": true,
+        "signature_pass": true
+      },
+      "trace": {
+        "comparisons": 2490,
+        "mismatch_count": 0,
+        "mismatches": [],
+        "pass": true,
+        "reserve_variants_per_arm": 5,
+        "tasks": 249
+      }
+    },
+    "Q_adapt_equivalence": {
+      "A": {
+        "full_recovery_count": 118,
+        "full_recovery_rate": 0.4738955823293173,
+        "mean_recovery_recall": 0.8646921017402945,
+        "task_count": 249
+      },
+      "B": {
+        "full_recovery_count": 118,
+        "full_recovery_rate": 0.4738955823293173,
+        "mean_recovery_recall": 0.8646921017402945,
+        "task_count": 249
+      },
+      "equivalence_rule": "EXACT_EQUALITY on exhaustive deterministic pre-freeze surrogate universe",
+      "pass": true
+    },
+    "Sep_Phi_reserve": {
+      "A": {
+        "A_preserve": 1.0,
+        "C_challenge": 1.0,
+        "L_prov": 1.0,
+        "R_reopen": 1.0
+      },
+      "B": {
+        "A_preserve": 1.0,
+        "C_challenge": 0.0,
+        "L_prov": 0.0,
+        "R_reopen": 0.0
+      },
+      "aggregation": "PROHIBITED",
+      "delta_A_minus_B": {
+        "A_preserve": 0.0,
+        "C_challenge": 1.0,
+        "L_prov": 1.0,
+        "R_reopen": 1.0
+      },
+      "pass": true
+    },
+    "reserve_payload_symmetry": {
+      "canonical_bytes_A": 587,
+      "canonical_bytes_B": 587,
+      "pass": true,
+      "same_binding_kinds": true,
+      "same_canonical_byte_length": true,
+      "same_cases": true,
+      "same_edge_count": true,
+      "same_source_multisets": true,
+      "same_target_multisets": true
+    }
+  },
+  "future_obligation_accessed": false,
+  "governing_invariant": "VFA-0.2 is not allowed to demonstrate treatment advantage before reserve activation."
+}
