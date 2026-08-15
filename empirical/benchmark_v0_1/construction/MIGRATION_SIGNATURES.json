@@ -1,0 +1,78 @@
+{
+  "cases": {
+    "ariakit": {
+      "features": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "IMPORT_ACTION_MODEL_MIGRATION",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ],
+      "snapshot_blob_sha1": "6afbb5fa2b7dc7791596f45af99fc56a02385d2a"
+    },
+    "aws": {
+      "features": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "RULE_PRESET_MODEL_MIGRATION",
+        "RULE_ID_REPLACEMENT"
+      ],
+      "snapshot_blob_sha1": "2ae1e3acf91568190079695c138a38d7750a1111"
+    },
+    "issue_5465": {
+      "features": [
+        "RULE_GROUP_RELOCATION"
+      ],
+      "snapshot_blob_sha1": "91f096105cf96900b5e6ee10388bda9a5c940934"
+    },
+    "knip": {
+      "features": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "IMPORT_ACTION_MODEL_MIGRATION",
+        "RULE_PRESET_MODEL_MIGRATION",
+        "RULE_GROUP_RELOCATION",
+        "RULE_ID_REPLACEMENT",
+        "OVERRIDE_SELECTOR_MIGRATION"
+      ],
+      "snapshot_blob_sha1": "9d8c80e3bead3e126196fcda3fc0400b87cf5a83"
+    },
+    "nested": {
+      "features": [
+        "RULE_PRESET_MODEL_MIGRATION",
+        "NESTED_CONFIG_ROOT_MIGRATION"
+      ],
+      "snapshot_blob_sha1": "c922fe4ecc3603a658bce07cf12ee8125fee83e5"
+    },
+    "sentry": {
+      "features": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "FORMATTER_FILTER_MODEL_MIGRATION",
+        "IMPORT_ACTION_MODEL_MIGRATION",
+        "RULE_PRESET_MODEL_MIGRATION",
+        "RULE_GROUP_RELOCATION",
+        "OVERRIDE_SELECTOR_MIGRATION"
+      ],
+      "snapshot_blob_sha1": "f045f4304519f41b2980f966f3b44d7f57ae146f"
+    }
+  },
+  "schema_version": "1",
+  "transformation_classes": {
+    "FILES_FILTER_MODEL_MIGRATION": "files.ignore is migrated to the v2 files.includes exclusion model.",
+    "FORMATTER_FILTER_MODEL_MIGRATION": "formatter.ignore is migrated into formatter.includes exclusion form.",
+    "IMPORT_ACTION_MODEL_MIGRATION": "top-level organizeImports is migrated into assist.actions.source.organizeImports.",
+    "NESTED_CONFIG_ROOT_MIGRATION": "nested configuration migration introduces/changes explicit root semantics.",
+    "OVERRIDE_SELECTOR_MIGRATION": "override include selectors are migrated to includes and normalized.",
+    "RULE_GROUP_RELOCATION": "a rule keeps/changes rule identity but moves between rule groups.",
+    "RULE_ID_REPLACEMENT": "a rule identifier is replaced/renamed during migration.",
+    "RULE_PRESET_MODEL_MIGRATION": "linter.rules.recommended is migrated into the v2 linter.rules.preset model."
+  },
+  "upstream": {
+    "commit": "b51d8b1598effd064c3490c3866d5b2d60ebd5f8",
+    "repository": "biomejs/biome",
+    "snapshot_tree": {
+      "git_tree_sha1": "d24f2716b94d1537294c915d82a6084ca6f517fa",
+      "path": "crates/biome_cli/tests/snapshots/main_cases_migrate_v2"
+    },
+    "test_source": {
+      "git_blob_sha1": "4e9d629645b23af728d1145bd7c26d0ae3e5ac7c",
+      "path": "crates/biome_cli/tests/cases/migrate_v2.rs"
+    }
+  }
+}
