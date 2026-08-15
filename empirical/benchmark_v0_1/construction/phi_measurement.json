@@ -1,0 +1,236 @@
+{
+  "A": {
+    "parameters": {
+      "RECONF_JACCARD_THRESHOLD": 0.5,
+      "TOP_K": 2
+    },
+    "per_case_reopen_recall": {
+      "ariakit": 1.0,
+      "aws": 1.0,
+      "issue_5465": 1.0,
+      "knip": 0.8333333333333334,
+      "nested": 0.5,
+      "sentry": 0.8333333333333334
+    },
+    "top_neighbors": {
+      "ariakit": [
+        {
+          "case": "aws",
+          "evidence_similarity": 0.5,
+          "stored_weight": 0.5
+        },
+        {
+          "case": "knip",
+          "evidence_similarity": 0.5,
+          "stored_weight": 0.5
+        }
+      ],
+      "aws": [
+        {
+          "case": "ariakit",
+          "evidence_similarity": 0.5,
+          "stored_weight": 0.5
+        },
+        {
+          "case": "knip",
+          "evidence_similarity": 0.5,
+          "stored_weight": 0.5
+        }
+      ],
+      "issue_5465": [
+        {
+          "case": "knip",
+          "evidence_similarity": 0.16666666666666666,
+          "stored_weight": 0.16666666666666666
+        },
+        {
+          "case": "sentry",
+          "evidence_similarity": 0.16666666666666666,
+          "stored_weight": 0.16666666666666666
+        }
+      ],
+      "knip": [
+        {
+          "case": "sentry",
+          "evidence_similarity": 0.7142857142857143,
+          "stored_weight": 0.7142857142857143
+        },
+        {
+          "case": "ariakit",
+          "evidence_similarity": 0.5,
+          "stored_weight": 0.5
+        }
+      ],
+      "nested": [
+        {
+          "case": "ariakit",
+          "evidence_similarity": 0.25,
+          "stored_weight": 0.25
+        },
+        {
+          "case": "aws",
+          "evidence_similarity": 0.25,
+          "stored_weight": 0.25
+        }
+      ],
+      "sentry": [
+        {
+          "case": "knip",
+          "evidence_similarity": 0.7142857142857143,
+          "stored_weight": 0.7142857142857143
+        },
+        {
+          "case": "ariakit",
+          "evidence_similarity": 0.5,
+          "stored_weight": 0.5
+        }
+      ]
+    },
+    "values": {
+      "A_preserve": 1.0,
+      "C_challenge": 1.0,
+      "C_cover_pre": 1.0,
+      "L_prov": 1.0,
+      "R_reconf": 0.6666666666666666,
+      "R_reopen": 0.8611111111111112
+    }
+  },
+  "B": {
+    "parameters": {
+      "RECONF_JACCARD_THRESHOLD": 0.5,
+      "TOP_K": 2
+    },
+    "per_case_reopen_recall": {
+      "ariakit": 0.3333333333333333,
+      "aws": 1.0,
+      "issue_5465": 1.0,
+      "knip": 1.0,
+      "nested": 0.5,
+      "sentry": 0.8333333333333334
+    },
+    "top_neighbors": {
+      "ariakit": [
+        {
+          "case": "issue_5465",
+          "evidence_similarity": 0.0,
+          "stored_weight": 0.5
+        },
+        {
+          "case": "nested",
+          "evidence_similarity": 0.25,
+          "stored_weight": 0.5
+        }
+      ],
+      "aws": [
+        {
+          "case": "knip",
+          "evidence_similarity": 0.5,
+          "stored_weight": 0.5
+        },
+        {
+          "case": "issue_5465",
+          "evidence_similarity": 0.0,
+          "stored_weight": 0.2857142857142857
+        }
+      ],
+      "issue_5465": [
+        {
+          "case": "sentry",
+          "evidence_similarity": 0.16666666666666666,
+          "stored_weight": 0.7142857142857143
+        },
+        {
+          "case": "ariakit",
+          "evidence_similarity": 0.0,
+          "stored_weight": 0.5
+        }
+      ],
+      "knip": [
+        {
+          "case": "aws",
+          "evidence_similarity": 0.5,
+          "stored_weight": 0.5
+        },
+        {
+          "case": "sentry",
+          "evidence_similarity": 0.7142857142857143,
+          "stored_weight": 0.5
+        }
+      ],
+      "nested": [
+        {
+          "case": "ariakit",
+          "evidence_similarity": 0.25,
+          "stored_weight": 0.5
+        },
+        {
+          "case": "issue_5465",
+          "evidence_similarity": 0.0,
+          "stored_weight": 0.16666666666666666
+        }
+      ],
+      "sentry": [
+        {
+          "case": "issue_5465",
+          "evidence_similarity": 0.16666666666666666,
+          "stored_weight": 0.7142857142857143
+        },
+        {
+          "case": "knip",
+          "evidence_similarity": 0.7142857142857143,
+          "stored_weight": 0.5
+        }
+      ]
+    },
+    "values": {
+      "A_preserve": 1.0,
+      "C_challenge": 0.6666666666666666,
+      "C_cover_pre": 1.0,
+      "L_prov": 0.7523809523809525,
+      "R_reconf": 0.3333333333333333,
+      "R_reopen": 0.7777777777777778
+    }
+  },
+  "admissible_measurement_transform": "IDENTITY_ONLY",
+  "benchmark_id": "independent-future-adaptation-v0.1",
+  "confirmatory_phi_interpretation": {
+    "aggregation": "PROHIBITED",
+    "expected_A_ge_B_dimensions": [
+      "R_reconf",
+      "C_challenge",
+      "L_prov",
+      "R_reopen"
+    ],
+    "expected_equal_dimensions": [
+      "C_cover_pre",
+      "A_preserve"
+    ],
+    "required_strict_positive_count_min": 1
+  },
+  "construction_only": true,
+  "delta_A_minus_B": {
+    "A_preserve": 0.0,
+    "C_challenge": 0.33333333333333337,
+    "C_cover_pre": 0.0,
+    "L_prov": 0.24761904761904752,
+    "R_reconf": 0.3333333333333333,
+    "R_reopen": 0.08333333333333337
+  },
+  "missingness_rule": "any missing case, signature, edge, or required value => NOT_IDENTIFIED; no imputation; B cannot PASS",
+  "scramble": {
+    "rule": "first specified seed; no seed search; sha256-seeded edge order; cyclic +1 weight rotation",
+    "seed": "ssi-independent-future-adaptation-v0.1/B/topology-scramble/1"
+  },
+  "state_sha256": {
+    "A": "353113d6e93717d037f7de4d46e686423ec7cfb165fead77397561de0bedaa3f",
+    "B": "2952ada6d4a27acf05200097cc4b3b55161afae3afeecb6cd926ceef4555cb8a"
+  },
+  "treatment_invariants": {
+    "same_case_count": true,
+    "same_direct_historical_pairs": true,
+    "same_edge_count": true,
+    "same_edge_weight_multiset": true,
+    "same_transformation_class_payload": true,
+    "topology_binding_only_difference": true
+  }
+}
