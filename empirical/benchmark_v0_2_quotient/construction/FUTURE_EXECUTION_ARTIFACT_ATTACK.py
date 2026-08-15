@@ -163,7 +163,7 @@ def main():
     out = {
         "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
         "audit_identity": "VFA-0.2-FUTURE-CLI-ARTIFACT-ATTACK-1",
-        "future_obligation_accessed": false,
+        "future_obligation_accessed": False,
         "attack_results": results,
         "artifact_contract_adjudication": "PASS" if overall else "FAIL",
         "scope": "synthetic npm-style tarballs only; no future package fetched",
