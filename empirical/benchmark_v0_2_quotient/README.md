@@ -15,7 +15,7 @@ VFA-0.2-QUOTIENT-REVISION-TOPOLOGY
 
 This lineage preserves the earlier failures. It does not repair or overwrite them.
 
-The redesign removes the semantic confound in which topology separation could also mean correct versus corrupted provenance.
+The redesign removes the deeper semantic confound in which topology separation could also mean correct versus corrupted provenance.
 
 ## Governing wager
 
@@ -61,7 +61,7 @@ The known-domain requirement is:
 F\circ q=F.
 \]
 
-Current result:
+Result:
 
 ```text
 D_SEMANTIC                 = PASS
@@ -99,9 +99,39 @@ Phi_path B:
 
 Aggregation of these dimensions is prohibited.
 
+## Hardened preactivation attack 1
+
+The redesigned object was then attacked through the full construction-side `N0 -> N4` ladder under the frozen `PREACTIVATION_CALLER_V1` capability model.
+
+```text
+N0 endpoint equality        = PASS
+N1 full trace equality      = PASS
+N2 metamorphic invariance   = PASS
+N3 transitive non-use       = PASS
+N4 capability surface       = PASS
+
+N2 comparisons              = 101592
+N2 mismatches               = 0
+module-global checks        = 2988
+module-global mismatches    = 0
+gate comparisons            = 170
+gate mismatches             = 0
+capability-smuggling tries  = 530
+capability-smuggling accepted = 0
+```
+
+Therefore the current construction status is:
+
+```text
+D_PRE_ACTIVATION_HARDENED = PASS
+SCOPE = PREACTIVATION_CALLER_V1
+```
+
+This scope matters. The certificate covers hostile caller inputs, arbitrary dormant Gamma objects, serialization/order/allocation perturbations, extra-field/argument smuggling, and unrelated Gamma-named global injection. It is not an OS sandbox or arbitrary in-process code-rewrite claim.
+
 ## Deliberately unresolved
 
-The prospective kernel question is not assumed:
+The prospective kernel question is still not assumed:
 
 \[
 \ker q\stackrel{?}{\subseteq}\ker T_{\rm future}.
@@ -109,8 +139,6 @@ The prospective kernel question is not assumed:
 
 ```text
 FUTURE_OBLIGATION_ACCESSED      = FALSE
-N0_TO_N4_ON_REDESIGN            = NOT_EVALUATED
-CAPABILITY_SURFACE_HARDENING    = NOT_EVALUATED
 G_ACTIVATION                    = PROHIBITED
 DELTA_PI                        = NOT_EVALUATED
 FREEZE_PACKET                   = NOT_FROZEN
@@ -118,16 +146,37 @@ AUTHORIZATION_CERTIFICATE       = NOT_ISSUED
 FUTURE_RUN                      = NOT_AUTHORIZED
 ```
 
-If this construction later survives the full preactivation audit and prospective authorization, the first post-gate scientific endpoint is revision-probe reachability:
+A construction-side D pass does **not** authorize a prospective run.
+
+## Eventual first scientific endpoint
+
+If and only if this lineage later survives the remaining pre-freeze authorization predicates, the first post-gate scientific endpoint is revision-probe reachability:
 
 \[
 G\rightarrow\Delta\Pi.
 \]
 
+The intended ladder is:
+
+\[
+\mathcal W\rightarrow\Gamma\rightarrow\Delta\Pi\rightarrow E_{\rm fresh}\rightarrow CCA\rightarrow CARS\rightarrow R_{t+1}.
+\]
+
 A newly reachable probe earns possibility, not authority.
+
+## Key files
+
+- `construction/VALIDATED_SUBSTRATE.json` — one shared truth-bearing substrate.
+- `construction/GAMMA_A.json` / `GAMMA_B.json` — identical path records, different equivalence partitions.
+- `construction/QUOTIENT_MAP.json` — deterministic quotient rule.
+- `construction/QUOTIENT_CONSTRUCTION_AUDIT.py` / `quotient_construction_audit.json` — same-truth/topology/known-domain audit.
+- `construction/CAPABILITY_THREAT_MODEL.json` — frozen scope of the N4 claim.
+- `construction/CLOSED_PREACTIVATION_INTERFACE.py` — closed ordinary and gate surfaces.
+- `construction/HARDENED_N_LADDER_ATTACK.py` / `hardened_n_ladder_audit.json` — N0-N4 attack.
+- `evidence/HARDENED_N_LADDER_ATTACK_1.md` — result interpretation and stop boundary.
 
 ## Stop condition
 
-This construction audit licenses only one next question: whether the redesigned object survives the full preactivation noninterference/capability ladder.
-
 No `G=1`. No future obligation. No prospective runner.
+
+The next admissible question is whether the remaining A-I pre-freeze authorization predicates can be specified and audited without contaminating the prospective test.
