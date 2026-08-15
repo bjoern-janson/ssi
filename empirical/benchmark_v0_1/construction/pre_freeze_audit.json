@@ -1,0 +1,104 @@
+{
+  "C": {
+    "A": {
+      "case_count": 6,
+      "direct_pair_count": 6,
+      "edge_count": 15,
+      "known_pair_availability_rate": 1.0,
+      "topology_weight_multiset": [
+        0.0,
+        0.0,
+        0.0,
+        0.14285714285714285,
+        0.14285714285714285,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.25,
+        0.25,
+        0.2857142857142857,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.7142857142857143
+      ],
+      "transformation_class_count": 8
+    },
+    "B": {
+      "case_count": 6,
+      "direct_pair_count": 6,
+      "edge_count": 15,
+      "known_pair_availability_rate": 1.0,
+      "topology_weight_multiset": [
+        0.0,
+        0.0,
+        0.0,
+        0.14285714285714285,
+        0.14285714285714285,
+        0.16666666666666666,
+        0.16666666666666666,
+        0.25,
+        0.25,
+        0.2857142857142857,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.7142857142857143
+      ],
+      "transformation_class_count": 8
+    },
+    "adjudication": "PASS",
+    "equivalence_rule": "EXACT_EQUALITY"
+  },
+  "D": {
+    "A": {
+      "full_recovery_count": 118,
+      "full_recovery_rate": 0.4738955823293173,
+      "mean_recovery_recall": 0.8646921017402945,
+      "task_count": 249,
+      "task_universe_rule": "all nonempty subsets of frozen transformation classes excluding the six exact historical signatures",
+      "top_k": 2
+    },
+    "B": {
+      "full_recovery_count": 112,
+      "full_recovery_rate": 0.4497991967871486,
+      "mean_recovery_recall": 0.8494979919678715,
+      "task_count": 249,
+      "task_universe_rule": "all nonempty subsets of frozen transformation classes excluding the six exact historical signatures",
+      "top_k": 2
+    },
+    "adjudication": "FAIL",
+    "comparison": {
+      "full_recovery_count": {
+        "A": 118,
+        "B": 112,
+        "delta": 6
+      },
+      "full_recovery_rate": {
+        "A": 0.4738955823293173,
+        "B": 0.4497991967871486,
+        "delta": 0.024096385542168697
+      },
+      "mean_recovery_recall": {
+        "A": 0.8646921017402945,
+        "B": 0.8494979919678715,
+        "delta": 0.015194109772423081
+      },
+      "task_count": {
+        "A": 249,
+        "B": 249,
+        "delta": 0
+      }
+    },
+    "differing_task_count": 29,
+    "differing_task_queries_sha256": "4aabe30a77167773507a62c0116f4cbe9c0558fd527418c33c27504b9e4f3861",
+    "equivalence_rule": "EXACT_EQUALITY on exhaustive deterministic pre-freeze surrogate universe"
+  },
+  "benchmark_id": "independent-future-adaptation-v0.1",
+  "future_obligation_accessed": false,
+  "interpretation_boundary": {
+    "C": "current payload/capability identity is established only on the frozen current-state dimensions above",
+    "D": "current A/B construction is not ordinary-adaptation matched; the shot is blocked before freeze"
+  }
+}
