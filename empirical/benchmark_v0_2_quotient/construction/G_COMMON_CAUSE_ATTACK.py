@@ -41,8 +41,19 @@ def candidate(cid, day, rid, *, stable=True, independent=True, relevant=True, ki
 def synthetic_pool(i: int):
     k1 = CHANGE_KINDS[i % len(CHANGE_KINDS)]
     k2 = CHANGE_KINDS[(i + 3) % len(CHANGE_KINDS)]
+    pre = gk.Candidate(
+        candidate_id=f"pre-{i}",
+        published_at="2034-12-31T12:00:00Z",
+        release_id=10_000 + i,
+        stable=True,
+        implementation_after_freeze=True,
+        migration_relevant=True,
+        change_kinds=(k1,),
+        excluded=False,
+        common_packaging_possible=True,
+    )
     return [
-        candidate(f"pre-{i}", 1, 10_000 + i, stable=True, independent=True, relevant=True, kinds=(k1,)),
+        pre,
         candidate(f"nightly-{i}", 2, 20_000 + i, stable=False, independent=True, relevant=True, kinds=(k1,)),
         candidate(f"known-{i}", 3, 30_000 + i, stable=True, independent=False, relevant=True, kinds=(k1,)),
         candidate(f"eligible-first-{i}", 4, 40_000 + i, stable=True, independent=True, relevant=True, kinds=(k1, k2)),
@@ -112,7 +123,6 @@ def selector_invariance_attack():
             comparisons += 1
             if got != baseline:
                 mismatches.append({"scenario": i, "kind": "input_order", "variant": variant_index})
-        # Treatment-label permutation occurs outside the selector because the selector has no treatment input.
         trace_under_A_label = gk.select_first_qualifying(pool, FREEZE)
         trace_under_B_label = gk.select_first_qualifying(pool, FREEZE)
         label_swap_comparisons += 1
@@ -127,7 +137,6 @@ def selector_invariance_attack():
     none_trace = gk.select_first_qualifying(none_pool, FREEZE)
     no_qualifying_pass = none_trace.selected_candidate_id == "NO_QUALIFYING_OBLIGATION"
 
-    # A later qualifying event must never replace the first qualifying event.
     substitution_pool = [
         candidate("first", 4, 100, kinds=(CHANGE_KINDS[0],)),
         candidate("later", 5, 1, kinds=(CHANGE_KINDS[1],)),
