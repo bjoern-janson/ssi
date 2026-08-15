@@ -1,0 +1,243 @@
+{
+  "status": "SUPPORTED_IN_FROZEN_HETEROGENEOUS_EXECUTABLE_SCOPE",
+  "scope": "Executable synthetic heterogeneous repair programs; process CPU time primary; not physical energy.",
+  "worlds": 64,
+  "episodes_per_world": 96,
+  "total_paired_episodes": 6144,
+  "payload_len_uint8": 16384,
+  "candidate_pipelines": {
+    "0": [
+      "reverse"
+    ],
+    "1": [
+      "roll_113"
+    ],
+    "2": [
+      "xor_a5"
+    ],
+    "3": [
+      "add_17_mod256"
+    ],
+    "4": [
+      "rotl3"
+    ],
+    "5": [
+      "nibble_swap"
+    ],
+    "6": [
+      "pair_swap",
+      "xor_a5"
+    ],
+    "7": [
+      "block_reverse_64",
+      "add_17_mod256"
+    ],
+    "8": [
+      "matrix_transpose_128",
+      "roll_113",
+      "xor_a5"
+    ],
+    "9": [
+      "affine_5x_plus_7_mod256",
+      "pair_swap",
+      "reverse"
+    ],
+    "10": [
+      "prefix_xor",
+      "nibble_swap",
+      "roll_113"
+    ],
+    "11": [
+      "delta_mod256",
+      "matrix_transpose_128",
+      "block_reverse_64",
+      "xor_a5"
+    ]
+  },
+  "mean_n_tested_A": 1.5284830729166667,
+  "mean_n_tested_B": 6.525065104166667,
+  "mean_delta_n_A_minus_B": -4.99658203125,
+  "mean_delta_n_95pct_CI": [
+    -5.087565104166667,
+    -4.90673828125
+  ],
+  "mean_eval_cpu_A_ns": 38603.301106770836,
+  "mean_eval_cpu_B_ns": 169182.76790364584,
+  "mean_delta_eval_cpu_A_minus_B_ns": -130579.466796875,
+  "mean_delta_eval_cpu_95pct_CI_ns": [
+    -145793.1983520508,
+    -121893.98440348306
+  ],
+  "mean_retrieve_cpu_A_ns": 67165.04410807292,
+  "mean_update_cpu_A_ns": 779.1888020833334,
+  "mean_total_cpu_A_ns": 106547.53401692708,
+  "mean_total_cpu_B_ns": 169182.76790364584,
+  "mean_delta_total_cpu_A_minus_B_ns": -62635.23388671875,
+  "mean_delta_total_cpu_95pct_CI_ns": [
+    -77751.64927164713,
+    -54016.04104003906
+  ],
+  "mean_delta_total_wall_A_minus_B_ns": -63487.1689453125,
+  "mean_delta_total_wall_95pct_CI_ns": [
+    -78618.21418863931,
+    -54852.1772257487
+  ],
+  "candidate_cost_heterogeneity_ratio_B_medians": 11.159321372854913,
+  "candidate_cost_table_B": [
+    {
+      "candidate": 0,
+      "pipeline": "reverse",
+      "depth": 1,
+      "B_evaluations": 3334,
+      "median_cpu_ns": 8452.0,
+      "mean_cpu_ns": 9052.583383323336
+    },
+    {
+      "candidate": 1,
+      "pipeline": "roll_113",
+      "depth": 1,
+      "B_evaluations": 3377,
+      "median_cpu_ns": 12609.0,
+      "mean_cpu_ns": 14251.265028131478
+    },
+    {
+      "candidate": 2,
+      "pipeline": "xor_a5",
+      "depth": 1,
+      "B_evaluations": 3378,
+      "median_cpu_ns": 5128.0,
+      "mean_cpu_ns": 5685.470100651273
+    },
+    {
+      "candidate": 3,
+      "pipeline": "add_17_mod256",
+      "depth": 1,
+      "B_evaluations": 3356,
+      "median_cpu_ns": 9023.0,
+      "mean_cpu_ns": 9814.851609058403
+    },
+    {
+      "candidate": 4,
+      "pipeline": "rotl3",
+      "depth": 1,
+      "B_evaluations": 3325,
+      "median_cpu_ns": 12499.0,
+      "mean_cpu_ns": 13682.353383458647
+    },
+    {
+      "candidate": 5,
+      "pipeline": "nibble_swap",
+      "depth": 1,
+      "B_evaluations": 3333,
+      "median_cpu_ns": 12449.0,
+      "mean_cpu_ns": 13404.615361536155
+    },
+    {
+      "candidate": 6,
+      "pipeline": "pair_swap -> xor_a5",
+      "depth": 2,
+      "B_evaluations": 3319,
+      "median_cpu_ns": 34941.0,
+      "mean_cpu_ns": 36879.52304911118
+    },
+    {
+      "candidate": 7,
+      "pipeline": "block_reverse_64 -> add_17_mod256",
+      "depth": 2,
+      "B_evaluations": 3290,
+      "median_cpu_ns": 15943.5,
+      "mean_cpu_ns": 17022.05927051672
+    },
+    {
+      "candidate": 8,
+      "pipeline": "matrix_transpose_128 -> roll_113 -> xor_a5",
+      "depth": 3,
+      "B_evaluations": 3364,
+      "median_cpu_ns": 22007.5,
+      "mean_cpu_ns": 37013.5564803805
+    },
+    {
+      "candidate": 9,
+      "pipeline": "affine_5x_plus_7_mod256 -> pair_swap -> reverse",
+      "depth": 3,
+      "B_evaluations": 3320,
+      "median_cpu_ns": 45988.0,
+      "mean_cpu_ns": 48651.66987951807
+    },
+    {
+      "candidate": 10,
+      "pipeline": "prefix_xor -> nibble_swap -> roll_113",
+      "depth": 3,
+      "B_evaluations": 3345,
+      "median_cpu_ns": 57225.0,
+      "mean_cpu_ns": 59792.94379671151
+    },
+    {
+      "candidate": 11,
+      "pipeline": "delta_mod256 -> matrix_transpose_128 -> block_reverse_64 -> xor_a5",
+      "depth": 4,
+      "B_evaluations": 3349,
+      "median_cpu_ns": 43765.0,
+      "mean_cpu_ns": 46098.91489997014
+    }
+  ],
+  "fraction_episodes_adversarial_eval": 0.008951822916666666,
+  "fraction_episodes_adversarial_total": 0.19547526041666666,
+  "fraction_episodes_A_total_cpu_cheaper": 0.6803385416666666,
+  "quality_contract_all_worlds": true,
+  "evidence_ladder": {
+    "search_reuse": true,
+    "heterogeneity_gate": true,
+    "heterogeneous_work_avoidance": true,
+    "net_executable_economy": true,
+    "quality_admissible": true,
+    "v2_supported": true
+  },
+  "transfer_tier_diagnostics": [
+    {
+      "noise_p": 0.15,
+      "episodes": 3072,
+      "mean_delta_n": -5.47265625,
+      "mean_delta_eval_cpu_ns": -136901.3359375,
+      "mean_delta_total_cpu_ns": -68590.01953125,
+      "fraction_A_total_cpu_cheaper": 0.7210286458333334,
+      "fraction_adversarial_eval": 0.00390625,
+      "fraction_adversarial_total": 0.19856770833333334
+    },
+    {
+      "noise_p": 0.25,
+      "episodes": 2048,
+      "mean_delta_n": -4.95361328125,
+      "mean_delta_eval_cpu_ns": -142689.11083984375,
+      "mean_delta_total_cpu_ns": -75243.72900390625,
+      "fraction_A_total_cpu_cheaper": 0.67578125,
+      "fraction_adversarial_eval": 0.009765625,
+      "fraction_adversarial_total": 0.18896484375
+    },
+    {
+      "noise_p": 0.35,
+      "episodes": 1024,
+      "mean_delta_n": -3.654296875,
+      "mean_delta_eval_cpu_ns": -87394.5712890625,
+      "mean_delta_total_cpu_ns": -19553.88671875,
+      "fraction_A_total_cpu_cheaper": 0.5673828125,
+      "fraction_adversarial_eval": 0.0224609375,
+      "fraction_adversarial_total": 0.19921875
+    }
+  ],
+  "run_total_process_cpu_ns": 3347203537,
+  "run_total_wall_ns": 3348492382,
+  "environment": {
+    "timestamp_utc": "2026-08-15T16:29:32.183240+00:00",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "not_measured": {
+    "gpu_time": "NOT_MEASURED",
+    "physical_energy_joules": "NOT_MEASURED",
+    "llm_tokens": "NOT_APPLICABLE"
+  }
+}
