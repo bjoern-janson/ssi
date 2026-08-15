@@ -1,7 +1,7 @@
 {
   "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
   "audit_identity": "VFA-0.2-QUOTIENT-AUTHORIZATION-REAUDIT-1",
-  "audit_status": "OPEN_NEXT_G",
+  "audit_status": "OPEN_NEXT_H",
   "governing_contract": {
     "source": "empirical/benchmark_v0_1/CONSTRUCTION_AUDIT.md",
     "source_git_blob_sha": "b154ce1089795f4e0356155b1776c94260d0f8c6",
@@ -58,8 +58,20 @@
       "sensitivity_control": "raw repository filename, raw equivalence-label namespace, and raw Gamma hash recover arm identity at 1.0 accuracy, but are classified non-material only because the E-hardened trusted materialization boundary blocks them from arm/evaluator exposure",
       "scope": "F conditions on the full declared equivalence relation M_Gamma; Phi_path is a structural descriptor rather than the complete treatment object"
     },
-    "G": {"adjudication": "NOT_EVALUATED", "reason": "next authorization predicate; future-obligation independence and common-cause disclosure mechanism has not yet been re-audited for the quotient lineage"},
-    "H": {"adjudication": "NOT_EVALUATED", "reason": "stop before later authorization predicates"},
+    "G": {
+      "adjudication": "PASS",
+      "evidence": [
+        {"path": "empirical/benchmark_v0_2_quotient/construction/G_COMMON_CAUSE_MANIFEST.json", "git_blob_sha": "f637a83ed7a474d56c1337e3c6c57628777863dd"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/G_COMMON_CAUSE_KERNEL.py", "git_blob_sha": "ccd55e22d91b3c088808d02972e88fd102057acf"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/G_COMMON_CAUSE_ATTACK.py", "git_blob_sha": "2e91c96c9a539fa04578b694af4eab6a8fc2cfc7"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/g_common_cause_audit.json", "git_blob_sha": "8b6f76cf461c3cf164e114b4378067ee44068281"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/G_REALIZED_COMMON_CAUSE_CERTIFICATE_TEMPLATE.json", "git_blob_sha": "adf04a128c30db7676fd3864449788200ea33e3f"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/G_COMMON_CAUSE_PASS.md", "git_blob_sha": "cb9d83d0e303fe5d221c373265cf3c75736ba978"}
+      ],
+      "basis": "future-event selection, packaging, disclosure, evidence exposure, and deadline are frozen as one treatment-free global mechanism; selector accepts no arm/treatment input; 384 candidate-order comparisons, 128 treatment-label swaps, and 64 common-bundle delivery checks produce zero mismatches; invalid temporal orders are rejected",
+      "scope": "authorization G freezes the source rule, candidate schema, selector, common-bundle mechanism, and realized-certificate template; the concrete real future pool and event remain unknown; realized conformance cannot repair authorization"
+    },
+    "H": {"adjudication": "NOT_EVALUATED", "reason": "next authorization predicate; quotient-specific confound ledger and residual-confound veto have not yet been adjudicated"},
     "I": {"adjudication": "NOT_EVALUATED", "reason": "A-H are not all PASS and freeze packet is not assembled"}
   },
   "authority_boundary": {
@@ -71,5 +83,5 @@
     "authorization_certificate": "NOT_ISSUED",
     "future_run": "NOT_AUTHORIZED"
   },
-  "current_conclusion": "construction valid; A-F authorization predicates pass; authorization not yet valid; future hypothesis not tested"
+  "current_conclusion": "construction valid; A-G authorization predicates pass; authorization not yet valid; future hypothesis not tested"
 }
