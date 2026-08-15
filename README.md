@@ -10,6 +10,31 @@ The stronger empirical wager is:
 
 > **Preserved and generatively refinable corrective topology predicts future adaptation beyond present capability and standard adaptability measures.**
 
+## Current research state
+
+The synthetic V0.x localization ladder is closed. The first prospective VFA program has now progressed through rejected constructions, semantic repair, hostile authorization audits, and freeze/chain-of-custody validation to one authorized object:
+
+```text
+BENCHMARK = VFA-0.2-QUOTIENT-REVISION-TOPOLOGY
+PACKET = VFA-0.2-FROZEN-PACKET-7
+A = PASS
+B = PASS
+C = PASS
+D = PASS
+E = PASS
+F = PASS
+G = PASS
+H = PASS
+I = PASS
+STATE = AUTHORIZED_FUTURE_NOT_YET_REALIZED
+FUTURE_OBLIGATION_ACCESSED = FALSE
+FUTURE_RUN = NOT_EXECUTED
+```
+
+The authorized scientific object is frozen. The next scientific information must come from the preregistered external source; Packet 7 is not to be tuned, extended, or repaired in response to imagined or realized future outcomes.
+
+For the exact branch/PR lineage, authoritative files, frozen hashes, and preservation rules, start with [`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md).
+
 ## Core state object
 
 We represent an adaptive system at time $t$ as
@@ -98,7 +123,7 @@ This yields three distinct jurisdictions:
 
 A lucky outcome does not retroactively create warrant.
 
-## Current empirical status
+## Closed synthetic program
 
 The synthetic **V0.x ladder is closed**. Its role was localization, not indefinite benchmark escalation.
 
@@ -117,48 +142,59 @@ V0.8 provided the first preregistered fresh-world causal test of the CCA/CARS ju
 
 These results establish a **localization calculus in controlled constructions**. They do not establish general safe self-improvement.
 
-## Next major empirical test
+## Current prospective test: VFA-0.2
 
-The next phase is cross-domain future adaptation, not V0.9.
+The program-level move beyond V0.x is described in [`empirical/INDEPENDENT_FUTURE_ADAPTATION.md`](empirical/INDEPENDENT_FUTURE_ADAPTATION.md). The concrete VFA lineage subsequently narrowed the first prospective test considerably.
 
-The flagship hypothesis is
-
-$$
-I\!\left(
-\Phi(\mathfrak C_t,\Lambda_t);
-\mathrm{FutureAdaptation}
-\mid
-Q_{\rm state},Q_{\rm adapt}
-\right)>0.
-$$
-
-The strongest falsifiable design matches systems on present capability and ordinary adaptability,
+The authorized construction now holds the validated factual substrate and ordinary forward behavior fixed:
 
 $$
-Q_{\rm state}^{A}\approx Q_{\rm state}^{B},
+\mathcal W_A=\mathcal W_B,
 \qquad
-Q_{\rm adapt}^{A}\approx Q_{\rm adapt}^{B},
+F\circ q=F,
 $$
 
-while separating corrective topology,
+while varying only revision-path equivalence structure:
 
 $$
-\Phi_A\neq\Phi_B,
+\Gamma_B=q(\Gamma_A).
 $$
 
-then freezes the systems and exposes them to previously unannounced correction demands.
+The logically prior prospective question is therefore not a scalar "A beats B" score. It is whether the currently behavior-preserving quotient remains safe under an independently realized future consequence map:
 
-The prediction is that preserved corrective topology will explain future recovery, reopening, collateral damage, and correction latency beyond what present competence already predicts.
+$$
+\boxed{
+\ker q\stackrel{?}{\subseteq}\ker T_{\rm future}.
+}
+$$
 
-A particularly important secondary prediction is that **STOP is not necessarily failure when uniqueness has not been earned**. Calibrated refusal may preserve more future correction capacity than a lucky but unjustified commitment.
+A future non-inclusion witness would establish that a distinction with zero measured ordinary-domain behavioral value became consequential under the realized future obligation. Only after that are treatment-conditioned probe reachability, fresh evidence, CCA, CARS, and downstream viability interpreted.
+
+The frozen grounding domain contains **3 independent source-fact units** reported through **12 deterministic relation-kind surfaces**. Those twelve surfaces are not twelve independent observations.
+
+Current execution authority and exact packet identity live in [`empirical/benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json`](empirical/benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json).
+
+## Post-authorization theory and interpretation
+
+Two artifacts were added after Packet 7 authorization and before any real future obligation was accessed. They are deliberately outside the authorized execution object:
+
+- [`research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json`](research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json) — blind outcome interpretation tree;
+- [`theory/FUTURE_SAFE_OPTION_STRUCTURE.md`](theory/FUTURE_SAFE_OPTION_STRUCTURE.md) — Future-Safe Option Structure (FSO) as a set-valued corrective-option object.
+
+Neither artifact may modify Packet 7 or broaden its execution authority.
 
 ## Repository map
 
-- [`ARCHITECTURE.md`](ARCHITECTURE.md) — state, transitions, jurisdictions, and invariants.
+- [`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md) — current authority state, stacked PR topology, parallel tracks, and preservation rules.
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) — core state, transitions, jurisdictions, and invariants.
 - [`retrospective/LOCALIZATION_CALCULUS.md`](retrospective/LOCALIZATION_CALCULUS.md) — the common equivalence/authority grammar extracted from V0.x.
 - [`benchmarks/V0X_LINEAGE.md`](benchmarks/V0X_LINEAGE.md) — benchmark-by-benchmark scientific lineage, including negative results.
-- [`empirical/INDEPENDENT_FUTURE_ADAPTATION.md`](empirical/INDEPENDENT_FUTURE_ADAPTATION.md) — the next major cross-domain test.
-- [`results/FROZEN_RESULTS.md`](results/FROZEN_RESULTS.md) — frozen adjudications and artifact hashes currently recovered from the benchmark lineage.
+- [`empirical/README.md`](empirical/README.md) — empirical lineage index and authority routing.
+- [`empirical/INDEPENDENT_FUTURE_ADAPTATION.md`](empirical/INDEPENDENT_FUTURE_ADAPTATION.md) — program-level independent future-adaptation design.
+- [`empirical/benchmark_v0_2_quotient/`](empirical/benchmark_v0_2_quotient/) — active authorized VFA lineage and preserved construction history.
+- [`results/FROZEN_RESULTS.md`](results/FROZEN_RESULTS.md) — frozen V0.x adjudications and recovered artifact hashes.
+- [`research/post_authorization/`](research/post_authorization/) — interpretation-only post-authorization research.
+- [`theory/FUTURE_SAFE_OPTION_STRUCTURE.md`](theory/FUTURE_SAFE_OPTION_STRUCTURE.md) — FSO theory outside Packet 7.
 
 ## Governing invariant
 
