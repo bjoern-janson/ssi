@@ -1,0 +1,38 @@
+{
+  "schema_version": "1",
+  "cases": ["ariakit", "aws", "issue_5465", "knip", "nested", "sentry"],
+  "bindings": {
+    "PROVENANCE": {
+      "ariakit": "ariakit",
+      "aws": "aws",
+      "issue_5465": "issue_5465",
+      "knip": "knip",
+      "nested": "nested",
+      "sentry": "sentry"
+    },
+    "CHALLENGE": {
+      "ariakit": "ariakit",
+      "aws": "aws",
+      "issue_5465": "issue_5465",
+      "knip": "knip",
+      "nested": "nested",
+      "sentry": "sentry"
+    },
+    "ALTERNATIVE": {
+      "ariakit": "ariakit",
+      "aws": "aws",
+      "issue_5465": "issue_5465",
+      "knip": "knip",
+      "nested": "nested",
+      "sentry": "sentry"
+    },
+    "REOPEN": {
+      "ariakit": "ariakit",
+      "aws": "aws",
+      "issue_5465": "issue_5465",
+      "knip": "knip",
+      "nested": "nested",
+      "sentry": "sentry"
+    }
+  }
+}
