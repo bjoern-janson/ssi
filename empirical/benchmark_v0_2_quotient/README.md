@@ -129,6 +129,47 @@ SCOPE = PREACTIVATION_CALLER_V1
 
 This scope matters. The certificate covers hostile caller inputs, arbitrary dormant Gamma objects, serialization/order/allocation perturbations, extra-field/argument smuggling, and unrelated Gamma-named global injection. It is not an OS sandbox or arbitrary in-process code-rewrite claim.
 
+## Fresh authorization re-audit 1
+
+The quotient treatment then received a fresh authorization audit rather than inheriting the rejected VFA-0.1 A–D states mechanically.
+
+```text
+A = PASS
+B = PASS
+C = PASS
+D = PASS
+E = NOT_EVALUATED
+F = NOT_EVALUATED
+G = NOT_EVALUATED
+H = NOT_EVALUATED
+I = NOT_EVALUATED
+```
+
+A is re-earned from the unchanged prospective source/scope selector. B is re-earned from the same-truth quotient construction and frozen `Phi_path` descriptor. C is re-earned from exact present-state equality outside the declared partition. D is re-earned from `F o q = F`, exact full-trace identity on all 249 ordinary pre-freeze tasks, and the hardened metamorphic audit.
+
+The audit stops at E because no complete content-addressed A/B resource-information-exposure manifest exists yet. Equal Gamma bytes, path counts, preactivation traces, and N4 closure are not sufficient to infer equality of runtime, compute, memory, post-gate operation budget, tools, evaluator access, stopping rule, or disclosure evidence.
+
+Current authorization state:
+
+```text
+CONSTRUCTION_VALID = YES
+AUTHORIZATION_VALID = NO
+FUTURE_HYPOTHESIS_TESTED = NO
+
+FUTURE_OBLIGATION_ACCESSED = FALSE
+G_ACTIVATION = PROHIBITED
+DELTA_PI = NOT_EVALUATED
+FREEZE_PACKET = NOT_FROZEN
+AUTHORIZATION_CERTIFICATE = NOT_ISSUED
+FUTURE_RUN = NOT_AUTHORIZED
+```
+
+See:
+
+- `AUTHORIZATION_REAUDIT.md`
+- `AUTHORIZATION_STATUS.json`
+- `evidence/E_RESOURCE_INFORMATION_EXPOSURE_GAP.md`
+
 ## Deliberately unresolved
 
 The prospective kernel question is still not assumed:
@@ -174,9 +215,11 @@ A newly reachable probe earns possibility, not authority.
 - `construction/CLOSED_PREACTIVATION_INTERFACE.py` — closed ordinary and gate surfaces.
 - `construction/HARDENED_N_LADDER_ATTACK.py` / `hardened_n_ladder_audit.json` — N0-N4 attack.
 - `evidence/HARDENED_N_LADDER_ATTACK_1.md` — result interpretation and stop boundary.
+- `AUTHORIZATION_REAUDIT.md` / `AUTHORIZATION_STATUS.json` — fresh quotient-treatment authorization audit.
+- `evidence/E_RESOURCE_INFORMATION_EXPOSURE_GAP.md` — first unresolved authorization prerequisite.
 
 ## Stop condition
 
 No `G=1`. No future obligation. No prospective runner.
 
-The next admissible question is whether the remaining A-I pre-freeze authorization predicates can be specified and audited without contaminating the prospective test.
+The next admissible action is to construct and attack the frozen A/B resource-information-exposure manifest required by predicate E. F–I remain unadjudicated until E passes.
