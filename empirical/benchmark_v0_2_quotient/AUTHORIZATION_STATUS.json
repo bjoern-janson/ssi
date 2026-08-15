@@ -1,99 +1,79 @@
 {
   "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
-  "audit_identity": "VFA-0.2-QUOTIENT-AUTHORIZATION-REAUDIT-1",
-  "audit_status": "BLOCKED_AT_H_RESIDUAL_CONFOUND_VETO",
+  "audit_identity": "VFA-0.2-CONSEQUENCE-GROUNDED-AUTHORIZATION-REAUDIT-1",
+  "audit_status": "OPEN_NEXT_I",
+  "lineage": {
+    "parent_failure": "VFA-0.2-H-FAIL-POSTGATE-SEMANTIC-UNDERDETERMINATION",
+    "repair": "VFA-0.2-FUTURE-CONSEQUENCE-GROUNDING",
+    "rule": "Parent H failure remains preserved on agent/vfa-0.2-quotient-revision-topology. This branch re-earns only predicates affected by consequence grounding and final post-gate semantics; it does not retroactively rewrite the failed lineage."
+  },
   "governing_contract": {
     "source": "empirical/benchmark_v0_1/CONSTRUCTION_AUDIT.md",
-    "source_git_blob_sha": "b154ce1089795f4e0356155b1776c94260d0f8c6",
-    "rule": "authorization predicates are re-adjudicated against the redesigned treatment; no treatment-sensitive adjudication is inherited mechanically"
+    "source_git_blob_sha": "b154ce1089795f4e0356155b1776c94260d0f8c6"
   },
   "predicates": {
     "A": {
       "adjudication": "PASS",
-      "evidence": [{"path": "empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md", "git_blob_sha": "bec386d1d3e1f172e5bbf48cb942b13ed2c5072e"}],
-      "basis": "prospective source scope, cutoff, horizon, selector, exclusions, and independence rule are unchanged by the quotient redesign"
+      "evidence": [{"path":"empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md","git_blob_sha":"bec386d1d3e1f172e5bbf48cb942b13ed2c5072e"}],
+      "basis": "external Biome source, cutoff, 180-day horizon, deterministic first-qualifying stable release rule, exclusions, and implementation-independence rule remain unchanged"
     },
     "B": {
       "adjudication": "PASS",
-      "evidence": [{"path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json", "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"}],
-      "basis": "one shared validated substrate; identical path records; q acts only on path-equivalence labels; Phi_path is component-wise and aggregation is prohibited"
+      "evidence": [{"path":"empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json","git_blob_sha":"6da2488fecb9dd407d2d6139ce17165bf145a127"}],
+      "basis": "one shared validated substrate, identical path records, q acts only on revision equivalence, and Phi_path remains frozen component-wise"
     },
     "C": {
       "adjudication": "PASS",
-      "evidence": [
-        {"path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json", "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json", "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"}
-      ],
-      "basis": "same substrate, path records, forward state, forward implementation, preactivation gate, representation byte length, and caller-capability boundary outside declared quotient partition"
+      "evidence": [{"path":"empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json","git_blob_sha":"6da2488fecb9dd407d2d6139ce17165bf145a127"},{"path":"empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json","git_blob_sha":"555fb3ed619b5f02109b0e84c83da1e8f22f7984"}],
+      "basis": "shared present state outside the declared quotient treatment"
     },
     "D": {
       "adjudication": "PASS",
-      "evidence": [
-        {"path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json", "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json", "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"}
-      ],
-      "basis": "F o q = F with exact full-trace identity on 249 exhaustive pre-freeze tasks and zero mismatches in 101592 hostile metamorphic comparisons"
+      "evidence": [{"path":"empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json","git_blob_sha":"6da2488fecb9dd407d2d6139ce17165bf145a127"},{"path":"empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json","git_blob_sha":"555fb3ed619b5f02109b0e84c83da1e8f22f7984"}],
+      "basis": "F o q = F with exact 249-task forward-trace identity and hardened preactivation noninterference"
     },
     "E": {
       "adjudication": "PASS",
-      "evidence": [
-        {"path": "empirical/benchmark_v0_2_quotient/construction/E_ENVIRONMENT_MANIFEST.json", "git_blob_sha": "259853fdecb04f77ddcf5ebffcaecc70dec9c6d9"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/E_ENVIRONMENT_KERNEL.py", "git_blob_sha": "5997b59635b02abc04b8e1a46ffd07ffec447dee"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/E_ENVIRONMENT_ATTACK.py", "git_blob_sha": "5e0ef6fbe5f8bc901daeeac86c9f3e781de623f2"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/e_environment_audit.json", "git_blob_sha": "1ddbec54c2f4a2625346cd3e949d3f91fdc10d15"},
-        {"path": "empirical/benchmark_v0_2_quotient/evidence/E_RESOURCE_INFORMATION_EXECUTION_PASS.md", "git_blob_sha": "19b3bf794ac41c2658e2a37411e461c53eb3d0f5"}
-      ],
-      "basis": "capacity, information exposure, and execution are frozen symmetrically around the quotient treatment; raw Gamma labels are hidden behind a fixed 576-byte equivalence-matrix view; logical post-gate materialization and pair-scan schedules are equal; 192 hostile metamorphic cost comparisons have zero mismatches",
-      "scope": "deterministic logical resource/operation equality; no CPU-cycle, joule, cache-miss, or wall-clock equality claim; realized common future-bundle conformance remains predicate G"
+      "evidence": [{"path":"empirical/benchmark_v0_2_quotient/construction/final_postgate_reaudit.json","git_blob_sha":"887cb8084be086b28219250d78d746394a503f06"}],
+      "basis": "re-earned on final consequence-grounded surface: equal 576-byte treatment view, all 276 pair/probe-generation slots, all 12 target result slots, common semantic coordinates, and no topology-dependent work budget",
+      "scope": "deterministic logical opportunity only; no physical-time/energy equality claim"
     },
     "F": {
       "adjudication": "PASS",
-      "evidence": [
-        {"path": "empirical/benchmark_v0_2_quotient/construction/F_TREATMENT_ISOLATION_MANIFEST.json", "git_blob_sha": "a5ac504539c3ece79d2ef69097dc281a01d16bea"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/F_TREATMENT_ISOLATION_ATTACK.py", "git_blob_sha": "cd38969da76d1be70a17d3fa1d7c37ce0b25ee51"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/f_treatment_isolation_audit.json", "git_blob_sha": "c60af5b69e67df2864d0eb04ac650a734092e342"},
-        {"path": "empirical/benchmark_v0_2_quotient/evidence/F_TREATMENT_ISOLATION_PASS.md", "git_blob_sha": "aeac65599a46079740125c3aa6b0ab217ff03809"}
-      ],
-      "basis": "after masking the full declared equivalence relation M_Gamma and preregistered deterministic consequences, 64/64 metamorphic A/B pairs have exactly identical residual observable vectors; three blind holdout classifiers remain at 0.5 accuracy; zero material undeclared distinguishers and zero unclassified observables remain",
-      "sensitivity_control": "raw repository filename, raw equivalence-label namespace, and raw Gamma hash recover arm identity at 1.0 accuracy, but are classified non-material only because the E-hardened trusted materialization boundary blocks them from arm/evaluator exposure",
-      "scope": "F conditions on the full declared equivalence relation M_Gamma; Phi_path is a structural descriptor rather than the complete treatment object"
+      "evidence": [{"path":"empirical/benchmark_v0_2_quotient/construction/final_postgate_reaudit.json","git_blob_sha":"887cb8084be086b28219250d78d746394a503f06"}],
+      "basis": "re-earned on final surface: raw Gamma metadata terminates at semantic-coordinate materialization; runtime receives only common coordinates, common grounded surfaces, and the declared equivalence matrix"
     },
     "G": {
       "adjudication": "PASS",
       "evidence": [
-        {"path": "empirical/benchmark_v0_2_quotient/construction/G_COMMON_CAUSE_MANIFEST.json", "git_blob_sha": "f637a83ed7a474d56c1337e3c6c57628777863dd"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/G_COMMON_CAUSE_KERNEL.py", "git_blob_sha": "ccd55e22d91b3c088808d02972e88fd102057acf"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/G_COMMON_CAUSE_ATTACK.py", "git_blob_sha": "2e91c96c9a539fa04578b694af4eab6a8fc2cfc7"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/g_common_cause_audit.json", "git_blob_sha": "8b6f76cf461c3cf164e114b4378067ee44068281"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/G_REALIZED_COMMON_CAUSE_CERTIFICATE_TEMPLATE.json", "git_blob_sha": "adf04a128c30db7676fd3864449788200ea33e3f"},
-        {"path": "empirical/benchmark_v0_2_quotient/evidence/G_COMMON_CAUSE_PASS.md", "git_blob_sha": "cb9d83d0e303fe5d221c373265cf3c75736ba978"}
+        {"path":"empirical/benchmark_v0_2_quotient/construction/future_execution_artifact_audit.json","git_blob_sha":"659c7f586e80555eb06f10d9a670ab980f7d0304"},
+        {"path":"empirical/benchmark_v0_2_quotient/construction/future_consequence_grounding_audit.json","git_blob_sha":"c00ca8e118618ae188c8bc6947bfac00e456a644"},
+        {"path":"empirical/benchmark_v0_2_quotient/construction/g_grounding_integration_audit.json","git_blob_sha":"493dd0cc0afbe9dfdfca0b825801a490dab79210"}
       ],
-      "basis": "future-event selection, packaging, disclosure, evidence exposure, and deadline are frozen as one treatment-free global mechanism; selector accepts no arm/treatment input; 384 candidate-order comparisons, 128 treatment-label swaps, and 64 common-bundle delivery checks produce zero mismatches; invalid temporal orders are rejected",
-      "scope": "authorization G freezes the source rule, candidate schema, selector, common-bundle mechanism, and realized-certificate template; the concrete real future pool and event remain unknown; realized conformance cannot repair authorization"
+      "basis": "re-earned through the full common-cause chain: selected release -> exact official artifact -> six treatment-blind witness consequences -> complete grounded table -> one canonical envelope -> one common bundle; failures yield NOT_IDENTIFIED without fallback or substitution",
+      "scope": "realized future package, executions, grounding hashes, timestamps, and disclosure conformance remain prospective execution-validity checks"
     },
     "H": {
-      "adjudication": "FAIL",
-      "evidence": [
-        {"path": "empirical/benchmark_v0_2_quotient/construction/H_MATERIAL_RIVAL_MANIFEST.json", "git_blob_sha": "eb0855348814674c3a23fa21fa91caa01cb88bee"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/H_RESIDUAL_CONFOUND_AUDIT.py", "git_blob_sha": "b619777c71148971522f6645020215e4a37b1624"},
-        {"path": "empirical/benchmark_v0_2_quotient/construction/h_residual_confound_audit.json", "git_blob_sha": "17cae62c829f42ecd558649a04224a672187b129"},
-        {"path": "empirical/benchmark_v0_2_quotient/evidence/H_RESIDUAL_CONFOUND_VETO_FAIL.md", "git_blob_sha": "10af14d115182f2648c4ec96216b29397d1e4814"}
-      ],
-      "basis": "the material-rival ledger is complete with 16 rivals and zero unclassified rows, but H_evaluator, H_quotient_interpretation, and H_challenge_recognizability are residual, material, unbounded, and capable of explaining the full predicted first-endpoint contrast",
-      "failure_code": "RESIDUAL_CONFOUND_VETO",
-      "failure_localization": "POSTGATE_SEMANTIC_UNDERDETERMINATION",
-      "required_repair": "freeze and adversarially validate an arm-independent post-gate semantic operator (M_Gamma, common insufficiency evidence, W) -> DeltaPi plus an exact representation-invariant DeltaPi reachability evaluator, then re-audit H"
+      "adjudication": "PASS",
+      "evidence": [{"path":"empirical/benchmark_v0_2_quotient/construction/h_grounded_residual_audit.json","git_blob_sha":"7e88f672fda570610dbc36f2b23aad31ab8cafa1"}],
+      "basis": "23-rival grounding-aware ledger: 16 BLOCKED, 4 MEASURED, 3 RESIDUAL, 0 UNCLASSIFIED, 0 residual-veto rows",
+      "claim_scope": "primary prospective evidence is treatment-blind future non-inclusion of q under T_future; conditional COMPARE reachability is mechanism localization, not independent evidence"
     },
-    "I": {"adjudication": "NOT_EVALUATED", "reason": "H fails; freeze-packet integrity and authorization certificate may not be attempted"}
+    "I": {
+      "adjudication": "NOT_EVALUATED",
+      "reason": "A-H now pass on the repair lineage, which licenses construction of the freeze packet and chain-of-custody audit. No freeze packet or authorization certificate has yet been assembled."
+    }
   },
   "authority_boundary": {
     "future_obligation_accessed": false,
     "G_activation": "PROHIBITED",
+    "realized_T_future": "NOT_EVALUATED",
+    "realized_J_future": "NOT_EVALUATED",
     "Delta_Pi": "NOT_EVALUATED",
     "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
     "freeze_packet": "NOT_FROZEN",
     "authorization_certificate": "NOT_ISSUED",
     "future_run": "NOT_AUTHORIZED"
   },
-  "current_conclusion": "construction valid through G; authorization rejected at H until post-gate semantics and the first-endpoint evaluator are identified and bounded; future hypothesis not tested"
+  "current_conclusion": "construction and identification predicates A-H pass on the consequence-grounding repair lineage; predicate I is the next and only authorized step; future hypothesis remains untested"
 }
