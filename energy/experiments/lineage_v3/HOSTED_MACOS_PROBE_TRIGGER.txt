@@ -1,0 +1,1 @@
+V3 hosted measurement capability probe trigger. No A/B treatment data.
