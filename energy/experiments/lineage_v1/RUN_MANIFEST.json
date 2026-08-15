@@ -1,0 +1,34 @@
+{
+  "experiment": "lineage_v1",
+  "status": "SUPPORTED_IN_FROZEN_EXECUTABLE_SCOPE",
+  "branch": "agent/energy-suite",
+  "preregistration_commit_sha": "197702797e214e44417bd961c9e224f48f6e9762",
+  "frozen_runner_commit_sha": "6e8fe73dfd324a4b91dad685c98ba6bbe217d0e0",
+  "frozen_runner_github_blob_sha": "65fabd94a5a05163135799e1c7f75cd33b2feeda",
+  "execution": {
+    "timestamp_utc": "2026-08-15T16:19:23.119048+00:00",
+    "return_code": 0,
+    "worlds": 64,
+    "episodes_per_world": 96,
+    "total_paired_episodes": 6144,
+    "probe_rounds_per_candidate": 256,
+    "process_cpu_seconds_total": 6.169927761,
+    "wall_seconds_total": 6.179658729,
+    "environment": {
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+      "machine": "x86_64"
+    },
+    "transport_note": "The container could not resolve github.com for git clone, so execution used a local working copy of the already-frozen V1 implementation. The executed-source SHA-256 is recorded below.",
+    "startup_note": "A spreadsheet-runtime warmup warning occurred during Python startup before the runner measurement window. The experiment returned code 0; per-episode timing begins inside the frozen correction functions after startup/import initialization."
+  },
+  "sha256": {
+    "executed_runner": "6187c870a6db543ac62da7ccd4b3895f6fd3e3c411b1a850fd0c64df7134dc6c",
+    "episode_results_csv": "6b8adb2e91c364015cfe3814eaa2b0eaf2655d6b5e16083cb6559cf082b46239",
+    "world_results_csv": "532f5f4d1e73109870ca617c68f39e893f6d41c5bd80b9892b8a43722a6002fc",
+    "summary_json": "6737d637963aa7acc91c00fb897a8186e80d3c2dd206f7433807408658206d83"
+  },
+  "raw_output_policy": "The timing CSVs are retained in the execution workspace and identified by SHA-256. The committed summary contains the preregistered primary and moderator adjudications; timing runs are environment-sensitive and should not be expected to reproduce byte-identically.",
+  "authority": "Executable synthetic CPU correction only; not physical energy, GPU/LLM inference, Axis I, or SSI core theory."
+}

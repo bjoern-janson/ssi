@@ -1,0 +1,23 @@
+{
+  "status": "NOT_SUPPORTED_IN_FROZEN_GATED_ROUTING_SCOPE",
+  "routing_branch_status": "CLOSED_AFTER_V2_2_BY_PREREGISTRATION",
+  "authoritative_execution": true,
+  "git_blob_identity": {
+    "PREREGISTRATION.md": "fdfeb8ec94b2f1f76fd6f97a00a5bae5c6a17239",
+    "GATE_CALIBRATION.md": "97f4591cda94e0bb4068b93e1093b93f6107ea3b",
+    "run_experiment.py": "1cc32eeacf801c4ca57a50988fffdfd12a84c340",
+    "imported_v2_1_runner": "e3e609dae6dc604b460623462f7c1bca666f22d5"
+  },
+  "sha256": {
+    "PREREGISTRATION.md": "9fd59db0cbfcec589fa2b0a230f7b94e2cce9f6bf03fd049604e6d6fccfd33a2",
+    "GATE_CALIBRATION.md": "6ed686a558f3cba1e77c9d2111c48aba72753799f5b48f855e8471abea43e492",
+    "run_experiment.py": "ad607dfc8dee81e9bef0ac4e8389a401138749043139e8e93bddeffa5fc3e408",
+    "RESULTS.md": "8fa91903af01612907be5ef5646574e8142adc2f374c7308466503838abd8589",
+    "authoritative_stdout.json": "177eba8a06f4e8510a1c25ec0f8ab77b99ec07e44ce7a1a918979d2f115e1cd9",
+    "outputs/summary.json": "177eba8a06f4e8510a1c25ec0f8ab77b99ec07e44ce7a1a918979d2f115e1cd9",
+    "outputs/episode_results.csv": "57378bf65a3b9f4405eedbb38c9b7172d188b53db71b2c907311ca6d2a0ff8ea",
+    "outputs/world_results.csv": "f22ec475b4d74d87e75e60438dab0763a914666451edfaf0295bc757cb1b7ea8",
+    "outputs/candidate_results.csv": "68d61b668a36286a1f705fbc26e576f9e1d90eddf200f165967d11c802a13976"
+  },
+  "large_csv_policy": "CSV outputs are deterministic run products and are not committed; hashes are retained for provenance."
+}

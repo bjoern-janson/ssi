@@ -1,0 +1,19 @@
+{
+  "protocol": "energy/experiments/lineage_v0/PREREGISTRATION.md",
+  "runner": "energy/experiments/lineage_v0/run_experiment.py",
+  "python": "3.13.5",
+  "numpy": "2.3.5",
+  "master_seed": 20260815,
+  "bootstrap_seed": 20260816,
+  "worlds": 64,
+  "episodes_per_world": 96,
+  "total_paired_episodes": 6144,
+  "local_output_sha256": {
+    "run_experiment.py": "71fbc3b8ba419b4a280b860533117cc337421fe1608b364ecd8578bbeced1a0a",
+    "RESULTS.md": "a2225975afe62aa6df9ef3ec6c131c0d4b2180bd99702598e6fdea470cc32944",
+    "episode_results.csv": "bec0a3b74fb87d41564f274f21104662c914e32d49e6a0a33d4e35ccc8b05612",
+    "summary.json": "d2ef8c7b8b15b1596182682214b75ac5d4d5502676b16cf2c7b980af34580950",
+    "world_results.csv": "9869c4345ecfff9d3d97a4af03cb0f1f8adbbfd9c0b95732fbb4e1113430f5c5"
+  },
+  "note": "episode_results.csv and world_results.csv are deterministic generated outputs. The compact summary is committed; the runner regenerates the full CSVs exactly under the recorded environment and seeds."
+}

@@ -1,0 +1,110 @@
+{
+  "status": "NOT_SUPPORTED_IN_FROZEN_GATED_ROUTING_SCOPE",
+  "scope": "Fresh synthetic heterogeneous executable repair worlds; similarity-only vs preregistered nearest-lineage-distance gated q/c routing; process CPU primary; final V2.x routing experiment; not physical energy.",
+  "base_v2_1_blob_sha": "e3e609dae6dc604b460623462f7c1bca666f22d5",
+  "gate_threshold_dmin": 0.34375,
+  "worlds": 64,
+  "episodes_per_world": 96,
+  "total_paired_episodes": 6144,
+  "gate_invocations": 276,
+  "gate_invocation_fraction": 0.044921875,
+  "mean_n_tested_G": 1.57275390625,
+  "mean_n_tested_S": 1.5501302083333333,
+  "mean_delta_n_G_minus_S": 0.022623697916666668,
+  "mean_delta_n_95pct_CI": [
+    0.011393229166666666,
+    0.03385416666666667
+  ],
+  "mean_route_cpu_G_ns": 69504.4736328125,
+  "mean_route_cpu_S_ns": 68671.31803385417,
+  "mean_delta_route_cpu_G_minus_S_ns": 833.1555989583333,
+  "mean_delta_route_cpu_95pct_CI_ns": [
+    444.9411499023437,
+    1229.347119140625
+  ],
+  "mean_eval_cpu_G_ns": 37810.029622395836,
+  "mean_eval_cpu_S_ns": 38282.732259114586,
+  "mean_delta_eval_cpu_G_minus_S_ns": -472.70263671875006,
+  "mean_delta_eval_cpu_95pct_CI_ns": [
+    -1010.8283935546875,
+    153.70460611979047
+  ],
+  "mean_total_cpu_G_ns": 108007.794921875,
+  "mean_total_cpu_S_ns": 107661.55615234375,
+  "mean_delta_total_cpu_G_minus_S_ns": 346.23876953125006,
+  "mean_delta_total_cpu_95pct_CI_ns": [
+    -225.10160319010413,
+    927.4834676106757
+  ],
+  "mean_delta_total_wall_G_minus_S_ns": 785.6573893229166,
+  "mean_delta_total_wall_95pct_CI_ns": [
+    210.82137858072926,
+    1343.8693196614583
+  ],
+  "fraction_G_total_cpu_cheaper": 0.4983723958333333,
+  "fraction_gate_open_but_costlier_overall": 0.029296875,
+  "invoked_only_mean_delta_total_cpu_ns": 2614.18115942029,
+  "invoked_only_fraction_G_cheaper": 0.34782608695652173,
+  "closed_only_mean_delta_total_cpu_ns": 239.56663258350375,
+  "mean_beta_calibration_cpu_ns_per_world": 6496621.65625,
+  "mean_beta_calibration_cpu_amortized_ns_per_episode": 67673.14225260417,
+  "quality_contract_all_worlds": true,
+  "evidence_ladder": {
+    "net_gated_executable_economy": false,
+    "quality_admissible": true,
+    "v2_2_supported": false
+  },
+  "transfer_tier_diagnostics": [
+    {
+      "noise_p": 0.15,
+      "episodes": 3072,
+      "gate_invocation_fraction": 0.00390625,
+      "mean_dmin": 0.18018595377604166,
+      "mean_delta_n_G_minus_S": 0.0016276041666666667,
+      "mean_delta_route_cpu_G_minus_S_ns": 321.4596354166667,
+      "mean_delta_eval_cpu_G_minus_S_ns": 159.97005208333334,
+      "mean_delta_total_cpu_G_minus_S_ns": 481.4222005208333,
+      "fraction_G_total_cpu_cheaper": 0.5042317708333334,
+      "fraction_gate_open_but_costlier": 0.0026041666666666665
+    },
+    {
+      "noise_p": 0.25,
+      "episodes": 2048,
+      "gate_invocation_fraction": 0.04638671875,
+      "mean_dmin": 0.242156982421875,
+      "mean_delta_n_G_minus_S": 0.0185546875,
+      "mean_delta_route_cpu_G_minus_S_ns": 576.9873046875,
+      "mean_delta_eval_cpu_G_minus_S_ns": -466.84033203125,
+      "mean_delta_total_cpu_G_minus_S_ns": 103.56884765625,
+      "fraction_G_total_cpu_cheaper": 0.50146484375,
+      "fraction_gate_open_but_costlier": 0.02978515625
+    },
+    {
+      "noise_p": 0.35,
+      "episodes": 1024,
+      "gate_invocation_fraction": 0.1650390625,
+      "mean_dmin": 0.283111572265625,
+      "mean_delta_n_G_minus_S": 0.09375,
+      "mean_delta_route_cpu_G_minus_S_ns": 2880.580078125,
+      "mean_delta_eval_cpu_G_minus_S_ns": -2382.4453125,
+      "mean_delta_total_cpu_G_minus_S_ns": 426.0283203125,
+      "fraction_G_total_cpu_cheaper": 0.474609375,
+      "fraction_gate_open_but_costlier": 0.1083984375
+    }
+  ],
+  "routing_branch_status": "CLOSED_AFTER_V2_2_BY_PREREGISTRATION",
+  "run_total_process_cpu_ns": 3359191745,
+  "run_total_wall_ns": 3360396438,
+  "environment": {
+    "timestamp_utc": "2026-08-15T16:55:34.474570+00:00",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "machine": "x86_64"
+  },
+  "not_measured": {
+    "physical_energy_joules": "NOT_MEASURED",
+    "gpu_time": "NOT_MEASURED",
+    "llm_tokens": "NOT_APPLICABLE"
+  }
+}

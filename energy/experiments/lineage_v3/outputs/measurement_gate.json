@@ -1,0 +1,18 @@
+{
+  "status": "NOT_RUN_MEASUREMENT_BOUNDARY_NOT_IDENTIFIED",
+  "gate_pass": false,
+  "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "cumulative_energy_interfaces": [],
+  "instantaneous_power_interfaces": [],
+  "msr_devices": [],
+  "tools": {
+    "perf": null,
+    "turbostat": null,
+    "likwid-perfctr": null,
+    "papi_avail": null
+  },
+  "probe_git_blob": "51d63e874b61bb721a4595a9ca0ef417a4a2b617",
+  "probe_local_blob_before_execution": "51d63e874b61bb721a4595a9ca0ef417a4a2b617",
+  "interpretation": "No directly readable cumulative physical-energy counter is exposed; V3 A/B treatment execution is prohibited by preregistration."
+}

@@ -1,0 +1,51 @@
+{
+  "experiment": "lineage_v2",
+  "status": "SUPPORTED_IN_FROZEN_HETEROGENEOUS_EXECUTABLE_SCOPE",
+  "branch": "agent/energy-suite",
+  "pre_execution_commits": {
+    "preregistration_commit": "0ba06d865c972e38c80237350d111879551ec543",
+    "runner_commit": "e1ceec0648d257894a6ca34240ca348acc6b9839"
+  },
+  "git_blobs": {
+    "PREREGISTRATION.md": "52fa680cedaf4d8bbb6d9ee4bf0f0888b79cccec",
+    "run_experiment.py": "7428151d1d64a827053cd3768105192f3c830a21"
+  },
+  "sha256": {
+    "PREREGISTRATION.md": "255e79d0eb17aecbd50019de8f61f7420a91c1b6c4f96f21bccf4d19fe4dae02",
+    "run_experiment.py": "6c62a861cd03d25bfabd1ec3329da057ef838ececc61e4862b3561cf166deb79",
+    "summary.json": "adf4a0ee28854d6f0b146174456a00a279f22618ed3ca93b412a8164e825b71d",
+    "episode_results.csv": "1fa6838cdcab0deec44173ef4721afea0ab146782c01cb0b6ff38e1d6bccf859",
+    "world_results.csv": "31bf7be8d5f65ac3b10aa744fa245fa5cc8d325862fad9a69c1501711c6eb446",
+    "candidate_evaluations.csv": "c98219ea0ce8632f9d7f9e422babf2e41a73918ea295bfd807a88f559933990c"
+  },
+  "raw_output_sizes_bytes": {
+    "PREREGISTRATION.md": 10176,
+    "run_experiment.py": 23242,
+    "summary.json": 6449,
+    "episode_results.csv": 931514,
+    "world_results.csv": 15009,
+    "candidate_evaluations.csv": 1766763
+  },
+  "authoritative_command": "python run_experiment.py",
+  "authoritative_run_exact_committed_bytes": true,
+  "discarded_preliminary_execution": {
+    "occurred": true,
+    "reason": "Local runner copy failed byte-level identity check against committed Git blob before result packaging.",
+    "used_for_inference": false
+  },
+  "raw_outputs": {
+    "episode_results.csv": "deterministically generated; hash recorded; not committed",
+    "world_results.csv": "deterministically generated; hash recorded; not committed",
+    "candidate_evaluations.csv": "deterministically generated; hash recorded; not committed"
+  },
+  "environment": {
+    "timestamp_utc": "2026-08-15T16:29:32.183240+00:00",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "run_total_process_cpu_ns": 3347203537,
+  "run_total_wall_ns": 3348492382
+}
