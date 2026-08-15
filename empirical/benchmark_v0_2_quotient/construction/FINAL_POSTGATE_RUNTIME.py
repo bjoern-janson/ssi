@@ -40,6 +40,24 @@ def _key(ref: list[str] | tuple[str, str]) -> str:
     return f"{ref[0]}|{ref[1]}"
 
 
+def _ref_tuple(ref: list[str] | tuple[str, str]) -> tuple[str, str]:
+    _key(ref)
+    return (ref[0], ref[1])
+
+
+def _surface_id(unit_id: str, relation_kind: str, left_ref, right_ref) -> tuple[str, str, tuple[str, str], tuple[str, str]]:
+    if type(unit_id) is not str or not unit_id or type(relation_kind) is not str or not relation_kind:
+        raise TypeError("unit_id and relation_kind required")
+    left = _ref_tuple(left_ref)
+    right = _ref_tuple(right_ref)
+    if left == right:
+        raise ValueError("surface requires two distinct references")
+    if left[0] != relation_kind or right[0] != relation_kind:
+        raise ValueError("surface relation-kind mismatch")
+    a, b = sorted((left, right), key=_key)
+    return unit_id, relation_kind, a, b
+
+
 def _validate_coordinates(coordinates: dict[str, int]) -> tuple[str, ...]:
     if type(coordinates) is not dict or len(coordinates) != PATH_COUNT:
         raise TypeError("24-entry coordinate map required")
@@ -82,9 +100,9 @@ def evaluate_first_endpoint(
     _validate_coordinates(coordinates)
     pair_scan, candidate_ids = scan_all_pair_slots(matrix, coordinates)
     expected = {
-        (
+        _surface_id(
             surface["unit_id"], surface["relation_kind"],
-            tuple(surface["left_ref"]), tuple(surface["right_ref"]),
+            surface["left_ref"], surface["right_ref"],
         )
         for surface in domain["path_surfaces"]
     }
@@ -93,9 +111,9 @@ def evaluate_first_endpoint(
 
     rows = {}
     for row in grounded_surfaces:
-        ident = (
+        ident = _surface_id(
             row["unit_id"], row["relation_kind"],
-            tuple(row["left_ref"]), tuple(row["right_ref"]),
+            row["left_ref"], row["right_ref"],
         )
         if ident in rows:
             raise ValueError("duplicate grounded path surface")
@@ -110,8 +128,6 @@ def evaluate_first_endpoint(
         unit_id, relation_kind, left_ref, right_ref = ident
         left = list(left_ref)
         right = list(right_ref)
-        if left[0] != relation_kind or right[0] != relation_kind:
-            raise ValueError("surface relation-kind mismatch")
         lk = _key(left)
         rk = _key(right)
         if lk not in coordinates or rk not in coordinates:
