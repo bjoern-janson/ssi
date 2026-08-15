@@ -1,0 +1,87 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "closure_id": "VFA-0.2-I-EXECUTION-CLOSURE-1",
+  "principle": "Anything capable of changing the declared experiment must be either a frozen packet member or a realized object admitted by a frozen prospective rule.",
+  "runtime": {
+    "python_implementation": "CPython",
+    "python_version": "3.13.5",
+    "third_party_python_dependencies": [],
+    "dynamic_plugin_loading": "PROHIBITED",
+    "network_during_arm_evaluation": "PROHIBITED",
+    "randomness": "NONE",
+    "hidden_seed": "PROHIBITED",
+    "concurrency": "NONE_SINGLE_THREAD",
+    "persistent_cache": "NONE"
+  },
+  "environment": {
+    "arm_visible_environment_variables": [],
+    "undeclared_environment_variable_read": "PROHIBITED",
+    "working_directory": "isolated benchmark workspace only",
+    "external_config_search": "PROHIBITED",
+    "user_home_config": "PROHIBITED",
+    "cwd_parent_traversal": "PROHIBITED",
+    "locale_or_timezone_as_endpoint_input": "PROHIBITED"
+  },
+  "filesystem": {
+    "allowed_pre_freeze_inputs": "exact packet-member bytes only",
+    "allowed_post_freeze_inputs": [
+      "the one realized common grounding envelope admitted by the frozen G chain",
+      "the exact selected-release official executable admitted by FUTURE_EXECUTION_ARTIFACT_CONTRACT",
+      "isolated temporary witness filesystems reconstructed by FUTURE_WITNESS_EXTRACTOR"
+    ],
+    "undeclared_external_file": "RUN_REJECTED",
+    "mixed_lineage_member": "RUN_REJECTED"
+  },
+  "future_executable": {
+    "selection": "exact-version official @biomejs/cli-linux-x64 artifact resolved by FUTURE_EXECUTION_ARTIFACT_CONTRACT",
+    "source_build_fallback": "PROHIBITED",
+    "platform_fallback": "PROHIBITED",
+    "later_release_substitution": "PROHIBITED",
+    "integrity_failure": "NOT_IDENTIFIED under the selected event; no substitution"
+  },
+  "configuration_identity": {
+    "packet_member_identity": "Git blob SHA-1 computed over loaded bytes must equal the manifest member blob",
+    "packet_root_identity": "canonical packet-manifest SHA-256 must equal the authorization certificate",
+    "execution_root_identity": "canonical execution-required member-set SHA-256 must equal the authorization certificate",
+    "extra_loaded_member": "RUN_REJECTED",
+    "missing_loaded_member": "RUN_REJECTED",
+    "same_path_wrong_blob": "RUN_REJECTED"
+  },
+  "authorization_identity": {
+    "certificate_must_bind": [
+      "benchmark_id",
+      "packet_sha256",
+      "execution_root_sha256",
+      "freeze_commit_sha",
+      "freeze_timestamp_utc",
+      "A_through_I_PASS",
+      "evaluation_rule_blob",
+      "future_obligation_rule_blob",
+      "H_residual_set"
+    ],
+    "old_pass_labels_on_new_packet": "RUN_REJECTED"
+  },
+  "realized_object_policy": {
+    "realized_record_may_append": [
+      "selected future obligation identity",
+      "selection trace identity",
+      "official artifact hashes and integrity",
+      "future witness execution hashes",
+      "T_future consequence identities",
+      "J_future grounding rows",
+      "kernel adjudication",
+      "commit/disclosure/deadline timestamps",
+      "execution record and result identities"
+    ],
+    "realized_record_may_override_frozen_rule": false,
+    "realized_record_may_change_packet_digest": false,
+    "realized_record_may_change_authorization_certificate": false
+  },
+  "state_machine": [
+    "CONSTRUCTION_AH_PASS_I_OPEN",
+    "AUTHORIZED_FUTURE_NOT_YET_REALIZED",
+    "AUTHORIZED_FUTURE_REALIZED",
+    "AUTHORIZED_EXECUTED_RESULT_IMMUTABLE"
+  ],
+  "fail_closed": "Any undeclared dependency or identity mismatch rejects execution; no statistical compensation, repair, or fallback is permitted inside the confirmatory lineage."
+}
