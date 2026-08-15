@@ -1,7 +1,7 @@
 {
   "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
   "audit_identity": "VFA-0.2-QUOTIENT-AUTHORIZATION-REAUDIT-1",
-  "audit_status": "OPEN_NEXT_F",
+  "audit_status": "OPEN_NEXT_G",
   "governing_contract": {
     "source": "empirical/benchmark_v0_1/CONSTRUCTION_AUDIT.md",
     "source_git_blob_sha": "b154ce1089795f4e0356155b1776c94260d0f8c6",
@@ -46,8 +46,19 @@
       "basis": "capacity, information exposure, and execution are frozen symmetrically around the quotient treatment; raw Gamma labels are hidden behind a fixed 576-byte equivalence-matrix view; logical post-gate materialization and pair-scan schedules are equal; 192 hostile metamorphic cost comparisons have zero mismatches",
       "scope": "deterministic logical resource/operation equality; no CPU-cycle, joule, cache-miss, or wall-clock equality claim; realized common future-bundle conformance remains predicate G"
     },
-    "F": {"adjudication": "NOT_EVALUATED", "reason": "next authorization predicate; treatment-isolation and hidden-asymmetry audit has not yet been executed for the E-hardened quotient environment"},
-    "G": {"adjudication": "NOT_EVALUATED", "reason": "stop before later authorization predicates"},
+    "F": {
+      "adjudication": "PASS",
+      "evidence": [
+        {"path": "empirical/benchmark_v0_2_quotient/construction/F_TREATMENT_ISOLATION_MANIFEST.json", "git_blob_sha": "a5ac504539c3ece79d2ef69097dc281a01d16bea"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/F_TREATMENT_ISOLATION_ATTACK.py", "git_blob_sha": "cd38969da76d1be70a17d3fa1d7c37ce0b25ee51"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/f_treatment_isolation_audit.json", "git_blob_sha": "c60af5b69e67df2864d0eb04ac650a734092e342"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/F_TREATMENT_ISOLATION_PASS.md", "git_blob_sha": "aeac65599a46079740125c3aa6b0ab217ff03809"}
+      ],
+      "basis": "after masking the full declared equivalence relation M_Gamma and preregistered deterministic consequences, 64/64 metamorphic A/B pairs have exactly identical residual observable vectors; three blind holdout classifiers remain at 0.5 accuracy; zero material undeclared distinguishers and zero unclassified observables remain",
+      "sensitivity_control": "raw repository filename, raw equivalence-label namespace, and raw Gamma hash recover arm identity at 1.0 accuracy, but are classified non-material only because the E-hardened trusted materialization boundary blocks them from arm/evaluator exposure",
+      "scope": "F conditions on the full declared equivalence relation M_Gamma; Phi_path is a structural descriptor rather than the complete treatment object"
+    },
+    "G": {"adjudication": "NOT_EVALUATED", "reason": "next authorization predicate; future-obligation independence and common-cause disclosure mechanism has not yet been re-audited for the quotient lineage"},
     "H": {"adjudication": "NOT_EVALUATED", "reason": "stop before later authorization predicates"},
     "I": {"adjudication": "NOT_EVALUATED", "reason": "A-H are not all PASS and freeze packet is not assembled"}
   },
@@ -60,5 +71,5 @@
     "authorization_certificate": "NOT_ISSUED",
     "future_run": "NOT_AUTHORIZED"
   },
-  "current_conclusion": "construction valid; A-E authorization predicates pass; authorization not yet valid; future hypothesis not tested"
+  "current_conclusion": "construction valid; A-F authorization predicates pass; authorization not yet valid; future hypothesis not tested"
 }
