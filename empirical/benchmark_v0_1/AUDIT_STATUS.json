@@ -1,0 +1,44 @@
+{
+  "benchmark_id": "independent-future-adaptation-v0.1",
+  "adjudication_basis_through_commit": "9067a05bab279521c66333d3a445dc87ac4547c1",
+  "predicates": {
+    "A": {
+      "status": "PASS",
+      "evidence": "empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md",
+      "evidence_sha256": "3234728a690d8e5f2b6e3b806d1d4d174836c0e94232b479dd729029055add3a"
+    },
+    "B": {
+      "status": "PASS",
+      "evidence": "empirical/benchmark_v0_1/evidence/B_CONSTRUCTION.md",
+      "state_A_sha256": "353113d6e93717d037f7de4d46e686423ec7cfb165fead77397561de0bedaa3f",
+      "state_B_sha256": "2952ada6d4a27acf05200097cc4b3b55161afae3afeecb6cd926ceef4555cb8a",
+      "phi_measurement_sha256": "18d01e9262abb8f4e13caab0260f399a198a50b36c83d4896e5be66455d12b8e"
+    },
+    "C": {
+      "status": "PASS",
+      "evidence": "empirical/benchmark_v0_1/evidence/C_D_PRE_FREEZE_AUDIT.md",
+      "audit_sha256": "523fbe8211253b8d8c859322f4dda48272f6a6c5c74650746c037a0053e3f94d"
+    },
+    "D": {
+      "status": "FAIL",
+      "evidence": "empirical/benchmark_v0_1/evidence/C_D_PRE_FREEZE_AUDIT.md",
+      "reason": "A and B are not ordinary-adaptation equivalent on the exhaustive deterministic pre-freeze surrogate universe",
+      "task_count": 249,
+      "A_mean_recovery_recall": 0.8646921017402945,
+      "B_mean_recovery_recall": 0.8494979919678715,
+      "A_full_recovery_rate": 0.4738955823293173,
+      "B_full_recovery_rate": 0.4497991967871486,
+      "differing_task_count": 29
+    },
+    "E": {"status": "NOT_EVALUATED"},
+    "F": {"status": "NOT_EVALUATED"},
+    "G": {"status": "NOT_EVALUATED"},
+    "H": {"status": "NOT_EVALUATED"},
+    "I": {"status": "NOT_EVALUATED"}
+  },
+  "freeze_packet": "NOT_FROZEN",
+  "authorization_certificate": "NOT_ISSUED",
+  "run": "NOT_AUTHORIZED",
+  "blocking_predicate": "D",
+  "audit_policy": "first failed material gate stops the confirmatory shot; later outcome cannot repair authorization"
+}
