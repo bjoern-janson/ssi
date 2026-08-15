@@ -1,43 +1,48 @@
 {
   "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
-  "contract_id": "VFA-0.2-FUTURE-CONSEQUENCE-GROUNDING-1",
+  "contract_id": "VFA-0.2-FUTURE-CONSEQUENCE-GROUNDING-2",
   "target": "Identify whether the prospectively selected future obligation distinguishes source facts whose revision paths q merged, without any arm, Gamma, Phi_path, reachability, or downstream-outcome input.",
   "formal_object": {
-    "T_future": "For frozen current witness w_f, T_future(f) is the canonical semantic JSON-tree delta from w_f to the configuration produced by the selected future Biome release's own migrate --write operation on w_f.",
+    "T_future": "For frozen cutoff-result filesystem w_f, T_future(f) is the canonical semantic EFFECT delta from w_f to the filesystem produced by the selected future Biome release's own migrate --write operation on w_f.",
     "J_future": "For a frozen grounding pair (f_i,f_j): DISTINGUISHED iff both T_future signatures are identified and unequal; EQUIVALENT iff both are identified and equal; NOT_IDENTIFIED otherwise.",
-    "kernel_test": "kernel(q) subset kernel(T_future) iff no identified q-kernel grounding unit is DISTINGUISHED and there is no NOT_IDENTIFIED unit preventing the requested inclusion claim. A DISTINGUISHED grounding unit is a direct non-inclusion witness."
+    "kernel_test": "A DISTINGUISHED grounding unit is a direct witness that q merged a source-fact distinction whose future migration consequence is non-equivalent. If every unit is EQUIVALENT, inclusion holds on the frozen q-kernel grounding domain. Any NOT_IDENTIFIED unit with no DISTINGUISHED witness leaves the inclusion question NOT_IDENTIFIED."
   },
   "external_consequence_contract": {
     "future_release_identity": "the single event selected by the frozen predicate-G first-qualifying rule",
-    "execution_location": "global treatment-blind grounding stage outside both arms",
-    "inputs": ["selected future Biome release executable from the common obligation bundle", "six frozen current biome.json witnesses"],
-    "per_witness_invocation": "place exactly one frozen witness at biome.json in an isolated empty working directory and invoke the selected release's migrate --write operation under the frozen common environment",
+    "execution_location": "one global treatment-blind grounding stage outside both arms",
+    "inputs": ["selected future Biome release executable from the common obligation bundle", "six frozen cutoff-result configuration filesystems"],
+    "per_witness_invocation": "materialize exactly the frozen witness filesystem in an otherwise empty isolated working directory and invoke the selected release's migrate --write operation under the frozen common environment",
     "repeat_count": 2,
     "network": "PROHIBITED",
     "arm_specific_files": "PROHIBITED",
     "Gamma_or_treatment_access": "PROHIBITED",
+    "output_collection": "collect exactly the same frozen configuration-file path set after migration; any missing or extra configuration path makes T_future for that witness NOT_IDENTIFIED",
     "successful_identification_requires": [
       "both repeated invocations complete under the same logical execution contract",
-      "both produce a biome.json file",
-      "both produced biome.json files strict-JSON parse successfully",
-      "the two canonical future outputs are identical",
-      "the two canonical delta signatures are identical"
+      "both return success",
+      "both retain exactly the frozen configuration-file path set",
+      "every resulting configuration file strict-JSON parses",
+      "the two canonical future filesystems are identical",
+      "the two canonical effect-delta signatures are identical"
     ],
     "otherwise": "T_future(f)=NOT_IDENTIFIED"
   },
-  "delta_semantics": {
+  "effect_delta_semantics": {
+    "filesystem_paths": "semantic and preserved",
     "object_key_order": "representation only",
     "whitespace": "representation only",
     "array_order": "preserved as semantic data",
     "scalar_values": "preserved as semantic data",
-    "mapping_delta": "recursively emit ADD/REMOVE/REPLACE operations over sorted JSON-pointer paths",
-    "array_delta": "if unequal, REPLACE the array value at its JSON-pointer path",
-    "canonical_signature": "canonical JSON serialization of the ordered delta operation list",
-    "manual field exclusions": [],
-    "rationale": "No future field is hand-labelled as relevant or irrelevant. The selected release's observable migration consequence on each frozen current witness defines T_future."
+    "mapping_delta": "recursively emit ADD/REMOVE/REPLACE operations over sorted file-qualified JSON-pointer paths",
+    "array_delta": "if unequal, REPLACE the array value at its file-qualified JSON-pointer path",
+    "effect_not_prehistory": "REMOVE records operation and path only; ADD and REPLACE record operation, path, and resulting value. Pre-state values are not part of T_future's signature.",
+    "canonical_signature": "canonical JSON serialization of the ordered effect-operation list",
+    "manual field_exclusions": [],
+    "rationale": "T_future represents what the future migration requires this witness to become, not a fingerprint of irrelevant pre-existing content. No future field is manually promoted or excluded."
   },
   "grounding_domain": "construction/FUTURE_GROUNDING_DOMAIN.json",
   "witness_manifest": "construction/FUTURE_CONSEQUENCE_WITNESSES.json",
+  "witness_extractor": "construction/FUTURE_WITNESS_EXTRACTOR.py",
   "coverage": {
     "grounding_units": 3,
     "path_surfaces": 12,
@@ -48,12 +53,13 @@
   "independence": {
     "runtime_forbidden_inputs": ["arm", "treatment", "Gamma_A", "Gamma_B", "M_Gamma", "Phi_path", "DeltaPi", "Reach", "future A/B performance", "outcome"],
     "domain_origin": "The grounding domain is derived once from q before future disclosure. J_future receives the frozen domain, not Gamma at runtime.",
-    "future_event_selection": "inherited from G; J_future cannot choose or replace the selected release"
+    "future_event_selection": "inherited from G; J_future cannot choose or replace the selected release",
+    "future_consequence_source": "the selected release's observable migration effect on the complete frozen witness set"
   },
   "status_semantics": {
-    "DISTINGUISHED": "the future migration consequence signatures differ",
-    "EQUIVALENT": "the future migration consequence signatures are exactly equal",
-    "NOT_IDENTIFIED": "at least one consequence signature is not identified; distinct from EQUIVALENT and never imputed"
+    "DISTINGUISHED": "the future migration effect signatures differ",
+    "EQUIVALENT": "the future migration effect signatures are exactly equal",
+    "NOT_IDENTIFIED": "at least one effect signature is not identified; distinct from EQUIVALENT and never imputed"
   },
   "postgate_link": {
     "semantic_contract_version": "VFA-0.2-POSTGATE-SEMANTIC-CONTRACT-2 candidate",
@@ -62,11 +68,12 @@
   "attack_requirements": [
     "runtime grounding functions have no forbidden treatment inputs",
     "frozen domain exactly covers all q-kernel path surfaces and no favorable subset",
-    "all six B-manifest witnesses are present exactly once",
+    "all six B-manifest witnesses are present exactly once and reconstruct the complete expected cutoff-result filesystems",
     "JSON representation rewrites leave T_future and J_future unchanged",
-    "synthetic equal consequences produce EQUIVALENT",
-    "synthetic unequal consequences produce DISTINGUISHED",
-    "parse failure, execution failure, or nondeterministic repeats produce NOT_IDENTIFIED",
+    "irrelevant pre-state value differences do not by themselves alter equal future effect signatures",
+    "synthetic equal future effects produce EQUIVALENT",
+    "synthetic unequal future effects produce DISTINGUISHED",
+    "parse failure, execution failure, path-set drift, or nondeterministic repeats produce NOT_IDENTIFIED",
     "relation-kind lifts inherit the grounding-unit status without creating extra independent evidence"
   ],
   "authority_boundary": {
