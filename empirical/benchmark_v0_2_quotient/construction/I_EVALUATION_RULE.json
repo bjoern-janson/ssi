@@ -1,0 +1,89 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "rule_id": "VFA-0.2-I-EVALUATION-RULE-1",
+  "primary_prospective_object": "kernel(q) subset kernel(T_future) on the complete frozen q-kernel source-fact domain",
+  "primary_units": {
+    "count": 3,
+    "identity_source": "construction/FUTURE_GROUNDING_DOMAIN.json",
+    "units": [
+      "qk:ariakit|aws",
+      "qk:issue_5465|knip",
+      "qk:nested|sentry"
+    ],
+    "census_not_sample": true
+  },
+  "primary_adjudication": {
+    "NONINCLUSION_WITNESS": "at least one complete-domain grounding unit is DISTINGUISHED; this is a direct witness that kernel(q) is not a subset of kernel(T_future) on the frozen domain",
+    "INCLUSION_ON_FROZEN_KERNEL_DOMAIN": "all three units are EQUIVALENT and none is NOT_IDENTIFIED",
+    "NOT_IDENTIFIED": "no unit is DISTINGUISHED and at least one unit is NOT_IDENTIFIED",
+    "favorable_subset_selection": "PROHIBITED"
+  },
+  "confirmatory_direction": "a treatment-blind NONINCLUSION_WITNESS supports positive future corrective option value for at least one distinction that had zero measured ordinary pre-freeze behavioral value",
+  "secondary_endpoint": {
+    "object": "licensed COMPARE reachability on all 12 relation-kind surfaces",
+    "status": "MECHANISM_LOCALIZATION_ONLY",
+    "independent_observation_claim": false,
+    "aggregation": "report all component surfaces; no scalar utility score"
+  },
+  "representation_and_equality": {
+    "future_effect_equality": "exact equality of canonical semantic effect signatures",
+    "numerical_tolerance": null,
+    "equivalence_margin": "EXACT",
+    "representation_rewrites": "only transformations frozen by FUTURE_CONSEQUENCE_GROUNDING_CONTRACT and FINAL_POSTGATE_SEMANTIC_CONTRACT"
+  },
+  "uncertainty_and_testing": {
+    "inferential_test": "NONE",
+    "p_values": "PROHIBITED_AS_AUTHORITY",
+    "confidence_interval": "NOT_APPLICABLE_TO_COMPLETE_DETERMINISTIC_DOMAIN",
+    "determinism_check": "two repeated future migration executions per frozen witness; disagreement yields NOT_IDENTIFIED"
+  },
+  "multiplicity": {
+    "statistical_multiplicity_adjustment": "NOT_APPLICABLE",
+    "reason": "three preregistered units form the complete frozen q-kernel source-fact domain and are all reported",
+    "twelve_surface_pseudoreplication": "PROHIBITED"
+  },
+  "stopping_and_timeout": {
+    "release_substitution": "PROHIBITED",
+    "artifact_fallback": "PROHIBITED",
+    "topology_dependent_early_stop": "PROHIBITED",
+    "logical_schedule": "all six witnesses, three grounding units, 276 pair/probe-generation slots, and 12 target result slots are processed or fail closed under their frozen contracts",
+    "physical_time": "not an endpoint or authority source under this construction"
+  },
+  "missingness": {
+    "NOT_IDENTIFIED": "distinct from EQUIVALENT and DISTINGUISHED; never imputed",
+    "noninclusion_with_other_missing_units": "a DISTINGUISHED unit remains a valid direct non-inclusion witness even if another unit is NOT_IDENTIFIED",
+    "inclusion_with_any_missing_unit": "PROHIBITED"
+  },
+  "failure_abstention": {
+    "execution_or_parse_failure": "NOT_IDENTIFIED",
+    "nondeterministic_repeat": "NOT_IDENTIFIED",
+    "invalid_common-cause conformance": "CONFIRMATORY_EXECUTION_INVALID",
+    "packet_or_certificate_mismatch": "RUN_REJECTED"
+  },
+  "collateral_accounting": {
+    "first_endpoint": "NOT_APPLICABLE",
+    "rule": "the first endpoint does not claim final correction quality, fresh-evidence validation, collateral safety, CCA/CARS success, or viability gain"
+  },
+  "exclusion_rule": {
+    "after_first_qualifying_event_selected": "no outcome-dependent exclusion or replacement is permitted",
+    "execution_incompatibility": "preserve selected event and return NOT_IDENTIFIED where specified; do not substitute another release"
+  },
+  "theory_update_scope": {
+    "supports_if_noninclusion": "present behavioral equivalence did not certify future corrective equivalence on the frozen q-kernel domain; preserved revision distinctions had prospective corrective option value",
+    "does_not_establish": [
+      "fresh-evidence validation",
+      "CCA correctness",
+      "CARS authorization",
+      "final adaptation success",
+      "viability gain",
+      "general transport beyond the frozen Biome construction"
+    ],
+    "conditional_compare_reachability": "mechanism localization, not independent prospective evidence"
+  },
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "realized_T_future": "NOT_EVALUATED",
+    "realized_J_future": "NOT_EVALUATED",
+    "Delta_Pi": "NOT_EVALUATED"
+  }
+}
