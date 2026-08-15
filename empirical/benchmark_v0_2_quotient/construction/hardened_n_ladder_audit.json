@@ -1,0 +1,86 @@
+{
+  "D_pre_activation_hardened": {
+    "adjudication": "PASS",
+    "scope": "PREACTIVATION_CALLER_V1"
+  },
+  "audit_identity": "VFA-0.2-HARDENED-N-LADDER-ATTACK-1",
+  "authorization": {
+    "G_activation": "PROHIBITED",
+    "authorization_certificate": "NOT_ISSUED",
+    "freeze_packet": "NOT_FROZEN",
+    "future_run": "NOT_AUTHORIZED"
+  },
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "certificates": {
+    "D_semantic": true,
+    "D_topology": true,
+    "F_comp_q_equals_F": true,
+    "N0_endpoint": {
+      "mismatch_count": 0,
+      "pass": true,
+      "tasks": 249
+    },
+    "N1_full_trace": {
+      "mismatch_count": 0,
+      "pass": true,
+      "tasks": 249
+    },
+    "N2_metamorphic_behavior": {
+      "comparisons": 101592,
+      "gamma_variants": 34,
+      "mismatch_count": 0,
+      "mismatches": [],
+      "pass": true,
+      "pressure_levels": [0, 3, 17],
+      "query_variants_per_task": 4,
+      "wall_clock_invariance_claimed": false
+    },
+    "N3_transitive_nonuse": {
+      "gate_behavioral_noninterference": {
+        "comparisons": 170,
+        "mismatch_count": 0,
+        "mismatches": [],
+        "pass": true
+      },
+      "module_global_poisoning": {
+        "comparisons": 2988,
+        "mismatch_count": 0,
+        "mismatches": [],
+        "pass": true
+      },
+      "pass": true,
+      "static_call_graph": {
+        "pass": true,
+        "roots": {
+          "evaluate_gate": {
+            "forbidden_hits": [],
+            "pass": true,
+            "reachable_functions": ["evaluate_gate"]
+          },
+          "forward_trace": {
+            "forbidden_hits": [],
+            "pass": true,
+            "reachable_functions": ["_edge_key", "_jaccard", "forward_trace"]
+          }
+        }
+      }
+    },
+    "N4_capability_surface": {
+      "accepted": 0,
+      "accepted_details": [],
+      "attempts": 530,
+      "pass": true,
+      "rejected": 530,
+      "required_semantics": "Gamma/revision-topology capability must be rejected at preactivation interfaces, not merely ignored"
+    }
+  },
+  "future_obligation_accessed": false,
+  "prospective": {
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED"
+  },
+  "threat_model": {
+    "id": "PREACTIVATION_CALLER_V1",
+    "scope": "FROZEN_CALLER_CAPABILITY_MODEL"
+  }
+}
