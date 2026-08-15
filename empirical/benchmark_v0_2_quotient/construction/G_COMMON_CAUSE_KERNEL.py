@@ -74,17 +74,17 @@ class SelectionTrace:
 
 
 @dataclass(frozen=True, slots=True)
-class CommonBundleCommitment:
+class CommonBundle:
     selected_candidate_id: str
     selection_trace_sha256: str
     selected_at: str
     bundle_committed_at: str
     disclose_at: str
     deadline_at: str
+    payload: bytes
+    evidence: bytes
     payload_sha256: str
     evidence_sha256: str
-    payload_bytes: int
-    evidence_bytes: int
     commitment_sha256: str
 
 
@@ -137,8 +137,10 @@ def commit_common_bundle(
     bundle_committed_at: str,
     disclose_at: str,
     deadline_at: str,
-) -> CommonBundleCommitment:
-    """Create one global bundle commitment before any arm receives it."""
+) -> CommonBundle:
+    """Create one immutable common bundle before either arm receives it."""
+    if type(trace) is not SelectionTrace:
+        raise TypeError("SelectionTrace required")
     if trace.selected_candidate_id == "NO_QUALIFYING_OBLIGATION":
         raise ValueError("no obligation to package")
     if type(payload) is not bytes or type(evidence) is not bytes:
@@ -164,16 +166,29 @@ def commit_common_bundle(
         "payload_bytes": len(payload),
         "evidence_bytes": len(evidence),
     }
-    return CommonBundleCommitment(**core, commitment_sha256=_sha(_canonical(core)))
+    return CommonBundle(
+        selected_candidate_id=trace.selected_candidate_id,
+        selection_trace_sha256=trace.sha256,
+        selected_at=selected_at,
+        bundle_committed_at=bundle_committed_at,
+        disclose_at=disclose_at,
+        deadline_at=deadline_at,
+        payload=payload,
+        evidence=evidence,
+        payload_sha256=core["payload_sha256"],
+        evidence_sha256=core["evidence_sha256"],
+        commitment_sha256=_sha(_canonical(core)),
+    )
 
 
-def arm_view(commitment: CommonBundleCommitment) -> tuple[str, str, str, str]:
-    """Common view has no arm argument; both recipients must use this exact object."""
-    if type(commitment) is not CommonBundleCommitment:
-        raise TypeError("CommonBundleCommitment required")
+def arm_view(bundle: CommonBundle) -> tuple[bytes, bytes, str, str, str]:
+    """Common view has no arm argument; both recipients use this exact bundle."""
+    if type(bundle) is not CommonBundle:
+        raise TypeError("CommonBundle required")
     return (
-        commitment.commitment_sha256,
-        commitment.payload_sha256,
-        commitment.evidence_sha256,
-        commitment.disclose_at,
+        bundle.payload,
+        bundle.evidence,
+        bundle.disclose_at,
+        bundle.deadline_at,
+        bundle.commitment_sha256,
     )
