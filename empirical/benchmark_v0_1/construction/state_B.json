@@ -1,0 +1,139 @@
+{
+  "arm": "B",
+  "benchmark_id": "independent-future-adaptation-v0.1",
+  "case_count": 6,
+  "direct_historical_pairs": {
+    "ariakit": {
+      "features": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "IMPORT_ACTION_MODEL_MIGRATION",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ],
+      "input_locator": {
+        "git_blob_sha1": "4e9d629645b23af728d1145bd7c26d0ae3e5ac7c",
+        "test_function": "should_successfully_migrate_ariakit"
+      },
+      "output_snapshot_git_blob_sha1": "6afbb5fa2b7dc7791596f45af99fc56a02385d2a"
+    },
+    "aws": {
+      "features": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "RULE_ID_REPLACEMENT",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ],
+      "input_locator": {
+        "git_blob_sha1": "4e9d629645b23af728d1145bd7c26d0ae3e5ac7c",
+        "test_function": "should_migrate_aws_config"
+      },
+      "output_snapshot_git_blob_sha1": "2ae1e3acf91568190079695c138a38d7750a1111"
+    },
+    "issue_5465": {
+      "features": [
+        "RULE_GROUP_RELOCATION"
+      ],
+      "input_locator": {
+        "git_blob_sha1": "4e9d629645b23af728d1145bd7c26d0ae3e5ac7c",
+        "test_function": "should_migrate_issue_5465"
+      },
+      "output_snapshot_git_blob_sha1": "91f096105cf96900b5e6ee10388bda9a5c940934"
+    },
+    "knip": {
+      "features": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "IMPORT_ACTION_MODEL_MIGRATION",
+        "OVERRIDE_SELECTOR_MIGRATION",
+        "RULE_GROUP_RELOCATION",
+        "RULE_ID_REPLACEMENT",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ],
+      "input_locator": {
+        "git_blob_sha1": "4e9d629645b23af728d1145bd7c26d0ae3e5ac7c",
+        "test_function": "should_successfully_migrate_knip"
+      },
+      "output_snapshot_git_blob_sha1": "9d8c80e3bead3e126196fcda3fc0400b87cf5a83"
+    },
+    "nested": {
+      "features": [
+        "NESTED_CONFIG_ROOT_MIGRATION",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ],
+      "input_locator": {
+        "git_blob_sha1": "4e9d629645b23af728d1145bd7c26d0ae3e5ac7c",
+        "test_function": "should_migrate_nested_config"
+      },
+      "output_snapshot_git_blob_sha1": "c922fe4ecc3603a658bce07cf12ee8125fee83e5"
+    },
+    "sentry": {
+      "features": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "FORMATTER_FILTER_MODEL_MIGRATION",
+        "IMPORT_ACTION_MODEL_MIGRATION",
+        "OVERRIDE_SELECTOR_MIGRATION",
+        "RULE_GROUP_RELOCATION",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ],
+      "input_locator": {
+        "git_blob_sha1": "4e9d629645b23af728d1145bd7c26d0ae3e5ac7c",
+        "test_function": "should_successfully_migrate_sentry"
+      },
+      "output_snapshot_git_blob_sha1": "f045f4304519f41b2980f966f3b44d7f57ae146f"
+    }
+  },
+  "edge_count": 15,
+  "edge_semantics": "cross-case analogy/provenance affinity",
+  "scramble_order": [
+    "aws|knip",
+    "ariakit|sentry",
+    "aws|issue_5465",
+    "aws|sentry",
+    "nested|sentry",
+    "knip|nested",
+    "issue_5465|sentry",
+    "knip|sentry",
+    "ariakit|knip",
+    "issue_5465|nested",
+    "issue_5465|knip",
+    "ariakit|nested",
+    "ariakit|aws",
+    "aws|nested",
+    "ariakit|issue_5465"
+  ],
+  "scramble_rule": "sha256-seeded edge order; cyclic weight rotation by +1",
+  "scramble_seed": "ssi-independent-future-adaptation-v0.1/B/topology-scramble/1",
+  "topology_is_complete_graph": true,
+  "topology_weights": {
+    "ariakit|aws": 0.25,
+    "ariakit|issue_5465": 0.5,
+    "ariakit|knip": 0.0,
+    "ariakit|nested": 0.5,
+    "ariakit|sentry": 0.0,
+    "aws|issue_5465": 0.2857142857142857,
+    "aws|knip": 0.5,
+    "aws|nested": 0.0,
+    "aws|sentry": 0.14285714285714285,
+    "issue_5465|knip": 0.25,
+    "issue_5465|nested": 0.16666666666666666,
+    "issue_5465|sentry": 0.7142857142857143,
+    "knip|nested": 0.16666666666666666,
+    "knip|sentry": 0.5,
+    "nested|sentry": 0.14285714285714285
+  },
+  "treatment": "fixed_weight_multiset_scramble",
+  "upstream": {
+    "commit": "b51d8b1598effd064c3490c3866d5b2d60ebd5f8",
+    "repository": "biomejs/biome",
+    "snapshot_tree": {
+      "git_tree_sha1": "d24f2716b94d1537294c915d82a6084ca6f517fa",
+      "path": "crates/biome_cli/tests/snapshots/main_cases_migrate_v2"
+    },
+    "test_source": {
+      "git_blob_sha1": "4e9d629645b23af728d1145bd7c26d0ae3e5ac7c",
+      "path": "crates/biome_cli/tests/cases/migrate_v2.rs"
+    }
+  },
+  "weight_range": [
+    0.0,
+    1.0
+  ],
+  "weight_semantics": "stored migration-class similarity"
+}
