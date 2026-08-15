@@ -1,0 +1,47 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "domain_id": "VFA-0.2-FUTURE-GROUNDING-DOMAIN-1",
+  "source": {
+    "quotient_map": "construction/QUOTIENT_MAP.json",
+    "rule": "Take every nontrivial q-kernel pair, replace raw path IDs by canonical semantic references (relation_kind, source_fact_id), then quotient duplicate relation-kind surfaces by unordered source_fact_id pair to obtain grounding units. No future information is used."
+  },
+  "grounding_units": [
+    {
+      "unit_id": "case:ariakit|case:aws",
+      "left_fact_id": "case:ariakit",
+      "right_fact_id": "case:aws"
+    },
+    {
+      "unit_id": "case:issue_5465|case:knip",
+      "left_fact_id": "case:issue_5465",
+      "right_fact_id": "case:knip"
+    },
+    {
+      "unit_id": "case:nested|case:sentry",
+      "left_fact_id": "case:nested",
+      "right_fact_id": "case:sentry"
+    }
+  ],
+  "relation_kinds": ["PROVENANCE", "CHALLENGE", "ALTERNATIVE", "REOPEN"],
+  "path_surfaces": [
+    {"unit_id":"case:ariakit|case:aws","relation_kind":"PROVENANCE","left_ref":["PROVENANCE","case:ariakit"],"right_ref":["PROVENANCE","case:aws"]},
+    {"unit_id":"case:ariakit|case:aws","relation_kind":"CHALLENGE","left_ref":["CHALLENGE","case:ariakit"],"right_ref":["CHALLENGE","case:aws"]},
+    {"unit_id":"case:ariakit|case:aws","relation_kind":"ALTERNATIVE","left_ref":["ALTERNATIVE","case:ariakit"],"right_ref":["ALTERNATIVE","case:aws"]},
+    {"unit_id":"case:ariakit|case:aws","relation_kind":"REOPEN","left_ref":["REOPEN","case:ariakit"],"right_ref":["REOPEN","case:aws"]},
+    {"unit_id":"case:issue_5465|case:knip","relation_kind":"PROVENANCE","left_ref":["PROVENANCE","case:issue_5465"],"right_ref":["PROVENANCE","case:knip"]},
+    {"unit_id":"case:issue_5465|case:knip","relation_kind":"CHALLENGE","left_ref":["CHALLENGE","case:issue_5465"],"right_ref":["CHALLENGE","case:knip"]},
+    {"unit_id":"case:issue_5465|case:knip","relation_kind":"ALTERNATIVE","left_ref":["ALTERNATIVE","case:issue_5465"],"right_ref":["ALTERNATIVE","case:knip"]},
+    {"unit_id":"case:issue_5465|case:knip","relation_kind":"REOPEN","left_ref":["REOPEN","case:issue_5465"],"right_ref":["REOPEN","case:knip"]},
+    {"unit_id":"case:nested|case:sentry","relation_kind":"PROVENANCE","left_ref":["PROVENANCE","case:nested"],"right_ref":["PROVENANCE","case:sentry"]},
+    {"unit_id":"case:nested|case:sentry","relation_kind":"CHALLENGE","left_ref":["CHALLENGE","case:nested"],"right_ref":["CHALLENGE","case:sentry"]},
+    {"unit_id":"case:nested|case:sentry","relation_kind":"ALTERNATIVE","left_ref":["ALTERNATIVE","case:nested"],"right_ref":["ALTERNATIVE","case:sentry"]},
+    {"unit_id":"case:nested|case:sentry","relation_kind":"REOPEN","left_ref":["REOPEN","case:nested"],"right_ref":["REOPEN","case:sentry"]}
+  ],
+  "inferential_rule": "The three grounding units are the future-consequence units. The twelve path surfaces are deterministic relation-kind lifts and are not treated as twelve independent future observations.",
+  "coverage_rule": "All three grounding units and all twelve q-kernel path surfaces must be reported. Favorable-subset selection is prohibited.",
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED",
+    "Delta_Pi": "NOT_EVALUATED"
+  }
+}
