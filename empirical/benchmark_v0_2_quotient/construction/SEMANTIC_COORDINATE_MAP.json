@@ -1,0 +1,38 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "coordinate_map_id": "VFA-0.2-SEMANTIC-COORDINATES-1",
+  "identity": "relation_kind|source_fact_id",
+  "construction_rule": "Take the 24 shared semantic references from identical A/B path_records and sort lexicographically by (relation_kind, source_fact_id). Raw path_id spelling and raw equivalence-label spelling are not coordinate semantics.",
+  "coordinates": {
+    "ALTERNATIVE|case:ariakit": 0,
+    "ALTERNATIVE|case:aws": 1,
+    "ALTERNATIVE|case:issue_5465": 2,
+    "ALTERNATIVE|case:knip": 3,
+    "ALTERNATIVE|case:nested": 4,
+    "ALTERNATIVE|case:sentry": 5,
+    "CHALLENGE|case:ariakit": 6,
+    "CHALLENGE|case:aws": 7,
+    "CHALLENGE|case:issue_5465": 8,
+    "CHALLENGE|case:knip": 9,
+    "CHALLENGE|case:nested": 10,
+    "CHALLENGE|case:sentry": 11,
+    "PROVENANCE|case:ariakit": 12,
+    "PROVENANCE|case:aws": 13,
+    "PROVENANCE|case:issue_5465": 14,
+    "PROVENANCE|case:knip": 15,
+    "PROVENANCE|case:nested": 16,
+    "PROVENANCE|case:sentry": 17,
+    "REOPEN|case:ariakit": 18,
+    "REOPEN|case:aws": 19,
+    "REOPEN|case:issue_5465": 20,
+    "REOPEN|case:knip": 21,
+    "REOPEN|case:nested": 22,
+    "REOPEN|case:sentry": 23
+  },
+  "arm_usage": {"A":"IDENTICAL_OBJECT","B":"IDENTICAL_OBJECT"},
+  "representation_rule": "Renaming or reordering raw path IDs must not change coordinates or the compiled equivalence matrix.",
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED"
+  }
+}
