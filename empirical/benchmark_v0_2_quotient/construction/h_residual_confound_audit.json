@@ -1,0 +1,75 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "audit_identity": "VFA-0.2-H-RESIDUAL-CONFOUND-AUDIT-1",
+  "future_obligation_accessed": false,
+  "G_activation": "PROHIBITED",
+  "ledger": {
+    "rival_count": 16,
+    "mandatory_base_count": 12,
+    "quotient_specific_required_count": 2,
+    "duplicate_ids": [],
+    "missing_mandatory": [],
+    "unclassified": [],
+    "missing_required_fields": [],
+    "evidence_gaps_for_nonresidual_dispositions": [],
+    "disposition_counts": {
+      "BLOCKED": 9,
+      "MEASURED": 1,
+      "RESIDUAL": 6
+    },
+    "residual_ids": [
+      "H_future_distribution",
+      "H_evaluator",
+      "H_quotient_interpretation",
+      "H_challenge_recognizability",
+      "H_CCA_CARS_downstream",
+      "H_physical_runtime"
+    ],
+    "residual_veto_ids": [
+      "H_evaluator",
+      "H_quotient_interpretation",
+      "H_challenge_recognizability"
+    ],
+    "completeness_pass": true
+  },
+  "veto_rows": [
+    {
+      "id": "H_evaluator",
+      "entry": "DeltaPi -> measured Reach(DeltaPi)",
+      "material": true,
+      "unbounded": true,
+      "effect_explaining": true,
+      "bound": "NONE: exact DeltaPi identity/reachability evaluator and its admissible representation-invariance rule are not yet frozen",
+      "direction_alignment": "could fully manufacture an A-favoring reachability contrast"
+    },
+    {
+      "id": "H_quotient_interpretation",
+      "entry": "Gamma -> DeltaPi",
+      "material": true,
+      "unbounded": true,
+      "effect_explaining": true,
+      "bound": "NONE: no frozen post-gate semantic operator constrains how M_Gamma may be transformed into candidate probes",
+      "direction_alignment": "could fully explain an A advantage through an arbitrary singleton/class-density decoder rather than preserved revision reachability"
+    },
+    {
+      "id": "H_challenge_recognizability",
+      "entry": "G/common E_insuff x Gamma -> DeltaPi",
+      "material": true,
+      "unbounded": true,
+      "effect_explaining": true,
+      "bound": "common evidence identity is frozen, but arm-independent semantic interpretation of that evidence after activation is not",
+      "direction_alignment": "could fully explain an A advantage through differential decoding of identical failure evidence"
+    }
+  ],
+  "H_adjudication": "FAIL",
+  "failure_code": "RESIDUAL_CONFOUND_VETO",
+  "failure_localization": "POSTGATE_SEMANTIC_UNDERDETERMINATION",
+  "interpretation": "A-G isolate the treatment and common-cause environment, but they do not yet identify the semantic operator Gamma x common insufficiency evidence -> DeltaPi or the exact DeltaPi reachability evaluator. Those open operators can generate the entire predicted A/B contrast independently of the intended preserved-revision-path interpretation.",
+  "authority_boundary": {
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}
