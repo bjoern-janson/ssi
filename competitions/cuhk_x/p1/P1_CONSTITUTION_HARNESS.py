@@ -89,6 +89,34 @@ def compose(a,s):
  vote=(a*s).sum(axis=1,dtype=np.int16)
  fb=a[:,2]*s[:,2]+(1-a[:,2])*a[:,1]*s[:,1]+(1-a[:,2])*(1-a[:,1])*a[:,0]*s[:,0]
  return ((vote>0)|((vote==0)&(fb>0))).astype(np.int8)
+def pm(sh,mode):
+ pr=compose(*zmake(sh,mode)); return {f"{x.q}|{x.opt}|{x.act}":int(v) for x,v in zip(sh,pr)}
+def from_blind(d):
+ e=d["evidence"]; return C(str(d["qa_id"]),str(d["path"]),int(d["subject"]),int(d["fold"]),str(d["option"]),str(d["action"]),str(d["route"]),
+ float(e["POSE_IMU"]) if e["POSE_IMU"] is not None else None,float(e["IR"]),float(e["POSE_IMU_IR"]) if e["POSE_IMU_IR"] is not None else None)
+def gcheck(sh):
+ modes=("EARLY_COMPRESSION","PRESERVED_EVIDENCE"); base={m:pm(sh,m) for m in modes}; tests={}
+ r=list(reversed(sh)); tests["record_permutation"]=all(pm(r,m)==base[m] for m in modes)
+ top={"qa_id":"qid","path":"unit","subject":"sid","fold":"cv","option":"choice","action":"act","route":"routing","evidence":"ev"}; evm={"POSE_IMU":"m0","IR":"m1","POSE_IMU_IR":"m2"}
+ renamed=[]
+ for x in sh:
+  d=x.blind(); rd={top[k]:v for k,v in d.items() if k!="evidence"}; rd["ev"]={evm[k]:v for k,v in d["evidence"].items()}
+  back={k:rd[v] for k,v in top.items() if k!="evidence"}; back["evidence"]={k:rd["ev"][v] for k,v in evm.items()}; renamed.append(from_blind(back))
+ tests["field_renaming"]=all(pm(renamed,m)==base[m] for m in modes)
+ qmap={q:f"Q{i:04d}" for i,q in enumerate(sorted({x.q for x in sh}))}; pmap={q:f"U{i:04d}" for i,q in enumerate(sorted({x.path for x in sh}))}
+ opaque=[C(qmap[x.q],pmap[x.path],x.subj,x.fold,x.opt,x.act,x.route,x.b5,x.v7,x.v7f) for x in sh]
+ tests["opaque_identifier_renaming"]=all(np.array_equal(compose(*zmake(opaque,m)),compose(*zmake(sh,m))) for m in modes)
+ pretty=json.dumps([x.blind() for x in sh],indent=2,sort_keys=False); ser=[from_blind(d) for d in json.loads(pretty)]
+ tests["equivalent_serialization"]=all(pm(ser,m)==base[m] for m in modes)
+ conf=[]; md=0.0
+ for x in sh:
+  def rt(v):
+   nonlocal md
+   if v is None:return None
+   y=float(format(v,".17g"));md=max(md,abs(y-v));return y
+  conf.append(C(x.q,x.path,x.subj,x.fold,x.opt,x.act,x.route,rt(x.b5),rt(x.v7),rt(x.v7f)))
+ tests["confidence_serialization"]=md<=1e-12 and all(pm(conf,m)==base[m] for m in modes)
+ ok=all(tests.values()); return {"state":"PASS" if ok else "FAIL","tests":tests,"confidence_max_abs_decode_delta":md,"confidence_tolerance":1e-12}
 def fh(fn):return h(inspect.getsource(fn).encode())
 def auc(pos,neg):
  v=sorted([(x,1) for x in pos]+[(x,0) for x in neg],key=lambda x:x[0]); ranks=[0.]*len(v);i=0
@@ -126,9 +154,10 @@ def constitute(sh,base,frozen):
  "reasoner_calls":1,"slot_reads":E["nc"]*3,"candidate_rows":E["nc"],"tensor_shape":[E["nc"],3],"files_visible_to_reasoner":[],"log_template_sha256":h(b"P1_CONSTITUTION_REASONER_NO_ARM_LOG")}
  ce=cp=h(cj(ctx)); tt=timing(e,p); I4={"state":"PASS" if ce==cp and tt["state"]=="PASS" else "FAIL","non_z_context_sha256_early":ce,
  "non_z_context_sha256_preserved":cp,"exact_non_z_context_identity":ce==cp,"attacked_surfaces":["files","tensor shape","memory-visible non-Z context","operation counts","RNG calls","prompt","external calls","logs","evaluator inputs","timing"],"timing_attack":tt}
- checks={"I1":I1,"I2":I2,"I3":I3,"I4":I4}; ok=all(x["state"]=="PASS" for x in checks.values())
- return {"checks":checks,"shared_encoded_sha256":hs,"early_z_sha256":h(e[0].tobytes()+e[1].tobytes()),"preserved_z_sha256":h(p[0].tobytes()+p[1].tobytes()),
- "preserved_prediction_digest_unscored":h(compose(*p).tobytes()),"final_state":"IMPLEMENTATION_CONSTITUTED_NOT_YET_AUTHORIZED" if ok else "NOT_IDENTIFIED_TREATMENT_IDENTITY_FAILURE"}
+ checks={"I1":I1,"I2":I2,"I3":I3,"I4":I4}; ok=all(x["state"]=="PASS" for x in checks.values()); G=gcheck(sh)
+ state="IMPLEMENTATION_CONSTITUTED_NOT_YET_AUTHORIZED" if ok and G["state"]=="PASS" else ("NOT_IDENTIFIED_INVARIANCE_FAILURE" if G["state"]!="PASS" else "NOT_IDENTIFIED_TREATMENT_IDENTITY_FAILURE")
+ return {"checks":checks,"invariance_G":G,"shared_encoded_sha256":hs,"early_z_sha256":h(e[0].tobytes()+e[1].tobytes()),"preserved_z_sha256":h(p[0].tobytes()+p[1].tobytes()),
+ "preserved_prediction_digest_unscored":h(compose(*p).tobytes()),"final_state":state}
 
 def main():
  ap=argparse.ArgumentParser();ap.add_argument("--s1-script",type=Path,required=True);ap.add_argument("--v7-results",type=Path,required=True);ap.add_argument("--out",type=Path,required=True);a=ap.parse_args();a.out.mkdir(parents=True,exist_ok=True)
@@ -139,6 +168,6 @@ def main():
  except Exception as x:
   s["final_state"]="NOT_IDENTIFIED_BASELINE_REPRODUCTION_FAILURE" if "S1" in str(x) or "baseline" in str(x).lower() else "NOT_IDENTIFIED_TREATMENT_IDENTITY_FAILURE";s["error"]={"type":type(x).__name__,"message":str(x)}
  (a.out/"constitution_status.json").write_text(json.dumps(s,indent=2,sort_keys=True));(a.out/"shared_encoded.sha256").write_text(s.get("shared_encoded_sha256","NOT_AVAILABLE")+"\n")
- print(json.dumps({"final_state":s["final_state"],"baseline_reproduction":s.get("baseline_reproduction",{}).get("state"),**{k:s.get("checks",{}).get(k,{}).get("state") for k in ["I1","I2","I3","I4"]},"preserved_scores_computed":False},indent=2))
+ print(json.dumps({"final_state":s["final_state"],"baseline_reproduction":s.get("baseline_reproduction",{}).get("state"),**{k:s.get("checks",{}).get(k,{}).get("state") for k in ["I1","I2","I3","I4"]},"G":s.get("invariance_G",{}).get("state"),"preserved_scores_computed":False},indent=2))
  return 0 if s["final_state"]=="IMPLEMENTATION_CONSTITUTED_NOT_YET_AUTHORIZED" else 2
 if __name__=="__main__":raise SystemExit(main())
