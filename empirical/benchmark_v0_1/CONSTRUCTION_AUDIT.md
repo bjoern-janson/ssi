@@ -18,6 +18,8 @@ AUTHORIZATION_CERTIFICATE = NOT_ISSUED
 RUN = NOT_AUTHORIZED
 ```
 
+> **Status note:** the block above is the specification-time initialization and is intentionally not rewritten by evidence collection. Current machine-readable adjudication is `AUDIT_STATUS.json`. The current A/B construction is blocked at predicate D; see `evidence/C_D_PRE_FREEZE_AUDIT.md`.
+
 This document is part of the benchmark's scientific identity. It is not a narrative checklist. It defines the predicates that must be mechanically adjudicated before the confirmatory shot is authorized.
 
 The governing adversarial question is:
@@ -163,9 +165,11 @@ $$
 ## Evidence record
 
 ```text
-B_EVIDENCE = NOT_RECORDED
-B_SHA256 = NOT_RECORDED
-B_ADJUDICATION = NOT_EVALUATED
+B_EVIDENCE = empirical/benchmark_v0_1/evidence/B_CONSTRUCTION.md
+B_STATE_A_SHA256 = 353113d6e93717d037f7de4d46e686423ec7cfb165fead77397561de0bedaa3f
+B_STATE_B_SHA256 = 2952ada6d4a27acf05200097cc4b3b55161afae3afeecb6cd926ceef4555cb8a
+B_PHI_SHA256 = 18d01e9262abb8f4e13caab0260f399a198a50b36c83d4896e5be66455d12b8e
+B_ADJUDICATION = PASS
 ```
 
 ---
@@ -209,9 +213,9 @@ Use equivalence or exact matching, not `p > 0.05` as evidence of equality. Every
 ## Evidence record
 
 ```text
-C_EVIDENCE = NOT_RECORDED
-C_SHA256 = NOT_RECORDED
-C_ADJUDICATION = NOT_EVALUATED
+C_EVIDENCE = empirical/benchmark_v0_1/evidence/C_D_PRE_FREEZE_AUDIT.md
+C_AUDIT_SHA256 = 523fbe8211253b8d8c859322f4dda48272f6a6c5c74650746c037a0053e3f94d
+C_ADJUDICATION = PASS
 ```
 
 ---
@@ -255,10 +259,13 @@ All material ordinary-adaptation dimensions must satisfy their frozen equivalenc
 ## Evidence record
 
 ```text
-D_EVIDENCE = NOT_RECORDED
-D_SHA256 = NOT_RECORDED
-D_ADJUDICATION = NOT_EVALUATED
+D_EVIDENCE = empirical/benchmark_v0_1/evidence/C_D_PRE_FREEZE_AUDIT.md
+D_AUDIT_SHA256 = 523fbe8211253b8d8c859322f4dda48272f6a6c5c74650746c037a0053e3f94d
+D_ADJUDICATION = FAIL
+D_REASON = A already outperforms B on exhaustive pre-freeze ordinary-adaptation surrogates
 ```
+
+Because D fails, the current construction is blocked. E–I remain `NOT_EVALUATED`; they are not promoted merely to complete the checklist.
 
 ---
 
