@@ -1,0 +1,105 @@
+{
+  "baseline_reproduction": {
+    "candidate_accuracy": 0.7580346106304079,
+    "candidate_balanced_accuracy": 0.7577211493846145,
+    "candidate_stream_sha256": "15a0b6501aa2f3ff34bafa69dc8144922ec57c97337282ffdad2af22925e5f18",
+    "exact_set_accuracy": 0.3695920889987639,
+    "exact_stream_sha256": "60bb4240da39e55f064a7eed7805f11d61e76f5539b0f9fe90251e2dbc3b7a9a",
+    "n_candidates": 3236,
+    "n_multi": 809,
+    "state": "PASS"
+  },
+  "checks": {
+    "I1": {
+      "same_bytes": true,
+      "shared_encoded_sha256_early": "146cd131634889be7a856be8c280276a4564d1b5e0b696fd57f85962ad9bda38",
+      "shared_encoded_sha256_preserved": "146cd131634889be7a856be8c280276a4564d1b5e0b696fd57f85962ad9bda38",
+      "state": "PASS",
+      "truth_or_label_fields_present": false
+    },
+    "I2": {
+      "allowed_difference": "Z active-mask only",
+      "candidate_order_sha256": "81fe0cb9156cf2b5b5e1dac98d8f11fce631d84566d4d5f1df5b747f09a0d696",
+      "same_evidence_sign_matrix": true,
+      "same_fixed_shape": true,
+      "state": "PASS",
+      "transform_source_sha256": "8012758ab213f586c0654ad9085c30b31ddfa3db82d308da4c4a4e9952801516"
+    },
+    "I3": {
+      "reasoner_source_sha256_early": "3d70eefebbe85e8988e75812e8911719023527c51e085d08feb01c22c16e58be",
+      "reasoner_source_sha256_preserved": "3d70eefebbe85e8988e75812e8911719023527c51e085d08feb01c22c16e58be",
+      "same_call_count": 1,
+      "same_decoding_parameters": true,
+      "same_function_object": true,
+      "same_prompt": true,
+      "state": "PASS"
+    },
+    "I4": {
+      "attacked_surfaces": [
+        "files",
+        "tensor shape",
+        "memory-visible non-Z context",
+        "operation counts",
+        "RNG calls",
+        "prompt",
+        "external calls",
+        "logs",
+        "evaluator inputs",
+        "timing"
+      ],
+      "exact_non_z_context_identity": true,
+      "non_z_context_sha256_early": "26df2d7eeec8a6bfb67cab3a8902c13cd14fde322cde43d3b88df1f4efbe2f4a",
+      "non_z_context_sha256_preserved": "26df2d7eeec8a6bfb67cab3a8902c13cd14fde322cde43d3b88df1f4efbe2f4a",
+      "state": "PASS",
+      "timing_attack": {
+        "auc_preserved_gt_early": 0.518198,
+        "gate": {
+          "auc_range": [
+            0.45,
+            0.55
+          ],
+          "median_ratio_abs_delta_max": 0.02
+        },
+        "median_ns_early": 60138.0,
+        "median_ns_preserved": 60173.0,
+        "median_ratio": 1.0005819947454189,
+        "state": "PASS",
+        "trials_per_arm": 1000
+      }
+    }
+  },
+  "constitution_id": "CUHKX-P1-CONSTITUTION-1",
+  "early_z_sha256": "b5307a8f337cec7a5722e3a86b8a07e9daee3f1dc06c2b57c621fc78a7511994",
+  "environment": {
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]"
+  },
+  "execution_authority": "NONE",
+  "experiment_id": "CUHKX-P1-PRESERVED-EVIDENCE-1",
+  "final_state": "IMPLEMENTATION_CONSTITUTED_NOT_YET_AUTHORIZED",
+  "identity": {
+    "fold_sha256": "0ae2bd6a594152dd1af444566416410043ac11f153d20c8a517bb2a6d5052b73",
+    "s1_script_sha256": "38152a54acde3e5241a15ab03d364e8f08164b7ae81ece86738ae45ebe2e594f",
+    "v7_results_sha256": "af7687fad3c7a4d140707c09dd84edea79288abdd81f91e9755d21cb63aad088",
+    "v7_script_member_sha256": "473d83342c680836badc0aa5232f32df5aecb7ae7d5755ec7986798eac13b544"
+  },
+  "invariance_G": {
+    "confidence_max_abs_decode_delta": 0.0,
+    "confidence_tolerance": 1e-12,
+    "state": "PASS",
+    "tests": {
+      "confidence_serialization": true,
+      "equivalent_serialization": true,
+      "field_renaming": true,
+      "opaque_identifier_renaming": true,
+      "record_permutation": true
+    }
+  },
+  "leaderboard_authority": "NONE",
+  "packet7_authority": "NONE",
+  "preserved_prediction_digest_unscored": "3d6376d15c855c8b8b2b3fdd088f50e5b31b99d4ab407ed54bf573bfc56db80e",
+  "preserved_z_sha256": "066588dadea0b683647f50d111de010aac237a28e78032f2bdada26d01ae13b1",
+  "shared_encoded_sha256": "146cd131634889be7a856be8c280276a4564d1b5e0b696fd57f85962ad9bda38",
+  "specification_state": "FROZEN"
+}
