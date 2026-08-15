@@ -1,0 +1,76 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "contract_id": "VFA-0.2-POSTGATE-SEMANTIC-CONTRACT-2",
+  "status": "FROZEN_FOR_AUTHORIZATION_REAUDIT",
+  "governing_rule": "No post-gate implementation may assign meaning to Gamma or to the future obligation beyond the frozen consequence-grounding and licensed reference operations in this contract.",
+  "causal_chain": [
+    "selected external release O_future",
+    "exact official future CLI artifact",
+    "observable migration effects T_future on six frozen witnesses",
+    "treatment-blind J_future on three q-kernel source-fact units",
+    "deterministic lift to twelve relation-kind path surfaces",
+    "common grounded surface table",
+    "fixed semantic-coordinate M_Gamma",
+    "licensed COMPARE reachability DeltaPi"
+  ],
+  "grounding": {
+    "contract": "construction/FUTURE_CONSEQUENCE_GROUNDING_CONTRACT.json",
+    "domain": "construction/FUTURE_GROUNDING_DOMAIN.json",
+    "witnesses": "construction/FUTURE_CONSEQUENCE_WITNESSES.json",
+    "artifact": "construction/FUTURE_EXECUTION_ARTIFACT_CONTRACT.json",
+    "J_future_access_to_Gamma": "PROHIBITED",
+    "J_future_access_to_arm": "PROHIBITED",
+    "J_future_access_to_downstream_outcomes": "PROHIBITED",
+    "statuses": ["DISTINGUISHED","EQUIVALENT","NOT_IDENTIFIED"]
+  },
+  "treatment_view": {
+    "coordinate_map": "construction/SEMANTIC_COORDINATE_MAP.json",
+    "materializer": "construction/FINAL_TREATMENT_MATERIALIZATION.py",
+    "runtime_treatment_object": "576-byte 24x24 equivalence matrix indexed by common semantic coordinates",
+    "raw_path_id_semantics": "NONE",
+    "raw_equivalence_label_semantics": "NONE"
+  },
+  "licensed_first_endpoint_operation": {
+    "operation": "COMPARE",
+    "unit": "one frozen relation-kind lift of a q-kernel source-fact grounding unit",
+    "precondition": "corresponding J_future grounding status is DISTINGUISHED",
+    "reachable": "the two semantic references occupy distinct M_Gamma revision blocks",
+    "unreachable": "the two semantic references occupy one M_Gamma revision block",
+    "SPLIT": "PROHIBITED_AT_FIRST_ENDPOINT",
+    "other_decoder_statistics": "PROHIBITED"
+  },
+  "evaluator": {
+    "implementation": "construction/FINAL_POSTGATE_RUNTIME.py",
+    "all_pair_slots_processed": 276,
+    "all_target_surfaces_processed": 12,
+    "row_order_invariant": true,
+    "pair_orientation_invariant": true,
+    "NOT_IDENTIFIED": "preserved as missing identification",
+    "EQUIVALENT": "not a target distinction; no treatment advantage",
+    "aggregation": "report three future-grounding units and twelve component path surfaces; do not treat twelve lifts as twelve independent future observations; no topology-weighted utility"
+  },
+  "representation_equivalence": {
+    "raw path-id renaming": "must preserve result",
+    "raw class-label renaming": "must preserve result",
+    "path-record order": "must preserve result",
+    "JSON object-key order/whitespace in consequence files": "must preserve result",
+    "grounding-row order": "must preserve result",
+    "future-pair orientation": "must preserve result"
+  },
+  "claim_scope": {
+    "primary prospective question": "does the independently selected real future migration effect produce a DISTINGUISHED unit inside ker(q)?",
+    "conditional_reachability": "if yes, whether the corresponding licensed distinction remains reachable is a structural consequence of the frozen Gamma treatment and is reported as mechanism localization",
+    "supports": "future corrective option value of a currently behavior-null preserved revision distinction",
+    "does_not_by_itself_support": ["fresh-evidence validation","CCA correctness","CARS authorization","final adaptation success","viability gain"]
+  },
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED",
+    "realized_T_future": "NOT_EVALUATED",
+    "realized_J_future": "NOT_EVALUATED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}
