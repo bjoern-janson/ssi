@@ -1,0 +1,27 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "repair_lineage": "VFA-0.2-POSTGATE-SEMANTIC-CONTRACT-1",
+  "authoritative_authorization_status": "BLOCKED_AT_H_RESIDUAL_CONFOUND_VETO",
+  "candidate_repair": {
+    "semantic_algebra": "PASS",
+    "representation_invariant_evaluator": "PASS",
+    "quotient_merge_sensitivity": "PASS",
+    "future_distinction_grounding": "FAIL",
+    "overall_postgate_contract": "FAIL",
+    "failure_code": "FUTURE_DISTINCTION_GROUNDING_NOT_IDENTIFIED"
+  },
+  "rival_localization": {
+    "H_quotient_interpretation": "CANDIDATE_BLOCKED_NOT_YET_AUTHORIZED",
+    "H_evaluator": "CANDIDATE_BLOCKED_NOT_YET_AUTHORIZED",
+    "H_challenge_recognizability": "RESIDUAL_VETO_REMAINS"
+  },
+  "promotion_rule": "Do not change H or proceed to I until a treatment-blind complete future-distinction grounding operator is frozen, the post-gate contract re-attacked, and any affected E/F/G predicates are re-adjudicated.",
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}

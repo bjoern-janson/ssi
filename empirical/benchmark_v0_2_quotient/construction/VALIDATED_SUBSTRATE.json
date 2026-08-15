@@ -1,0 +1,75 @@
+{
+  "arm_usage": {
+    "A": "IDENTICAL_OBJECT",
+    "B": "IDENTICAL_OBJECT"
+  },
+  "facts": [
+    {
+      "case": "ariakit",
+      "fact_id": "case:ariakit",
+      "status": "VALIDATED_PRE_FREEZE",
+      "transformation_classes": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "IMPORT_ACTION_MODEL_MIGRATION",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ]
+    },
+    {
+      "case": "aws",
+      "fact_id": "case:aws",
+      "status": "VALIDATED_PRE_FREEZE",
+      "transformation_classes": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "RULE_ID_REPLACEMENT",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ]
+    },
+    {
+      "case": "issue_5465",
+      "fact_id": "case:issue_5465",
+      "status": "VALIDATED_PRE_FREEZE",
+      "transformation_classes": [
+        "RULE_GROUP_RELOCATION"
+      ]
+    },
+    {
+      "case": "knip",
+      "fact_id": "case:knip",
+      "status": "VALIDATED_PRE_FREEZE",
+      "transformation_classes": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "IMPORT_ACTION_MODEL_MIGRATION",
+        "OVERRIDE_SELECTOR_MIGRATION",
+        "RULE_GROUP_RELOCATION",
+        "RULE_ID_REPLACEMENT",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ]
+    },
+    {
+      "case": "nested",
+      "fact_id": "case:nested",
+      "status": "VALIDATED_PRE_FREEZE",
+      "transformation_classes": [
+        "NESTED_CONFIG_ROOT_MIGRATION",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ]
+    },
+    {
+      "case": "sentry",
+      "fact_id": "case:sentry",
+      "status": "VALIDATED_PRE_FREEZE",
+      "transformation_classes": [
+        "FILES_FILTER_MODEL_MIGRATION",
+        "FORMATTER_FILTER_MODEL_MIGRATION",
+        "IMPORT_ACTION_MODEL_MIGRATION",
+        "OVERRIDE_SELECTOR_MIGRATION",
+        "RULE_GROUP_RELOCATION",
+        "RULE_PRESET_MODEL_MIGRATION"
+      ]
+    }
+  ],
+  "schema_version": "1",
+  "semantics": "Validated pre-freeze direct historical case/signature facts. No revision-path equivalence classes are encoded here.",
+  "source_lineage": "VFA-0.1-REJECTED_RETRIEVAL_LEAKAGE",
+  "substrate_id": "VFA-0.2-W-BIOME-MIGRATION-VALIDATED-SUBSTRATE"
+}

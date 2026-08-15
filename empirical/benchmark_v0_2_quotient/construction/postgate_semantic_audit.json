@@ -1,0 +1,78 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "audit_identity": "VFA-0.2-POSTGATE-SEMANTIC-ATTACK-1",
+  "future_obligation_accessed": false,
+  "G_activation": "PROHIBITED",
+  "semantic_algebra_adjudication": "PASS",
+  "future_grounding_adjudication": "FAIL",
+  "postgate_contract_adjudication": "FAIL",
+  "failure_code": "FUTURE_DISTINCTION_GROUNDING_NOT_IDENTIFIED",
+  "attack_results": {
+    "representation_invariance": {
+      "pass": true,
+      "metamorphic_partition_evaluator_comparisons": 64,
+      "mismatch_count": 0,
+      "pair_order_orientation_invariance": true,
+      "licensed_rewrites_exercised": [
+        "raw equivalence-label renaming",
+        "raw path_id renaming",
+        "path-record reversal",
+        "future-distinction row reversal",
+        "future-distinction pair orientation swap"
+      ]
+    },
+    "revision_sensitivity": {
+      "pass": true,
+      "q_kernel_pairs": 12,
+      "same_kind_nonkernel_control_pairs": 48,
+      "kernel_pairs_with_A_reachable_B_unreachable": 12,
+      "nonkernel_pairs_reachable_both": 48,
+      "missingness_and_equivalent_semantics_pass": true
+    },
+    "operation_grammar": {
+      "pass": true,
+      "licensed_unary_operations_exercised": ["TRACE", "FOLLOW", "CHALLENGE", "REOPEN"],
+      "COMPARE": "licensed only between distinct revision blocks of one relation kind",
+      "split_rejected": true,
+      "wrong_relation_operation_rejected": true
+    },
+    "decoder_prohibition": {
+      "pass": true,
+      "forbidden_decoder_hits": [],
+      "reachability_decision": "partition.block(left) != partition.block(right)",
+      "class_count_used": false,
+      "singleton_fraction_used": false,
+      "matrix_density_used": false,
+      "matrix_hash_used": false,
+      "raw_arm_or_class_label_used_as_semantics": false
+    },
+    "future_grounding": {
+      "pass": false,
+      "status": "NOT_IDENTIFIED",
+      "required_domain": "all 12 nontrivial q-kernel merged semantic-reference pairs",
+      "allowed_status": ["DISTINGUISHED", "EQUIVALENT", "NOT_IDENTIFIED"],
+      "reason": "No frozen external treatment-blind operator yet maps the realized future obligation to the complete q-kernel distinction table. Without it, pair-status assignment retains enough discretion to select an A-favoring distinction and explain the confirmatory reachability contrast."
+    }
+  },
+  "interpretation": "The reference-based Gamma-to-pair-reachability algebra is representation-invariant and sensitive exactly to q-induced revision merges. This repairs the arbitrary-decoder and representation-specific evaluator problems at the algebra level. H cannot be repaired because the realized future obligation still lacks a frozen treatment-blind grounding operator that determines which q-kernel pairs it actually distinguishes.",
+  "H_rival_update_candidate": {
+    "H_quotient_interpretation": "candidate BLOCKED by reference-only licensed operations; requires E/F re-audit after final operator adoption",
+    "H_evaluator": "candidate BLOCKED by canonical pair-reachability evaluator and ~repr invariance; requires E/F re-audit after final operator adoption",
+    "H_challenge_recognizability": "REMAINS RESIDUAL_VETO as FUTURE_DISTINCTION_GROUNDING_NOT_IDENTIFIED"
+  },
+  "authorization_effect": {
+    "current_A_through_G_evidence": "PRESERVED_UNCHANGED",
+    "H": "REMAINS_FAIL",
+    "I": "NOT_EVALUATED",
+    "E_reaudit": "REQUIRED_IF_AND_WHEN_FINAL_POSTGATE_OPERATOR_IS_ADOPTED",
+    "F_reaudit": "REQUIRED_IF_AND_WHEN_FINAL_POSTGATE_OPERATOR_IS_ADOPTED",
+    "G_reaudit": "REQUIRED_IF_GROUNDING_CHANGES_FUTURE_EVIDENCE_PACKAGING_OR_DISCLOSURE_INTERFACE"
+  },
+  "authority_boundary": {
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}

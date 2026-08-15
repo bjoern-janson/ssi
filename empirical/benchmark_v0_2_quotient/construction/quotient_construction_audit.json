@@ -1,0 +1,98 @@
+{
+  "audit_identity": "VFA-0.2-QUOTIENT-CONSTRUCTION-AUDIT-1",
+  "authorization": {
+    "authorization_certificate": "NOT_ISSUED",
+    "freeze_packet": "NOT_FROZEN",
+    "future_run": "NOT_AUTHORIZED"
+  },
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "central_wager": "A distinction can have zero present behavioral value yet positive future corrective option value.",
+  "certificates": {
+    "D_semantic": {
+      "canonical_bytes_A": 3189,
+      "canonical_bytes_B": 3189,
+      "gamma_A_validation": {
+        "all_sources_in_substrate": true,
+        "equivalence_total": true,
+        "record_count": 24,
+        "substrate_ref": "construction/VALIDATED_SUBSTRATE.json",
+        "unique_path_ids": true
+      },
+      "gamma_B_validation": {
+        "all_sources_in_substrate": true,
+        "equivalence_total": true,
+        "record_count": 24,
+        "substrate_ref": "construction/VALIDATED_SUBSTRATE.json",
+        "unique_path_ids": true
+      },
+      "gamma_truth_bearing_fields": [],
+      "pass": true,
+      "same_canonical_byte_length": true,
+      "same_path_records": true,
+      "same_substrate_ref": true,
+      "shared_substrate_sha256": "5389f77a5b40371e259f78524aa099ae9b57d7a985d77c0a54c40dd70b464604"
+    },
+    "D_topology": {
+      "Phi_path_A": {
+        "distinct_path_classes": 24,
+        "max_equivalence_class_size": 1,
+        "mean_equivalence_class_size": 1.0,
+        "path_record_count": 24,
+        "reopen_distinct_classes": 6,
+        "singleton_path_fraction": 1.0
+      },
+      "Phi_path_B": {
+        "distinct_path_classes": 12,
+        "max_equivalence_class_size": 2,
+        "mean_equivalence_class_size": 2.0,
+        "path_record_count": 24,
+        "reopen_distinct_classes": 3,
+        "singleton_path_fraction": 0.0
+      },
+      "aggregation": "PROHIBITED",
+      "partition_differs": true,
+      "pass": true,
+      "same_path_record_count": true
+    },
+    "F_comp_q_equals_F": {
+      "Q_adapt_A": {
+        "full_recovery_count": 118,
+        "full_recovery_rate": 0.4738955823293173,
+        "mean_recovery_recall": 0.8646921017402945,
+        "task_count": 249
+      },
+      "Q_adapt_B": {
+        "full_recovery_count": 118,
+        "full_recovery_rate": 0.4738955823293173,
+        "mean_recovery_recall": 0.8646921017402945,
+        "task_count": 249
+      },
+      "equivalence_rule": "EXACT_TRACE_IDENTITY on exhaustive deterministic pre-freeze surrogate universe",
+      "mismatches": [],
+      "ordinary_forward_state_equal": true,
+      "pass": true,
+      "task_count": 249,
+      "trace_mismatch_count": 0
+    },
+    "quotient_q": {
+      "construction_rule_frozen": true,
+      "future_kernel_inclusion": "NOT_EVALUATED",
+      "kernel_merged_pair_count": 12,
+      "kernel_merged_pairs_sha256": "5b4040445857026c436c08f1a807595166eaf10506b2a0d55fa416b15bebf494",
+      "kernel_nontrivial": true,
+      "pass": true,
+      "q_matches_GAMMA_B": true,
+      "surjective": true,
+      "total": true
+    }
+  },
+  "construction_adjudication": "PASS",
+  "future_obligation_accessed": false,
+  "not_yet_evaluated": {
+    "Delta_Pi": "NOT_EVALUATED",
+    "G_activation": "PROHIBITED",
+    "N0_to_N4_on_redesigned_treatment": "NOT_EVALUATED",
+    "capability_surface_hardening": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED"
+  }
+}

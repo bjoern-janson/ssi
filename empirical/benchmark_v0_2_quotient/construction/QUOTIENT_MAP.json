@@ -1,0 +1,40 @@
+{
+  "codomain": "GAMMA_B path-equivalence classes",
+  "construction_rule": "Within each relation kind, sort source case IDs lexicographically and merge adjacent pairs. No seed search; no semantic score; no future information.",
+  "domain": "GAMMA_A path-equivalence classes",
+  "map_id": "q:path-identity-to-coarser-revision-equivalence",
+  "mapping": {
+    "A000000000000001": "B000000000000001",
+    "A000000000000002": "B000000000000001",
+    "A000000000000003": "B000000000000002",
+    "A000000000000004": "B000000000000002",
+    "A000000000000005": "B000000000000003",
+    "A000000000000006": "B000000000000003",
+    "A000000000000007": "B000000000000004",
+    "A000000000000008": "B000000000000004",
+    "A000000000000009": "B000000000000005",
+    "A000000000000010": "B000000000000005",
+    "A000000000000011": "B000000000000006",
+    "A000000000000012": "B000000000000006",
+    "A000000000000013": "B000000000000007",
+    "A000000000000014": "B000000000000007",
+    "A000000000000015": "B000000000000008",
+    "A000000000000016": "B000000000000008",
+    "A000000000000017": "B000000000000009",
+    "A000000000000018": "B000000000000009",
+    "A000000000000019": "B000000000000010",
+    "A000000000000020": "B000000000000010",
+    "A000000000000021": "B000000000000011",
+    "A000000000000022": "B000000000000011",
+    "A000000000000023": "B000000000000012",
+    "A000000000000024": "B000000000000012"
+  },
+  "no_seed_search": true,
+  "properties": {
+    "ordinary_forward_constraint": "F o q = F on the full preregistered pre-freeze surrogate universe",
+    "surjective": true,
+    "total": true,
+    "truth_preserving_by_construction": "q acts only on path-equivalence labels; VALIDATED_SUBSTRATE is not in its domain"
+  },
+  "schema_version": "2"
+}

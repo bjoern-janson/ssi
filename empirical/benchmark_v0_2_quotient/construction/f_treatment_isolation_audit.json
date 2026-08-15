@@ -1,0 +1,150 @@
+{
+  "F_adjudication": "PASS",
+  "G_activation": "PROHIBITED",
+  "attack_results": {
+    "artifact": {
+      "checks": {
+        "canonical_gamma_bytes_equal": true,
+        "equivalence_domain_equal": true,
+        "masked_artifact_identity": true,
+        "path_records_equal": true,
+        "raw_repository_bytes_equal": true
+      },
+      "pass": true,
+      "positive_sensitivity_control": {
+        "disposition": "BLOCKED_NONCAUSAL_REPOSITORY_OR_TRUSTED_MATERIALIZATION_METADATA",
+        "filename_rule_accuracy": 1.0,
+        "material": false,
+        "raw_file_sha_differs": true,
+        "raw_label_namespace_rule_accuracy": 1.0,
+        "reason": "raw filenames, label strings, and raw Gamma hashes do not cross the arm/evaluator exposure boundary; the shared kernel exposes only M_Gamma"
+      }
+    },
+    "blind_inference": {
+      "chance_accuracy": 0.5,
+      "classifier_accuracy": {
+        "decision_stump": 0.5,
+        "exact_memorizer": 0.5,
+        "nearest_neighbor_hamming": 0.5
+      },
+      "decision_stump_selected_feature": "substrate_ref",
+      "holdout_samples": 32,
+      "logical_result": "Because every residual feature vector appears once with A and once with B inside each pair, any deterministic classifier of Z_undeclared alone must assign the same prediction to both members and therefore cannot exceed 0.5 paired accuracy.",
+      "metamorphic_pairs": 64,
+      "mismatches": [],
+      "paired_residual_identity": true,
+      "pass": true,
+      "residual_mismatch_count": 0,
+      "train_samples": 96,
+      "unique_residual_signatures": 5
+    },
+    "classification_ledger": {
+      "material_undeclared_distinguisher_count": 0,
+      "pass": true,
+      "rows": [
+        {
+          "disposition": "DECLARED_TREATMENT",
+          "distinguishes": true,
+          "material": true,
+          "observable": "M_Gamma content"
+        },
+        {
+          "disposition": "DETERMINISTIC_TREATMENT_CONSEQUENCE",
+          "distinguishes": true,
+          "material": true,
+          "observable": "matrix-derived topology statistics"
+        },
+        {
+          "disposition": "BLOCKED_NONCAUSAL_REPOSITORY_METADATA",
+          "distinguishes": true,
+          "material": false,
+          "observable": "raw Gamma repository filename"
+        },
+        {
+          "disposition": "BLOCKED_NONCAUSAL_TRUSTED_MATERIALIZATION_METADATA",
+          "distinguishes": true,
+          "material": false,
+          "observable": "raw equivalence-label namespace"
+        },
+        {
+          "disposition": "BLOCKED_NONCAUSAL_REPOSITORY_METADATA",
+          "distinguishes": true,
+          "material": false,
+          "observable": "raw Gamma file SHA"
+        },
+        {
+          "disposition": "MUST_MATCH",
+          "distinguishes": false,
+          "material": true,
+          "observable": "masked artifact residual"
+        },
+        {
+          "disposition": "MUST_MATCH",
+          "distinguishes": false,
+          "material": true,
+          "observable": "materialization logical trace"
+        },
+        {
+          "disposition": "MUST_MATCH",
+          "distinguishes": false,
+          "material": true,
+          "observable": "arm/evaluator residual exposure"
+        }
+      ],
+      "unclassified_count": 0
+    },
+    "evaluator": {
+      "checks": {
+        "arm_label_evaluator_visible_false": true,
+        "future_bundle_arm_metadata_prohibited": true,
+        "raw_gamma_labels_visible_false": true,
+        "raw_gamma_rejected": true,
+        "residual_exposure_equal_after_matrix_mask": true
+      },
+      "pass": true,
+      "payload_cases": [
+        {"payload_bytes": 0, "residual_equal": true},
+        {"payload_bytes": 1, "residual_equal": true},
+        {"payload_bytes": 31, "residual_equal": true},
+        {"payload_bytes": 209, "residual_equal": true}
+      ]
+    },
+    "implementation": {
+      "checks": {
+        "exception_profile_equal": true,
+        "materialization_trace_equal": true,
+        "matrix_size_equal": true,
+        "one_shared_kernel": true,
+        "pair_schedule_equal": true,
+        "static_label_confinement": true
+      },
+      "pass": true,
+      "static": {
+        "arm_literal_absent": true,
+        "kernel_git_blob_sha": "5997b59635b02abc04b8e1a46ffd07ffec447dee",
+        "kernel_source_sha256": "f9b33b28175d2a59fd498c90d645d841137dc6daf319b806f586cc24448c3c96",
+        "label_calls": [],
+        "label_compare_count": 1,
+        "label_load_count": 2,
+        "pass": true,
+        "semantics": "raw equivalence labels are used only in pairwise equality comparisons that compile M_Gamma"
+      }
+    }
+  },
+  "audit_identity": "VFA-0.2-F-TREATMENT-ISOLATION-ATTACK-1",
+  "authority_boundary": {
+    "Delta_Pi": "NOT_EVALUATED",
+    "authorization_certificate": "NOT_ISSUED",
+    "freeze_packet": "NOT_FROZEN",
+    "future_run": "NOT_AUTHORIZED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED"
+  },
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "future_obligation_accessed": false,
+  "scope": {
+    "classifier_role": "secondary sensitivity attack; not a substitute for exact residual matching",
+    "primary_criterion": "exact paired identity of Z_undeclared after masking the full declared equivalence relation M_Gamma and preregistered deterministic consequences",
+    "repository_metadata": "may reveal treatment to a human reviewer but is non-causal only if the frozen trusted boundary prevents it from reaching arm/evaluator execution",
+    "statistical_note": "No ordinary finite-sample conditional-MI estimate is claimed because the two treatment states are deterministically identified by the full declared topology."
+  }
+}

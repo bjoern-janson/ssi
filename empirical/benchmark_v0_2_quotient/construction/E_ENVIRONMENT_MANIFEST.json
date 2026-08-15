@@ -1,0 +1,101 @@
+{
+  "E_capacity": {
+    "compute_budget": {
+      "authorized_persistence_attempts": 1,
+      "budget_metric": "DETERMINISTIC_OPERATION_SCHEDULE",
+      "fresh_evidence_validation_slots": 276,
+      "materialization_class_lookups": 24,
+      "materialization_matrix_comparisons": 576,
+      "materialization_matrix_writes": 576,
+      "materialization_path_records": 24,
+      "pair_scan_slots": 276,
+      "probe_generation_slots": 276,
+      "wall_clock_budget_used_for_adjudication": false
+    },
+    "memory_context_storage": {
+      "arm_private_extra_storage": 0,
+      "arm_private_treatment_buffer_bytes": 576,
+      "canonical_gamma_bytes_each": 3189,
+      "common_evidence_capacity_rule": "same immutable payload; one shared 64MiB cap; oversize invalidates event execution rather than substituting an event",
+      "equivalence_matrix_bytes": 576,
+      "llm_context": "NONE",
+      "max_common_evidence_bytes": 67108864,
+      "pair_slots": 276,
+      "path_slots": 24,
+      "raw_gamma_repository_bytes_each": 3477,
+      "shared_validated_substrate": true
+    },
+    "post_gate_budget_rule": "fixed slots; no topology-dependent expansion, early stop, dedup budget, or unique-class budget",
+    "runtime": {
+      "arm_execution": "same interpreter instance and evaluator code",
+      "implementation": "CPython",
+      "third_party_dependencies": [],
+      "version": "3.13.5"
+    }
+  },
+  "E_execution": {
+    "concurrency": "NONE_SINGLE_THREAD",
+    "evaluation_order_invariance_required": true,
+    "failure_rule": "ANY_ARM_EXCEPTION_INVALIDATES_PAIRED_EXECUTION; NO ONE_ARM RETRY",
+    "hash_iteration_dependency": "PROHIBITED; canonical path order is explicit",
+    "materialization_rule": "compile Gamma partition into 576-byte equivalence matrix with fixed 24x24 comparison schedule",
+    "pair_scan_rule": "scan all 276 unordered path pairs; no topology-dependent early stop",
+    "persistent_cache": "NONE",
+    "randomness": "NONE",
+    "scheduler_dependence": "NOT_USED_FOR_ADJUDICATION",
+    "shared_mutable_arm_state": "NONE",
+    "stopping_rule": "PROCESS_ALL_FIXED_SLOTS_OR_PAIRED_INVALIDATION_ON_EXCEPTION",
+    "timeout_rule": "NO_ARM_SPECIFIC_WALL_CLOCK_TIMEOUT; logical budget only",
+    "wall_clock_measurement": "NOT_AN_ENDPOINT_OR_STOP_RULE"
+  },
+  "E_information": {
+    "api_permissions": [],
+    "arm_label_evaluator_visible": false,
+    "evaluator_code": "IDENTICAL",
+    "evaluator_visible_treatment_view": "FIXED_24x24_EQUIVALENCE_MATRIX_ONLY",
+    "future_bundle_arm_metadata": "PROHIBITED",
+    "future_disclosure_contract": {
+      "interface": "CommonEvidence(payload: bytes, sha256: str)",
+      "max_payload_bytes": 67108864,
+      "realized_event_packaging_adjudication": "PREDICATE_G",
+      "same_disclosure_time_required": true,
+      "same_payload_hash_required": true
+    },
+    "future_obligation_delivery": "ONE_CANONICAL_COMMON_EVIDENCE_BUNDLE_TO_BOTH_ARMS",
+    "network_access": false,
+    "pre_freeze_access_manifest": {
+      "forbidden": [
+        "post-cutoff Biome implementation information",
+        "future obligation before common disclosure",
+        "arm-specific external documentation"
+      ],
+      "shared": [
+        "construction/VALIDATED_SUBSTRATE.json",
+        "shared forward-state implementation and frozen pre-freeze source artifacts"
+      ],
+      "treatment_only": [
+        "construction/GAMMA_A.json OR construction/GAMMA_B.json at trusted materialization boundary"
+      ]
+    },
+    "pre_freeze_truth_source": "construction/VALIDATED_SUBSTRATE.json",
+    "raw_gamma_labels_evaluator_visible": false,
+    "tool_permissions": [],
+    "validated_substrate_delivery": "IDENTICAL_SHARED_OBJECT",
+    "validated_substrate_sha256": "5389f77a5b40371e259f78524aa099ae9b57d7a985d77c0a54c40dd70b464604"
+  },
+  "authority_boundary": {
+    "Delta_Pi": "NOT_EVALUATED",
+    "G_activation": "PROHIBITED",
+    "future_obligation_accessed": false,
+    "future_run": "NOT_AUTHORIZED"
+  },
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "governing_rule": "Any material unexplained A/B resource, information, or execution asymmetry is disqualifying; no statistical compensation.",
+  "predicate": "E_RESOURCE_INFORMATION_EXECUTION_SYMMETRY",
+  "schema_version": "1",
+  "treatment_exception": {
+    "only_allowed_arm_difference": "24x24 revision-path equivalence matrix induced by Gamma partition",
+    "raw_gamma_labels_evaluator_visible": false,
+    "validated_substrate_arm_difference_allowed": false
+  }
+}

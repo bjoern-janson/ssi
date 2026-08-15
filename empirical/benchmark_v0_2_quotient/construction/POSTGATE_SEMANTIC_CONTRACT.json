@@ -1,0 +1,96 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "contract_id": "VFA-0.2-POSTGATE-SEMANTIC-CONTRACT-1",
+  "status": "FROZEN_FOR_CONSTRUCTION_ATTACK",
+  "governing_rule": "No post-gate implementation may assign semantic meaning to Gamma that is not present in this frozen contract.",
+  "causal_interface": {
+    "input": ["shared_validated_substrate_W", "revision_partition_Gamma", "grounded_future_distinction_table"],
+    "output": "DeltaPi as canonical licensed probe identities",
+    "raw_future_bundle_parsing_inside_arm": "PROHIBITED",
+    "raw_gamma_label_semantics": "PROHIBITED",
+    "matrix_statistic_decoder": "PROHIBITED"
+  },
+  "semantic_reference": {
+    "identity": ["relation_kind", "source_fact_id"],
+    "raw_path_id_is_semantic": false,
+    "raw_equivalence_label_is_semantic": false,
+    "allowed_relation_kinds": ["PROVENANCE", "CHALLENGE", "ALTERNATIVE", "REOPEN"]
+  },
+  "representation_equivalence": {
+    "symbol": "~repr",
+    "must_preserve_reach": true,
+    "licensed_rewrites": [
+      "path_record permutation",
+      "JSON key ordering",
+      "raw path_id renaming with references preserved",
+      "raw equivalence-label renaming with partition preserved",
+      "future distinction row permutation",
+      "future distinction pair orientation swap"
+    ]
+  },
+  "revision_equivalence": {
+    "symbol": "~rev",
+    "definition": "two semantic references are revision-equivalent iff Gamma places them in the same equivalence block",
+    "q_effect": "Gamma_B is a coarser revision equivalence relation than Gamma_A"
+  },
+  "allowed_path_operations": {
+    "TRACE": "return the canonical revision block containing a semantic reference",
+    "FOLLOW": "follow a canonical revision block to its shared W source-fact references",
+    "CHALLENGE": "form a non-authoritative challenge probe over one canonical revision block",
+    "REOPEN": "form a non-authoritative reopen probe over one canonical revision block",
+    "COMPARE": "form a discriminating probe between two distinct canonical revision blocks of the same relation kind",
+    "SPLIT": "PROHIBITED_AT_FIRST_ENDPOINT; a split requires later independently validating fresh evidence"
+  },
+  "forbidden_path_operations": [
+    "count equivalence classes to assign probe value",
+    "score singleton fraction",
+    "score matrix density or row sums",
+    "branch on raw class label or arm label",
+    "hash Gamma and map hash to probe semantics",
+    "use representation order as semantic input",
+    "invent a path operation not listed in allowed_path_operations"
+  ],
+  "first_endpoint": {
+    "object": "future-distinction reachability",
+    "unit": "unordered pair of canonical semantic references",
+    "reachable_rule": "a DISTINGUISHED future pair is reachable iff the two references remain in distinct Gamma revision blocks and a canonical COMPARE probe is therefore legal",
+    "equivalent_rule": "an EQUIVALENT future pair is not a target distinction and contributes no treatment advantage",
+    "missingness_rule": "NOT_IDENTIFIED remains NOT_IDENTIFIED and is never imputed as EQUIVALENT or DISTINGUISHED",
+    "aggregation": "report pairwise results and identified coverage; no topology-weighted utility score"
+  },
+  "future_distinction_table": {
+    "required_domain": "all 12 nontrivial q-kernel merged semantic-reference pairs",
+    "allowed_status": ["DISTINGUISHED", "EQUIVALENT", "NOT_IDENTIFIED"],
+    "selection_of_favorable_subset": "PROHIBITED",
+    "arm_or_gamma_input_to_grounding": "PROHIBITED",
+    "must_be_common_to_arms": true,
+    "grounding_operator_status": "NOT_IDENTIFIED",
+    "grounding_requirement": "Before H can pass, freeze an external treatment-blind rule that maps the realized future obligation to a complete status for every q-kernel pair or NOT_IDENTIFIED, without using Gamma_A/Gamma_B, Phi_path, arm outcomes, or DeltaPi."
+  },
+  "evaluator": {
+    "name": "V_Pi_pair_reachability",
+    "representation_invariance_required": true,
+    "duplicate_rule": "canonical semantic probe identity deduplicates representation duplicates",
+    "invalid_probe_rule": "invalid or undeclared operations are rejected, not scored",
+    "abstention_rule": "NOT_IDENTIFIED is preserved as missing identification, not failure or zero",
+    "future_kernel_witness": "exists a q-kernel pair with status DISTINGUISHED",
+    "generativity_contrast": "conditional on a DISTINGUISHED q-kernel pair, compare whether the licensed COMPARE probe is reachable under Gamma_A versus Gamma_B"
+  },
+  "construction_attack_requirements": {
+    "representation_metamorphs_must_leave_reach_unchanged": true,
+    "each_q_kernel_merge_must_change_reach_when_synthetically_exercised_as_DISTINGUISHED": true,
+    "nonsemantic_decoder_features_must_not_enter_reachability_decision": true,
+    "future_obligation_must_not_be_accessed": true,
+    "G_activation": "PROHIBITED"
+  },
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED",
+    "Delta_Pi_realized": "NOT_EVALUATED",
+    "future_distinction_grounding": "NOT_IDENTIFIED",
+    "H_reaudit": "NOT_AUTHORIZED_UNTIL_CONTRACT_ATTACK_AND_GROUNDING_IDENTIFICATION",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}

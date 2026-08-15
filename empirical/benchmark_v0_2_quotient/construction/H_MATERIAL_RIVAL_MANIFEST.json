@@ -1,0 +1,220 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "predicate": "H_CONFOUND_LEDGER_COMPLETENESS_AND_RESIDUAL_VETO",
+  "schema_version": "1",
+  "primary_estimand_scope": {
+    "current_declared_endpoint": "first post-gate revision-probe reachability contrast DeltaReach(DeltaPi)",
+    "causal_chain": ["Phi_path", "Gamma", "G", "DeltaPi", "E_fresh", "CCA", "CARS", "Y"],
+    "scope_rule": "Admit rivals with a plausible causal path capable of changing the preregistered first post-gate reachability estimand under the frozen A-G design. Imaginability alone is insufficient.",
+    "important_limitation": "The exact post-gate probe-generation operator and exact DeltaPi evaluator are not yet frozen; this underdetermination is itself evaluated as a material rival rather than deferred."
+  },
+  "allowed_dispositions": ["BLOCKED", "MEASURED", "RANDOMIZED", "RESIDUAL"],
+  "veto_rule": "RESIDUAL and material and unbounded and effect_explaining => veto",
+  "rivals": [
+    {
+      "id": "H_capacity",
+      "entry": "construction/environment",
+      "material": true,
+      "disposition": "BLOCKED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [{"path": "empirical/benchmark_v0_2_quotient/evidence/E_RESOURCE_INFORMATION_EXECUTION_PASS.md", "git_blob_sha": "19b3bf794ac41c2658e2a37411e461c53eb3d0f5"}],
+      "bound": "equal deterministic capacity and execution opportunity under E",
+      "direction_alignment": "possible in principle; blocked"
+    },
+    {
+      "id": "H_information",
+      "entry": "environment/evidence exposure",
+      "material": true,
+      "disposition": "BLOCKED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/E_RESOURCE_INFORMATION_EXECUTION_PASS.md", "git_blob_sha": "19b3bf794ac41c2658e2a37411e461c53eb3d0f5"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/G_COMMON_CAUSE_PASS.md", "git_blob_sha": "cb9d83d0e303fe5d221c373265cf3c75736ba978"}
+      ],
+      "bound": "shared substrate; one common future bundle; no arm-private tools APIs or network",
+      "direction_alignment": "possible in principle; blocked"
+    },
+    {
+      "id": "H_ordinary_adapt",
+      "entry": "construction -> starting capability",
+      "material": true,
+      "disposition": "MEASURED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [
+        {"path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json", "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json", "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"}
+      ],
+      "bound": "F o q = F; exact traces on 249 tasks; hostile preactivation mismatch count 0",
+      "direction_alignment": "would align with A advantage but measured equal"
+    },
+    {
+      "id": "H_current_distribution",
+      "entry": "construction -> starting state",
+      "material": true,
+      "disposition": "BLOCKED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [{"path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json", "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"}],
+      "bound": "one shared validated substrate and identical path records outside the quotient partition",
+      "direction_alignment": "possible in principle; blocked"
+    },
+    {
+      "id": "H_future_distribution",
+      "entry": "external source / transport",
+      "material": false,
+      "disposition": "RESIDUAL",
+      "unbounded": true,
+      "effect_explaining": false,
+      "evidence": [
+        {"path": "empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md", "git_blob_sha": "bec386d1d3e1f172e5bbf48cb942b13ed2c5072e"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/G_COMMON_CAUSE_PASS.md", "git_blob_sha": "cb9d83d0e303fe5d221c373265cf3c75736ba978"}
+      ],
+      "bound": "uncontrolled for transport and generalization; the paired common event cannot by itself create an A/B exposure difference",
+      "direction_alignment": "can alter scope or transport, not the paired causal contrast"
+    },
+    {
+      "id": "H_resources",
+      "entry": "environment -> search opportunity",
+      "material": true,
+      "disposition": "BLOCKED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [{"path": "empirical/benchmark_v0_2_quotient/evidence/E_RESOURCE_INFORMATION_EXECUTION_PASS.md", "git_blob_sha": "19b3bf794ac41c2658e2a37411e461c53eb3d0f5"}],
+      "bound": "fixed 24 path slots, 576-byte treatment view, 276 pair/probe/validation slots, paired invalidation",
+      "direction_alignment": "possible in principle; blocked"
+    },
+    {
+      "id": "H_implementation",
+      "entry": "preactivation implementation",
+      "material": true,
+      "disposition": "BLOCKED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [
+        {"path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json", "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/F_TREATMENT_ISOLATION_PASS.md", "git_blob_sha": "aeac65599a46079740125c3aa6b0ab217ff03809"}
+      ],
+      "bound": "N0-N4 pass; residual observables pair-identical; shared treatment kernel",
+      "direction_alignment": "possible in principle; blocked preactivation"
+    },
+    {
+      "id": "H_label_leakage",
+      "entry": "metadata -> evaluator/arm",
+      "material": true,
+      "disposition": "BLOCKED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [{"path": "empirical/benchmark_v0_2_quotient/evidence/F_TREATMENT_ISOLATION_PASS.md", "git_blob_sha": "aeac65599a46079740125c3aa6b0ab217ff03809"}],
+      "bound": "raw labels filenames and hashes are positive sensitivity controls but terminate at the trusted materialization boundary",
+      "direction_alignment": "would trivially align if exposed; blocked"
+    },
+    {
+      "id": "H_future_selection",
+      "entry": "external source -> selected obligation",
+      "material": true,
+      "disposition": "BLOCKED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [
+        {"path": "empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md", "git_blob_sha": "bec386d1d3e1f172e5bbf48cb942b13ed2c5072e"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/G_COMMON_CAUSE_PASS.md", "git_blob_sha": "cb9d83d0e303fe5d221c373265cf3c75736ba978"}
+      ],
+      "bound": "treatment-free first-qualifying selector; 384 order and 128 label-swap checks with zero mismatches",
+      "direction_alignment": "possible in principle; blocked"
+    },
+    {
+      "id": "H_differential_exposure",
+      "entry": "G -> arm evidence",
+      "material": true,
+      "disposition": "BLOCKED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/E_RESOURCE_INFORMATION_EXECUTION_PASS.md", "git_blob_sha": "19b3bf794ac41c2658e2a37411e461c53eb3d0f5"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/G_COMMON_CAUSE_PASS.md", "git_blob_sha": "cb9d83d0e303fe5d221c373265cf3c75736ba978"}
+      ],
+      "bound": "one immutable common bundle, common timing and deadline, no arm argument",
+      "direction_alignment": "possible in principle; blocked"
+    },
+    {
+      "id": "H_evaluator",
+      "entry": "DeltaPi -> measured Reach(DeltaPi)",
+      "material": true,
+      "disposition": "RESIDUAL",
+      "unbounded": true,
+      "effect_explaining": true,
+      "evidence": [],
+      "bound": "NONE: exact DeltaPi identity/reachability evaluator and its admissible representation-invariance rule are not yet frozen",
+      "direction_alignment": "could fully manufacture an A-favoring reachability contrast"
+    },
+    {
+      "id": "H_missingness",
+      "entry": "execution -> inclusion/abstention",
+      "material": true,
+      "disposition": "BLOCKED",
+      "unbounded": false,
+      "effect_explaining": true,
+      "evidence": [
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/E_RESOURCE_INFORMATION_EXECUTION_PASS.md", "git_blob_sha": "19b3bf794ac41c2658e2a37411e461c53eb3d0f5"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/G_COMMON_CAUSE_PASS.md", "git_blob_sha": "cb9d83d0e303fe5d221c373265cf3c75736ba978"}
+      ],
+      "bound": "NO_QUALIFYING semantics and paired invalidation with no one-arm retry or later substitution",
+      "direction_alignment": "possible in principle; blocked by paired semantics"
+    },
+    {
+      "id": "H_quotient_interpretation",
+      "entry": "Gamma -> DeltaPi",
+      "material": true,
+      "disposition": "RESIDUAL",
+      "unbounded": true,
+      "effect_explaining": true,
+      "evidence": [],
+      "bound": "NONE: no frozen post-gate semantic operator constrains how M_Gamma may be transformed into candidate probes",
+      "direction_alignment": "could fully explain an A advantage through an arbitrary singleton/class-density decoder rather than preserved revision reachability"
+    },
+    {
+      "id": "H_challenge_recognizability",
+      "entry": "G/common E_insuff x Gamma -> DeltaPi",
+      "material": true,
+      "disposition": "RESIDUAL",
+      "unbounded": true,
+      "effect_explaining": true,
+      "evidence": [{"path": "empirical/benchmark_v0_2_quotient/evidence/G_COMMON_CAUSE_PASS.md", "git_blob_sha": "cb9d83d0e303fe5d221c373265cf3c75736ba978"}],
+      "bound": "common evidence identity is frozen, but arm-independent semantic interpretation of that evidence after activation is not",
+      "direction_alignment": "could fully explain an A advantage through differential decoding of identical failure evidence"
+    },
+    {
+      "id": "H_CCA_CARS_downstream",
+      "entry": "E_fresh -> CCA -> CARS",
+      "material": false,
+      "disposition": "RESIDUAL",
+      "unbounded": true,
+      "effect_explaining": false,
+      "evidence": [],
+      "bound": "downstream of the first DeltaPi reachability estimand; must be frozen before any later warrant or authority endpoint is claimed",
+      "direction_alignment": "cannot cause the first reachability contrast if causal order is preserved"
+    },
+    {
+      "id": "H_physical_runtime",
+      "entry": "low-level execution",
+      "material": false,
+      "disposition": "RESIDUAL",
+      "unbounded": true,
+      "effect_explaining": false,
+      "evidence": [{"path": "empirical/benchmark_v0_2_quotient/evidence/E_RESOURCE_INFORMATION_EXECUTION_PASS.md", "git_blob_sha": "19b3bf794ac41c2658e2a37411e461c53eb3d0f5"}],
+      "bound": "not used for stopping, success, or the estimand in this benchmark version; E claims logical opportunity only",
+      "direction_alignment": "cannot explain the endpoint under frozen logical-budget semantics unless later exposed; that would reopen E and H"
+    }
+  ],
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}

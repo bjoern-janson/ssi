@@ -1,0 +1,26 @@
+{
+  "attacker_controls": [
+    "ordinary query values and order",
+    "insufficiency-evidence values",
+    "arbitrary Gamma/revision-topology objects in caller memory",
+    "caller-side reserve ordering, serialization, identity and allocation pressure",
+    "extra positional arguments, extra fields, wrong object types and capability-smuggling attempts",
+    "injection of unrelated Gamma/reserve-named module globals for non-use testing"
+  ],
+  "excluded_attacker_powers": [
+    "rewriting or monkeypatching trusted function code",
+    "reassigning the trusted FORWARD_STATE constant",
+    "arbitrary import-hook or builtins replacement",
+    "ctypes/debugger/process-memory mutation",
+    "filesystem mutation of trusted artifacts during an audit run"
+  ],
+  "interpretation": "N4 PASS establishes caller-interface capability nonreachability within this frozen model. It is not a claim of language-runtime or OS sandbox security.",
+  "purpose": "Scope architectural non-capability claims for the VFA-0.2 preactivation audit.",
+  "schema_version": "1",
+  "threat_model_id": "PREACTIVATION_CALLER_V1",
+  "trusted_boundary": [
+    "CLOSED_PREACTIVATION_INTERFACE.py code object",
+    "the frozen FORWARD_STATE constructed from the shared validated substrate and frozen forward machinery",
+    "Python interpreter semantics needed to execute the trusted module"
+  ]
+}

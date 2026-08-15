@@ -1,0 +1,133 @@
+{
+  "E_adjudication": "PASS",
+  "G_activation": "PROHIBITED",
+  "attack_results": {
+    "capacity_manifest": {
+      "checks": {
+        "common_evidence_cap_shared": true,
+        "fixed_matrix_bytes": true,
+        "fixed_pair_slots": true,
+        "fixed_path_slots": true,
+        "no_arm_private_extra_storage": true,
+        "probe_slots_equal_pair_slots": true,
+        "stdlib_only": true,
+        "treatment_buffer_fixed": true,
+        "validation_slots_equal_pair_slots": true
+      },
+      "pass": true
+    },
+    "execution_static": {
+      "forbidden_call_hits": [],
+      "forbidden_import_hits": [],
+      "kernel_sha256": "f9b33b28175d2a59fd498c90d645d841137dc6daf319b806f586cc24448c3c96",
+      "manifest_checks": {
+        "logical_budget_only": true,
+        "paired_failure": true,
+        "persistent_cache_none": true,
+        "randomness_none": true,
+        "single_thread": true,
+        "wall_clock_not_stop": true
+      },
+      "pass": true
+    },
+    "gamma_representation_and_cost": {
+      "checks": {
+        "canonical_bytes_equal": true,
+        "logical_materialization_cost_equal": true,
+        "matrix_alphabet_closed": true,
+        "matrix_size_equal": true,
+        "pair_scan_slots_equal": true,
+        "path_records_equal": true,
+        "raw_bytes_equal": true,
+        "treatment_matrix_differs": true
+      },
+      "matrix_sha256_A": "747921b0e9523e90ba24af83a57a0af3d9878128146ab9dcd39eec9fc6b915bb",
+      "matrix_sha256_B": "9db6625088236c8969b38293d761a0deb499d03a76bfd5a7d42312457919655f",
+      "pass": true,
+      "trace_A": {
+        "class_label_lookups": 24,
+        "matrix_byte_writes": 576,
+        "matrix_comparisons": 576,
+        "output_bytes": 576,
+        "pair_slots": 276,
+        "path_record_reads": 24,
+        "path_sort_items": 24
+      },
+      "trace_B": {
+        "class_label_lookups": 24,
+        "matrix_byte_writes": 576,
+        "matrix_comparisons": 576,
+        "output_bytes": 576,
+        "pair_slots": 276,
+        "path_record_reads": 24,
+        "path_sort_items": 24
+      }
+    },
+    "information_exposure": {
+      "apis": [],
+      "common_payload_cases": 5,
+      "dirty_common_evidence_rejected": true,
+      "mismatches": [],
+      "network_access": false,
+      "pass": true,
+      "raw_arm_label_literals_absent_from_kernel": true,
+      "raw_gamma_at_exposure_boundary_rejected": true,
+      "tools": []
+    },
+    "metamorphic_execution_cost": {
+      "AB_BA_order_invariance": true,
+      "comparisons": 192,
+      "mismatch_count": 0,
+      "mismatches": [],
+      "pass": true
+    },
+    "runtime": {
+      "expected": {
+        "arm_execution": "same interpreter instance and evaluator code",
+        "implementation": "CPython",
+        "third_party_dependencies": [],
+        "version": "3.13.5"
+      },
+      "observed": {
+        "implementation": "CPython",
+        "third_party_dependencies_used_by_kernel": [],
+        "version": "3.13.5"
+      },
+      "pass": true
+    },
+    "substrate": {
+      "arm_usage": {
+        "A": "IDENTICAL_OBJECT",
+        "B": "IDENTICAL_OBJECT"
+      },
+      "expected_sha256": "5389f77a5b40371e259f78524aa099ae9b57d7a985d77c0a54c40dd70b464604",
+      "observed_sha256": "5389f77a5b40371e259f78524aa099ae9b57d7a985d77c0a54c40dd70b464604",
+      "pass": true
+    }
+  },
+  "audit_identity": "VFA-0.2-E-ENVIRONMENT-ATTACK-1",
+  "authority_boundary": {
+    "Delta_Pi": "NOT_EVALUATED",
+    "authorization_certificate": "NOT_ISSUED",
+    "freeze_packet": "NOT_FROZEN",
+    "future_run": "NOT_AUTHORIZED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED"
+  },
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "certificates": {
+    "E_capacity": {
+      "pass": true
+    },
+    "E_execution": {
+      "pass": true
+    },
+    "E_information": {
+      "pass": true
+    }
+  },
+  "future_obligation_accessed": false,
+  "scope": {
+    "cost_claim": "deterministic logical operation/resource schedule; no CPU-cycle, joule, or wall-clock equality claim",
+    "future_common_cause_realization": "deferred to predicate G"
+  }
+}
