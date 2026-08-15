@@ -29,6 +29,7 @@ class ObligationDescriptor:
 @dataclass(frozen=True, slots=True)
 class ArtifactRecord:
     status: str
+    selected_version: str
     wrapper_tar_sha256: str | None
     platform_tar_sha256: str | None
     executable_sha256: str | None
@@ -91,10 +92,19 @@ def make_grounding_envelope(
         raise ValueError("release_id must be nonnegative int")
     if artifact.status not in ALLOWED_CONSEQUENCE_STATUS:
         raise ValueError("invalid artifact status")
+    if artifact.selected_version != obligation.selected_version:
+        raise ValueError("artifact version must equal selected obligation version")
     if kernel_adjudication not in ALLOWED_KERNEL:
         raise ValueError("invalid kernel adjudication")
     if type(contract_digests) is not dict or not contract_digests:
         raise TypeError("contract digests required")
+
+    if artifact.status == "IDENTIFIED":
+        if not all(type(x) is str and len(x) == 64 for x in (artifact.wrapper_tar_sha256, artifact.platform_tar_sha256, artifact.executable_sha256)):
+            raise ValueError("identified artifact requires three SHA-256 hashes")
+    else:
+        if artifact.executable_sha256 is not None:
+            raise ValueError("unidentified artifact cannot expose executable hash")
 
     wc = []
     seen_facts = set()
@@ -106,8 +116,8 @@ def make_grounding_envelope(
             raise ValueError("unique fact_id required")
         if status not in ALLOWED_CONSEQUENCE_STATUS:
             raise ValueError("invalid witness consequence status")
-        if status == "IDENTIFIED" and (type(sig) is not str or not sig):
-            raise ValueError("identified consequence requires signature hash")
+        if status == "IDENTIFIED" and (type(sig) is not str or len(sig) != 64):
+            raise ValueError("identified consequence requires SHA-256 signature hash")
         if status == "NOT_IDENTIFIED" and sig is not None:
             raise ValueError("missing consequence cannot carry signature hash")
         seen_facts.add(fact_id)
