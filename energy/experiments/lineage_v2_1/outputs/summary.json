@@ -1,0 +1,147 @@
+{
+  "status": "NOT_SUPPORTED_IN_FROZEN_COST_AWARE_ROUTING_SCOPE",
+  "scope": "Synthetic heterogeneous executable repair programs; similarity-only vs q/c cost-aware lineage routing; process CPU primary; not physical energy.",
+  "worlds": 64,
+  "episodes_per_world": 96,
+  "total_paired_episodes": 6144,
+  "uniform_logloss": 2.4849066497880004,
+  "mean_beta": 25.125,
+  "median_beta": 24.0,
+  "beta_counts": {
+    "0.0": 0,
+    "1.0": 0,
+    "2.0": 0,
+    "4.0": 0,
+    "8.0": 0,
+    "12.0": 0,
+    "16.0": 0,
+    "24.0": 55,
+    "32.0": 9,
+    "48.0": 0,
+    "64.0": 0
+  },
+  "mean_heldout_proposal_logloss": 0.6675520930647175,
+  "proposal_logloss_95pct_CI": [
+    0.6443398594554384,
+    0.6900571425652778
+  ],
+  "mean_n_tested_C": 1.62548828125,
+  "mean_n_tested_S": 1.5196940104166667,
+  "mean_delta_n_C_minus_S": 0.10579427083333333,
+  "mean_delta_n_95pct_CI": [
+    0.08430989583333334,
+    0.12711588541666666
+  ],
+  "mean_route_cpu_C_ns": 78109.79361979167,
+  "mean_route_cpu_S_ns": 70347.36344401042,
+  "mean_eval_cpu_C_ns": 36563.10400390625,
+  "mean_eval_cpu_S_ns": 39255.292154947914,
+  "mean_delta_eval_cpu_C_minus_S_ns": -2692.188151041667,
+  "mean_delta_eval_cpu_95pct_CI_ns": [
+    -3562.955305989584,
+    -1835.3980631510428
+  ],
+  "mean_total_cpu_C_ns": 115391.68098958333,
+  "mean_total_cpu_S_ns": 110312.43277994792,
+  "mean_delta_total_cpu_C_minus_S_ns": 5079.248209635416,
+  "mean_delta_total_cpu_95pct_CI_ns": [
+    3927.5531372070313,
+    6290.362320963542
+  ],
+  "mean_delta_total_wall_C_minus_S_ns": 5489.442057291666,
+  "mean_delta_total_wall_95pct_CI_ns": [
+    4335.527917480469,
+    6706.221138509111
+  ],
+  "fraction_C_total_cpu_cheaper": 0.20589192708333334,
+  "fraction_more_candidates_but_cheaper": 0.013509114583333334,
+  "fraction_fewer_candidates_but_costlier": 0.0030924479166666665,
+  "frozen_v2_cost_ns": [
+    8452.0,
+    12609.0,
+    5128.0,
+    9023.0,
+    12499.0,
+    12449.0,
+    34941.0,
+    15943.5,
+    22007.5,
+    45988.0,
+    57225.0,
+    43765.0
+  ],
+  "current_S_median_candidate_cost_ns": [
+    8647.5,
+    14231.0,
+    5182.5,
+    9238.5,
+    12809.0,
+    12764.0,
+    35342.5,
+    16505.0,
+    23214.0,
+    46690.0,
+    59669.0,
+    44816.5
+  ],
+  "cost_field_spearman_rho": 1.0,
+  "current_cost_heterogeneity_ratio": 11.513555233960444,
+  "quality_contract_all_worlds": true,
+  "evidence_ladder": {
+    "proposal_quality": true,
+    "cost_field_transfer": true,
+    "heterogeneous_work_routing": true,
+    "net_executable_router_economy": false,
+    "quality_admissible": true,
+    "v2_1_supported": false
+  },
+  "transfer_tier_diagnostics": [
+    {
+      "noise_p": 0.15,
+      "episodes": 3072,
+      "mean_delta_n_C_minus_S": 0.049479166666666664,
+      "mean_delta_eval_cpu_C_minus_S_ns": 338.6002604166667,
+      "mean_delta_total_cpu_C_minus_S_ns": 8341.565755208334,
+      "fraction_C_total_cpu_cheaper": 0.15104166666666666,
+      "fraction_more_candidates_but_cheaper": 0.005208333333333333,
+      "fraction_fewer_candidates_but_costlier": 0.0016276041666666667,
+      "mean_proposal_logloss": 0.2272183706313171
+    },
+    {
+      "noise_p": 0.25,
+      "episodes": 2048,
+      "mean_delta_n_C_minus_S": 0.1416015625,
+      "mean_delta_eval_cpu_C_minus_S_ns": -3112.89501953125,
+      "mean_delta_total_cpu_C_minus_S_ns": 4403.87255859375,
+      "fraction_C_total_cpu_cheaper": 0.21337890625,
+      "fraction_more_candidates_but_cheaper": 0.01611328125,
+      "fraction_fewer_candidates_but_costlier": 0.00244140625,
+      "mean_proposal_logloss": 0.7838593433432516
+    },
+    {
+      "noise_p": 0.35,
+      "episodes": 1024,
+      "mean_delta_n_C_minus_S": 0.203125,
+      "mean_delta_eval_cpu_C_minus_S_ns": -10943.1396484375,
+      "mean_delta_total_cpu_C_minus_S_ns": -3356.953125,
+      "fraction_C_total_cpu_cheaper": 0.35546875,
+      "fraction_more_candidates_but_cheaper": 0.033203125,
+      "fraction_fewer_candidates_but_costlier": 0.0087890625,
+      "mean_proposal_logloss": 1.75593875980785
+    }
+  ],
+  "run_total_process_cpu_ns": 3505537246,
+  "run_total_wall_ns": 3505674915,
+  "environment": {
+    "timestamp_utc": "2026-08-15T16:48:10.440127+00:00",
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "numpy": "2.3.5",
+    "platform": "Linux-6.18.35-x86_64-with-glibc2.41",
+    "machine": "x86_64"
+  },
+  "not_measured": {
+    "physical_energy_joules": "NOT_MEASURED",
+    "gpu_time": "NOT_MEASURED",
+    "llm_tokens": "NOT_APPLICABLE"
+  }
+}
