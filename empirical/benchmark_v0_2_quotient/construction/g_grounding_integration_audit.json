@@ -1,0 +1,72 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "audit_identity": "VFA-0.2-G-GROUNDING-INTEGRATION-ATTACK-1",
+  "future_obligation_accessed": false,
+  "G_activation": "PROHIBITED",
+  "G_grounding_integration_adjudication": "PASS",
+  "attack_results": {
+    "canonical_common_envelope": {
+      "pass": true,
+      "metamorphic_envelopes": 3,
+      "envelope_mismatches": 0,
+      "rewrites": ["grounding-row order reversal","path-surface order reversal","pair orientation reversal"],
+      "common_view_equal": true,
+      "common_bundle_object": true
+    },
+    "fail_closed": {
+      "pass": true,
+      "rejected": {
+        "wrong_artifact_version": true,
+        "wrong_grounding_pair": true,
+        "missing_surface": true,
+        "surface_status_inconsistent": true,
+        "wrong_kernel_adjudication": true,
+        "artifact_missing_but_grounding_identified": true
+      },
+      "artifact_failure_envelope_valid": true,
+      "artifact_failure_semantics": "all six witness consequences, all three grounding units, all twelve path surfaces, and kernel adjudication remain NOT_IDENTIFIED; no release substitution"
+    },
+    "static_independence": {
+      "pass": true,
+      "forbidden_runtime_identifiers": ["arm","Gamma","M_Gamma","Phi_path","DeltaPi","Reach","outcome","performance"],
+      "identifier_hits": 0,
+      "smuggling_attempts": 6,
+      "smuggling_accepted": 0
+    },
+    "realized_template": {
+      "pass": true,
+      "status": "UNINSTANTIATED_TEMPLATE",
+      "pre_filled_realized_fields": [],
+      "required_grounding_artifact_conformance_fields_present": true
+    }
+  },
+  "integration_chain": [
+    "A/G selected release",
+    "exact-version official linux-x64-glibc npm artifact",
+    "six treatment-blind repeated witness executions",
+    "three complete consequence-grounded q-kernel units",
+    "twelve deterministic relation-kind lifts",
+    "one canonical content-addressed GroundingEnvelope",
+    "one common bundle committed before arm access",
+    "identical disclosure and deadline"
+  ],
+  "scope": {
+    "authorization_claim": "the repaired prospective common-cause mechanism is treatment-free and complete through grounded future evidence packaging",
+    "realized_claim": "NOT_EVALUATED; selected future release, package integrity, witness executions, grounding statuses, hashes, timestamps, and disclosure conformance remain prospective",
+    "no_fallback": "artifact/grounding failure yields NOT_IDENTIFIED on the selected event; it never licenses a custom build or later release substitution"
+  },
+  "authorization_effect": {
+    "G": "CANDIDATE_REEARNED_PASS_ON_GROUNDED_SURFACE",
+    "H": "REQUIRES_FRESH_GROUNDING_AWARE_READJUDICATION",
+    "I": "NOT_EVALUATED"
+  },
+  "authority_boundary": {
+    "realized_T_future": "NOT_EVALUATED",
+    "realized_J_future": "NOT_EVALUATED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}
