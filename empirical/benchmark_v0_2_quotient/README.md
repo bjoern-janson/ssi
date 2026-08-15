@@ -1,290 +1,235 @@
 # VFA-0.2 — Quotient Revision Topology
 
-## Lineage identity
+This directory is the construction and evidence lineage for the first authorized prospective VFA benchmark.
+
+It is intentionally **append-heavy**. Failed constructions, hostile attacks, repaired semantic contracts, rejected freeze packets, and execution evidence remain present because they are part of the scientific provenance chain.
+
+For the current state, do not infer authority from filename recency. Start with:
+
+1. [`AUTHORIZATION_STATUS.json`](AUTHORIZATION_STATUS.json)
+2. [`construction/I_AUTHORIZATION_CERTIFICATE.json`](construction/I_AUTHORIZATION_CERTIFICATE.json)
+3. [`construction/I_FREEZE_PACKET_V7.json`](construction/I_FREEZE_PACKET_V7.json)
+4. [`construction/I_FREEZE_ANCHOR_V7.json`](construction/I_FREEZE_ANCHOR_V7.json)
+5. [`evidence/I_CHAIN_OF_CUSTODY_PASS.md`](evidence/I_CHAIN_OF_CUSTODY_PASS.md)
+
+## Current authority state
 
 ```text
-VFA-0.1-REJECTED_RETRIEVAL_LEAKAGE
-    ->
-VFA-0.2-DORMANT-CORRECTIVE-RESERVE
-    ->
-VFA-0.2-HOSTILE-FACTORIZATION-ATTACK-1
-    -> OPEN_CAPABILITY_SURFACE
-    ->
-VFA-0.2-QUOTIENT-REVISION-TOPOLOGY
-```
-
-This lineage preserves the earlier failures. It does not repair or overwrite them.
-
-The redesign removes the deeper semantic confound in which topology separation could also mean correct versus corrupted provenance.
-
-## Governing wager
-
-> **A distinction can have zero present behavioral value yet positive future corrective option value.**
-
-Dual:
-
-> **Present behavioral equivalence does not certify future corrective equivalence.**
-
-## Treatment identity
-
-Both arms share one immutable validated substrate:
-
-\[
-\mathcal W_A=\mathcal W_B=\mathcal W.
-\]
-
-The arm difference lives only in revision-path equivalence structure:
-
-\[
-D_A=(\mathcal W,\Gamma_A),\qquad D_B=(\mathcal W,\Gamma_B).
-\]
-
-`VALIDATED_SUBSTRATE.json` is literally the same truth-bearing object for both arms. `GAMMA_A.json` and `GAMMA_B.json` contain the same 24 path records and the same source-fact references. Neither Gamma carries truth values, validation status, or transformation-class payloads.
-
-The treatment is only the partition of those identical path records into revision-equivalence classes.
-
-## Quotient
-
-\[
-q:\Gamma_A\rightarrow\Gamma_B
-\]
-
-acts only on path-equivalence labels. Within each relation kind, source case IDs are sorted lexicographically and adjacent IDs are merged. There is no seed search, semantic-score search, or future-obligation information in the quotient rule.
-
-Thus B is a coarser quotient of the same validated substrate, not a scrambled or false substrate.
-
-## Construction audit 1
-
-The known-domain requirement is:
-
-\[
-F\circ q=F.
-\]
-
-Result:
-
-```text
-D_SEMANTIC                 = PASS
-D_TOPOLOGY                 = PASS
-F_COMP_Q_EQUALS_F          = PASS
-ordinary tasks             = 249
-ordinary trace mismatches  = 0
-kernel merged path pairs   = 12
-```
-
-Arm representation symmetry:
-
-```text
-path records               = 24 / 24
-canonical Gamma bytes      = 3189 / 3189
-validated substrate        = identical object
-truth-bearing Gamma fields = none
-```
-
-Path descriptor:
-
-```text
-Phi_path A:
-  distinct path classes        24
-  singleton path fraction      1.0
-  mean equivalence class size  1.0
-  reopen distinct classes      6
-
-Phi_path B:
-  distinct path classes        12
-  singleton path fraction      0.0
-  mean equivalence class size  2.0
-  reopen distinct classes      3
-```
-
-Aggregation of these dimensions is prohibited.
-
-## Hardened preactivation attack 1
-
-The redesigned object was attacked through the construction-side `N0 -> N4` ladder under frozen caller-capability model `PREACTIVATION_CALLER_V1`.
-
-```text
-N0 endpoint equality           = PASS
-N1 full trace equality         = PASS
-N2 metamorphic invariance      = PASS
-N3 transitive non-use          = PASS
-N4 capability surface          = PASS
-N2 comparisons                 = 101592
-N2 mismatches                  = 0
-module-global checks           = 2988
-module-global mismatches       = 0
-gate comparisons               = 170
-gate mismatches                = 0
-capability-smuggling attempts  = 530
-accepted                       = 0
-```
-
-Therefore:
-
-```text
-D_PRE_ACTIVATION_HARDENED = PASS
-SCOPE = PREACTIVATION_CALLER_V1
-```
-
-This is caller-interface capability nonreachability, not an OS sandbox or arbitrary in-process code-rewrite claim.
-
-## Fresh authorization re-audit
-
-The quotient treatment receives fresh authorization adjudication rather than inheriting treatment-sensitive VFA-0.1 states.
-
-Current spine:
-
-```text
+BENCHMARK = VFA-0.2-QUOTIENT-REVISION-TOPOLOGY
 A = PASS
 B = PASS
 C = PASS
 D = PASS
 E = PASS
 F = PASS
-G = NOT_EVALUATED
-H = NOT_EVALUATED
-I = NOT_EVALUATED
-```
+G = PASS
+H = PASS
+I = PASS
 
-### A — prospective scope
+PACKET = VFA-0.2-FROZEN-PACKET-7
+PACKET_SHA256 = 2d8b64e28f8207b51d1acae2459d0cf89774e7be0c10cb5a2a04808029ade3b7
+EXECUTION_ROOT_SHA256 = 56d2f3a996f6dc71183fa7325af06d738e8ba994f9b62a2ba454f85c5fe8fe1d
+AUTHORIZATION_CERTIFICATE_SHA256 = 17335f0a5893406763fb7660e4f23c06b9343cc0818a1bc63db3abad9e0e4e1e
 
-Re-earned from the unchanged Biome source cutoff, admissible future-change class, 180-day horizon, deterministic first-qualifying selector, exclusions, and prospective independence rule.
-
-### B — treatment identity
-
-Re-earned from the same-truth quotient construction:
-
-```text
-W_A = W_B
-path_records_A = path_records_B
-Gamma_B = q(Gamma_A)
-```
-
-`Phi_path` is frozen component-wise; aggregation is prohibited.
-
-### C/D — present and ordinary causal equivalence
-
-Re-earned from shared substrate/state and:
-
-\[
-F\circ q=F
-\]
-
-with exact full-trace identity on all 249 ordinary pre-freeze surrogate tasks and zero mismatches in the hardened preactivation attack.
-
-### E — resource, information, and execution symmetry
-
-E is decomposed as:
-
-\[
-E=(E_{\rm capacity},E_{\rm information},E_{\rm execution}).
-\]
-
-All three pass under a deterministic logical-resource contract. Raw Gamma labels are hidden behind a fixed treatment view:
-
-\[
-M_\Gamma\in\{0,1\}^{24\times24}.
-\]
-
-Both arms receive a 576-byte treatment buffer, 24 path slots, 576 materialization comparisons/writes, all 276 unordered pair slots, the same common-evidence interface, and no topology-dependent early stop, randomness, concurrency, cache, tool, API, or network advantage.
-
-The hostile E attack records 192 metamorphic execution-cost comparisons with zero mismatches.
-
-E does **not** claim equal CPU cycles, joules, cache misses, or wall-clock time. Those quantities do not control stopping or the confirmatory estimand in this benchmark version.
-
-### F — treatment isolation and hidden asymmetry
-
-F treats the full equivalence relation `M_Gamma` as the declared treatment object. `Phi_path` is a structural descriptor, not the complete conditioning object.
-
-After masking `M_Gamma` and preregistered deterministic consequences of it:
-
-```text
-metamorphic A/B pairs        = 64
-residual observable mismatches = 0
-```
-
-Blind holdout recovery from residual observables remains at chance:
-
-```text
-exact memorizer     = 0.500
-categorical stump   = 0.500
-1-NN Hamming        = 0.500
-chance              = 0.500
-```
-
-The primary evidence is exact paired residual identity; classifier failure is secondary.
-
-Positive sensitivity control: raw repository metadata *does* reveal the arm at 100% (`GAMMA_A.json` / `GAMMA_B.json`, raw label namespace, raw Gamma hash). Those channels are explicitly classified as non-material only because predicate E proves they terminate at the trusted materialization boundary and never become arm/evaluator-visible.
-
-```text
-unclassified observables            = 0
-material undeclared distinguishers  = 0
-F                                   = PASS
-```
-
-## Current authorization state
-
-```text
-CONSTRUCTION_VALID = YES
-A_THROUGH_F = PASS
-AUTHORIZATION_VALID = NO
-FUTURE_HYPOTHESIS_TESTED = NO
-
+STATE = AUTHORIZED_FUTURE_NOT_YET_REALIZED
 FUTURE_OBLIGATION_ACCESSED = FALSE
-G_ACTIVATION = PROHIBITED
+G_ACTIVATION = NOT_ACTIVATED
+REALIZED_T_FUTURE = NOT_EVALUATED
+REALIZED_J_FUTURE = NOT_EVALUATED
 DELTA_PI = NOT_EVALUATED
 KERNEL_FUTURE_INCLUSION = NOT_EVALUATED
-FREEZE_PACKET = NOT_FROZEN
-AUTHORIZATION_CERTIFICATE = NOT_ISSUED
-FUTURE_RUN = NOT_AUTHORIZED
+FUTURE_RUN = NOT_EXECUTED
 ```
 
-## Deliberately unresolved
+Packet 7 is frozen. The next scientific state transition must be produced by the preregistered external source. This README has no authority to modify the packet or reinterpret its execution rules.
 
-The prospective kernel question is still not assumed:
+## Treatment identity
+
+The final construction removes the earlier truth/provenance confound by holding the validated factual substrate literally equal:
 
 \[
+\mathcal W_A=\mathcal W_B=\mathcal W.
+\]
+
+Both arms contain the same 24 semantic revision-path records. They differ only in revision-equivalence structure:
+
+\[
+D_A=(\mathcal W,\Gamma_A),
+\qquad
+D_B=(\mathcal W,\Gamma_B),
+\qquad
+\Gamma_B=q(\Gamma_A).
+\]
+
+The quotient is frozen independently of future outcomes and satisfies the known-domain condition:
+
+\[
+F\circ q=F.
+\]
+
+Thus the contrast is:
+
+```text
+same validated facts
++ same ordinary behavior
++ same resource/information/execution opportunity
++ different revision equivalence structure
+```
+
+not "A knows more" and not "A has a better ordinary retrieval graph."
+
+Core treatment files:
+
+- [`construction/VALIDATED_SUBSTRATE.json`](construction/VALIDATED_SUBSTRATE.json)
+- [`construction/GAMMA_A.json`](construction/GAMMA_A.json)
+- [`construction/GAMMA_B.json`](construction/GAMMA_B.json)
+- [`construction/QUOTIENT_MAP.json`](construction/QUOTIENT_MAP.json)
+- [`construction/SEMANTIC_COORDINATE_MAP.json`](construction/SEMANTIC_COORDINATE_MAP.json)
+
+## Prospective scientific question
+
+The logically prior future test is:
+
+\[
+\boxed{
 \ker q\stackrel{?}{\subseteq}\ker T_{\rm future}.
+}
 \]
 
-Nothing in A–F answers it.
+The future consequence grounder is treatment-blind. The twelve nontrivial q-kernel path surfaces reduce to **three independent source-fact grounding units**:
 
-## Eventual first scientific endpoint
+```text
+ariakit    <-> aws
+issue_5465 <-> knip
+nested     <-> sentry
+```
 
-If and only if the lineage later survives the remaining pre-freeze authorization predicates, the first post-gate scientific endpoint is revision-probe reachability:
+Each grounding unit is lifted across four relation kinds, yielding twelve reporting surfaces. The twelve surfaces are deterministic mechanism surfaces, **not twelve independent future observations**.
 
-\[
-G\rightarrow\Delta\Pi.
-\]
+Primary interpretation order:
 
-The intended ladder is:
+```text
+realized common-cause conformance
+    -> J_future over 3 grounding units
+    -> kernel inclusion / non-inclusion
+    -> conditional DeltaPi mechanism localization
+    -> fresh evidence
+    -> CCA
+    -> CARS
+    -> downstream viability
+```
 
-\[
-\mathcal W\rightarrow\Gamma\rightarrow\Delta\Pi\rightarrow E_{\rm fresh}\rightarrow CCA\rightarrow CARS\rightarrow R_{t+1}.
-\]
+A/B reachability is not allowed to decide whether the future distinction exists. Future non-inclusion must be established first from treatment-blind consequences.
 
-A newly reachable probe earns possibility, not authority.
+## Lineage
 
-## Key files
+The current object was earned through preserved failures:
 
-- `construction/VALIDATED_SUBSTRATE.json` — shared truth-bearing substrate.
-- `construction/GAMMA_A.json` / `GAMMA_B.json` — identical path records, different equivalence partitions.
-- `construction/QUOTIENT_MAP.json` — deterministic quotient rule.
-- `construction/QUOTIENT_CONSTRUCTION_AUDIT.py` / `quotient_construction_audit.json` — same-truth/topology/known-domain audit.
-- `construction/CAPABILITY_THREAT_MODEL.json` — frozen N4 scope.
-- `construction/CLOSED_PREACTIVATION_INTERFACE.py` — closed ordinary and insufficiency-gate surfaces.
-- `construction/HARDENED_N_LADDER_ATTACK.py` / `hardened_n_ladder_audit.json` — N0–N4 attack.
-- `construction/E_ENVIRONMENT_MANIFEST.json` — E capacity/information/execution contract.
-- `construction/E_ENVIRONMENT_KERNEL.py` — fixed-cost equivalence-matrix exposure kernel.
-- `construction/E_ENVIRONMENT_ATTACK.py` / `e_environment_audit.json` — adversarial E audit.
-- `evidence/E_RESOURCE_INFORMATION_EXECUTION_PASS.md` — E interpretation and scope.
-- `construction/F_TREATMENT_ISOLATION_MANIFEST.json` — F observable/disposition contract.
-- `construction/F_TREATMENT_ISOLATION_ATTACK.py` / `f_treatment_isolation_audit.json` — blind residual treatment-recovery attack.
-- `evidence/F_TREATMENT_ISOLATION_PASS.md` — F interpretation and positive sensitivity control.
-- `AUTHORIZATION_REAUDIT.md` / `AUTHORIZATION_STATUS.json` — current authorization spine.
+```text
+VFA-0.1-REJECTED_RETRIEVAL_LEAKAGE
+    |
+    v
+VFA-0.2-DORMANT-CORRECTIVE-RESERVE
+    |
+    +-- semantic truth/provenance confound
+    +-- OPEN_CAPABILITY_SURFACE under hostile attack
+    |
+    v
+VFA-0.2-QUOTIENT-REVISION-TOPOLOGY
+    |
+    +-- H failure: POSTGATE_SEMANTIC_UNDERDETERMINATION
+    |
+    v
+VFA-0.2-FUTURE-CONSEQUENCE-GROUNDING
+    |
+    v
+VFA-0.2-FREEZE-CHAIN-OF-CUSTODY
+    |
+    v
+VFA-0.2-FROZEN-PACKET-7 / AUTHORIZED
+```
+
+Those failures are not dead code in the scientific sense. They establish why the final treatment and authority boundary have their present form.
+
+## Evidence routing
+
+### Construction and preactivation isolation
+
+- `construction/quotient_construction_audit.json` — same truth, quotient separation, and `F o q = F`.
+- `construction/hardened_n_ladder_audit.json` — N0–N4 caller-capability noninterference.
+
+### Environment and hidden-channel isolation
+
+- `construction/E_ENVIRONMENT_MANIFEST.json`
+- `construction/e_environment_audit.json`
+- `construction/F_TREATMENT_ISOLATION_MANIFEST.json`
+- `construction/f_treatment_isolation_audit.json`
+- `construction/final_postgate_reaudit.json` — final consequence-grounded E/F surface.
+
+### Future consequence grounding
+
+- `construction/FUTURE_CONSEQUENCE_GROUNDING_CONTRACT.json`
+- `construction/FUTURE_CONSEQUENCE_GROUNDING_KERNEL.py`
+- `construction/FUTURE_CONSEQUENCE_WITNESSES.json`
+- `construction/FUTURE_GROUNDING_DOMAIN.json`
+- `construction/future_consequence_grounding_audit.json`
+
+### Exact future executable and common cause
+
+- `construction/FUTURE_EXECUTION_ARTIFACT_CONTRACT.json`
+- `construction/FUTURE_EXECUTION_ARTIFACT_KERNEL.py`
+- `construction/future_execution_artifact_audit.json`
+- `construction/G_GROUNDING_INTEGRATION_MANIFEST.json`
+- `construction/G_GROUNDING_INTEGRATION_KERNEL.py`
+- `construction/g_grounding_integration_audit.json`
+
+### Residual-confound adjudication
+
+- `construction/H_MATERIAL_RIVAL_MANIFEST_GROUNDED.json`
+- `construction/h_grounded_residual_audit.json`
+
+### Freeze, authorization, and execution identity
+
+- `construction/I_EVALUATION_RULE.json`
+- `construction/I_EXECUTION_CLOSURE.json`
+- `construction/I_REALIZED_RECORD_TEMPLATE.json`
+- `construction/I_AUTHORIZED_FIRST_ENDPOINT_RUNNER_V2.py`
+- `construction/I_FREEZE_PACKET_V7.json`
+- `construction/I_FREEZE_ANCHOR_V7.json`
+- `construction/I_AUTHORIZATION_CERTIFICATE.json`
+- `construction/i_chain_of_custody_audit_v7.json`
+- `evidence/I_CHAIN_OF_CUSTODY_PASS.md`
+
+## Historical files in this directory
+
+Several root-level and construction files intentionally describe earlier states:
+
+- `AUTHORIZATION_REAUDIT.md`
+- `AUTHORIZATION_REAUDIT_G_ADDENDUM.md`
+- `AUTHORIZATION_REAUDIT_H_ADDENDUM.md`
+- `H_REPAIR_CANDIDATE_STATUS.json`
+- old post-gate semantic contracts/attacks;
+- Packet 1–6 candidates and their rejection evidence;
+- earlier I kernels/runners and failed fixture attack.
+
+These are **preserved predecessors**, not alternate current configurations. They should not be deleted, renamed, or combined unless a later provenance audit establishes that they are outside every scientific identity and reproducibility requirement.
+
+## Post-authorization interpretation is outside Packet 7
+
+The blind outcome map and FSO theory live outside this directory's authorized execution object:
+
+- [`../../research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json`](../../research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json)
+- [`../../theory/FUTURE_SAFE_OPTION_STRUCTURE.md`](../../theory/FUTURE_SAFE_OPTION_STRUCTURE.md)
+
+They may narrow later narrative interpretation. They cannot alter selection, grounding, execution, evaluation, or authorization.
 
 ## Stop condition
 
-No `G=1`. No future obligation. No prospective runner.
+```text
+PACKET_7_MUTATION = PROHIBITED
+FUTURE_SELECTOR_PEEKING = PROHIBITED
+POSTFREEZE_GUARD_ADDITION = PROHIBITED
+OUTCOME_CONTINGENT_REPAIR = PROHIBITED
+```
 
-The next admissible action is predicate G: re-audit and freeze the prospective common-cause obligation-selection/disclosure mechanism for the quotient lineage. Passing F licenses only that audit; it does not license disclosure or activation.
+The next meaningful scientific information must come from the world.
