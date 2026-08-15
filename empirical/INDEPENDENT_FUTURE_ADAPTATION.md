@@ -1,5 +1,7 @@
 # Independent Future Adaptation
 
+> **Status note — program-level design ancestor.** This document predates the concrete VFA-0.1/VFA-0.2 construction lineage. It remains the general cross-domain research target and falsification discipline, but it is **not the current benchmark status ledger**. The current authorized prospective instance is `VFA-0.2-QUOTIENT-REVISION-TOPOLOGY`; see [`README.md`](README.md) for the empirical lineage index and [`benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json`](benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json) for execution authority. Nothing in this note overrides Packet 7.
+
 The V0.x ladder is closed. The next major research object is a genuinely independent test of whether corrective topology measured now predicts adaptation to future correction demands that were not available during matching or freezing.
 
 ## 1. Flagship hypothesis
