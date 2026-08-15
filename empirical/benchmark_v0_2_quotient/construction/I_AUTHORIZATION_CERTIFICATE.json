@@ -1,0 +1,37 @@
+{
+  "schema_version": "1",
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "packet_manifest_git_blob_sha": "9781f8c918263fba11ea6ad3a2e735f75755668f",
+  "packet_sha256": "2d8b64e28f8207b51d1acae2459d0cf89774e7be0c10cb5a2a04808029ade3b7",
+  "execution_root_sha256": "56d2f3a996f6dc71183fa7325af06d738e8ba994f9b62a2ba454f85c5fe8fe1d",
+  "freeze_anchor_git_blob_sha": "94be872e1cc281ddb4dfefec0a851f0079e1c12f",
+  "freeze_anchor_sha256": "8dd2afd4f32ac5d78618e6dfd89fe16c3a72410bf2c6beeb26196d864dcd732b",
+  "freeze_commit_sha": "b8c39ebc751c30f9d2e3164160fc5ca31904ba46",
+  "freeze_tree_sha": "81c406228b21127d104f264e0532fc50fdda3e8c",
+  "freeze_timestamp_utc": "2026-08-15T18:50:48Z",
+  "authorization_timestamp_utc": "2026-08-15T18:57:21Z",
+  "predicates": {
+    "A": "PASS",
+    "B": "PASS",
+    "C": "PASS",
+    "D": "PASS",
+    "E": "PASS",
+    "F": "PASS",
+    "G": "PASS",
+    "H": "PASS",
+    "I": "PASS"
+  },
+  "H_residual_set": [
+    "H_future_distribution",
+    "H_CCA_CARS_downstream",
+    "H_physical_runtime"
+  ],
+  "future_obligation_rule_blob": "bec386d1d3e1f172e5bbf48cb942b13ed2c5072e",
+  "evaluation_rule_blob": "ff321b47fc4376db9c74b41d7355c837727b8984",
+  "common_cause_rule_blob": "7b8cc8bced4a15a33a446b6f247890b804eae7ea",
+  "authorized_runner_blob": "c28245196b75f25892355baebf5ff5bc7a3758bb",
+  "I_evidence_blob": "4a280b17fa1afbcac0034f240877448e7ecf5122",
+  "authorization": "AUTHORIZED",
+  "state": "AUTHORIZED_FUTURE_NOT_YET_REALIZED",
+  "certificate_sha256": "17335f0a5893406763fb7660e4f23c06b9343cc0818a1bc63db3abad9e0e4e1e"
+}

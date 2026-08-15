@@ -1,0 +1,31 @@
+name: VFA I chain-of-custody audit
+
+on:
+  push:
+    branches:
+      - agent/vfa-0.2-freeze-chain-of-custody
+    paths:
+      - '.github/workflows/vfa-i-chain-of-custody.yml'
+      - 'empirical/benchmark_v0_2_quotient/construction/I_CHAIN_OF_CUSTODY_ATTACK_V7B.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: agent/vfa-0.2-freeze-chain-of-custody
+          fetch-depth: 1
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.5'
+          cache: ''
+      - name: Verify runtime and run predicate-I attack
+        run: |
+          python --version
+          python empirical/benchmark_v0_2_quotient/construction/I_CHAIN_OF_CUSTODY_ATTACK_V7B.py
+          cat empirical/benchmark_v0_2_quotient/construction/i_chain_of_custody_audit_v7.json

@@ -1,0 +1,49 @@
+{
+  "I_adjudication": "PASS",
+  "I_completeness": "PASS",
+  "I_execution": "PASS",
+  "I_identity": "PASS",
+  "I_immutability": "PASS",
+  "I_provenance": "PASS",
+  "ambient_shadowing_positive_control": true,
+  "audit_identity": "VFA-0.2-I-CHAIN-OF-CUSTODY-ATTACK-7",
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "execution_root_sha256": "56d2f3a996f6dc71183fa7325af06d738e8ba994f9b62a2ba454f85c5fe8fe1d",
+  "freeze_anchor_git_blob_sha": "94be872e1cc281ddb4dfefec0a851f0079e1c12f",
+  "freeze_anchor_sha256": "8dd2afd4f32ac5d78618e6dfd89fe16c3a72410bf2c6beeb26196d864dcd732b",
+  "freeze_commit_sha": "b8c39ebc751c30f9d2e3164160fc5ca31904ba46",
+  "freeze_timestamp_utc": "2026-08-15T18:50:48Z",
+  "freeze_tree_sha": "81c406228b21127d104f264e0532fc50fdda3e8c",
+  "future_obligation_accessed": false,
+  "hostile_attack_count": 13,
+  "hostile_rejected_count": 13,
+  "hostile_runner_attacks": {
+    "authorization_not_after_freeze": true,
+    "certificate_schema_smuggling": true,
+    "grounding_envelope_forge": true,
+    "modified_authorized_runner_bytes": true,
+    "realized_G_arm_identity_divergence": true,
+    "realized_G_envelope_mismatch": true,
+    "realized_G_temporal_violation": true,
+    "realized_future_status_forge": true,
+    "realized_schema_smuggling": true,
+    "rehashed_packet_under_old_anchor_certificate": true
+  },
+  "direct_member_set_attacks": {
+    "extra_execution_member": true,
+    "missing_execution_member": true,
+    "wrong_execution_member_bytes": true
+  },
+  "packet_manifest_git_blob_sha": "9781f8c918263fba11ea6ad3a2e735f75755668f",
+  "packet_sha256": "2d8b64e28f8207b51d1acae2459d0cf89774e7be0c10cb5a2a04808029ade3b7",
+  "positive_result_sha256": "087f36d4e5c255e4757f191783a72d7a3818c2a9be3a90f2e3d154bb78e40eca",
+  "positive_synthetic_authorized_execution": true,
+  "real_future_execution": false,
+  "runtime": {
+    "implementation": "cpython",
+    "machine": "x86_64",
+    "python_version": "3.13.5",
+    "system": "Linux"
+  },
+  "validation_scope": "synthetic future objects only; real future obligation remains untouched"
+}

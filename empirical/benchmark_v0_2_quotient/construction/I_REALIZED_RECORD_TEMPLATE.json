@@ -1,0 +1,45 @@
+{
+  "schema_version": "1",
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "frozen_identity": {
+    "packet_sha256": "TBD_FROM_AUTHORIZATION_CERTIFICATE",
+    "execution_root_sha256": "TBD_FROM_AUTHORIZATION_CERTIFICATE",
+    "authorization_certificate_sha256": "TBD_FROM_AUTHORIZATION_CERTIFICATE",
+    "freeze_commit_sha": "TBD_FROM_AUTHORIZATION_CERTIFICATE",
+    "freeze_timestamp_utc": "TBD_FROM_AUTHORIZATION_CERTIFICATE"
+  },
+  "realized": {
+    "selected_candidate_id": null,
+    "selected_version": null,
+    "selection_trace_sha256": null,
+    "published_at": null,
+    "release_id": null,
+    "wrapper_tar_sha256": null,
+    "platform_tar_sha256": null,
+    "executable_sha256": null,
+    "artifact_integrity_status": null,
+    "witness_execution_records": null,
+    "T_future_consequences": null,
+    "J_future_grounding_rows": null,
+    "path_surfaces": null,
+    "kernel_adjudication": null,
+    "grounding_envelope_sha256": null,
+    "bundle_commit_timestamp_utc": null,
+    "disclosure_timestamp_utc": null,
+    "deadline_timestamp_utc": null,
+    "realized_common_cause_conformance": {
+      "status": null,
+      "certificate_sha256": null
+    }
+  },
+  "execution": {
+    "loaded_execution_root_sha256": null,
+    "packet_identity_check": null,
+    "certificate_identity_check": null,
+    "member_set_check": null,
+    "runtime_conformance": null,
+    "first_endpoint_results": null,
+    "result_sha256": null,
+    "execution_status": "NOT_EXECUTED"
+  }
+}

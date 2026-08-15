@@ -1,0 +1,139 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "closure_id": "VFA-0.2-I-EXECUTION-CLOSURE-4",
+  "principle": "Anything capable of changing the declared experiment must be either a frozen packet member or a realized object admitted by a frozen prospective rule.",
+  "runtime": {
+    "execution_entrypoint_role": "authorized_first_endpoint_runner",
+    "python_implementation": "cpython",
+    "python_version": "3.13.5",
+    "system": "Linux",
+    "machine": "x86_64",
+    "runtime_mismatch": "RUN_REJECTED",
+    "third_party_python_dependencies": [],
+    "dynamic_plugin_loading": "PROHIBITED",
+    "network_during_arm_evaluation": "PROHIBITED_BY_NO_NETWORK_CODE_PATH; OS sandbox not claimed",
+    "randomness": "NONE",
+    "hidden_seed": "PROHIBITED",
+    "concurrency": "NONE_SINGLE_THREAD",
+    "persistent_cache": "NONE"
+  },
+  "environment": {
+    "arm_visible_environment_variables": [],
+    "undeclared_environment_variable_read": "PROHIBITED",
+    "working_directory": "isolated benchmark workspace rooted at explicit repo_root",
+    "external_config_search": "PROHIBITED",
+    "user_home_config": "PROHIBITED",
+    "cwd_parent_traversal": "PROHIBITED",
+    "locale_or_timezone_as_endpoint_input": "PROHIBITED",
+    "note": "The authorized first-endpoint runner reads no environment variable as scientific input. External future grounding is completed before this runner and is governed separately by G and FUTURE_CONSEQUENCE_GROUNDING_CONTRACT."
+  },
+  "filesystem": {
+    "allowed_pre_freeze_inputs": "exact packet-member bytes only",
+    "allowed_post_freeze_inputs": [
+      "the authorization certificate bound to the frozen packet and freeze anchor",
+      "the exact-schema realized record descending from that authorization certificate",
+      "the canonical content-addressed GroundingEnvelope produced by the frozen G integration kernel",
+      "the content-addressed realized-G common-cause conformance certificate instantiated from the frozen G template"
+    ],
+    "post_freeze_input_rule": "These four realized inputs are common provenance/evidence objects. None may contain arm-specific treatment controls. The GroundingEnvelope is the sole source of future scientific statuses consumed by the endpoint; the realized record mirrors it and the realized-G certificate proves common-cause execution conformance.",
+    "undeclared_external_file": "RUN_REJECTED",
+    "mixed_lineage_member": "RUN_REJECTED"
+  },
+  "future_executable": {
+    "stage": "GLOBAL_REALIZATION_BEFORE_ARM_EVALUATION",
+    "selection": "exact-version official @biomejs/cli-linux-x64 artifact resolved by FUTURE_EXECUTION_ARTIFACT_CONTRACT",
+    "source_build_fallback": "PROHIBITED",
+    "platform_fallback": "PROHIBITED",
+    "later_release_substitution": "PROHIBITED",
+    "integrity_failure": "NOT_IDENTIFIED under the selected event; no substitution"
+  },
+  "configuration_identity": {
+    "packet_member_identity": "Git blob SHA-1 computed over loaded bytes must equal the manifest member blob",
+    "packet_root_identity": "canonical packet-manifest SHA-256 must equal the authorization certificate",
+    "execution_root_identity": "canonical execution-required member-set SHA-256 must equal the authorization certificate",
+    "freeze_anchor_identity": "certificate must bind the exact content-addressed freeze anchor that links packet bytes to the Git freeze commit/tree and timestamp verified during I adjudication",
+    "packet_schema": "CLOSED_EXACT",
+    "packet_member_schema": "CLOSED_EXACT",
+    "freeze_anchor_schema": "CLOSED_EXACT",
+    "authorization_certificate_schema": "CLOSED_EXACT",
+    "realized_record_schema": "CLOSED_EXACT",
+    "extra_loaded_member": "RUN_REJECTED",
+    "missing_loaded_member": "RUN_REJECTED",
+    "same_path_wrong_blob": "RUN_REJECTED"
+  },
+  "authorized_runner": {
+    "preflight": [
+      "validate exact CPython/platform fingerprint",
+      "validate packet bytes and freeze anchor",
+      "load exactly every execution-root member and no other member",
+      "validate authorization certificate",
+      "validate exact realized-record schema and frozen parent identity",
+      "reconstruct and byte-validate the canonical GroundingEnvelope against the frozen three-unit/twelve-surface domain",
+      "validate the realized-G conformance certificate against the packet, envelope, common A/B hashes, and temporal order",
+      "require the realized record to mirror the validated envelope and bind the realized-G certificate hash"
+    ],
+    "treatment_materialization": "runner derives both A and B matrices itself from frozen GAMMA_A/GAMMA_B plus the frozen common semantic coordinate map",
+    "future_input": "the validated GroundingEnvelope supplies the common 12-surface grounding table; caller-authored duplicate statuses in the realized record have no independent authority",
+    "paired_evaluation": "same FINAL_POSTGATE_RUNTIME.evaluate_first_endpoint code path for A and B",
+    "logical_schedule_check": "A/B materialization traces and first-endpoint runtime traces must be exactly equal",
+    "result_identity": "canonical paired result is SHA-256 content-addressed and binds packet, certificate, freeze, validated grounding envelope, realized-G certificate, runtime fingerprint, and both arm component outputs",
+    "result_scope": "first endpoint only; no CCA/CARS/final adaptation claim"
+  },
+  "authorization_identity": {
+    "certificate_must_bind": [
+      "benchmark_id",
+      "packet_manifest_git_blob_sha",
+      "packet_sha256",
+      "execution_root_sha256",
+      "freeze_anchor_git_blob_sha",
+      "freeze_anchor_sha256",
+      "freeze_commit_sha",
+      "freeze_tree_sha",
+      "freeze_timestamp_utc",
+      "authorization_timestamp_utc",
+      "A_through_I_PASS",
+      "evaluation_rule_blob",
+      "future_obligation_rule_blob",
+      "common_cause_rule_blob",
+      "authorized_runner_blob",
+      "H_residual_set",
+      "I_evidence_blob"
+    ],
+    "old_pass_labels_on_new_packet": "RUN_REJECTED",
+    "rehashed_packet_under_old_certificate": "RUN_REJECTED",
+    "new_certificate_with_undeclared_control_field": "RUN_REJECTED"
+  },
+  "realized_object_policy": {
+    "realized_record_may_append": [
+      "selected future obligation identity",
+      "selection trace identity",
+      "official artifact hashes and integrity",
+      "future witness execution hashes",
+      "T_future consequence identities mirrored from the validated GroundingEnvelope",
+      "J_future grounding rows mirrored from the validated GroundingEnvelope",
+      "kernel adjudication mirrored from the validated GroundingEnvelope",
+      "commit/disclosure/deadline timestamps bound to the realized-G certificate",
+      "execution record and result identities"
+    ],
+    "realized_record_may_add_undeclared_key": false,
+    "realized_record_may_override_frozen_rule": false,
+    "realized_record_may_change_packet_digest": false,
+    "realized_record_may_change_authorization_certificate": false
+  },
+  "provenance_threat_model": {
+    "trusted_external_history": "GitHub commit/tree/blob identity as observed and recorded at predicate-I adjudication",
+    "not_claimed": [
+      "cryptographic defense against a malicious repository administrator rewriting all remote history",
+      "SHA-1 collision resistance beyond Git repository identity assumptions",
+      "OS-level sandboxing"
+    ],
+    "goal": "prevent accidental, post-hoc, mixed-lineage, stale-certificate, undeclared-control, wrong-runtime, and ungrounded-future-evidence drift in the confirmatory workflow"
+  },
+  "state_machine": [
+    "CONSTRUCTION_AH_PASS_I_OPEN",
+    "AUTHORIZED_FUTURE_NOT_YET_REALIZED",
+    "AUTHORIZED_FUTURE_REALIZED",
+    "AUTHORIZED_EXECUTED_RESULT_IMMUTABLE"
+  ],
+  "fail_closed": "Any undeclared dependency, realized input, schema extension, runtime mismatch, member mismatch, or identity mismatch rejects execution; no statistical compensation, repair, or fallback is permitted inside the confirmatory lineage."
+}
