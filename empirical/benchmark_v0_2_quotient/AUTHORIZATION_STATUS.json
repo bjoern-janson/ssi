@@ -1,0 +1,101 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "audit_identity": "VFA-0.2-QUOTIENT-AUTHORIZATION-REAUDIT-1",
+  "audit_status": "OPEN_BLOCKED_AT_E_EVIDENCE",
+  "governing_contract": {
+    "source": "empirical/benchmark_v0_1/CONSTRUCTION_AUDIT.md",
+    "source_git_blob_sha": "b154ce1089795f4e0356155b1776c94260d0f8c6",
+    "rule": "authorization predicates are re-adjudicated against the redesigned treatment; no treatment-sensitive adjudication is inherited mechanically"
+  },
+  "predicates": {
+    "A": {
+      "adjudication": "PASS",
+      "evidence": [
+        {
+          "path": "empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md",
+          "git_blob_sha": "bec386d1d3e1f172e5bbf48cb942b13ed2c5072e"
+        }
+      ],
+      "basis": "prospective source scope, cutoff, horizon, selector, exclusions, and independence rule are unchanged by the quotient redesign"
+    },
+    "B": {
+      "adjudication": "PASS",
+      "evidence": [
+        {
+          "path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json",
+          "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"
+        }
+      ],
+      "basis": "one shared validated substrate; identical path records; q acts only on path-equivalence labels; Phi_path is component-wise and aggregation is prohibited"
+    },
+    "C": {
+      "adjudication": "PASS",
+      "evidence": [
+        {
+          "path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json",
+          "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"
+        },
+        {
+          "path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json",
+          "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"
+        }
+      ],
+      "basis": "same substrate, path records, forward state, forward implementation, preactivation gate, representation byte length, and caller-capability boundary outside declared quotient partition"
+    },
+    "D": {
+      "adjudication": "PASS",
+      "evidence": [
+        {
+          "path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json",
+          "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"
+        },
+        {
+          "path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json",
+          "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"
+        }
+      ],
+      "basis": "F o q = F with exact full-trace identity on 249 exhaustive pre-freeze tasks and zero mismatches in 101592 hostile metamorphic comparisons"
+    },
+    "E": {
+      "adjudication": "NOT_EVALUATED",
+      "reason": "no complete frozen A/B resource-information-exposure manifest exists",
+      "missing_required_fields": [
+        "runtime_interpreter_and_dependency_versions",
+        "compute_budget",
+        "memory_context_storage_budget",
+        "post_gate_gamma_materialization_policy",
+        "post_gate_probe_generation_budget",
+        "adaptation_update_budget",
+        "wall_clock_or_operation_count_limit",
+        "tool_api_permissions",
+        "pre_freeze_data_access_manifest",
+        "future_disclosure_evidence_contract",
+        "evaluator_implementation_version_access",
+        "randomness_policy",
+        "cache_concurrency_process_policy",
+        "stopping_rule",
+        "failure_timeout_handling"
+      ],
+      "non_sufficient_existing_evidence": [
+        "canonical Gamma bytes are equal",
+        "path record counts are equal",
+        "preactivation traces are equal",
+        "N4 caller-capability surface is closed"
+      ]
+    },
+    "F": {"adjudication": "NOT_EVALUATED", "reason": "stop after first unresolved authorization prerequisite"},
+    "G": {"adjudication": "NOT_EVALUATED", "reason": "stop after first unresolved authorization prerequisite"},
+    "H": {"adjudication": "NOT_EVALUATED", "reason": "stop after first unresolved authorization prerequisite"},
+    "I": {"adjudication": "NOT_EVALUATED", "reason": "A-H are not all PASS and freeze packet is not assembled"}
+  },
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  },
+  "current_conclusion": "construction valid; authorization not yet valid; future hypothesis not tested"
+}
