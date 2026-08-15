@@ -6,7 +6,7 @@ on:
       - agent/vfa-0.2-freeze-chain-of-custody
     paths:
       - '.github/workflows/vfa-i-chain-of-custody.yml'
-      - 'empirical/benchmark_v0_2_quotient/construction/I_CHAIN_OF_CUSTODY_ATTACK_V7.py'
+      - 'empirical/benchmark_v0_2_quotient/construction/I_CHAIN_OF_CUSTODY_ATTACK_V7B.py'
   workflow_dispatch:
 
 permissions:
@@ -27,5 +27,5 @@ jobs:
       - name: Verify runtime and run predicate-I attack
         run: |
           python --version
-          python empirical/benchmark_v0_2_quotient/construction/I_CHAIN_OF_CUSTODY_ATTACK_V7.py
+          python empirical/benchmark_v0_2_quotient/construction/I_CHAIN_OF_CUSTODY_ATTACK_V7B.py
           cat empirical/benchmark_v0_2_quotient/construction/i_chain_of_custody_audit_v7.json
