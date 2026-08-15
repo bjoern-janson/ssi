@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fail-closed predicate-I identity guard for VFA-0.2.
 
-V3 separates four identities:
+V4 separates four identities:
   frozen packet -> freeze anchor -> authorization certificate -> realized record.
 All control schemas are closed. A changed-and-rehashed packet is a new identity;
 it is rejected by any certificate/anchor issued for the prior identity.
@@ -19,9 +19,10 @@ BENCHMARK_ID = "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY"
 PACKET_KEYS = frozenset({
     "schema_version", "benchmark_id", "packet_id", "lineage",
     "source_snapshot_commit", "construction_rule", "evaluation_rule_blob",
-    "future_obligation_rule_blob", "common_cause_rule_blob", "H_residual_set",
-    "future_unknowns_not_packet_members", "superseded_or_non_authorized_runtime_artifacts",
-    "execution_root_sha256", "members", "previous_candidates", "packet_sha256",
+    "future_obligation_rule_blob", "common_cause_rule_blob", "authorized_runner_blob",
+    "H_residual_set", "future_unknowns_not_packet_members",
+    "superseded_or_non_authorized_runtime_artifacts", "execution_root_sha256",
+    "members", "previous_candidates", "packet_sha256",
 })
 MEMBER_KEYS = frozenset({"path", "git_blob_sha", "role", "execution_required"})
 PREVIOUS_CANDIDATE_KEYS = frozenset({"packet_id", "packet_sha256", "status", "authorization_certificate"})
@@ -39,8 +40,8 @@ CERTIFICATE_KEYS = frozenset({
     "freeze_anchor_sha256", "freeze_commit_sha", "freeze_tree_sha",
     "freeze_timestamp_utc", "authorization_timestamp_utc", "predicates",
     "H_residual_set", "future_obligation_rule_blob", "evaluation_rule_blob",
-    "common_cause_rule_blob", "I_evidence_blob", "authorization", "state",
-    "certificate_sha256",
+    "common_cause_rule_blob", "authorized_runner_blob", "I_evidence_blob",
+    "authorization", "state", "certificate_sha256",
 })
 
 REALIZED_TOP_KEYS = frozenset({"schema_version", "benchmark_id", "frozen_identity", "realized", "execution"})
@@ -67,6 +68,7 @@ CRITICAL_ROLE_FIELDS = {
     "final_evaluation_rule": "evaluation_rule_blob",
     "prospective_scope_and_selector": "future_obligation_rule_blob",
     "grounded_common_cause_integration_contract": "common_cause_rule_blob",
+    "authorized_first_endpoint_runner": "authorized_runner_blob",
 }
 
 
@@ -134,7 +136,7 @@ def execution_root_sha256(packet: Mapping[str, Any]) -> str:
 def validate_packet(packet: Mapping[str, Any]) -> None:
     if type(packet) is not dict or set(packet) != PACKET_KEYS:
         raise ValueError("packet must match exact frozen schema")
-    if packet["benchmark_id"] != BENCHMARK_ID or packet["schema_version"] != "3":
+    if packet["benchmark_id"] != BENCHMARK_ID or packet["schema_version"] != "4":
         raise ValueError("wrong packet identity/schema")
     if not _hex(packet["source_snapshot_commit"], 40):
         raise ValueError("source snapshot commit required")
@@ -146,8 +148,8 @@ def validate_packet(packet: Mapping[str, Any]) -> None:
         raise TypeError("H residual IDs must be strings")
 
     previous = packet["previous_candidates"]
-    if type(previous) is not list or len(previous) < 2:
-        raise ValueError("rejected predecessor lineage required")
+    if type(previous) is not list or len(previous) < 3:
+        raise ValueError("three rejected predecessor lineages required")
     for row in previous:
         if type(row) is not dict or set(row) != PREVIOUS_CANDIDATE_KEYS:
             raise ValueError("previous-candidate record schema drift")
@@ -176,6 +178,8 @@ def validate_packet(packet: Mapping[str, Any]) -> None:
         bound = role_members.get(role, [])
         if len(bound) != 1 or packet[field] != bound[0]["git_blob_sha"]:
             raise ValueError(f"critical role binding mismatch: {role}")
+        if bound[0]["execution_required"] is not True:
+            raise ValueError(f"critical runtime role must be execution-required: {role}")
 
     superseded = packet["superseded_or_non_authorized_runtime_artifacts"]
     if type(superseded) is not list or not all(type(x) is str and x for x in superseded):
@@ -226,7 +230,7 @@ def validate_freeze_anchor(packet: Mapping[str, Any], packet_bytes: bytes, ancho
         raise ValueError("freeze Git identities required")
     if not _utc(anchor["freeze_timestamp_utc"]):
         raise ValueError("freeze UTC timestamp required")
-    if type(anchor["packet_path"]) is not str or not anchor["packet_path"].endswith("I_FREEZE_PACKET_V3.json"):
+    if type(anchor["packet_path"]) is not str or not anchor["packet_path"].endswith("I_FREEZE_PACKET_V4.json"):
         raise ValueError("wrong frozen packet path")
     if anchor["verification_basis"] != "GITHUB_COMMIT_TREE_MEMBERSHIP_VERIFIED_AT_I_ADJUDICATION":
         raise ValueError("unrecognized freeze verification basis")
@@ -297,7 +301,7 @@ def validate_certificate(
         raise PermissionError("certificate not in pre-realization authorized state")
     if not _hex(certificate["I_evidence_blob"], 40):
         raise ValueError("I evidence blob required")
-    for field in ("evaluation_rule_blob", "future_obligation_rule_blob", "common_cause_rule_blob"):
+    for field in ("evaluation_rule_blob", "future_obligation_rule_blob", "common_cause_rule_blob", "authorized_runner_blob"):
         if certificate[field] != packet[field]:
             raise ValueError(f"certificate rule identity mismatch: {field}")
     if certificate["certificate_sha256"] != certificate_sha256(certificate):
