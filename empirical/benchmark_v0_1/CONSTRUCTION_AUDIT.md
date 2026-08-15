@@ -4,7 +4,7 @@
 
 ```text
 CONSTRUCTION_AUDIT = OPEN
-A = NOT_EVALUATED
+A = PASS
 B = NOT_EVALUATED
 C = NOT_EVALUATED
 D = NOT_EVALUATED
@@ -42,6 +42,22 @@ A later change to any evidence artifact used by a passed predicate invalidates t
 
 No predicate may be waived because the expected or observed effect is large.
 
+## Authorization-time information boundary
+
+Predicates A–I are **authorization predicates**. Therefore their PASS conditions may depend only on information available no later than `t_freeze`.
+
+A predicate must not require the realized post-freeze obligation, disclosure timestamp, or future outcome in order to authorize the shot. Realized-event conformance is evaluated later under **post-execution validity**.
+
+Operationally:
+
+```text
+authorization evidence <= t_freeze
+realized obligation / disclosure conformance > t_freeze
+outcome evidence >= t_outcome
+```
+
+If an authorization predicate is written so that it can pass only after disclosure, the audit specification is internally invalid and must be minimally corrected before any shot can be authorized.
+
 ---
 
 # A — Prospective scope and source freeze
@@ -58,21 +74,23 @@ Prevent future-event selection, construction-window leakage, and post-hoc choice
 - exclusion criteria;
 - prospective observation horizon;
 - deterministic first-qualifying-obligation rule;
-- evidence proving the qualifying obligation was unavailable at construction time.
+- prospective independence rule requiring the realized qualifying implementation to become public only after $t_{\rm freeze}$.
 
 ## Predicate
 
 $$
 A=1
 \iff
-\text{all scope fields are fixed before }t_{\rm freeze}
-\land
-O_{\rm future}\text{ is selected by the frozen first-qualifying rule}.
+\text{all scope fields and the prospective selector are fixed before }t_{\rm freeze}
 $$
+
+and the selector has no discretionary branch that can inspect A/B future outcomes or realized topology advantage.
 
 ## Mechanical PASS rule
 
-`PASS` only if all required fields are non-null, their source artifacts are hashed, and the selection rule has no discretionary branch that can inspect A/B outcomes or realized topology advantage.
+`PASS` only if all required fields are non-null, their source artifacts are content-addressed, and the frozen rule mechanically determines which *future* event would qualify without requiring that event to have occurred yet.
+
+Whether the realized event actually satisfies the frozen rule is a **post-disclosure execution-conformance check**. It cannot be used to create or repair authorization after the fact.
 
 ## Automatic FAIL conditions
 
@@ -84,9 +102,9 @@ $$
 ## Evidence record
 
 ```text
-A_EVIDENCE = NOT_RECORDED
-A_SHA256 = NOT_RECORDED
-A_ADJUDICATION = NOT_EVALUATED
+A_EVIDENCE = empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md
+A_SHA256 = 3234728a690d8e5f2b6e3b806d1d4d174836c0e94232b479dd729029055add3a
+A_ADJUDICATION = PASS
 ```
 
 ---
@@ -247,7 +265,6 @@ D_ADJUDICATION = NOT_EVALUATED
 # E — Resource, information, and exposure symmetry
 
 ## Purpose
-
 Block capacity, information-access, and differential-exposure explanations.
 
 ## Required frozen fields
@@ -351,27 +368,34 @@ Ensure the future event is genuinely prospective and that A/B receive the same c
 ## Required frozen fields
 
 - first-qualifying-obligation rule from A;
-- disclosure timestamp rule;
-- common obligation identifier;
-- common evidence bundle;
+- deterministic disclosure timestamp trigger;
+- rule for constructing one common obligation identifier from the selected event;
+- rule for constructing one common evidence bundle;
 - common evaluation start condition;
-- proof that neither A nor B had obligation-specific access before disclosure.
+- pre-disclosure access-control proof showing that neither A nor B can access post-cutoff obligation-specific information before the disclosure trigger.
 
 ## Predicate
 
 $$
 G=1
 \iff
-O_{\rm future}^{A}=O_{\rm future}^{B}=O_{\rm future}
-\land
-t_{\rm freeze}<t_{\rm disclose}
+\text{the frozen disclosure mechanism guarantees}
+\quad
+O_{\rm future}^{A}=O_{\rm future}^{B}
 $$
 
-and the realized obligation is the first qualifying event under the frozen rule.
+with identical evidence, timing, permissions, and evaluation start conditions once the prospective selector fires.
 
 ## Mechanical PASS rule
 
-The event identifier selected from the post-freeze event stream must be reproducible mechanically from the frozen selection rule, and the A/B disclosure bundles must hash identically except for system identifier metadata.
+Before disclosure, the audit must be able to reproduce the disclosure mechanism from frozen artifacts and show that:
+
+1. it consumes only the event selected by predicate A's frozen rule;
+2. it emits one canonical obligation/evidence bundle to both arms;
+3. all non-identifier bytes delivered to A and B are specified to hash identically;
+4. the mechanism cannot inspect A/B future outcomes before selecting or packaging the event.
+
+After disclosure, the realized event identifier, timestamps, and A/B bundle hashes are checked under **post-execution validity**. A mismatch invalidates the confirmatory result; it does not retroactively alter the pre-disclosure authorization certificate.
 
 ## Automatic FAIL conditions
 
@@ -515,10 +539,12 @@ $$
 Q_{\rm state}^A,Q_{\rm state}^B,
 Q_{\rm adapt}^A,Q_{\rm adapt}^B,
 \mathcal H,\mathcal R,\mathcal H_{\rm residual},
-O_{\rm future},
+O_{\rm future}^{\rm rule},
 \mathcal E
 \right).
 $$
+
+Here $O_{\rm future}^{\rm rule}$ is the frozen prospective obligation-selection and disclosure contract, not the unknown realized future event. The realized $O_{\rm future}$ is appended to the execution record only after disclosure.
 
 $\mathcal E$ must include:
 
@@ -653,7 +679,15 @@ RUN = NOT_AUTHORIZED
 
 Authorization validity and result validity remain distinct.
 
-After execution, a confirmatory result is valid only if execution faithfully realizes the frozen packet:
+After execution, a confirmatory result is valid only if execution faithfully realizes the frozen packet.
+
+Faithful execution includes a post-disclosure conformance record showing that:
+
+- the realized event is exactly the first qualifying event under predicate A's frozen selector;
+- the event's relevant implementation first became public after `t_freeze` under A's independence rule;
+- A and B received the same canonical obligation/evidence bundle;
+- disclosure timestamps and evaluation start conditions satisfy predicate G's frozen mechanism;
+- no frozen packet member was altered after observing the realized event or outcome.
 
 $$
 \boxed{
