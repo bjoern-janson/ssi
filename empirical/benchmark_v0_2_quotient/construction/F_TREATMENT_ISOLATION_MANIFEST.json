@@ -1,0 +1,93 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "predicate": "F_TREATMENT_ISOLATION_AND_HIDDEN_ASYMMETRY",
+  "schema_version": "1",
+  "governing_rule": "Every material A/B-discriminating observable must be the declared revision-equivalence treatment, a deterministic consequence of that treatment, or explicitly blocked/non-causal under the frozen environment boundary.",
+  "statistical_note": {
+    "literal_target": "I(T; Z_undeclared | Phi_path) = 0",
+    "identification_limit": "With only two treatment states, Phi_path itself identifies arm label, so ordinary sample conditional-MI estimation is not informative.",
+    "operationalization": "Condition on the full declared equivalence relation M_Gamma by masking its content and preregistered deterministic consequences; then require exact paired identity of the residual observable vector across treatment-equivalent metamorphic encodings. Blind classifiers operate only on that residual vector."
+  },
+  "declared_treatment": {
+    "semantic_object": "equivalence relation over the 24 frozen revision-path IDs",
+    "runtime_encoding": "fixed 24x24 binary equivalence matrix M_Gamma",
+    "descriptor": "Phi_path = structural summary of Gamma conditional on the shared validated substrate; Phi_path is not the complete treatment object",
+    "treatment_entitled_observables": [
+      "M_Gamma byte content",
+      "matrix hash/fingerprint",
+      "matrix ones count",
+      "row sums",
+      "equivalence-class count and size distribution",
+      "connected/equivalence component statistics",
+      "any statistic computed solely from M_Gamma without access to non-treatment state"
+    ]
+  },
+  "undeclared_surfaces": {
+    "artifact": [
+      "schema/version outside equivalence values",
+      "substrate reference",
+      "path-record payload and ordering after canonicalization",
+      "equivalence-domain keys",
+      "raw/canonical byte length"
+    ],
+    "implementation": [
+      "shared environment-kernel source and call path",
+      "materialization trace",
+      "exception schema",
+      "operation schedule"
+    ],
+    "metadata": [
+      "repository filenames",
+      "raw equivalence-label namespaces",
+      "raw Gamma file SHA",
+      "serialization fingerprint not implied by M_Gamma"
+    ],
+    "evaluator": [
+      "common-evidence identity",
+      "input/output types and arity",
+      "treatment-buffer length",
+      "arm labels or identifiers",
+      "raw Gamma visibility"
+    ],
+    "inference": [
+      "all residual observable features after declared-treatment masking"
+    ]
+  },
+  "predeclared_dispositions": {
+    "M_Gamma_and_functions_of_M_Gamma": "DECLARED_TREATMENT_OR_DETERMINISTIC_CONSEQUENCE",
+    "GAMMA_A_or_GAMMA_B_repository_filename": "BLOCKED_NONCAUSAL_REPOSITORY_METADATA",
+    "raw_A_or_B_equivalence_label_namespace": "BLOCKED_NONCAUSAL_TRUSTED_MATERIALIZATION_METADATA",
+    "raw_Gamma_file_hash": "BLOCKED_NONCAUSAL_REPOSITORY_METADATA",
+    "physical_object_address_or_allocator_layout": "OUT_OF_SCOPE_NONCAUSAL_UNLESS_EXPOSED_OR_USED_FOR_STOPPING; predicate E prohibits such use",
+    "wall_clock_cpu_cycles_joules_cache_misses": "OUT_OF_SCOPE_NONCAUSAL_UNLESS_EXPOSED_OR_USED_FOR_STOPPING; predicate E uses deterministic logical opportunity"
+  },
+  "blind_recovery_attack": {
+    "metamorphic_pairs": 64,
+    "train_pair_indices": "0..47",
+    "holdout_pair_indices": "48..63",
+    "class_balance": "exactly one A and one B per residual signature pair",
+    "classifiers": [
+      "exact residual-signature memorizer",
+      "single-feature categorical decision stump",
+      "1-nearest-neighbor over residual Hamming distance"
+    ],
+    "chance_accuracy": 0.5,
+    "pass_rule": "All 64 A/B metamorphic pairs have identical residual signatures and every holdout classifier accuracy is exactly 0.5. Exact paired identity is primary; classifier failure is secondary."
+  },
+  "automatic_fail": [
+    "any material residual A/B mismatch after declared-treatment masking",
+    "any arm/evaluator-visible raw Gamma label, repository arm label, or undeclared identifier",
+    "different implementation or exception path outside the declared matrix content",
+    "any material undeclared observable that supports above-chance paired label recovery",
+    "any A/B distinguisher left unclassified"
+  ],
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}
