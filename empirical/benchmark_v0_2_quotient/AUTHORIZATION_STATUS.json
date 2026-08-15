@@ -1,7 +1,7 @@
 {
   "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
   "audit_identity": "VFA-0.2-QUOTIENT-AUTHORIZATION-REAUDIT-1",
-  "audit_status": "OPEN_NEXT_H",
+  "audit_status": "BLOCKED_AT_H_RESIDUAL_CONFOUND_VETO",
   "governing_contract": {
     "source": "empirical/benchmark_v0_1/CONSTRUCTION_AUDIT.md",
     "source_git_blob_sha": "b154ce1089795f4e0356155b1776c94260d0f8c6",
@@ -71,8 +71,20 @@
       "basis": "future-event selection, packaging, disclosure, evidence exposure, and deadline are frozen as one treatment-free global mechanism; selector accepts no arm/treatment input; 384 candidate-order comparisons, 128 treatment-label swaps, and 64 common-bundle delivery checks produce zero mismatches; invalid temporal orders are rejected",
       "scope": "authorization G freezes the source rule, candidate schema, selector, common-bundle mechanism, and realized-certificate template; the concrete real future pool and event remain unknown; realized conformance cannot repair authorization"
     },
-    "H": {"adjudication": "NOT_EVALUATED", "reason": "next authorization predicate; quotient-specific confound ledger and residual-confound veto have not yet been adjudicated"},
-    "I": {"adjudication": "NOT_EVALUATED", "reason": "A-H are not all PASS and freeze packet is not assembled"}
+    "H": {
+      "adjudication": "FAIL",
+      "evidence": [
+        {"path": "empirical/benchmark_v0_2_quotient/construction/H_MATERIAL_RIVAL_MANIFEST.json", "git_blob_sha": "eb0855348814674c3a23fa21fa91caa01cb88bee"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/H_RESIDUAL_CONFOUND_AUDIT.py", "git_blob_sha": "b619777c71148971522f6645020215e4a37b1624"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/h_residual_confound_audit.json", "git_blob_sha": "17cae62c829f42ecd558649a04224a672187b129"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/H_RESIDUAL_CONFOUND_VETO_FAIL.md", "git_blob_sha": "10af14d115182f2648c4ec96216b29397d1e4814"}
+      ],
+      "basis": "the material-rival ledger is complete with 16 rivals and zero unclassified rows, but H_evaluator, H_quotient_interpretation, and H_challenge_recognizability are residual, material, unbounded, and capable of explaining the full predicted first-endpoint contrast",
+      "failure_code": "RESIDUAL_CONFOUND_VETO",
+      "failure_localization": "POSTGATE_SEMANTIC_UNDERDETERMINATION",
+      "required_repair": "freeze and adversarially validate an arm-independent post-gate semantic operator (M_Gamma, common insufficiency evidence, W) -> DeltaPi plus an exact representation-invariant DeltaPi reachability evaluator, then re-audit H"
+    },
+    "I": {"adjudication": "NOT_EVALUATED", "reason": "H fails; freeze-packet integrity and authorization certificate may not be attempted"}
   },
   "authority_boundary": {
     "future_obligation_accessed": false,
@@ -83,5 +95,5 @@
     "authorization_certificate": "NOT_ISSUED",
     "future_run": "NOT_AUTHORIZED"
   },
-  "current_conclusion": "construction valid; A-G authorization predicates pass; authorization not yet valid; future hypothesis not tested"
+  "current_conclusion": "construction valid through G; authorization rejected at H until post-gate semantics and the first-endpoint evaluator are identified and bounded; future hypothesis not tested"
 }
