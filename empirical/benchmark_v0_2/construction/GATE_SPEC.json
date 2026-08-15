@@ -1,0 +1,19 @@
+{
+  "schema_version": "1",
+  "benchmark_id": "VFA-0.2-DORMANT-CORRECTIVE-RESERVE",
+  "gate": "G_reserve",
+  "function": "evaluate_gate(evidence)",
+  "reserve_input": "PROHIBITED",
+  "fires_iff": {
+    "validator_status": "FAIL",
+    "failure_scope": "CURRENT_ROUTE",
+    "independent_validator": true,
+    "validator_id": "nonempty string"
+  },
+  "causal_invariants": [
+    "G = g(E_insuff)",
+    "partial G / partial D = 0",
+    "G=0 => reserve dereference raises ReserveClosed"
+  ],
+  "future_obligation_accessed": false
+}

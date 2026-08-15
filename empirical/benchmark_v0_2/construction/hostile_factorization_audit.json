@@ -1,0 +1,73 @@
+{
+  "adjudication": {
+    "behavioral_noninterference": "PASS",
+    "failure_code": "OPEN_CAPABILITY_SURFACE",
+    "hard_noninterference": "FAIL",
+    "interpretation": "No behavioral leakage was observed under the hostile metamorphic attack, but open-ended dict interfaces accept reserve-bearing fields. Therefore the stronger architectural non-capability invariant is not established."
+  },
+  "attack_identity": "VFA-0.2-HOSTILE-FACTORIZATION-ATTACK-1",
+  "authorization": {
+    "authorization_certificate": "NOT_ISSUED",
+    "freeze_packet": "NOT_FROZEN",
+    "future_run": "NOT_AUTHORIZED"
+  },
+  "benchmark_id": "VFA-0.2-DORMANT-CORRECTIVE-RESERVE",
+  "future_obligation_accessed": false,
+  "governing_invariant": "G=0 implies no causal or dereference-capable path from D into T_forward or G",
+  "results": {
+    "behavioral_metamorphic_noninterference": {
+      "comparisons": 101592,
+      "mismatch_count": 0,
+      "mismatches": [],
+      "pass": true,
+      "pressure_levels": [0, 3, 17],
+      "query_variants_per_task": 4,
+      "reserve_variants": 34,
+      "task_count": 249,
+      "wall_clock_invariance_claimed": false
+    },
+    "capability_surface_closure": {
+      "forward_accepted": 498,
+      "forward_behavior_mismatches": 0,
+      "forward_smuggling_attempts": 498,
+      "gate_accepted": 10,
+      "gate_behavior_mismatches": 0,
+      "gate_smuggling_attempts": 10,
+      "pass": false,
+      "required_semantics": "reserve-bearing extra fields must be rejected, not merely ignored"
+    },
+    "gate_behavioral_noninterference": {
+      "comparisons": 680,
+      "mismatch_count": 0,
+      "mismatches": [],
+      "pass": true
+    },
+    "metamorphic_reserve_contract": {
+      "all_contract_valid": true,
+      "canonical_bytes": 587,
+      "generated_variants": 32,
+      "pass": true
+    },
+    "module_global_poisoning": {
+      "comparisons": 2988,
+      "mismatch_count": 0,
+      "mismatches": [],
+      "pass": true
+    },
+    "transitive_static_boundary": {
+      "pass": true,
+      "roots": {
+        "evaluate_gate": {
+          "forbidden_hits": [],
+          "pass": true,
+          "reachable_functions": ["evaluate_gate"]
+        },
+        "forward_trace": {
+          "forbidden_hits": [],
+          "pass": true,
+          "reachable_functions": ["_edge_key", "_jaccard", "forward_trace"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schema_version": "1",
+  "benchmark_id": "VFA-0.2-DORMANT-CORRECTIVE-RESERVE",
+  "equivalence_relation": "IDENTITY_ONLY",
+  "trace_fields": ["I", "A", "C", "pi", "E", "S", "M", "L", "tau", "R", "O"],
+  "ignored_fields": [],
+  "normalizations": {
+    "ordering": "sets/lists are canonically sorted where the forward algorithm is order-insensitive; the emitted trace must then match exactly",
+    "timing": "wall-clock time is excluded; tau is deterministic operation count",
+    "serialization": "canonical JSON uses sorted keys and compact separators for hashing"
+  },
+  "failure_rule": "any material mismatch on any preregistered trace field for any pre-freeze probe => N_trace=0 => D_pre_activation=FAIL",
+  "post_result_changes": "PROHIBITED"
+}

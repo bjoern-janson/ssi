@@ -1,0 +1,67 @@
+{
+  "benchmark_id": "VFA-0.2-DORMANT-CORRECTIVE-RESERVE",
+  "cases": {
+    "ariakit": [
+      "FILES_FILTER_MODEL_MIGRATION",
+      "IMPORT_ACTION_MODEL_MIGRATION",
+      "RULE_PRESET_MODEL_MIGRATION"
+    ],
+    "aws": [
+      "FILES_FILTER_MODEL_MIGRATION",
+      "RULE_ID_REPLACEMENT",
+      "RULE_PRESET_MODEL_MIGRATION"
+    ],
+    "issue_5465": [
+      "RULE_GROUP_RELOCATION"
+    ],
+    "knip": [
+      "FILES_FILTER_MODEL_MIGRATION",
+      "IMPORT_ACTION_MODEL_MIGRATION",
+      "OVERRIDE_SELECTOR_MIGRATION",
+      "RULE_GROUP_RELOCATION",
+      "RULE_ID_REPLACEMENT",
+      "RULE_PRESET_MODEL_MIGRATION"
+    ],
+    "nested": [
+      "NESTED_CONFIG_ROOT_MIGRATION",
+      "RULE_PRESET_MODEL_MIGRATION"
+    ],
+    "sentry": [
+      "FILES_FILTER_MODEL_MIGRATION",
+      "FORMATTER_FILTER_MODEL_MIGRATION",
+      "IMPORT_ACTION_MODEL_MIGRATION",
+      "OVERRIDE_SELECTOR_MIGRATION",
+      "RULE_GROUP_RELOCATION",
+      "RULE_PRESET_MODEL_MIGRATION"
+    ]
+  },
+  "source_lineage": "VFA-0.1-REJECTED_RETRIEVAL_LEAKAGE",
+  "top_k": 2,
+  "topology_weights": {
+    "ariakit|aws": 0.5,
+    "ariakit|issue_5465": 0.0,
+    "ariakit|knip": 0.5,
+    "ariakit|nested": 0.25,
+    "ariakit|sentry": 0.5,
+    "aws|issue_5465": 0.0,
+    "aws|knip": 0.5,
+    "aws|nested": 0.25,
+    "aws|sentry": 0.2857142857142857,
+    "issue_5465|knip": 0.16666666666666666,
+    "issue_5465|nested": 0.0,
+    "issue_5465|sentry": 0.16666666666666666,
+    "knip|nested": 0.14285714285714285,
+    "knip|sentry": 0.7142857142857143,
+    "nested|sentry": 0.14285714285714285
+  },
+  "transformation_classes": [
+    "FILES_FILTER_MODEL_MIGRATION",
+    "FORMATTER_FILTER_MODEL_MIGRATION",
+    "IMPORT_ACTION_MODEL_MIGRATION",
+    "NESTED_CONFIG_ROOT_MIGRATION",
+    "OVERRIDE_SELECTOR_MIGRATION",
+    "RULE_GROUP_RELOCATION",
+    "RULE_ID_REPLACEMENT",
+    "RULE_PRESET_MODEL_MIGRATION"
+  ]
+}
