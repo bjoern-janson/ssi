@@ -1,0 +1,65 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "predicate": "G_FUTURE_OBLIGATION_INDEPENDENCE_AND_COMMON_CAUSE_DISCLOSURE",
+  "schema_version": "1",
+  "governing_rule": "Selection, packaging, disclosure, evidence exposure, and deadline are global external operations with no treatment or arm input.",
+  "source_contract": {
+    "repository": "biomejs/biome",
+    "construction_commit": "b51d8b1598effd064c3490c3866d5b2d60ebd5f8",
+    "baseline_release": "@biomejs/biome@2.5.8",
+    "horizon": "180 calendar days after t_freeze",
+    "selection_order": ["published_at", "release_id"],
+    "selector": "first stable post-freeze release satisfying the frozen migration-relevant eligibility and independence rules",
+    "no_qualifying_result": "NO_QUALIFYING_OBLIGATION",
+    "substitution_prohibited": true,
+    "source_authority": "empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md"
+  },
+  "common_bundle": {
+    "select_once_globally": true,
+    "package_once_globally": true,
+    "arm_specific_packaging_prohibited": true,
+    "arm_metadata_prohibited": true,
+    "same_payload_hash_required": true,
+    "same_evidence_hash_required": true,
+    "same_disclosure_time_required": true,
+    "same_deadline_required": true,
+    "max_payload_bytes": 67108864,
+    "oversize_result": "execution invalid; no substitution",
+    "commit_before_arm_access": true
+  },
+  "temporal_contract": {
+    "contract_frozen_before_t_freeze": true,
+    "realized_selection_after_t_freeze": true,
+    "bundle_commit_before_disclosure": true,
+    "common_disclosure_time": true,
+    "common_deadline": true,
+    "realized_certificate_is_execution_conformance_not_authorization_repair": true
+  },
+  "realized_certificate_template": "construction/G_REALIZED_COMMON_CAUSE_CERTIFICATE_TEMPLATE.json",
+  "automatic_fail": [
+    "selector accepts treatment or arm input",
+    "selection changes under treatment-label permutation",
+    "selection or packaging occurs separately per arm",
+    "bundle contains arm-specific metadata",
+    "payload evidence disclosure time or deadline differ across arms",
+    "first qualifying event is replaced",
+    "qualifying implementation was public before t_freeze",
+    "bundle is not content-addressed before arm access"
+  ],
+  "attack_scope": {
+    "synthetic_blinded_candidate_streams_only": true,
+    "real_future_obligation_accessed": false,
+    "label_swap_attack": true,
+    "candidate_noise_and_order_attack": true,
+    "arm_metadata_smuggling_attack": true
+  },
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "G_activation": "PROHIBITED",
+    "Delta_Pi": "NOT_EVALUATED",
+    "kernel_q_subset_kernel_T_future": "NOT_EVALUATED",
+    "freeze_packet": "NOT_FROZEN",
+    "authorization_certificate": "NOT_ISSUED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}
