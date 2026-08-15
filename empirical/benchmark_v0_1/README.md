@@ -1,123 +1,142 @@
 # Independent Future Adaptation Benchmark V0.1
 
-## Status
+## Scientific status
 
 ```text
-BENCHMARK = SPECIFICATION
-CONSTRUCTION_AUDIT = OPEN
+BENCHMARK = CONSTRUCTION_AUDIT
+A = PASS
+B = PASS
+C = PASS
+D = FAIL
+E = NOT_EVALUATED
+F = NOT_EVALUATED
+G = NOT_EVALUATED
+H = NOT_EVALUATED
+I = NOT_EVALUATED
 FREEZE_PACKET = NOT_FROZEN
+AUTHORIZATION_CERTIFICATE = NOT_ISSUED
 RUN = NOT_AUTHORIZED
 V0.X_SYNTHETIC_LADDER = CLOSED
 ```
 
-This is the first independent benchmark for the SSI flagship hypothesis:
+Machine-readable current adjudication:
 
-$$
-I\!\left(
-\Phi(\mathfrak C_t,\Lambda_t);
-\mathrm{FutureAdaptation}
-\mid
-Q_{\rm state},Q_{\rm adapt}
-\right)>0.
-$$
+```text
+empirical/benchmark_v0_1/AUDIT_STATUS.json
+```
 
-Its primary question is deliberately narrow:
+The first A/B construction is blocked at predicate D: it separates corrective topology and matches the frozen present-state dimensions, but it already produces an ordinary-adaptation difference on an exhaustive pre-freeze surrogate universe. It is therefore **not eligible for the confirmatory future shot**.
 
-> **Does preregistered corrective-topology quality predict adaptation to a genuinely new correction obligation after present capability and ordinary adaptability have been matched?**
+## Question
 
-It is not an omnibus test of CCA, authority, CARS, or safe self-improvement as a whole.
+Among systems matched on present capability and ordinary adaptability, does a preregistered difference in corrective topology predict adaptation to a genuinely new correction obligation?
 
-## Benchmark identity
+The benchmark uses a prospective versioned-configuration migration domain. The external source, cutoff, admissible change class, first-qualifying-obligation rule, and observation horizon are fixed before any future obligation is disclosed.
 
-The benchmark's scientific identity is the frozen packet, not the later runner or observed outcome:
+## Scientific identity
 
-$$
-\mathcal B_{\rm frozen}
-=
-\left(
-\Phi_A,\Phi_B,
-Q_{\rm state}^A,Q_{\rm state}^B,
-Q_{\rm adapt}^A,Q_{\rm adapt}^B,
-\mathcal H,\mathcal R,\mathcal H_{\rm residual},
-O_{\rm future},
-\mathcal E
-\right).
-$$
+The unit of confirmatory scientific identity is the eventual frozen packet:
 
-Here:
+```text
+(Phi_A, Phi_B,
+ Q_state_A, Q_state_B,
+ Q_adapt_A, Q_adapt_B,
+ H, R, H_residual,
+ O_future_rule,
+ evaluation_rule)
+```
 
-- $\mathcal H$ is the preregistered rival-explanation/confound set;
-- $\mathcal R$ maps each rival explanation to a declared disposition;
-- $\mathcal H_{\rm residual}$ is the explicitly retained residual-confound set;
-- $O_{\rm future}$ is the prospective obligation-selection rule;
-- $\mathcal E$ is the frozen evaluation rule.
+Construction, authorization, and execution are distinct objects.
 
-The benchmark therefore separates three objects:
+```text
+construction <= freeze < disclosure <= outcome
+```
 
-$$
-\boxed{
-\text{construction}
-\neq
-\text{authorization}
-\neq
-\text{execution}
-}
-$$
+No future outcome may modify the confirmatory packet.
 
-## Freeze ordering
+## Current evidence lineage
 
-The required temporal ordering is
+### A — prospective source and selector
 
-$$
-\boxed{
- t_{\rm construct}
- \le t_{\rm freeze}
- < t_{\rm disclose}
- \le t_{\rm outcome}
-}
-$$
+`PASS`.
 
-and the confirmatory workflow enforces
+Biome (`biomejs/biome`) is the frozen external upstream source. The construction cutoff, stable baseline release, 180-day observation horizon, qualifying migration-change class, exclusions, and deterministic first-qualifying-release selector are recorded in:
 
-$$
-\boxed{
-\frac{\partial\mathcal B_{\rm frozen}}
-{\partial Y_{\rm future}}=0.
-}
-$$
+```text
+empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md
+```
 
-No future outcome may alter the topology definition, matching criteria, confound dispositions, obligation-selection rule, endpoints, inferential rule, or scope of the confirmatory claim.
+### B — treatment and Phi identity
 
-## Interpretation direction
+`PASS`.
 
-Confirmatory direction:
+The construction retains the same six direct historical migration pairs and the same migration-class payload in A and B. A/B differ only in second-order cross-case analogy/provenance bindings. B uses one fixed deterministic weight-multiset scramble; the first specified seed was accepted without search.
 
-$$
-\Phi_A-\Phi_B
-\longrightarrow
-Y_A-Y_B.
-$$
+Artifacts:
 
-Prohibited confirmatory move:
+```text
+empirical/benchmark_v0_1/evidence/B_SOURCE_MANIFEST.md
+empirical/benchmark_v0_1/evidence/B_CONSTRUCTION.md
+empirical/benchmark_v0_1/construction/MIGRATION_SIGNATURES.json
+empirical/benchmark_v0_1/construction/BUILD_STATES.py
+empirical/benchmark_v0_1/construction/state_A.json
+empirical/benchmark_v0_1/construction/state_B.json
+empirical/benchmark_v0_1/construction/phi_measurement.json
+```
 
-$$
-Y_A-Y_B
-\not\longrightarrow
-\text{retroactive redefinition or reweighting of }\Phi.
-$$
+The frozen vector remains non-aggregated:
 
-Any post-outcome topology hypothesis starts a new evidence lineage and requires a new independent preregistration.
+```text
+(C_cover_pre, R_reconf, C_challenge, A_preserve, L_prov, R_reopen)
+```
 
-## Governing principle
+### C — present capability
 
-> **Outcome magnitude does not increase identification authority.**
+`PASS` on the frozen current-state dimensions.
 
-A spectacular result cannot compensate for a weak or unauthorized design. A null result from an authorized and faithfully executed design remains interpretable evidence.
+A/B exactly match case count, direct pair count, edge count, transformation-class count, known-pair availability, and topology-weight multiset.
+
+### D — ordinary adaptation
+
+`FAIL`.
+
+The adversarial pre-freeze audit enumerates all 249 nonempty subsets of the eight frozen migration classes that are not exact historical case signatures. Both arms use the same resolver and the same two-neighbor budget.
+
+```text
+                         A                    B                 A-B
+mean recovery recall     0.8646921017402945   0.8494979919678715   +0.015194109772423081
+full recovery rate       0.4738955823293173   0.4497991967871486   +0.024096385542168697
+full recovery count      118                  112                  +6
+```
+
+29 of 249 surrogate obligations differ.
+
+Evidence:
+
+```text
+empirical/benchmark_v0_1/construction/PRE_FREEZE_AUDIT.py
+empirical/benchmark_v0_1/construction/pre_freeze_audit.json
+empirical/benchmark_v0_1/evidence/C_D_PRE_FREEZE_AUDIT.md
+```
+
+This means the current construction cannot rule out the rival explanation:
+
+> A succeeds later because A was already a better ordinary analogical adapter before the future perturbation.
+
+The shot is therefore stopped before freeze.
+
+## Audit rule
+
+A failed material predicate blocks the confirmatory shot. Passing earlier predicates does not compensate for D failure, and no later performance can repair the authorization defect.
+
+E–I remain `NOT_EVALUATED` on this construction because D already blocks freeze and authorization.
 
 ## Files
 
-- `DESIGN.md` — independent benchmark construction and frozen treatment/evaluation object.
-- `CONSTRUCTION_AUDIT.md` — A–I mechanically adjudicable predicates and authorization certificate.
-- `RUNNER.py` — intentionally absent until construction audit passes and the freeze packet is fixed.
+- `DESIGN.md` — benchmark specification and frozen causal structure.
+- `CONSTRUCTION_AUDIT.md` — A–I predicate definitions and authorization semantics.
+- `AUDIT_STATUS.json` — current machine-readable adjudication.
+- `evidence/` — predicate evidence and preserved failure lineage.
+- `construction/` — pre-freeze construction and audit executables/artifacts only.
 
-The next action is to complete the construction audit. Do not run the benchmark yet.
+There is no future `RUNNER.py` and no future-result artifact.
