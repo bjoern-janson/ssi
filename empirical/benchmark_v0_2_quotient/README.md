@@ -12,6 +12,11 @@ For the current state, do not infer authority from filename recency. Start with:
 4. [`construction/I_FREEZE_ANCHOR_V7.json`](construction/I_FREEZE_ANCHOR_V7.json)
 5. [`evidence/I_CHAIN_OF_CUSTODY_PASS.md`](evidence/I_CHAIN_OF_CUSTODY_PASS.md)
 
+For local navigation inside the two append-heavy ledgers:
+
+- [`construction/README.md`](construction/README.md) — role/authority index for treatment objects, executable surfaces, audit records, packet candidates, and frozen execution identity.
+- [`evidence/README.md`](evidence/README.md) — current evidence spine, historical blockers, rejected packet candidates, and reproduction notes.
+
 ## Current authority state
 
 ```text
