@@ -1,0 +1,56 @@
+{
+  "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
+  "contract_id": "VFA-0.2-FUTURE-CLI-ARTIFACT-1",
+  "purpose": "Resolve exactly one executable for treatment-blind future-consequence grounding from the release selected by predicate G, without discretionary source builds or platform choices.",
+  "pre_freeze_packaging_evidence": {
+    "cutoff_commit": "b51d8b1598effd064c3490c3866d5b2d60ebd5f8",
+    "wrapper_package_path": "packages/@biomejs/biome/package.json",
+    "wrapper_version_at_cutoff": "2.5.8",
+    "wrapper_optional_dependency_rule_observed": "@biomejs/cli-linux-x64 is pinned to the exact wrapper version",
+    "launcher_path": "packages/@biomejs/biome/bin/biome",
+    "launcher_linux_x64_target_observed": "@biomejs/cli-linux-x64/biome",
+    "platform_package_path": "packages/@biomejs/cli-linux-x64/package.json",
+    "platform_constraints_observed": {"os":"linux","cpu":"x64","libc":"glibc"}
+  },
+  "selected_version": "exact version string of the single stable @biomejs/biome release selected by the frozen A/G rule",
+  "registry_source": "official npm registry package metadata and tarballs for the exact selected version",
+  "artifact_rule": {
+    "wrapper_metadata": "resolve @biomejs/biome@<selected_version>; require package name and version exact",
+    "dependency_check": "wrapper metadata must declare @biomejs/cli-linux-x64 at exactly <selected_version>",
+    "binary_metadata": "resolve @biomejs/cli-linux-x64@<selected_version>; require package name/version exact and os=linux cpu=x64 libc=glibc when those fields are present",
+    "integrity": "both tarballs must be verified against the registry-provided dist.integrity; if unavailable or verification fails, artifact is NOT_IDENTIFIED",
+    "content_addressing": "record SHA-256 of both verified tarball byte streams and the extracted executable byte stream before witness execution",
+    "executable_member": "require exactly one regular-file member package/biome in the verified @biomejs/cli-linux-x64 tarball; symlink/hardlink/device members at that path are rejected",
+    "invocation": "invoke the extracted package/biome directly with arguments ['migrate','--write']; do not use the JavaScript wrapper, package-manager resolution, BIOME_BINARY override, source compilation, or a different platform package"
+  },
+  "grounding_runtime": {
+    "platform": "linux-x64-glibc",
+    "working_directory": "fresh isolated directory containing exactly the frozen witness configuration filesystem before invocation",
+    "network_during_invocation": "PROHIBITED",
+    "environment": "frozen allowlist only; no arm/treatment variables; no BIOME_BINARY override; locale and timezone fixed",
+    "repeats": 2,
+    "same_executable_bytes_for_all_six_witnesses": true,
+    "same_executable_bytes_for_both_repeats": true
+  },
+  "no_fallback": {
+    "missing_exact_platform_package": "NOT_IDENTIFIED",
+    "package_version_mismatch": "NOT_IDENTIFIED",
+    "integrity_failure": "NOT_IDENTIFIED",
+    "unexpected_tar_member_shape": "NOT_IDENTIFIED",
+    "execution_incompatibility": "NOT_IDENTIFIED",
+    "source_build_fallback": "PROHIBITED",
+    "musl_fallback": "PROHIBITED",
+    "later_release_substitution": "PROHIBITED"
+  },
+  "independence": {
+    "forbidden_selection_inputs": ["arm","Gamma","M_Gamma","Phi_path","DeltaPi","Reach","A/B performance","outcome"],
+    "artifact_version_source": "only the version selected by A/G",
+    "platform_choice": "frozen pre-freeze as linux-x64-glibc; not selected after future results"
+  },
+  "authority_boundary": {
+    "future_obligation_accessed": false,
+    "realized_artifact": "NOT_EVALUATED",
+    "realized_artifact_hashes": "NOT_EVALUATED",
+    "future_run": "NOT_AUTHORIZED"
+  }
+}
