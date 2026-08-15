@@ -2,8 +2,9 @@
 """Build the private input bundle for frozen CUHK-X AIM5.
 
 Run from a working directory containing the exact frozen derived artifacts plus
-copies of the frozen AIM4 helper and AIM5 executable from the SSI branch.
-The organizer Training ZIP is intentionally excluded and attached separately.
+copies of the frozen AIM4 helper, AIM5 executable, and AIM5 mechanical precheck
+from the SSI branch. The organizer Training ZIP is intentionally excluded and
+attached separately.
 """
 from pathlib import Path
 import hashlib
@@ -21,6 +22,7 @@ FILES = {
     "cuhkx_v7_strong_ir_dinov2_results.zip": ROOT / "cuhkx_v7_strong_ir_dinov2_results.zip",
     "cuhkx_aim4_structured_set.py": ROOT / "cuhkx_aim4_structured_set.py",
     "cuhkx_aim5_conditional_setmap.py": ROOT / "cuhkx_aim5_conditional_setmap.py",
+    "cuhkx_aim5_precheck.py": ROOT / "cuhkx_aim5_precheck.py",
 }
 
 EXPECTED = {
@@ -48,11 +50,17 @@ for arcname, src in FILES.items():
     if not src.exists():
         raise FileNotFoundError(src)
     got = sha256_file(src)
-    exp = EXPECTED[arcname]
-    if got != exp:
-        raise RuntimeError(f"SHA mismatch for {arcname}: {got} != {exp}")
-    manifest[arcname] = got
-    print("  PASS", arcname, got)
+    if arcname in EXPECTED:
+        exp = EXPECTED[arcname]
+        if got != exp:
+            raise RuntimeError(f"SHA mismatch for {arcname}: {got} != {exp}")
+        status = "FROZEN_MATCH"
+    else:
+        # The precheck candidate is intentionally hashed here and frozen only
+        # after it passes. Its observed SHA is part of the post-precheck record.
+        status = "PRECHECK_CANDIDATE_HASH_RECORDED"
+    manifest[arcname] = {"sha256": got, "status": status}
+    print(" ", status, arcname, got)
 
 if OUT.exists():
     OUT.unlink()
@@ -78,5 +86,6 @@ with zipfile.ZipFile(OUT) as z:
 print()
 print("DONE")
 print("PRIVATE_BUNDLE =", OUT)
-print("SHA256 =", sha256_file(OUT))
+print("PRIVATE_BUNDLE_SHA256 =", sha256_file(OUT))
 print("Attach this private bundle plus the official Training ZIP in Kaggle.")
+print("Run the mechanical precheck only. Do not execute AIM5 until the post-precheck byte freeze is committed.")
