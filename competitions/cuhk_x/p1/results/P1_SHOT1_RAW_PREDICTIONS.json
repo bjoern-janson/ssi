@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "CUHKX-P1-PRESERVED-EVIDENCE-1",
+  "run_id": "CUHKX-P1-SHOT-1",
+  "representation": "canonical candidate prediction bit-vectors; reconstruct labels/truths from authorized V7 archive by (qa_id,option,action)",
+  "n_candidates": 3236,
+  "candidate_order_sha256": "81fe0cb9156cf2b5b5e1dac98d8f11fce631d84566d4d5f1df5b747f09a0d696",
+  "v7_results_sha256": "af7687fad3c7a4d140707c09dd84edea79288abdd81f91e9755d21cb63aad088",
+  "early": {
+    "int8_sha256": "6f4961921c1c05bc67557f5cc29237e011ba391851692bb3e86e465c3574eb6c",
+    "packbits_sha256": "0cffccf54baffa5513b1bcaf4af0c445915c03620ff9df68a0dae1983fdb3a53",
+    "packbits_b64": "BMASvjHeHNRgHCGG62M7pKlTFVF+BtVuf3nRLNG9n/yoqnazwZRVngRlCgii2fp0KEDbL+15EgKqpRsUtv/4zCRuFnLBWW7pOrXpMox+bmWj1KeErcqUZb8JWMcevWJgqVO4I3KKEIZ8DLDI6R9UiuDrDQA0YbrjSIjCQ4KostwXIAJ48ZEBEQSj7zV4G1hMIbcoyUCBF1VJQt1EjsN1d7S4ber7/hUgMwEGQQnCKxC3m+GKVlkOggU3X9GBmcFRO6d2G+IiSg3bFt3FE4vOzqAkdSdm675LbBHOA7iqrZfXIk0c40ze2Ta9qbXJNFFZxKJ0V44ir+aZjL+0XxbVx8OvaxGJ083xz0YUyjUVQfd8m5s7GO9TjJQIRslnF8fuaCw1PLZW7/5PjFJySiTM7ea4rrfhRcQOnu17yYkp0KLrHc7iPxdCEq2YLNQoESTCA/KrkzNqSsYiE36VBBYImYYwAzj7SeDiwiQeAhBTbloQlGp1pfIEuF9xpDelrSn01cEmguNXiH3SXomeydzGAdVqwpEK"
+  },
+  "preserved": {
+    "int8_sha256": "3d6376d15c855c8b8b2b3fdd088f50e5b31b99d4ab407ed54bf573bfc56db80e",
+    "packbits_sha256": "a163a4ed3cd61e3abc5aa25f83a22ed8e68beb3a94cc5d0f64bc427925609434",
+    "packbits_b64": "BMASvjPOHNRwGCGG62N7JKlTFHF+FtVuf3nRLPG9n/2pqnezwZRVnARlCgii2fp8qVDbLu15EgKqpRtUlv/6zCZuFlLBWW7pMrXpMox+bmWj1KeErcqIZb8JUMceuWJgqUe4I3KKEI58DLDI6R9Ui+DrDQA0YbrDSIjSQ4KoutwXIAp48ZEBEQyj73V5G1hMIbeowUCBF1VJUt1EjsN1d7T4Zer7/hcgM0MmQQnCKxC1m+GaRlkOgkU935GhmcFRO6dyG6IiSg3bFt/FG4vPz6gkdQTk675LbhHuAbiqrZfXIk0c40zc2Te9qbcJtlFZxKJ0V54uv+aTjL20TxbVx8KvaxGJ043xz0YUyzUFQfdcu5s7GO9SjJQIRslnH8fuaCw1PLZW675PiHJySmTM7ea4rrfhRcQOnu17iYkp0KLrHczCPxdCEq2YLNQoESTCA/K/kzNqSsQiE/6VBBY8mcZwATrbyeBmwiwWAhBTbloAlmp1pfKMuF95pDe15Cn81eEHguZXiH3SH4GeydzGAdVqwpEK"
+  },
+  "full_raw_result_sha256": "b3429ee3d9737a98cd4ded5865ffd1d519c812c03b77563c172c98cb2c64e248",
+  "full_raw_result_gzip_sha256": "cb74c407c596111c4d68b6eaa690110fdf25fc5a35ffb34cdc0be305e6df3322"
+}
