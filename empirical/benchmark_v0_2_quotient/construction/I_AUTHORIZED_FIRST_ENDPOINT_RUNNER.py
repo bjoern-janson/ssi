@@ -1,31 +1,28 @@
 #!/usr/bin/env python3
-"""Capability-minimal authorized runner for VFA-0.2's first prospective endpoint.
+"""Capability-minimal authorized runner for VFA-0.2's first endpoint.
 
-The runner does not discover, select, fetch, or ground a future obligation. It
-accepts already-realized common-cause evidence only after predicate-I identity
-preflight. Scientific future statuses are derived from a canonical validated
-GroundingEnvelope, never from caller-authored arm inputs or duplicated status
-fields in the realized record.
+Trust bootstrap is stdlib-only. Project code is loaded only from absolute packet-
+authorized paths after identity checks; ordinary ambient project imports are not
+used. The runner does not discover, select, fetch, or ground a future obligation.
 """
 from __future__ import annotations
 
 from datetime import datetime, timezone
 import hashlib
+import importlib.util
 import json
 from pathlib import Path
 import platform
 import sys
+from types import ModuleType
 from typing import Any
-
-import I_CHAIN_OF_CUSTODY_KERNEL as custody
-import G_GROUNDING_INTEGRATION_KERNEL as grounding
-import FINAL_TREATMENT_MATERIALIZATION as materialize
-import FINAL_POSTGATE_RUNTIME as endpoint
 
 REQUIRED_IMPLEMENTATION = "cpython"
 REQUIRED_PYTHON_VERSION = "3.13.5"
 REQUIRED_SYSTEM = "Linux"
 REQUIRED_MACHINE = "x86_64"
+EXPECTED_CUSTODY_BLOB = "db3e1d4bcdb9cce691cf86c66ad7705f5a42fc5e"
+CUSTODY_RELATIVE_PATH = "empirical/benchmark_v0_2_quotient/construction/I_CHAIN_OF_CUSTODY_KERNEL.py"
 ALLOWED_KERNEL = frozenset({"NONINCLUSION_WITNESS", "INCLUSION_ON_FROZEN_KERNEL_DOMAIN", "NOT_IDENTIFIED"})
 
 ENVELOPE_KEYS = frozenset({
@@ -57,9 +54,16 @@ def _sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
+def _git_blob_sha1(data: bytes) -> str:
+    return hashlib.sha1(f"blob {len(data)}\0".encode("ascii") + data).hexdigest()
+
+
 def _read_json(path: Path) -> dict[str, Any]:
     data = path.read_bytes()
-    obj = json.loads(data.decode("utf-8"))
+    try:
+        obj = json.loads(data.decode("utf-8"))
+    except (UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise ValueError(f"invalid JSON: {path}") from exc
     if type(obj) is not dict:
         raise TypeError(f"JSON object required: {path}")
     return obj
@@ -95,41 +99,54 @@ def validate_runtime_platform() -> dict[str, str]:
     return facts
 
 
-def _role_path(packet: dict[str, Any], role: str) -> str:
-    matches = [m["path"] for m in packet["members"] if m["role"] == role and m["execution_required"] is True]
-    if len(matches) != 1:
+def _load_exact_module(name: str, path: Path, expected_blob: str) -> ModuleType:
+    data = path.read_bytes()
+    if _git_blob_sha1(data) != expected_blob:
+        raise RuntimeError(f"authorized module blob mismatch before import: {path}")
+    spec = importlib.util.spec_from_file_location(name, path)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"cannot create module spec: {path}")
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    spec.loader.exec_module(module)
+    return module
+
+
+def _role_member(packet: dict[str, Any], role: str) -> dict[str, Any]:
+    rows = [m for m in packet["members"] if m["role"] == role and m["execution_required"] is True]
+    if len(rows) != 1:
         raise ValueError(f"execution role must resolve uniquely: {role}")
-    return matches[0]
+    return rows[0]
 
 
 def _load_execution_members(repo_root: Path, packet: dict[str, Any]) -> dict[str, bytes]:
-    out = {}
-    for member in packet["members"]:
-        if member["execution_required"] is True:
-            path = member["path"]
-            out[path] = (repo_root / path).read_bytes()
-    return out
+    return {
+        m["path"]: (repo_root / m["path"]).read_bytes()
+        for m in packet["members"] if m["execution_required"] is True
+    }
 
 
-def _validated_grounding_envelope(envelope_bytes: bytes, domain: dict[str, Any]) -> tuple[grounding.GroundingEnvelope, dict[str, Any]]:
+def _load_role_module(repo_root: Path, packet: dict[str, Any], role: str, module_name: str) -> ModuleType:
+    member = _role_member(packet, role)
+    return _load_exact_module(module_name, repo_root / member["path"], member["git_blob_sha"])
+
+
+def _validated_grounding_envelope(envelope_bytes: bytes, domain: dict[str, Any], grounding: ModuleType):
     try:
         obj = json.loads(envelope_bytes.decode("utf-8"))
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise ValueError("invalid GroundingEnvelope JSON") from exc
     if type(obj) is not dict or set(obj) != ENVELOPE_KEYS:
         raise ValueError("GroundingEnvelope schema drift")
-
-    obligation_obj = obj["obligation"]
-    artifact_obj = obj["artifact"]
-    if type(obligation_obj) is not dict or type(artifact_obj) is not dict:
+    if type(obj["obligation"]) is not dict or type(obj["artifact"]) is not dict:
         raise TypeError("typed GroundingEnvelope identity required")
-    obligation = grounding.ObligationDescriptor(**obligation_obj)
-    artifact = grounding.ArtifactRecord(**artifact_obj)
+    obligation = grounding.ObligationDescriptor(**obj["obligation"])
+    artifact = grounding.ArtifactRecord(**obj["artifact"])
 
     wc = []
     for row in obj["witness_consequences"]:
         if not isinstance(row, list) or len(row) != 3:
-            raise ValueError("invalid envelope witness consequence row")
+            raise ValueError("invalid envelope witness row")
         wc.append({"fact_id": row[0], "status": row[1], "signature_sha256": row[2]})
     gr = []
     for row in obj["grounding_rows"]:
@@ -141,38 +158,25 @@ def _validated_grounding_envelope(envelope_bytes: bytes, domain: dict[str, Any])
         if not isinstance(row, list) or len(row) != 5:
             raise ValueError("invalid envelope path-surface row")
         ps.append({"unit_id": row[0], "relation_kind": row[1], "left_ref": row[2], "right_ref": row[3], "status": row[4]})
+    cd = {}
     if type(obj["contract_digests"]) is not list:
         raise TypeError("contract digest list required")
-    cd = {}
     for row in obj["contract_digests"]:
         if not isinstance(row, list) or len(row) != 2 or row[0] in cd:
             raise ValueError("invalid/duplicate contract digest row")
         cd[row[0]] = row[1]
 
     rebuilt = grounding.make_grounding_envelope(
-        obligation=obligation,
-        artifact=artifact,
-        domain=domain,
-        witness_consequences=wc,
-        grounding_rows=gr,
-        path_surfaces=ps,
-        kernel_adjudication=obj["kernel_adjudication"],
-        contract_digests=cd,
+        obligation=obligation, artifact=artifact, domain=domain,
+        witness_consequences=wc, grounding_rows=gr, path_surfaces=ps,
+        kernel_adjudication=obj["kernel_adjudication"], contract_digests=cd,
     )
-    canonical = grounding.envelope_bytes(rebuilt)
-    if canonical != envelope_bytes:
-        raise ValueError("GroundingEnvelope bytes are not the canonical frozen representation")
-    if rebuilt.envelope_sha256 != obj["envelope_sha256"]:
-        raise ValueError("GroundingEnvelope digest mismatch")
-    return rebuilt, obj
+    if grounding.envelope_bytes(rebuilt) != envelope_bytes or rebuilt.envelope_sha256 != obj["envelope_sha256"]:
+        raise ValueError("GroundingEnvelope canonical identity mismatch")
+    return rebuilt
 
 
-def _validate_realized_g_certificate(
-    cert_bytes: bytes,
-    packet: dict[str, Any],
-    authorization_certificate: dict[str, Any],
-    envelope: grounding.GroundingEnvelope,
-) -> dict[str, Any]:
+def _validate_realized_g_certificate(cert_bytes: bytes, packet: dict[str, Any], auth: dict[str, Any], envelope) -> dict[str, Any]:
     try:
         cert = json.loads(cert_bytes.decode("utf-8"))
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
@@ -180,28 +184,24 @@ def _validate_realized_g_certificate(
     if type(cert) is not dict or set(cert) != G_CERT_KEYS:
         raise ValueError("realized-G certificate schema drift")
     if cert["certificate_type"] != "VFA-0.2-REALIZED-GROUNDED-COMMON-CAUSE-CONFORMANCE" or cert["status"] != "PASS":
-        raise PermissionError("realized-G conformance certificate must PASS")
+        raise PermissionError("realized-G conformance must PASS")
     if cert["authorization_packet_digest"] != packet["packet_sha256"]:
-        raise ValueError("realized-G certificate packet mismatch")
-
-    obligation = envelope.obligation
-    artifact = envelope.artifact
+        raise ValueError("realized-G packet mismatch")
     expected = {
-        "selected_candidate_id": obligation.selected_candidate_id,
-        "selected_version": obligation.selected_version,
-        "selection_trace_sha256": obligation.selection_trace_sha256,
-        "wrapper_tar_sha256": artifact.wrapper_tar_sha256,
-        "platform_tar_sha256": artifact.platform_tar_sha256,
-        "executable_sha256": artifact.executable_sha256,
+        "selected_candidate_id": envelope.obligation.selected_candidate_id,
+        "selected_version": envelope.obligation.selected_version,
+        "selection_trace_sha256": envelope.obligation.selection_trace_sha256,
+        "wrapper_tar_sha256": envelope.artifact.wrapper_tar_sha256,
+        "platform_tar_sha256": envelope.artifact.platform_tar_sha256,
+        "executable_sha256": envelope.artifact.executable_sha256,
         "grounding_envelope_sha256": envelope.envelope_sha256,
         "realized_kernel_domain_adjudication": envelope.kernel_adjudication,
     }
     for field, value in expected.items():
         if cert[field] != value:
-            raise ValueError(f"realized-G certificate/envelope mismatch: {field}")
+            raise ValueError(f"realized-G/envelope mismatch: {field}")
     if cert["grounding_unit_count"] != 3 or cert["path_surface_count"] != 12:
         raise ValueError("realized-G domain count mismatch")
-
     required_pass = (
         "artifact_contract_conformance", "six_witness_execution_conformance",
         "repeat_determinism_conformance", "first_qualifying_rule_conformance",
@@ -209,71 +209,63 @@ def _validate_realized_g_certificate(
         "no_substitution_conformance", "post_disclosure_validity",
     )
     if any(cert[field] != "PASS" for field in required_pass):
-        raise PermissionError("realized-G conformance predicate not PASS")
+        raise PermissionError("realized-G predicate not PASS")
     if cert["common_obligation_sha256_A"] != cert["common_obligation_sha256_B"]:
-        raise ValueError("A/B common obligation identity mismatch")
+        raise ValueError("A/B common obligation mismatch")
     if cert["common_grounding_envelope_sha256_A"] != envelope.envelope_sha256 or cert["common_grounding_envelope_sha256_B"] != envelope.envelope_sha256:
-        raise ValueError("A/B grounding envelope identity mismatch")
+        raise ValueError("A/B grounding envelope mismatch")
     if cert["disclosed_at_A"] != cert["disclosed_at_B"] or cert["deadline_A"] != cert["deadline_B"]:
         raise ValueError("A/B disclosure/deadline mismatch")
-
-    t_freeze = _parse_utc(authorization_certificate["freeze_timestamp_utc"])
-    t_select = _parse_utc(cert["selected_at"])
-    t_artifact = _parse_utc(cert["artifact_resolved_at"])
-    t_ground_commit = _parse_utc(cert["grounding_committed_at"])
-    t_bundle = _parse_utc(cert["bundle_committed_at"])
-    t_disclose = _parse_utc(cert["disclosed_at_A"])
-    t_deadline = _parse_utc(cert["deadline_A"])
-    if not (t_freeze < t_select <= t_artifact <= t_ground_commit <= t_bundle < t_disclose < t_deadline):
+    times = [
+        _parse_utc(auth["freeze_timestamp_utc"]), _parse_utc(cert["selected_at"]),
+        _parse_utc(cert["artifact_resolved_at"]), _parse_utc(cert["grounding_committed_at"]),
+        _parse_utc(cert["bundle_committed_at"]), _parse_utc(cert["disclosed_at_A"]),
+        _parse_utc(cert["deadline_A"]),
+    ]
+    if not (times[0] < times[1] <= times[2] <= times[3] <= times[4] < times[5] < times[6]):
         raise ValueError("realized-G temporal contract violation")
     return cert
 
 
-def _expected_mirror(envelope: grounding.GroundingEnvelope, envelope_obj: dict[str, Any]) -> dict[str, Any]:
-    obligation = envelope.obligation
-    artifact = envelope.artifact
-    wc = [
-        {"fact_id": row[0], "status": row[1], "signature_sha256": row[2]}
-        for row in envelope.witness_consequences
-    ]
-    gr = [
-        {"unit_id": row[0], "left_fact_id": row[1], "right_fact_id": row[2], "status": row[3]}
-        for row in envelope.grounding_rows
-    ]
-    ps = [
-        {"unit_id": row[0], "relation_kind": row[1], "left_ref": list(row[2]), "right_ref": list(row[3]), "status": row[4]}
-        for row in envelope.path_surfaces
-    ]
+def _expected_mirror(envelope) -> dict[str, Any]:
     return {
-        "selected_candidate_id": obligation.selected_candidate_id,
-        "selected_version": obligation.selected_version,
-        "selection_trace_sha256": obligation.selection_trace_sha256,
-        "published_at": obligation.published_at,
-        "release_id": obligation.release_id,
-        "wrapper_tar_sha256": artifact.wrapper_tar_sha256,
-        "platform_tar_sha256": artifact.platform_tar_sha256,
-        "executable_sha256": artifact.executable_sha256,
-        "artifact_integrity_status": artifact.status,
-        "T_future_consequences": wc,
-        "J_future_grounding_rows": gr,
-        "path_surfaces": ps,
+        "selected_candidate_id": envelope.obligation.selected_candidate_id,
+        "selected_version": envelope.obligation.selected_version,
+        "selection_trace_sha256": envelope.obligation.selection_trace_sha256,
+        "published_at": envelope.obligation.published_at,
+        "release_id": envelope.obligation.release_id,
+        "wrapper_tar_sha256": envelope.artifact.wrapper_tar_sha256,
+        "platform_tar_sha256": envelope.artifact.platform_tar_sha256,
+        "executable_sha256": envelope.artifact.executable_sha256,
+        "artifact_integrity_status": envelope.artifact.status,
+        "T_future_consequences": [
+            {"fact_id": r[0], "status": r[1], "signature_sha256": r[2]}
+            for r in envelope.witness_consequences
+        ],
+        "J_future_grounding_rows": [
+            {"unit_id": r[0], "left_fact_id": r[1], "right_fact_id": r[2], "status": r[3]}
+            for r in envelope.grounding_rows
+        ],
+        "path_surfaces": [
+            {"unit_id": r[0], "relation_kind": r[1], "left_ref": list(r[2]), "right_ref": list(r[3]), "status": r[4]}
+            for r in envelope.path_surfaces
+        ],
         "kernel_adjudication": envelope.kernel_adjudication,
         "grounding_envelope_sha256": envelope.envelope_sha256,
     }
 
 
 def run_authorized_first_endpoint(
-    repo_root: str | Path,
-    packet_path: str | Path,
-    freeze_anchor_path: str | Path,
-    authorization_certificate_path: str | Path,
-    realized_record_path: str | Path,
-    grounding_envelope_path: str | Path,
-    realized_g_certificate_path: str | Path,
+    repo_root: str | Path, packet_path: str | Path, freeze_anchor_path: str | Path,
+    authorization_certificate_path: str | Path, realized_record_path: str | Path,
+    grounding_envelope_path: str | Path, realized_g_certificate_path: str | Path,
 ) -> dict[str, Any]:
-    """Run the paired first endpoint after fail-closed authorization preflight."""
     runtime_facts = validate_runtime_platform()
     root = Path(repo_root).resolve()
+
+    # Bootstrap authority from a pinned custody implementation before any project import.
+    custody_path = root / CUSTODY_RELATIVE_PATH
+    custody = _load_exact_module("vfa_i_custody", custody_path, EXPECTED_CUSTODY_BLOB)
     packet_bytes = Path(packet_path).read_bytes()
     anchor_bytes = Path(freeze_anchor_path).read_bytes()
     certificate_bytes = Path(authorization_certificate_path).read_bytes()
@@ -282,15 +274,25 @@ def run_authorized_first_endpoint(
     realized_g_bytes = Path(realized_g_certificate_path).read_bytes()
 
     packet = custody.validate_packet_bytes(packet_bytes)
+    runner_member = _role_member(packet, "authorized_first_endpoint_runner")
+    if _git_blob_sha1(Path(__file__).read_bytes()) != runner_member["git_blob_sha"]:
+        raise RuntimeError("executing runner bytes do not match authorized runner blob")
+    if packet["authorized_runner_blob"] != runner_member["git_blob_sha"]:
+        raise RuntimeError("packet runner binding mismatch")
     loaded = _load_execution_members(root, packet)
     custody.authorize_execution(packet_bytes, anchor_bytes, certificate_bytes, loaded, realized)
-    _packet, _anchor, certificate = custody.validate_certificate_bytes(packet_bytes, anchor_bytes, certificate_bytes)
+    _packet, _anchor, auth = custody.validate_certificate_bytes(packet_bytes, anchor_bytes, certificate_bytes)
 
-    domain = _read_json(root / _role_path(packet, "complete_q_kernel_grounding_domain"))
-    envelope, envelope_obj = _validated_grounding_envelope(envelope_bytes, domain)
-    realized_g = _validate_realized_g_certificate(realized_g_bytes, packet, certificate, envelope)
+    # Only now load scientific project modules from exact authorized files.
+    grounding = _load_role_module(root, packet, "grounded_common_cause_integration_kernel", "vfa_i_grounding")
+    materialize = _load_role_module(root, packet, "semantic_treatment_materializer", "vfa_i_materialize")
+    endpoint = _load_role_module(root, packet, "first_endpoint_runtime", "vfa_i_endpoint")
 
-    mirror = _expected_mirror(envelope, envelope_obj)
+    domain = _read_json(root / _role_member(packet, "complete_q_kernel_grounding_domain")["path"])
+    envelope = _validated_grounding_envelope(envelope_bytes, domain, grounding)
+    realized_g = _validate_realized_g_certificate(realized_g_bytes, packet, auth, envelope)
+
+    mirror = _expected_mirror(envelope)
     for field, expected in mirror.items():
         if realized["realized"][field] != expected:
             raise ValueError(f"realized record does not mirror GroundingEnvelope: {field}")
@@ -300,15 +302,15 @@ def run_authorized_first_endpoint(
     if conformance["status"] != "PASS" or conformance["certificate_sha256"] != _sha256(realized_g_bytes):
         raise PermissionError("realized record not bound to realized-G certificate")
     if realized["realized"]["bundle_commit_timestamp_utc"] != realized_g["bundle_committed_at"]:
-        raise ValueError("realized bundle timestamp mismatch")
+        raise ValueError("bundle timestamp mismatch")
     if realized["realized"]["disclosure_timestamp_utc"] != realized_g["disclosed_at_A"]:
-        raise ValueError("realized disclosure timestamp mismatch")
+        raise ValueError("disclosure timestamp mismatch")
     if realized["realized"]["deadline_timestamp_utc"] != realized_g["deadline_A"]:
-        raise ValueError("realized deadline timestamp mismatch")
+        raise ValueError("deadline timestamp mismatch")
 
-    gamma_a = _read_json(root / _role_path(packet, "treatment_Gamma_A"))
-    gamma_b = _read_json(root / _role_path(packet, "treatment_Gamma_B"))
-    coordinate_obj = _read_json(root / _role_path(packet, "semantic_coordinate_map"))
+    gamma_a = _read_json(root / _role_member(packet, "treatment_Gamma_A")["path"])
+    gamma_b = _read_json(root / _role_member(packet, "treatment_Gamma_B")["path"])
+    coordinate_obj = _read_json(root / _role_member(packet, "semantic_coordinate_map")["path"])
     coordinates = coordinate_obj.get("coordinates")
     if type(coordinates) is not dict:
         raise TypeError("semantic coordinate map missing coordinates")
@@ -317,20 +319,19 @@ def run_authorized_first_endpoint(
     matrix_a, mat_trace_a = materialize.compile_semantic_matrix(gamma_a, coordinates)
     matrix_b, mat_trace_b = materialize.compile_semantic_matrix(gamma_b, coordinates)
     if mat_trace_a != mat_trace_b:
-        raise RuntimeError("A/B treatment materialization logical schedule mismatch")
-
+        raise RuntimeError("A/B treatment materialization schedule mismatch")
     result_a, run_trace_a = endpoint.evaluate_first_endpoint(matrix_a, coordinates, domain, surfaces)
     result_b, run_trace_b = endpoint.evaluate_first_endpoint(matrix_b, coordinates, domain, surfaces)
     if run_trace_a != run_trace_b:
-        raise RuntimeError("A/B first-endpoint logical schedule mismatch")
+        raise RuntimeError("A/B first-endpoint schedule mismatch")
 
-    result_core = {
+    core = {
         "benchmark_id": packet["benchmark_id"],
         "packet_sha256": packet["packet_sha256"],
         "execution_root_sha256": packet["execution_root_sha256"],
-        "authorization_certificate_sha256": certificate["certificate_sha256"],
-        "freeze_commit_sha": certificate["freeze_commit_sha"],
-        "freeze_timestamp_utc": certificate["freeze_timestamp_utc"],
+        "authorization_certificate_sha256": auth["certificate_sha256"],
+        "freeze_commit_sha": auth["freeze_commit_sha"],
+        "freeze_timestamp_utc": auth["freeze_timestamp_utc"],
         "grounding_envelope_sha256": envelope.envelope_sha256,
         "realized_g_certificate_sha256": _sha256(realized_g_bytes),
         "kernel_adjudication": envelope.kernel_adjudication,
@@ -354,7 +355,7 @@ def run_authorized_first_endpoint(
         "arm_B": list(result_b),
         "claim_scope": "first-endpoint q-kernel consequence/reachability only; no CCA/CARS/final adaptation claim",
     }
-    return {**result_core, "result_sha256": _sha256(_canonical(result_core))}
+    return {**core, "result_sha256": _sha256(_canonical(core))}
 
 
 def main() -> None:
