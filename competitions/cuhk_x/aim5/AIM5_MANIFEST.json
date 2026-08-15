@@ -1,11 +1,18 @@
 {
   "aim_id": "CUHKX_AIM5_NESTED_ACTION_AWARE_CONDITIONAL_SETMAP_V1",
-  "status": "FROZEN_BEFORE_EXECUTION",
+  "status": "MECHANICAL_PRECHECK_PENDING",
   "scientific_freeze_commit": "21a2df35ba2ec1bdc2fbdbe368fffad4f08c40be",
   "executable_commit": "295859360cd04e5bcf70cd0861e6160a40eabb41",
   "executable_path": "competitions/cuhk_x/aim5/cuhkx_aim5_conditional_setmap.py",
   "executable_git_blob_sha1": "15ed6781b8fc618ced83a8a535567c54cf25e052",
   "executable_sha256": "620e35da4256e3368359e202729e45489b916687ef890e3f9d887e91f11a0605",
+  "mechanical_precheck": {
+    "path": "competitions/cuhk_x/aim5/cuhkx_aim5_precheck.py",
+    "git_blob_sha1": "620e65886720a0133ad48022c86bd9754ba32cd3",
+    "sha256": "TO_BE_RECORDED_AT_STAGE1",
+    "required_result": "PRECHECK_PASS",
+    "run_authorization_after_pass": "BYTE_FREEZE_PENDING"
+  },
   "frozen_helper": {
     "path": "competitions/cuhk_x/aim4/cuhkx_aim4_structured_set.py",
     "sha256": "ba2ebfd73e9dfa3c7f0e597e9f24691551fd4d844e8a3c8049fe7c44c91eb1c5"
@@ -26,8 +33,19 @@
   "nested_firewall": {
     "outer_folds": 5,
     "inner_rule": "for outer f and inner g, fit S1 base models excluding f and g; score g for meta-training",
-    "outer_rule": "fit S1 base models excluding f; score f; frozen candidate-sign reproduction required"
+    "outer_rule": "fit S1 base models excluding f; score f; frozen candidate-sign reproduction required",
+    "outer_fold_is_sealed": true
   },
+  "mechanical_precheck_invariants": [
+    "outer_subject_isolation",
+    "inner_base_model_isolation",
+    "training_only_margin_normalization",
+    "training_only_meta_fitting",
+    "no_query_leakage",
+    "aim4_comparator_frozen",
+    "s1_candidate_sign_reproduction",
+    "s1_decision_operator_reproduction"
+  ],
   "support_gates": {
     "minimum_pooled_delta_exact": 0.05,
     "minimum_nonnegative_outer_folds": 4,
@@ -35,7 +53,15 @@
     "subject_cluster_bootstrap_seed": 260817,
     "require_ci95_lower_gt_zero": true
   },
+  "authorization_sequence": [
+    "MECHANICAL_PRECHECK",
+    "STOP",
+    "POST_PRECHECK_BYTE_FREEZE",
+    "RUN_AUTHORIZED",
+    "AIM5_RUN"
+  ],
   "authority": {
+    "precheck_failure": "NOT_IDENTIFIED",
     "success": "PACKAGING_CANDIDATE_AUTHORIZED_ONLY",
     "failure": "NOT_AUTHORIZED_BY_AIM5",
     "base_reproduction_failure": "NOT_IDENTIFIED_BASE_REPRODUCTION_FAILURE"
