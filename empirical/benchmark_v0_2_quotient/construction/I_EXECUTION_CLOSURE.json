@@ -1,13 +1,17 @@
 {
   "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
-  "closure_id": "VFA-0.2-I-EXECUTION-CLOSURE-2",
+  "closure_id": "VFA-0.2-I-EXECUTION-CLOSURE-3",
   "principle": "Anything capable of changing the declared experiment must be either a frozen packet member or a realized object admitted by a frozen prospective rule.",
   "runtime": {
-    "python_implementation": "CPython",
+    "execution_entrypoint_role": "authorized_first_endpoint_runner",
+    "python_implementation": "cpython",
     "python_version": "3.13.5",
+    "system": "Linux",
+    "machine": "x86_64",
+    "runtime_mismatch": "RUN_REJECTED",
     "third_party_python_dependencies": [],
     "dynamic_plugin_loading": "PROHIBITED",
-    "network_during_arm_evaluation": "PROHIBITED",
+    "network_during_arm_evaluation": "PROHIBITED_BY_NO_NETWORK_CODE_PATH; OS sandbox not claimed",
     "randomness": "NONE",
     "hidden_seed": "PROHIBITED",
     "concurrency": "NONE_SINGLE_THREAD",
@@ -16,23 +20,24 @@
   "environment": {
     "arm_visible_environment_variables": [],
     "undeclared_environment_variable_read": "PROHIBITED",
-    "working_directory": "isolated benchmark workspace only",
+    "working_directory": "isolated benchmark workspace rooted at explicit repo_root",
     "external_config_search": "PROHIBITED",
     "user_home_config": "PROHIBITED",
     "cwd_parent_traversal": "PROHIBITED",
-    "locale_or_timezone_as_endpoint_input": "PROHIBITED"
+    "locale_or_timezone_as_endpoint_input": "PROHIBITED",
+    "note": "The authorized first-endpoint runner reads no environment variable as scientific input. External future grounding is completed before this runner and is governed separately by G and FUTURE_CONSEQUENCE_GROUNDING_CONTRACT."
   },
   "filesystem": {
     "allowed_pre_freeze_inputs": "exact packet-member bytes only",
     "allowed_post_freeze_inputs": [
-      "the one realized common grounding envelope admitted by the frozen G chain",
-      "the exact selected-release official executable admitted by FUTURE_EXECUTION_ARTIFACT_CONTRACT",
-      "isolated temporary witness filesystems reconstructed by FUTURE_WITNESS_EXTRACTOR"
+      "the authorization certificate bound to the frozen packet and freeze anchor",
+      "the one realized record admitted by the frozen G/common-cause chain"
     ],
     "undeclared_external_file": "RUN_REJECTED",
     "mixed_lineage_member": "RUN_REJECTED"
   },
   "future_executable": {
+    "stage": "GLOBAL_REALIZATION_BEFORE_ARM_EVALUATION",
     "selection": "exact-version official @biomejs/cli-linux-x64 artifact resolved by FUTURE_EXECUTION_ARTIFACT_CONTRACT",
     "source_build_fallback": "PROHIBITED",
     "platform_fallback": "PROHIBITED",
@@ -52,6 +57,22 @@
     "extra_loaded_member": "RUN_REJECTED",
     "missing_loaded_member": "RUN_REJECTED",
     "same_path_wrong_blob": "RUN_REJECTED"
+  },
+  "authorized_runner": {
+    "preflight": [
+      "validate exact CPython/platform fingerprint",
+      "validate packet bytes and freeze anchor",
+      "load exactly every execution-root member and no other member",
+      "validate authorization certificate",
+      "validate exact realized-record schema and frozen parent identity",
+      "require realized_common_cause_conformance = PASS"
+    ],
+    "treatment_materialization": "runner derives both A and B matrices itself from frozen GAMMA_A/GAMMA_B plus the frozen common semantic coordinate map",
+    "future_input": "runner accepts only the common realized 12-surface grounding table; no arm-specific future object",
+    "paired_evaluation": "same FINAL_POSTGATE_RUNTIME.evaluate_first_endpoint code path for A and B",
+    "logical_schedule_check": "A/B materialization traces and first-endpoint runtime traces must be exactly equal",
+    "result_identity": "canonical paired result is SHA-256 content-addressed and binds packet, certificate, freeze, realized grounding envelope, runtime fingerprint, and both arm component outputs",
+    "result_scope": "first endpoint only; no CCA/CARS/final adaptation claim"
   },
   "authorization_identity": {
     "certificate_must_bind": [
@@ -100,7 +121,7 @@
       "SHA-1 collision resistance beyond Git repository identity assumptions",
       "OS-level sandboxing"
     ],
-    "goal": "prevent accidental, post-hoc, mixed-lineage, stale-certificate, and undeclared-control drift in the confirmatory workflow"
+    "goal": "prevent accidental, post-hoc, mixed-lineage, stale-certificate, undeclared-control, and wrong-runtime drift in the confirmatory workflow"
   },
   "state_machine": [
     "CONSTRUCTION_AH_PASS_I_OPEN",
@@ -108,5 +129,5 @@
     "AUTHORIZED_FUTURE_REALIZED",
     "AUTHORIZED_EXECUTED_RESULT_IMMUTABLE"
   ],
-  "fail_closed": "Any undeclared dependency, schema extension, or identity mismatch rejects execution; no statistical compensation, repair, or fallback is permitted inside the confirmatory lineage."
+  "fail_closed": "Any undeclared dependency, schema extension, runtime mismatch, member mismatch, or identity mismatch rejects execution; no statistical compensation, repair, or fallback is permitted inside the confirmatory lineage."
 }
