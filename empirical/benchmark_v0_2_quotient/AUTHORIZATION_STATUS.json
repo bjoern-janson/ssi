@@ -1,7 +1,7 @@
 {
   "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
   "audit_identity": "VFA-0.2-QUOTIENT-AUTHORIZATION-REAUDIT-1",
-  "audit_status": "OPEN_BLOCKED_AT_E_EVIDENCE",
+  "audit_status": "OPEN_NEXT_F",
   "governing_contract": {
     "source": "empirical/benchmark_v0_1/CONSTRUCTION_AUDIT.md",
     "source_git_blob_sha": "b154ce1089795f4e0356155b1776c94260d0f8c6",
@@ -10,82 +10,45 @@
   "predicates": {
     "A": {
       "adjudication": "PASS",
-      "evidence": [
-        {
-          "path": "empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md",
-          "git_blob_sha": "bec386d1d3e1f172e5bbf48cb942b13ed2c5072e"
-        }
-      ],
+      "evidence": [{"path": "empirical/benchmark_v0_1/evidence/A_SCOPE_SOURCE.md", "git_blob_sha": "bec386d1d3e1f172e5bbf48cb942b13ed2c5072e"}],
       "basis": "prospective source scope, cutoff, horizon, selector, exclusions, and independence rule are unchanged by the quotient redesign"
     },
     "B": {
       "adjudication": "PASS",
-      "evidence": [
-        {
-          "path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json",
-          "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"
-        }
-      ],
+      "evidence": [{"path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json", "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"}],
       "basis": "one shared validated substrate; identical path records; q acts only on path-equivalence labels; Phi_path is component-wise and aggregation is prohibited"
     },
     "C": {
       "adjudication": "PASS",
       "evidence": [
-        {
-          "path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json",
-          "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"
-        },
-        {
-          "path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json",
-          "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"
-        }
+        {"path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json", "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json", "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"}
       ],
       "basis": "same substrate, path records, forward state, forward implementation, preactivation gate, representation byte length, and caller-capability boundary outside declared quotient partition"
     },
     "D": {
       "adjudication": "PASS",
       "evidence": [
-        {
-          "path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json",
-          "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"
-        },
-        {
-          "path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json",
-          "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"
-        }
+        {"path": "empirical/benchmark_v0_2_quotient/construction/quotient_construction_audit.json", "git_blob_sha": "6da2488fecb9dd407d2d6139ce17165bf145a127"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/hardened_n_ladder_audit.json", "git_blob_sha": "555fb3ed619b5f02109b0e84c83da1e8f22f7984"}
       ],
       "basis": "F o q = F with exact full-trace identity on 249 exhaustive pre-freeze tasks and zero mismatches in 101592 hostile metamorphic comparisons"
     },
     "E": {
-      "adjudication": "NOT_EVALUATED",
-      "reason": "no complete frozen A/B resource-information-exposure manifest exists",
-      "missing_required_fields": [
-        "runtime_interpreter_and_dependency_versions",
-        "compute_budget",
-        "memory_context_storage_budget",
-        "post_gate_gamma_materialization_policy",
-        "post_gate_probe_generation_budget",
-        "adaptation_update_budget",
-        "wall_clock_or_operation_count_limit",
-        "tool_api_permissions",
-        "pre_freeze_data_access_manifest",
-        "future_disclosure_evidence_contract",
-        "evaluator_implementation_version_access",
-        "randomness_policy",
-        "cache_concurrency_process_policy",
-        "stopping_rule",
-        "failure_timeout_handling"
+      "adjudication": "PASS",
+      "evidence": [
+        {"path": "empirical/benchmark_v0_2_quotient/construction/E_ENVIRONMENT_MANIFEST.json", "git_blob_sha": "259853fdecb04f77ddcf5ebffcaecc70dec9c6d9"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/E_ENVIRONMENT_KERNEL.py", "git_blob_sha": "5997b59635b02abc04b8e1a46ffd07ffec447dee"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/E_ENVIRONMENT_ATTACK.py", "git_blob_sha": "5e0ef6fbe5f8bc901daeeac86c9f3e781de623f2"},
+        {"path": "empirical/benchmark_v0_2_quotient/construction/e_environment_audit.json", "git_blob_sha": "1ddbec54c2f4a2625346cd3e949d3f91fdc10d15"},
+        {"path": "empirical/benchmark_v0_2_quotient/evidence/E_RESOURCE_INFORMATION_EXECUTION_PASS.md", "git_blob_sha": "19b3bf794ac41c2658e2a37411e461c53eb3d0f5"}
       ],
-      "non_sufficient_existing_evidence": [
-        "canonical Gamma bytes are equal",
-        "path record counts are equal",
-        "preactivation traces are equal",
-        "N4 caller-capability surface is closed"
-      ]
+      "basis": "capacity, information exposure, and execution are frozen symmetrically around the quotient treatment; raw Gamma labels are hidden behind a fixed 576-byte equivalence-matrix view; logical post-gate materialization and pair-scan schedules are equal; 192 hostile metamorphic cost comparisons have zero mismatches",
+      "scope": "deterministic logical resource/operation equality; no CPU-cycle, joule, cache-miss, or wall-clock equality claim; realized common future-bundle conformance remains predicate G"
     },
-    "F": {"adjudication": "NOT_EVALUATED", "reason": "stop after first unresolved authorization prerequisite"},
-    "G": {"adjudication": "NOT_EVALUATED", "reason": "stop after first unresolved authorization prerequisite"},
-    "H": {"adjudication": "NOT_EVALUATED", "reason": "stop after first unresolved authorization prerequisite"},
+    "F": {"adjudication": "NOT_EVALUATED", "reason": "next authorization predicate; treatment-isolation and hidden-asymmetry audit has not yet been executed for the E-hardened quotient environment"},
+    "G": {"adjudication": "NOT_EVALUATED", "reason": "stop before later authorization predicates"},
+    "H": {"adjudication": "NOT_EVALUATED", "reason": "stop before later authorization predicates"},
     "I": {"adjudication": "NOT_EVALUATED", "reason": "A-H are not all PASS and freeze packet is not assembled"}
   },
   "authority_boundary": {
@@ -97,5 +60,5 @@
     "authorization_certificate": "NOT_ISSUED",
     "future_run": "NOT_AUTHORIZED"
   },
-  "current_conclusion": "construction valid; authorization not yet valid; future hypothesis not tested"
+  "current_conclusion": "construction valid; A-E authorization predicates pass; authorization not yet valid; future hypothesis not tested"
 }
