@@ -1,28 +1,45 @@
 {
   "benchmark_id": "VFA-0.2-QUOTIENT-REVISION-TOPOLOGY",
-  "witness_set_id": "VFA-0.2-BIOME-CURRENT-CONFIG-WITNESSES-1",
+  "witness_set_id": "VFA-0.2-BIOME-CUTOFF-MIGRATION-RESULT-WITNESSES-2",
   "source_contract": {
     "upstream_repository": "biomejs/biome",
     "construction_commit": "b51d8b1598effd064c3490c3866d5b2d60ebd5f8",
     "source_manifest": "empirical/benchmark_v0_1/evidence/B_SOURCE_MANIFEST.md",
     "snapshot_tree": "crates/biome_cli/tests/snapshots/main_cases_migrate_v2",
     "snapshot_tree_git_sha1": "d24f2716b94d1537294c915d82a6084ca6f517fa",
+    "extractor": "construction/FUTURE_WITNESS_EXTRACTOR.py",
     "admission_rule": "Use all six snapshots frozen in B_SOURCE_MANIFEST. No witness may be added, removed, replaced, or weighted using future information."
   },
   "witnesses": [
-    {"fact_id":"case:ariakit","case":"ariakit","snapshot":"should_successfully_migrate_ariakit.snap","git_blob_sha1":"6afbb5fa2b7dc7791596f45af99fc56a02385d2a"},
-    {"fact_id":"case:aws","case":"aws","snapshot":"should_migrate_aws_config.snap","git_blob_sha1":"2ae1e3acf91568190079695c138a38d7750a1111"},
-    {"fact_id":"case:issue_5465","case":"issue_5465","snapshot":"should_migrate_issue_5465.snap","git_blob_sha1":"91f096105cf96900b5e6ee10388bda9a5c940934"},
-    {"fact_id":"case:knip","case":"knip","snapshot":"should_successfully_migrate_knip.snap","git_blob_sha1":"9d8c80e3bead3e126196fcda3fc0400b87cf5a83"},
-    {"fact_id":"case:nested","case":"nested","snapshot":"should_migrate_nested_config.snap","git_blob_sha1":"c922fe4ecc3603a658bce07cf12ee8125fee83e5"},
-    {"fact_id":"case:sentry","case":"sentry","snapshot":"should_successfully_migrate_sentry.snap","git_blob_sha1":"f045f4304519f41b2980f966f3b44d7f57ae146f"}
+    {
+      "fact_id":"case:ariakit","case":"ariakit","snapshot":"should_successfully_migrate_ariakit.snap","git_blob_sha1":"6afbb5fa2b7dc7791596f45af99fc56a02385d2a","extraction_mode":"WRITTEN_FILE_BLOCKS","expected_paths":["biome.json"]
+    },
+    {
+      "fact_id":"case:aws","case":"aws","snapshot":"should_migrate_aws_config.snap","git_blob_sha1":"2ae1e3acf91568190079695c138a38d7750a1111","extraction_mode":"WRITTEN_FILE_BLOCKS","expected_paths":["biome.json"]
+    },
+    {
+      "fact_id":"case:issue_5465","case":"issue_5465","snapshot":"should_migrate_issue_5465.snap","git_blob_sha1":"91f096105cf96900b5e6ee10388bda9a5c940934","extraction_mode":"WRITTEN_FILE_BLOCKS","expected_paths":["biome.json"]
+    },
+    {
+      "fact_id":"case:knip","case":"knip","snapshot":"should_successfully_migrate_knip.snap","git_blob_sha1":"9d8c80e3bead3e126196fcda3fc0400b87cf5a83","extraction_mode":"WRITTEN_FILE_BLOCKS","expected_paths":["biome.json"]
+    },
+    {
+      "fact_id":"case:nested","case":"nested","snapshot":"should_migrate_nested_config.snap","git_blob_sha1":"c922fe4ecc3603a658bce07cf12ee8125fee83e5","extraction_mode":"DRY_RUN_PROPOSED_OUTPUTS","expected_paths":["bar/biome.json","biome.json","foo/biome.json"]
+    },
+    {
+      "fact_id":"case:sentry","case":"sentry","snapshot":"should_successfully_migrate_sentry.snap","git_blob_sha1":"f045f4304519f41b2980f966f3b44d7f57ae146f","extraction_mode":"WRITTEN_FILE_BLOCKS","expected_paths":["biome.json"]
+    }
   ],
-  "baseline_extraction": {
-    "target": "the first fenced json block immediately following the exact heading ## `biome.json` in the immutable snapshot blob",
-    "parse_rule": "strict JSON parse; object-key order and insignificant whitespace are representation only; array order and scalar values are preserved",
-    "failure": "if the block is absent, duplicated, or not strict JSON, the corresponding future consequence is NOT_IDENTIFIED"
+  "baseline_semantics": {
+    "object": "the complete configuration filesystem representing the cutoff migration result for the historical case",
+    "written_snapshot_rule": "all JSON file blocks in the immutable snapshot are taken as the cutoff result",
+    "dry_run_rule": "for a dry-run migration snapshot, use every explicit proposed '+' JSON output in the emitted per-file migration blocks; Biome snapshot middle-dot space rendering is deterministically reversed before strict JSON parsing",
+    "path_rule": "relative configuration-file paths are semantic and preserved",
+    "json_rule": "strict JSON parse; object-key order and insignificant whitespace are representation only; array order and scalar values are preserved",
+    "expected_path_rule": "extracted path set must exactly match expected_paths or the witness construction is invalid"
   },
-  "semantics": "Each extracted biome.json is the frozen current configuration witness on which the selected future Biome migration obligation will later be externally exercised.",
+  "provenance_note": "The first grounding draft incorrectly treated every snapshot as a single written biome.json. The nested snapshot is a three-file dry-run case. This manifest supersedes that extraction assumption before grounding adjudication and preserves the full nested-root semantics.",
+  "semantics": "Each extracted filesystem is a frozen pre-future current-state witness on which the selected future Biome migration obligation will later be exercised externally.",
   "authority_boundary": {
     "future_obligation_accessed": false,
     "future_witness_outcomes": "NOT_EVALUATED"
