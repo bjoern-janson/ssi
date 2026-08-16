@@ -1,10 +1,10 @@
-name: K1 Source Proof Reproducibility Diagnostic
+name: K1 Source Judgment vs Proof Diagnostic
 
 on:
   pull_request:
     branches: [main]
     paths:
-      - 'research/ssi_calc/compiler/k1/audit/diagnose_source_proof_reproducibility.py'
+      - 'research/ssi_calc/compiler/k1/audit/diagnose_source_judgment_vs_proof.py'
       - '.github/workflows/k1-source-proof-diagnostic.yml'
 
 permissions:
@@ -18,11 +18,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Test frozen R2 source proof reproducibility across hash seeds
-        run: python research/ssi_calc/compiler/k1/audit/diagnose_source_proof_reproducibility.py
+      - name: Separate frozen R2 judgment reproducibility from proof reproducibility
+        run: python research/ssi_calc/compiler/k1/audit/diagnose_source_judgment_vs_proof.py
       - name: Upload diagnostic
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: k1-source-proof-repro-diagnostic
-          path: research/ssi_calc/compiler/k1/audit/SOURCE_PROOF_REPRO_DIAGNOSTIC.json
+          name: k1-source-judgment-vs-proof-diagnostic
+          path: research/ssi_calc/compiler/k1/audit/SOURCE_JUDGMENT_VS_PROOF_DIAGNOSTIC.json
