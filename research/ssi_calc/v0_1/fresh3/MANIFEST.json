@@ -1,0 +1,16 @@
+{
+  "object": "SSI_CALC_V0.1/HF3_12_OBLIGATION_RESOLUTION_FRESH",
+  "successor_v3_freeze_merge": "559ce29d0ace8f518009067639a39ba6ac3994dc",
+  "case_count": 12,
+  "case_ids": "CASE-401..CASE-412",
+  "licensed": 6,
+  "non_authorized": 6,
+  "structural_roles": {
+    "alternative_sufficient": 6,
+    "conjunctive_required": 4,
+    "active_defeater": 2
+  },
+  "plain_sha256": "0747244689af2caca39c4f692e4c0eccf7ce39cda386c5855620bb8ce286ae33",
+  "gzip_sha256": "3be543c9b303f9220687e0d933ff0d9eb887ff2ddae7d8d089d9ae36a822ef76",
+  "successor_executed_before_freeze": false
+}

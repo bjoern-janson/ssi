@@ -1,0 +1,14 @@
+{
+  "object": "SSI_CALC_V0.1/HF3_12_FIREWALL",
+  "successor_v3_freeze_merge": "559ce29d0ace8f518009067639a39ba6ac3994dc",
+  "successor_executed": false,
+  "mutable_before_exposure": ["packed representation only if hash verification fails"],
+  "immutable_after_freeze": [
+    "HF3_12 case semantics",
+    "expected certificates",
+    "thresholds",
+    "successor-v3 implementation",
+    "R1..R11"
+  ],
+  "generalization_authority": "AVAILABLE_UNTIL_FIRST_EXPOSURE"
+}
