@@ -1,0 +1,52 @@
+{
+  "object": "K1-CROSS-REGIME-COMPILER-TRANSFER/AUDIT_EXECUTION_LINEAGE",
+  "attempts": [
+    {
+      "run": 31955428508,
+      "job": 95185233096,
+      "runner": "audit_k1.py",
+      "status_at_finalization": "IN_PROGRESS",
+      "authority": "SUPERSEDED_BEFORE_OUTCOME_OBSERVATION",
+      "reason": "OPERATIONALIZATION_INADEQUATE: full rewrite closure recomputed per query/variant",
+      "classification_commit": "c317e95d8ee20d5119cd589f58becb410a5702ae"
+    },
+    {
+      "run": 31955671270,
+      "job": 95185832651,
+      "runner": "audit_k1.py",
+      "status_at_finalization": "IN_PROGRESS",
+      "authority": "NON_AUTHORITATIVE_AUTOTRIGGER_OF_ALREADY_SUPERSEDED_RUNNER"
+    },
+    {
+      "run": 31955831729,
+      "job": 95186223748,
+      "runner": "audit_k1.py",
+      "status": "FAILURE",
+      "authority": "CONTRADICTION_SIGNAL_ONLY",
+      "failure_before_IR_comparison": true,
+      "failure": "source derivation digest assertion",
+      "first_witness": "CASE-009",
+      "artifact_emitted": false
+    },
+    {
+      "run": 31955849285,
+      "job": 95186264682,
+      "runner": "audit_k1_resolved.py",
+      "status": "SUCCESS",
+      "authority": "FIRST_EXECUTION-VALID_AUDIT_RESULT_SUBJECT_TO_POSTRUN_CONTRADICTION_ANALYSIS",
+      "artifact": 9265912712,
+      "prospective_status": "K1_R2_CROSS_REGIME_STRONG_PASS"
+    }
+  ],
+  "execution_revision": {
+    "change": "cache one frozen closure per IR variant rather than recomputing it once per query",
+    "scoring_contract_changed": false,
+    "selection_changed": false,
+    "source_changed": false,
+    "compiler_changed": false,
+    "IR_changed": false,
+    "mutations_changed": false,
+    "expected_detections_changed": false,
+    "K0_changed": false
+  }
+}
