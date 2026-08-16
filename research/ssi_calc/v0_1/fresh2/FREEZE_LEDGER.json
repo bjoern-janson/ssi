@@ -1,0 +1,36 @@
+{
+  "object": "SSI_CALC_V0.1/HF2_24_FREEZE_LINEAGE",
+  "scientific_object_exposed": false,
+  "successor_v2_freeze_merge": "ed9ae7ab94f74bbc39aaadad312c40647aed62d9",
+  "runs": [
+    {
+      "ordinal": 1,
+      "github_actions_run": 31950608569,
+      "job": 95173379593,
+      "result": "FREEZE_INTEGRITY_FAILURE",
+      "successor_executed": false,
+      "failure": "packed gzip SHA-256 mismatch",
+      "diagnosis": "one-character base64 transcription error in packed representation",
+      "corrupted_blob_sha": "edc41f827a740598f296d1341dad2ecd14981bbe",
+      "scientific_change": false
+    },
+    {
+      "ordinal": 2,
+      "github_actions_run": 31950768629,
+      "job": 95173764098,
+      "result": "FREEZE_VERIFY_PASS",
+      "successor_executed": false,
+      "corrected_blob_sha": "2d53f5afd675a21fdbddc3965289f1d43cbe906e",
+      "case_count": 24,
+      "licensed": 12,
+      "non_authorized": 12,
+      "plain_sha256": "96498b2f195cdf6ca99e0c5f4efbf99305f2bc7168ff008eda3f6cca14c78218",
+      "gzip_sha256": "fa0e12c1e01d2465e2e1a1a1de48f2be95662ad3256f1868af2c2346838e8d64"
+    }
+  ],
+  "correction_scope": "PACKED_REPRESENTATION_ONLY",
+  "delta_cases": 0,
+  "delta_expected": 0,
+  "delta_thresholds": 0,
+  "successor_executed_before_freeze": false
+}
