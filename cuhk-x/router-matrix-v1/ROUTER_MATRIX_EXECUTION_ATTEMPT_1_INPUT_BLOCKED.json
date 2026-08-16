@@ -1,0 +1,18 @@
+{
+  "matrix_id": "CUHKX_ROUTER_MATRIX_V1",
+  "attempt_id": "CUHKX_ROUTER_MATRIX_V1_EXECUTION_ATTEMPT_1",
+  "status": "INPUT_BLOCKED_PRE_SCORE",
+  "scientific_result": false,
+  "matrix_terminal_state": "UNADJUDICATED",
+  "s2_authority": "NONE",
+  "runner_sha256": "f66fb0c90dc669431103499b44d1ecef84e9efe8378942a0785d99176306204c",
+  "v7_results_sha256": "af7687fad3c7a4d140707c09dd84edea79288abdd81f91e9755d21cb63aad088",
+  "missing_required_inputs": [
+    "Training-20260813T154030Z-1-002.zip",
+    "cuhkx_s1_exact_diagnostic_results.zip"
+  ],
+  "observed_failure": "FileNotFoundError opening /mnt/data/router_matrix_exec/Training-20260813T154030Z-1-002.zip",
+  "result_file_created": false,
+  "interpretation": "Execution environment/input failure before any branch scoring. Does not change any candidate status, does not imply NO_ROUTE_CHANGES, and grants no S2 authority.",
+  "next_authorized_action": "Re-run the exact frozen runner when the exact required inputs are available; do not modify gate, candidate matrix, or conversion rules."
+}
