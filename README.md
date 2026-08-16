@@ -35,24 +35,23 @@ The authorized scientific object is frozen. The next scientific information must
 
 A separate **SSI jurisdiction-falsification** track has also produced one preserved Stage-0 failure. PR #18 terminated `OPERATIONALIZATION_INADEQUATE` because the frozen assay could not independently identify reachability and leverage under an `R↓` break. That lineage remains failed and is not repaired in place.
 
-The successor semantic lineage has deliberately moved **upstream of measurement**. Repeated reconstructed static-closure and hostile-semantic adjudications have localized the current best frontier to **V8 identity constitution**:
+The successor semantic lineage has deliberately moved **upstream of measurement**. Repeated static-closure and hostile-semantic attacks have localized the current frontier to **V8 identity constitution**:
 
 > **What independently makes a relation among licensed inputs part of the identity of the composed semantic object?**
 
 Current authority boundary for that lineage:
 
 ```text
-V1-V7      = RECONSTRUCTED_HANDOFF_PROVENANCE
 V7_STATIC   = CLOSED
 V7_SEMANTIC = REJECTED
-V8           = NOT_YET_CONSTITUTED
+V8          = NOT_YET_CONSTITUTED
 OBSERVATION_O = UNDEFINED
 ASSAY         = UNDEFINED
 ```
 
-The V8 frontier is challengeable, and it has **not** been promoted into the core SSI architecture. The current core architecture still begins at `W -> O -> ...`; V8 is investigating a candidate semantic precondition for licensing or constructing `O`.
+The V1→V7 history is currently preserved as reconstructed handoff provenance rather than byte-complete executable evidence. V8 is the current best-localized, challengeable frontier. It is investigating a candidate precondition for `O`; it has not been promoted into the frozen/core architecture.
 
-For the reconstructed V1→V8 semantic lineage, failure classes, witnesses, provenance limits, inherited constraints, and successor instructions, see [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md).
+For the reconstructed V1→V8 semantic lineage, failure classes, witnesses, inherited constraints, and successor instructions, see [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md).
 
 For the exact branch/PR lineage, authoritative files, frozen hashes, and preservation rules, start with [`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md).
 
@@ -211,7 +210,7 @@ Neither artifact may modify Packet 7 or broaden its execution authority.
 - [`retrospective/LOCALIZATION_CALCULUS.md`](retrospective/LOCALIZATION_CALCULUS.md) — V0.x localization grammar.
 - [`benchmarks/V0X_LINEAGE.md`](benchmarks/V0X_LINEAGE.md) — benchmark-by-benchmark scientific lineage, including negative results.
 - [`empirical/README.md`](empirical/README.md) — empirical lineage index and authority routing.
-- [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md) — jurisdiction-falsification Lineage 2, reconstructed V1→V8 semantic failures, and takeover instructions.
+- [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md) — jurisdiction-falsification Lineage 2, V1→V8 semantic failures, and takeover instructions.
 - [`empirical/INDEPENDENT_FUTURE_ADAPTATION.md`](empirical/INDEPENDENT_FUTURE_ADAPTATION.md) — program-level independent future-adaptation design.
 - [`empirical/benchmark_v0_2_quotient/`](empirical/benchmark_v0_2_quotient/) — active authorized VFA lineage and preserved construction history.
 - [`results/FROZEN_RESULTS.md`](results/FROZEN_RESULTS.md) — frozen V0.x adjudications and recovered artifact hashes.
