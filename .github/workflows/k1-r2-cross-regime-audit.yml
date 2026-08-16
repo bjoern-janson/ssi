@@ -11,18 +11,18 @@ permissions:
   contents: read
 
 jobs:
-  first-audit:
+  first-valid-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Execute first frozen K1/R2 cross-regime audit
-        run: python research/ssi_calc/compiler/k1/audit/audit_k1.py
-      - name: Upload immutable first-run result
+      - name: Execute first valid K1/R2 cross-regime audit
+        run: python research/ssi_calc/compiler/k1/audit/audit_k1_resolved.py
+      - name: Upload immutable first valid result
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: k1-r2-first-audit
-          path: research/ssi_calc/compiler/k1/audit/K1_R2_FIRST_RUN.json
+          name: k1-r2-first-valid-audit
+          path: research/ssi_calc/compiler/k1/audit/K1_R2_FIRST_VALID_RUN.json
