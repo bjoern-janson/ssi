@@ -1,0 +1,22 @@
+name: SSI-CALC HF16 Freeze Verify
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'research/ssi_calc/v0_1/fresh/**'
+      - '.github/workflows/ssi-calc-hf16-freeze-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify HF16 hashes and structure only
+        run: python research/ssi_calc/v0_1/fresh/verify_hf16.py
