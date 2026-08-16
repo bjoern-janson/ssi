@@ -1,0 +1,70 @@
+{
+  "object": "SSI_CALC_V0.1/HF16_FAILURE_ANALYSIS",
+  "hf16_first_failure_merge_commit": "5aebeeda261b865fe7cf3dd3b7ece751728d4594",
+  "classification_rule": {
+    "H1": "IMPLEMENTATION_OR_ORCHESTRATION_DEFECT",
+    "H2": "REPRESENTATION_OR_SPECIFICATION_DEFECT",
+    "H3": "MISSING_CALCULUS_CAPABILITY"
+  },
+  "counts": {
+    "H1": 5,
+    "H2": 0,
+    "H3": 0
+  },
+  "r12_authorized": false,
+  "records": [
+    {
+      "id": "CASE-208",
+      "classification": "H1",
+      "shallowest_implementation_locus": "AUTHORITY_LIVENESS_VIEW",
+      "existing_rule_jurisdiction": "R4:EQUIV",
+      "evidence_already_represented": ["fact.authority=WITHDRAWN", "identity_by_denotation"],
+      "minimal_counterfactual": "R4 receives only active authority facts for positive semantic premises; withdrawn identity authority remains historical lineage but cannot discharge EQUIV.",
+      "kernel_change_required": false
+    },
+    {
+      "id": "CASE-209",
+      "classification": "H1",
+      "shallowest_implementation_locus": "TYPED_BRIDGE_DISCHARGE",
+      "existing_rule_jurisdiction": "R3:LICENSE",
+      "evidence_already_represented": ["semantic_bridge(filename,theory_validity)", "authority=CONSTITUTED", "jurisdiction=theory_validity"],
+      "minimal_counterfactual": "A live scoped semantic bridge is evaluated as a typed discharge object independent of the surface operation name; anti-provenance guards run only after checking an applicable bridge.",
+      "kernel_change_required": false
+    },
+    {
+      "id": "CASE-213",
+      "classification": "H1",
+      "shallowest_implementation_locus": "AUTHORITY_LIVENESS_VIEW",
+      "existing_rule_jurisdiction": "R7:TRANSPORT",
+      "evidence_already_represented": ["non_injective", "fact.authority=WITHDRAWN", "active injective/commutation/target-independent premises"],
+      "minimal_counterfactual": "Withdrawn negative facts are excluded from live transport guards while retained in lineage.",
+      "kernel_change_required": false
+    },
+    {
+      "id": "CASE-214",
+      "classification": "H1",
+      "shallowest_implementation_locus": "AUTHORITY_LIVENESS_VIEW",
+      "existing_rule_jurisdiction": "R7:TRANSPORT",
+      "evidence_already_represented": ["target_independent", "fact.authority=WITHDRAWN"],
+      "minimal_counterfactual": "Withdrawn positive facts cannot discharge transport premises; the result remains NOT_IDENTIFIED until a live certificate exists.",
+      "kernel_change_required": false
+    },
+    {
+      "id": "CASE-216",
+      "classification": "H1",
+      "shallowest_implementation_locus": "AUTHORITY_LIVENESS_VIEW",
+      "existing_rule_jurisdiction": "R10:PRESERVE",
+      "evidence_already_represented": ["kernel_containment_verified", "fact.authority=UNRESOLVED"],
+      "minimal_counterfactual": "Unresolved positive facts cannot discharge preservation obligations; they remain available as unresolved lineage.",
+      "kernel_change_required": false
+    }
+  ],
+  "mechanism_counts": {
+    "AUTHORITY_LIVENESS_VIEW": 4,
+    "TYPED_BRIDGE_DISCHARGE": 1
+  },
+  "diagnostic_compression": "H24_REPAIRED_ROUTE_ORCHESTRATION_LOCALLY; HF16_SHOWS_LIVENESS_AND_BRIDGE_SEMANTICS_MUST_MOVE_BENEATH_RULE_SPECIFIC_MATCHERS",
+  "architectural_implication": "A successor-v2 should provide separate default views for LIVE_AUTHORITY and HISTORICAL_LINEAGE, and a generic typed bridge-discharge interface, rather than adding case-specific guards.",
+  "authority_ceiling": "ANALYSIS_ONLY_NO_REPAIR_AUTHORIZED_IN_THIS_LINEAGE",
+  "next_transition": "ONLY_AFTER_ANALYSIS_ACCEPTANCE_MAY_AN_IMPLEMENTATION_ONLY_SUCCESSOR_V2_BE_PROPOSED_UNDER_R1_R11"
+}
