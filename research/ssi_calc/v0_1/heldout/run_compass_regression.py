@@ -35,7 +35,7 @@ def score(cases, name):
             'reopened':set(got['reopened'])==set(exp['reopened']),
         }
         checks['exact']=all(checks[k] for k in ('status','locus','preserved','missing','reopened'))
-        rows.append({'id':case['id'],'family':case.get('family'),'expected':exp,'observed':got,'checks':checks,'expected_authorize':ea,'predicted_authorize':pa})
+        rows.append({'id':case['id'],'family':case.get('family'),'input':{'facts':case['facts'],'authority_edges':case['authority_edges'],'request':case['request']},'expected':exp,'observed':got,'checks':checks,'expected_authorize':ea,'predicted_authorize':pa})
     n=len(rows); licensed=sum(r['expected_authorize'] for r in rows); unlicensed=n-licensed
     fp=sum((not r['expected_authorize']) and r['predicted_authorize'] for r in rows)
     fn=sum(r['expected_authorize'] and (not r['predicted_authorize']) for r in rows)
@@ -67,7 +67,7 @@ def main():
         if bad:
             print(f'--- {bucket} MISMATCHES ({len(bad)}) ---')
             for r in bad:
-                print(json.dumps({'id':r['id'],'expected':{k:r['expected'][k] for k in ('status','failure_locus','preserved_facts','missing_authority','reopened')},'observed':r['observed'],'checks':r['checks']},sort_keys=True))
+                print(json.dumps({'id':r['id'],'input':r['input'],'expected':{k:r['expected'][k] for k in ('status','failure_locus','preserved_facts','missing_authority','reopened')},'observed':r['observed'],'checks':r['checks']},sort_keys=True))
     if result['B64']['metrics']['exact_certificate_accuracy'] < 1.0:
         raise SystemExit(2)
 
