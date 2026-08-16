@@ -1,0 +1,10 @@
+{
+  "object": "K1-CROSS-REGIME-COMPILER-TRANSFER/R2_SOURCE_REF",
+  "external_source": {
+    "title": "Maude Manual 4.2.1 — Theories and Deduction",
+    "url": "https://maude.cs.illinois.edu/maude1/manual/maude-manual-html/maude-manual_62.html",
+    "selected_by_merge": "87ae0612d1f6457c7e97fdf54bc35255c495df84"
+  },
+  "normative_deduction_rules": ["REFLEXIVITY", "CONGRUENCE", "REPLACEMENT", "TRANSITIVITY"],
+  "constituted_fragment": "E=empty; finite ground term algebra depth<=3 over constants a,b,c and unary f,g; rules r_ab, r_bc, r_fg."
+}

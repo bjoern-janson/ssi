@@ -1,0 +1,5 @@
+[
+  {"label":"r_ab","lhs":"a","rhs":"b","variables":[]},
+  {"label":"r_bc","lhs":"b","rhs":"c","variables":[]},
+  {"label":"r_fg","lhs":"f(x)","rhs":"g(x)","variables":["x"]}
+]

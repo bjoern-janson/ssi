@@ -1,0 +1,7 @@
+{
+  "equations": [],
+  "constants": ["a", "b", "c"],
+  "unary_operators": ["f", "g"],
+  "max_depth": 3,
+  "term_count": 45
+}
