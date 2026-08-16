@@ -1,0 +1,30 @@
+name: SSI-CALC Obligation Resolution Regression
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'research/ssi_calc/v0_1/checker_resolved.py'
+      - 'research/ssi_calc/v0_1/fresh2/run_obligation_resolution_regression.py'
+      - '.github/workflows/ssi-calc-obligation-resolution-regression.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r research/ssi_calc/v0_1/requirements.txt
+      - name: Run B64 + H24 + HF16 + HF2-24 regression
+        run: python research/ssi_calc/v0_1/fresh2/run_obligation_resolution_regression.py
+      - name: Upload full result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: obligation-resolution-regression-result
+          path: research/ssi_calc/v0_1/fresh2/OBLIGATION_RESOLUTION_REGRESSION_RESULT.json
