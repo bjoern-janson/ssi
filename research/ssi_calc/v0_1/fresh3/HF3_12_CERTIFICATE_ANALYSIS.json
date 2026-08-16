@@ -1,0 +1,69 @@
+{
+  "object": "SSI_CALC_V0.1/HF3_12_CERTIFICATE_ANALYSIS",
+  "source_first_run_merge": "4b498aac06b89a0bb236da3f8b4938717d388911",
+  "mismatch_count": 1,
+  "classification_counts": {
+    "H1_IMPLEMENTATION_OR_ORCHESTRATION": 0,
+    "H2_REPRESENTATION_OR_SPECIFICATION": 1,
+    "H3_MISSING_CALCULUS_CAPABILITY": 0
+  },
+  "R12_authorized": false,
+  "successor_v4_authorized": false,
+  "witness": {
+    "id": "CASE-402",
+    "family": "F8_FUTURE",
+    "observed_status": "AUTHORIZED",
+    "frozen_expected_status": "AUTHORIZED_SCOPED",
+    "decision_correct": true,
+    "all_non_status_certificate_fields_correct": true,
+    "shallowest_locus": "SPECIFICATION_EXPECTATION",
+    "mechanism": "STATUS_GRANULARITY_EXPECTATION_DEFECT",
+    "classification": "H2_REPRESENTATION_OR_SPECIFICATION"
+  },
+  "competing_hypotheses": [
+    {
+      "name": "H1_evaluator_status_bug",
+      "prediction": "A pre-existing frozen consume_quotient case using the same future_invariant_under route should require AUTHORIZED_SCOPED rather than AUTHORIZED.",
+      "result": "REJECTED_BY_FROZEN_CASE_060"
+    },
+    {
+      "name": "H2_fresh_expectation_over_scoped",
+      "prediction": "A pre-existing frozen consume_quotient case using future_invariant_under should expect AUTHORIZED, while a different explicit kernel-containment route may legitimately expect AUTHORIZED_SCOPED.",
+      "result": "SUPPORTED_BY_FROZEN_CASE_060_AND_CASE_057"
+    },
+    {
+      "name": "H3_missing_calculus_capability",
+      "prediction": "No existing R1..R11 route or frozen contract precedent can adjudicate the status distinction.",
+      "result": "REJECTED"
+    }
+  ],
+  "independent_discriminators": {
+    "CASE_060": {
+      "operation": "consume_quotient",
+      "route": "local_quotient_licensed + future_invariant_under",
+      "frozen_expected_status": "AUTHORIZED"
+    },
+    "CASE_057": {
+      "operation": "consume_quotient",
+      "route": "local_quotient_licensed + kernel_containment_verified",
+      "frozen_expected_status": "AUTHORIZED_SCOPED"
+    }
+  },
+  "minimal_counterfactual": "Had CASE-402 been authored consistently with the already-frozen CASE-060 route semantics, its expected status would be AUTHORIZED. The exposed HF3-12 object is not modified retroactively.",
+  "scientific_state": {
+    "HF3_12_prospective_decision_label": "HF3_12_STRONG_PASS",
+    "decision_accuracy": 1.0,
+    "overreach_rate": 0.0,
+    "false_refusal_rate": 0.0,
+    "immutable_first_run_exact_certificate_accuracy": 0.9166666666666666,
+    "post_analysis_interpretation": "ALL_12_SEMANTIC_DECISIONS_SUPPORTED; ONE_FROZEN_EXPECTATION_OVER_SCOPED",
+    "targeted_whitebox_generalization": "SUPPORTED_AT_DECISION_LEVEL_IN_HF3_12",
+    "external_niche_advantage_established": false
+  },
+  "immutability": {
+    "HF3_12_modified": false,
+    "expected_certificate_modified": false,
+    "successor_v3_modified": false,
+    "R1_R11_modified": false
+  }
+}
