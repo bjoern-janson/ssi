@@ -59,8 +59,10 @@ class AuthorityView:
     def projected_raw(self) -> dict:
         """Execution projection: no inactive/provenance-only fact reaches R1..R11.
 
-        Historical facts are still accessible through this AuthorityView to create
-        obligations, trace ancestry, and explain refusals.
+        The complete schema envelope is passed through unchanged for validation, but
+        semantic execution downstream constructs its own object only from objects,
+        live facts, authority edges, and request. Family/expected metadata is never
+        read by this evaluator.
         """
         out = dict(self.raw)
         out["facts"] = [f for f in self.history if self.is_live(f)]
@@ -145,15 +147,12 @@ def _provenance_goal(view: AuthorityView) -> Certificate | None:
     ):
         return None
 
-    # First try the generic typed bridge. Existing specialized bridge kinds remain
-    # executable through the prior evaluator after projection.
     if view.bridge_discharges(source_kind, j):
         return _cert(
             view, "AUTHORIZED_SCOPED", "NONE", "R3:LICENSE",
             why="A live typed bridge discharges the provenance-to-semantic obligation.",
         )
 
-    # If a specialized active bridge is already present, leave it to prior R3 logic.
     specialized = {
         "assert_semantic_equivalence": "semantic_bridge",
         "assert_independent_evidence": "independence_bridge",
@@ -267,7 +266,7 @@ def _historical_lineage_gate(view: AuthorityView) -> Certificate | None:
 
 def derive(raw: dict, schema: dict) -> Certificate:
     jsonschema.Draft202012Validator(schema).validate(raw)
-    view = AuthorityView({k: raw[k] for k in ["id", "objects", "facts", "authority_edges", "request"]})
+    view = AuthorityView(raw)
 
     # Historical information may create obligations but never discharge them.
     for gate in (_historical_lineage_gate, _provenance_goal, _inactive_obligation):
