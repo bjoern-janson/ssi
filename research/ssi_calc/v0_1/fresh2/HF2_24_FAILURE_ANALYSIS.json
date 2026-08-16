@@ -1,0 +1,55 @@
+{
+  "object": "SSI_CALC_V0.1/HF2_24_FAILURE_ANALYSIS",
+  "source_result_merge": "5fc1e184b33e6cfc0766e76d40e44b04c5f4eb6a",
+  "source_status": "HF2_24_PARTIAL",
+  "classification": {
+    "H1_IMPLEMENTATION_ORCHESTRATION": 2,
+    "H2_REPRESENTATION_SPECIFICATION": 0,
+    "H3_MISSING_CALCULUS_CAPABILITY": 0
+  },
+  "r12_authorized": false,
+  "shared_failure_mechanism": "ALTERNATIVE_SUFFICIENT_DISCHARGE",
+  "diagnosis": "The evaluator creates blocking obligations from inactive or unresolved alternative proof channels before checking whether a distinct live path already sufficiently discharges the same goal.",
+  "witnesses": [
+    {
+      "id": "CASE-312",
+      "family": "F4_IDENTITY",
+      "observed": "NOT_IDENTIFIED",
+      "expected": "AUTHORIZED_SCOPED",
+      "shallowest_locus": "IMPLEMENTATION_ORCHESTRATION",
+      "existing_rule_jurisdiction": "R4:EQUIV with existing identity-transfer licensing path",
+      "represented_sufficient_path": "live identity_transfer_rule to requested presentation identity jurisdiction",
+      "inactive_alternative": "historical withdrawn identity_by_denotation authority",
+      "minimal_counterfactual": "Check for a live independently sufficient identity-transfer discharge before turning inactive identity-by-denotation history into a blocking obligation.",
+      "representation_change_required": false,
+      "new_rule_required": false
+    },
+    {
+      "id": "CASE-322",
+      "family": "F8_FUTURE",
+      "observed": "NOT_IDENTIFIED",
+      "expected": "AUTHORIZED_SCOPED",
+      "shallowest_locus": "IMPLEMENTATION_ORCHESTRATION",
+      "existing_rule_jurisdiction": "R10:PRESERVE",
+      "represented_sufficient_path": "live kernel_containment_verified proof for requested quotient consumer",
+      "inactive_alternative": "historical unresolved future_invariant_under proof channel",
+      "minimal_counterfactual": "Accept the live kernel-containment proof as sufficient before considering unresolved alternative future-invariance evidence as a blocker.",
+      "representation_change_required": false,
+      "new_rule_required": false
+    }
+  ],
+  "earned_implementation_invariant": "An inactive or unresolved alternative proof channel may create an unresolved candidate path, but it may not veto a distinct live path that already discharges the same obligation unless the obligation explicitly requires conjunction.",
+  "formal_shape": {
+    "sufficient_discharge": "exists p in LivePaths(G) such that p |- G",
+    "anti_veto": "InactiveAlternative(G) does not imply NOT_IDENTIFIED when Discharged(G) is already established",
+    "conjunction_exception": "Only an explicitly conjunctive obligation may require all named sub-obligations to discharge"
+  },
+  "authority_ceiling": {
+    "hf2_24_first_exposure": "PARTIAL",
+    "post_substrate_fresh_overreach": 0.0,
+    "r12_authorized": false,
+    "successor_v3_authorized_by_this_file": false,
+    "niche_advantage_established": false
+  },
+  "next_transition": "IMPLEMENTATION_ONLY_DISJUNCTIVE_DISCHARGE_REPAIR_IF_SEPARATELY_AUTHORIZED"
+}
