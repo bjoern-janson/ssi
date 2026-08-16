@@ -1,0 +1,55 @@
+{
+  "algorithmic_rejection_codes": [
+    "UNBOUND_VARIABLE",
+    "APPLICATION_NON_FUNCTION",
+    "APPLICATION_ARGUMENT_TYPE_MISMATCH",
+    "IF_GUARD_NOT_BOOL",
+    "IF_BRANCH_TYPE_MISMATCH",
+    "EXPECTED_TYPE_MISMATCH"
+  ],
+  "judgment": "Gamma |- term : type",
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/TYPING_RULES",
+  "rules": [
+    {
+      "conclusion": "Gamma |- Var(x) : T",
+      "name": "T_Var",
+      "premises": [
+        "Gamma[x] = T"
+      ]
+    },
+    {
+      "conclusion": "Gamma |- Abs(x,T1,body) : Arrow(T1,T2)",
+      "name": "T_Abs",
+      "premises": [
+        "Gamma[x := T1] |- body : T2"
+      ]
+    },
+    {
+      "conclusion": "Gamma |- App(fn,arg) : T2",
+      "name": "T_App",
+      "premises": [
+        "Gamma |- fn : Arrow(T1,T2)",
+        "Gamma |- arg : T1"
+      ]
+    },
+    {
+      "conclusion": "Gamma |- True : Bool",
+      "name": "T_Tru",
+      "premises": []
+    },
+    {
+      "conclusion": "Gamma |- False : Bool",
+      "name": "T_Fls",
+      "premises": []
+    },
+    {
+      "conclusion": "Gamma |- If(cond,then,else) : T",
+      "name": "T_Test",
+      "premises": [
+        "Gamma |- cond : Bool",
+        "Gamma |- then : T",
+        "Gamma |- else : T"
+      ]
+    }
+  ]
+}
