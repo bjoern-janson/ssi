@@ -1,0 +1,36 @@
+{
+  "audit_executed": false,
+  "files": {
+    "IR.json": {
+      "bytes": 4555,
+      "sha256": "f551d61884dd26e110e6d2af71a8a911fc5abc812282b974dab0b4b4fe7717d9"
+    },
+    "IR_SPEC.md": {
+      "bytes": 3386,
+      "sha256": "5737cebbf55ef7831c5bdd3b2d1b7c12edfa8b9dc263ca884ad503bb8ca9d2dc"
+    },
+    "compiler.py": {
+      "bytes": 9014,
+      "sha256": "7d8607023c39d27c8052436553e7a211663df5478df1446697d603f676562c1d"
+    },
+    "ir_evaluator.py": {
+      "bytes": 8263,
+      "sha256": "2a19a84721e0fbc004cb50fd444766b61853961b686e492b7ff9ffbdc34bf07e"
+    },
+    "mutations.json": {
+      "bytes": 3234,
+      "sha256": "029c55969faa1aab1cb85221d1e27ae2c845cd0767fc7d3ffb99651dec294211"
+    },
+    "verify_compiler_freeze.py": {
+      "bytes": 2289,
+      "sha256": "9a30decd7bd8a7bb94669b4813654158b917d5198d0dfb164b19f2f6ec04ac3c"
+    }
+  },
+  "hostile_mutation_count": 6,
+  "ir_sha256": "f551d61884dd26e110e6d2af71a8a911fc5abc812282b974dab0b4b4fe7717d9",
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/COMPILER_MANIFEST",
+  "source_freeze_merge": "722f2a1be4d2a3d2200d4cbc2b3ec7dc94728d79",
+  "source_gold_read_by_compiler": false,
+  "source_manifest_sha256": "27e5d9675453f36289bee9af8fc020655c9874799905bdac3a2ea700d6207345",
+  "ssi_calc_R1_R11_modified": false
+}
