@@ -1,0 +1,112 @@
+{
+  "object": "SSI_CALC_V0.1/COMPASS_ORCHESTRATION_REPAIR_LEDGER",
+  "analysis_merge_commit": "40b6dd88a685809afda685878e7339f1c9022bad",
+  "frozen_reference_checker_merge_commit": "8eac548f338f0f8463302f2f1746a2c75f8227ca",
+  "h24_freeze_merge_commit": "c10eba651c1ae66b32da179c30a1a2a9a0690d90",
+  "h24_first_failure_merge_commit": "22055cb887006efb4c283d4223ab9f06ae54c66c",
+  "h24_sha256": "0910569fe786b29f5f1d64c295f8be7f2857ec6447bd2cf3286a336fc121b941",
+  "kernel_rule_count": 11,
+  "rules_added_beyond_R11": 0,
+  "repair_class": "IMPLEMENTATION_ORCHESTRATION_ONLY",
+  "frozen_inputs": {
+    "B64_mutated": false,
+    "H24_mutated": false,
+    "schema_mutated": false,
+    "SPEC_mutated": false,
+    "R1_R11_mutated": false
+  },
+  "successor_artifacts": {
+    "checker_orchestrated.py": {
+      "git_blob_sha": "b12dcc373c18253fd4b0ab822e781833ab436efd",
+      "semantic_head_commit": "fe9fae78408f04b3e8a1853153852552d440a4d5"
+    },
+    "run_compass_regression.py": {
+      "git_blob_sha": "c50945c14d2ec6687e3da86a78605d0178834f8f"
+    }
+  },
+  "lineage": [
+    {
+      "stage": "H24_FIRST_EXPOSURE",
+      "status": "WHITEBOX_HELDOUT_FAILED",
+      "decision_accuracy": 0.5,
+      "overreach_rate": 0.5,
+      "false_refusal_rate": 0.5,
+      "exact_certificate_accuracy": 0.2916666666666667
+    },
+    {
+      "stage": "SUCCESSOR_REMOTE_REGRESSION_1",
+      "github_actions_run_id": 31949115070,
+      "artifact_id": 9264128106,
+      "B64_exact_certificate_accuracy": 1.0,
+      "H24_decision_accuracy": 0.9583333333333334,
+      "H24_overreach_rate": 0.0,
+      "H24_false_refusal_rate": 0.08333333333333333,
+      "H24_exact_certificate_accuracy": 0.7083333333333334,
+      "H24_decision_errors": 1,
+      "H24_exact_mismatches": 7
+    },
+    {
+      "stage": "SUCCESSOR_REMOTE_REGRESSION_2_DIAGNOSTIC_REPLAY",
+      "github_actions_run_id": 31949152823,
+      "artifact_id": 9264138404,
+      "B64_exact_certificate_accuracy": 1.0,
+      "H24_decision_accuracy": 0.9583333333333334,
+      "H24_overreach_rate": 0.0,
+      "H24_false_refusal_rate": 0.08333333333333333,
+      "H24_exact_certificate_accuracy": 0.7083333333333334,
+      "purpose": "Expose immutable inputs for the seven remaining mismatches; no semantic result changed."
+    },
+    {
+      "stage": "SUCCESSOR_REMOTE_REGRESSION_FINAL",
+      "github_actions_run_id": 31949237633,
+      "github_actions_job_id": 95170013092,
+      "artifact_id": 9264161443,
+      "artifact_zip_sha256": "6413b40752d85cea868b2c6be687d81ecefa0443e37b55f97ef6455424125142",
+      "B64": {
+        "cases": 64,
+        "decision_accuracy": 1.0,
+        "overreach_rate": 0.0,
+        "false_refusal_rate": 0.0,
+        "status_accuracy": 1.0,
+        "locus_accuracy": 1.0,
+        "preserved_accuracy": 1.0,
+        "missing_accuracy": 1.0,
+        "reopened_accuracy": 1.0,
+        "exact_certificate_accuracy": 1.0,
+        "mismatch_count": 0,
+        "decision_error_count": 0
+      },
+      "H24": {
+        "cases": 24,
+        "decision_accuracy": 1.0,
+        "overreach_rate": 0.0,
+        "false_refusal_rate": 0.0,
+        "status_accuracy": 1.0,
+        "locus_accuracy": 1.0,
+        "preserved_accuracy": 1.0,
+        "missing_accuracy": 1.0,
+        "reopened_accuracy": 1.0,
+        "exact_certificate_accuracy": 1.0,
+        "mismatch_count": 0,
+        "decision_error_count": 0
+      }
+    }
+  ],
+  "implemented_mechanisms": [
+    "ACTIVE_AUTHORITY_GATING",
+    "EXACT_TRANSFER_TARGET_MATCHING",
+    "TRANSFER_PATH_COMPOSITION_THROUGH_R9",
+    "CERTIFICATE_COVERS_REQUESTED_COMPOSITION",
+    "COMPONENT_JURISDICTION_VALIDATION",
+    "POSITIVE_CONSTITUTED_BRIDGE_RECOGNITION",
+    "CROSS_RULE_GATE_ADVANCEMENT",
+    "INDIRECT_INFORMATION_FLOW_LINEAGE_REACHABILITY"
+  ],
+  "authority_ceiling": "KNOWN_FAILURES_REPAIRED_NOT_GENERALIZATION",
+  "dataset_roles": {
+    "B64": "CONTRACT_CONFORMANCE",
+    "H24": "KNOWN_FAILURE_REGRESSION_ONLY",
+    "H_FRESH": "NOT_YET_CONSTITUTED_GENERALIZATION_OBJECT"
+  },
+  "next_transition": "FREEZE_SUCCESSOR_THEN_CONSTITUTE_H_FRESH_BEFORE_EXPOSURE"
+}
