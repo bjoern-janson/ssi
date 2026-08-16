@@ -1,0 +1,93 @@
+{
+  "object": "SSI_CALC_V0.1/HF16_FIRST_EXPOSURE_LEDGER",
+  "successor_freeze_merge_commit": "87322c273ca9db1e9ae8d90a2ceb7faf272f75c1",
+  "hf16_freeze_merge_commit": "61ef09fa28959a6c7a5124c4e0c42a4f59d5bfc6",
+  "hf16_sha256": "0744abe38f6d32b32eace1862b571246d5bb256f47b76b4bf179b5c9404372a7",
+  "kernel_rule_count": 11,
+  "rules_added_beyond_R11": 0,
+  "github_actions": {
+    "run_id": 31949675994,
+    "job_id": 95171110165,
+    "artifact_id": 9264282865,
+    "artifact_zip_sha256": "e74880eccfd7e480a4d9a072dd48d7c57be10addb090df52f46dcd9a4989c801"
+  },
+  "confusion_matrix": {
+    "TP": 6,
+    "FP_overreach": 3,
+    "FN_false_refusal": 2,
+    "TN": 5,
+    "licensed": 8,
+    "unlicensed": 8
+  },
+  "metrics": {
+    "decision_accuracy": 0.6875,
+    "overreach_rate": 0.375,
+    "false_refusal_rate": 0.25,
+    "exact_status_accuracy": 0.6875,
+    "shallowest_locus_accuracy": 0.6875,
+    "preservation_aware_refusal_accuracy": 1.0,
+    "missing_authority_accuracy": 0.6875,
+    "reopened_set_accuracy": 1.0,
+    "exact_certificate_accuracy": 0.6875
+  },
+  "threshold_status": "HF16_FAILED",
+  "mismatch_count": 5,
+  "decision_error_count": 5,
+  "mismatches": [
+    {
+      "id": "CASE-208",
+      "family": "F4_IDENTITY",
+      "expected": "NOT_IDENTIFIED@EQUIV",
+      "observed": "AUTHORIZED_SCOPED@NONE",
+      "error_class": "OVERREACH",
+      "diagnostic_hypothesis": "WITHDRAWN identity_by_denotation fact remains visible to the frozen local R4 matcher."
+    },
+    {
+      "id": "CASE-209",
+      "family": "F5_PROVENANCE",
+      "expected": "AUTHORIZED_SCOPED@NONE",
+      "observed": "PROVENANCE_LEAK@PROVENANCE",
+      "error_class": "FALSE_REFUSAL",
+      "diagnostic_hypothesis": "Positive semantic-bridge discharge is implemented for selected operations rather than as a general scoped bridge mechanism."
+    },
+    {
+      "id": "CASE-213",
+      "family": "F7_TRANSPORT",
+      "expected": "AUTHORIZED@NONE",
+      "observed": "UNLICENSED_TRANSPORT@TRANSPORT",
+      "error_class": "FALSE_REFUSAL",
+      "diagnostic_hypothesis": "A WITHDRAWN negative non_injective fact still triggers the frozen local transport guard."
+    },
+    {
+      "id": "CASE-214",
+      "family": "F7_TRANSPORT",
+      "expected": "NOT_IDENTIFIED@TRANSPORT",
+      "observed": "AUTHORIZED@NONE",
+      "error_class": "OVERREACH",
+      "diagnostic_hypothesis": "A WITHDRAWN positive target_independent fact still discharges the frozen local transport premise."
+    },
+    {
+      "id": "CASE-216",
+      "family": "F8_FUTURE",
+      "expected": "NOT_IDENTIFIED@PRESERVE",
+      "observed": "AUTHORIZED_SCOPED@NONE",
+      "error_class": "OVERREACH",
+      "diagnostic_hypothesis": "An UNRESOLVED kernel_containment_verified fact still discharges the frozen local preservation premise."
+    }
+  ],
+  "survived": {
+    "deeper_information_flow_lineage": true,
+    "three_hop_transfer_route_composition": true,
+    "partial_route_certificate_refusal": true,
+    "whole_chain_composition": true,
+    "unresolved_component_transfer_refusal": true,
+    "regime_shared_carrier_orchestration": true,
+    "preservation_aware_refusal": true,
+    "reopened_set_discipline": true
+  },
+  "diagnostic_compression": "ORCHESTRATION_REPAIR_GENERALIZED_TO_ROUTE_COMPOSITION_BUT_NOT_TO_UNIFORM_AUTHORITY_LIVENESS_AND_BRIDGE_DISCHARGE",
+  "authority_ceiling": "POST_REPAIR_WHITEBOX_GENERALIZATION_NOT_SUPPORTED_IN_HF16",
+  "successor_mutated_during_first_run": false,
+  "hf16_mutated_after_exposure": false,
+  "next_transition": "PRESERVE_FAILURE_THEN_CLASSIFY_HF16_WITNESSES_BEFORE_ANY_SUCCESSOR_V2_REPAIR"
+}
