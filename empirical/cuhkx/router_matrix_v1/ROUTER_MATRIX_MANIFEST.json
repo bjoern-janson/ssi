@@ -1,13 +1,16 @@
 {
   "matrix_id": "CUHKX_ROUTER_MATRIX_V1",
-  "state": "CONSTITUTION_FROZEN_ARCHIVED_MULTI_CELL_EXECUTED_FULL_MATRIX_PENDING_LOCAL_INPUTS",
+  "state": "COMPLETED_NO_ROUTE_CHANGES",
   "frozen_fold_sha256": "0ae2bd6a594152dd1af444566416410043ac11f153d20c8a517bb2a6d5052b73",
   "v7_results_sha256": "af7687fad3c7a4d140707c09dd84edea79288abdd81f91e9755d21cb63aad088",
   "freeze_sha256": "ea6db3ec6fecb31e74a9e7df4c018131abde413a6a1ee3247d2912c01667b409",
   "runner_sha256": "f66fb0c90dc669431103499b44d1ecef84e9efe8378942a0785d99176306204c",
   "archived_multi_cell_sha256": "7a083a54809906ec5dd398e5b80044b27b97c3a6ee374ecb786e166f44eac9cb",
   "package_sha256": "5c245967a697d269bcd61c273b11ec73b9c918440f15a09e2f604efee79ae2b0",
+  "result_sha256": "caaa53e9be45438a0b34af165c64edd13d355612bdd2397e872ab90839e61f61",
+  "matrix_terminal_state": "NO_ROUTE_CHANGES",
+  "selected_route_changes": [],
   "s2_authorized": false,
   "public_lb_selection": false,
-  "authority": "Only a full constituted branch alternative that passes the frozen exact-OOF and 4/5-fold gate may earn a later S2 substitution."
+  "authority": "No branch substitution satisfied the frozen gate. NOT_CONSTITUTED cells are not negative performance results, and NO_ROUTE_CHANGES does not authorize a synthetic S2 identical to S1."
 }
