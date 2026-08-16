@@ -1,0 +1,90 @@
+{
+  "object": "SSI_CALC_REFERENCE_CHECKER_V0.1/RUN_LEDGER",
+  "benchmark_base_commit": "841f99923970ce3fc96fdaa8029cb17063b95f96",
+  "kernel_rule_count": 11,
+  "rules_added_beyond_R11": 0,
+  "benchmark_case_count": 64,
+  "benchmark_manifest_sha256": "6b1148a55613a181e702520258bc83a046b6cfddbf11cc61bbf6d4e25b9d744d",
+  "schema_sha256": "9b14274e1bb232daf7dc4eed11f869fb9ed44400b8d682070c23afd41aee12fd",
+  "initial_run": {
+    "metrics": {
+      "status_accuracy": 0.984375,
+      "locus_accuracy": 0.984375,
+      "preserved_accuracy": 1.0,
+      "missing_accuracy": 0.984375,
+      "reopened_accuracy": 1.0,
+      "exact_certificate_accuracy": 0.984375
+    },
+    "family_metrics": {
+      "F1_ORACLE": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F2_SUBSTITUTION": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F3_COMPOSITION": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F4_IDENTITY": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F5_PROVENANCE": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F6_REGIME": {"total": 8, "status": 7, "locus": 7, "preserved": 8, "missing": 7, "reopened": 8, "exact": 7},
+      "F7_TRANSPORT": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F8_FUTURE": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8}
+    },
+    "mismatches": [
+      {
+        "id": "CASE-044",
+        "family": "F6_REGIME",
+        "title": "Admission rule depends on the desired downstream result",
+        "expected": {
+          "status": "REGIME_MISMATCH",
+          "failure_locus": "ADMIT",
+          "preserved_facts": ["f1"],
+          "missing_authority": ["target_independent_admission"],
+          "reopened": []
+        },
+        "observed": {
+          "status": "NOT_IDENTIFIED",
+          "failure_locus": "LICENSE",
+          "rule": "EVALUATOR",
+          "preserved_facts": ["f1"],
+          "missing_authority": ["derivation_not_available_in_R1_R11"],
+          "reopened": [],
+          "explanation": "No R1..R11 derivation or localized refusal applies to the requested edge."
+        },
+        "checks": {"status": false, "locus": false, "preserved": true, "missing": false, "reopened": true},
+        "case_sha256": "35d85805219a912f0d84c450bec25c06935d5420d91ba6647fa3f3d01378f51a"
+      }
+    ]
+  },
+  "failure_classification": {
+    "case": "CASE-044",
+    "locus": "IMPLEMENTATION_INFERENCE_MATCHER",
+    "kernel_growth_required": false,
+    "existing_rule": "R2:ADMIT",
+    "minimal_correction": "startswith(desired) -> contains(desired)"
+  },
+  "regression_run": {
+    "metrics": {
+      "status_accuracy": 1.0,
+      "locus_accuracy": 1.0,
+      "preserved_accuracy": 1.0,
+      "missing_accuracy": 1.0,
+      "reopened_accuracy": 1.0,
+      "exact_certificate_accuracy": 1.0
+    },
+    "family_metrics": {
+      "F1_ORACLE": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F2_SUBSTITUTION": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F3_COMPOSITION": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F4_IDENTITY": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F5_PROVENANCE": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F6_REGIME": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F7_TRANSPORT": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
+      "F8_FUTURE": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8}
+    },
+    "mismatch_count": 0
+  },
+  "authority_ceiling": "INTERNAL_FROZEN_CONTRACT_PASS_NOT_COMPETITIVE_VALIDATION",
+  "artifacts": {
+    "checker.py": {"sha256": "0c4631056a9a3d263e28ecc5b651ba6e6d5dc59bab021e898fc217077d61785c", "bytes": 14963},
+    "run_benchmark.py": {"sha256": "2b6e6b45b74703f62b6939dcb5cab5edee89dbf4f83ceb27ff3284fdb3499a93", "bytes": 3494},
+    "requirements.txt": {"sha256": "48bdd1a500202e6cd681cb6e978b2c525ce9fb262013f8ff4a9bd2bb46419130", "bytes": 20},
+    "REFERENCE_CHECKER.md": {"sha256": "1689df940ac0ee117d81bf22d9caec399a554ff43c0552a707e78d770a76b3f6", "bytes": 4722}
+  },
+  "current_regression_result_sha256": "2eb0cc6836cf6c4c2225a1287a1af65c740eda7a82ecc5969f4b7759a9814e94"
+}
