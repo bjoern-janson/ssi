@@ -1,0 +1,21 @@
+{
+  "object": "SSI_CALC_V0.1/HF16_MANIFEST",
+  "successor_freeze_merge_commit": "87322c273ca9db1e9ae8d90a2ceb7faf272f75c1",
+  "case_count": 16,
+  "licensed_case_count": 8,
+  "non_authorized_case_count": 8,
+  "case_ids": [
+    "CASE-201", "CASE-202", "CASE-203", "CASE-204",
+    "CASE-205", "CASE-206", "CASE-207", "CASE-208",
+    "CASE-209", "CASE-210", "CASE-211", "CASE-212",
+    "CASE-213", "CASE-214", "CASE-215", "CASE-216"
+  ],
+  "hf16_plain_sha256": "0744abe38f6d32b32eace1862b571246d5bb256f47b76b4bf179b5c9404372a7",
+  "hf16_gzip_sha256": "683ee08e1f9d43f9dca7513157c17bdc170e2e77f1acc6cc93a255bda8974edd",
+  "plain_bytes": 31869,
+  "gzip_bytes": 3228,
+  "freeze_order_respected": true,
+  "successor_executed_on_hf16_before_freeze": false,
+  "dataset_role": "POST_REPAIR_FRESH_WHITEBOX_GENERALIZATION",
+  "authority_ceiling": "CANNOT_ESTABLISH_EXTERNAL_NICHE_ADVANTAGE"
+}
