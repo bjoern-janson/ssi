@@ -1,0 +1,20 @@
+{
+  "congruence_policy": "PRESERVE_OPERATOR",
+  "deduction_rules": [
+    {"id": "IR-RFL", "opcode": "REFLEXIVE", "source_rule_ancestor": "REFLEXIVITY"},
+    {"id": "IR-CONG", "opcode": "LIFT_UNARY", "source_rule_ancestor": "CONGRUENCE"},
+    {"id": "IR-REPL", "opcode": "APPLY_TEMPLATE", "source_rule_ancestor": "REPLACEMENT"},
+    {"id": "IR-TRANS", "opcode": "CHAIN", "source_rule_ancestor": "TRANSITIVITY"}
+  ],
+  "direction": "FORWARD_ONLY",
+  "justification": {"inject_fabricated_node": false},
+  "object": "SSI-IR/K1-MAUDE-RW-v0.1",
+  "replacement_policy": "VARIABLE_EVOLUTION_REQUIRES_RELATION",
+  "semantic_kind": "DIRECTED_REWRITING_ENTAILMENT",
+  "source_rule_templates": [
+    {"label": "r_ab", "lhs": "a", "rhs": "b", "variables": []},
+    {"label": "r_bc", "lhs": "b", "rhs": "c", "variables": []},
+    {"label": "r_fg", "lhs": "f(x)", "rhs": "g(x)", "variables": ["x"]}
+  ],
+  "universe": {"constants": ["a", "b", "c"], "max_depth": 3, "unary_operators": ["f", "g"]}
+}
