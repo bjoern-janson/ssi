@@ -1,0 +1,15 @@
+{
+  "object": "SSI_CALC_V0.1/HF16_FIREWALL",
+  "successor_freeze_merge_commit": "87322c273ca9db1e9ae8d90a2ceb7faf272f75c1",
+  "first_execution_permitted_only_after_freeze_merge": true,
+  "mutations_forbidden_after_exposure": [
+    "HF16_CASES",
+    "HF16_EXPECTED_CERTIFICATES",
+    "HF16_THRESHOLDS",
+    "SUCCESSOR_IMPLEMENTATION_DURING_FIRST_RUN"
+  ],
+  "metadata_not_derivation_evidence": ["family", "title", "expected"],
+  "h24_role": "KNOWN_FAILURE_REGRESSION_ONLY",
+  "hf16_role": "POST_REPAIR_FRESH_WHITEBOX_GENERALIZATION",
+  "authority_ceiling": "NO_EXTERNAL_NICHE_ADVANTAGE_FROM_HF16"
+}
