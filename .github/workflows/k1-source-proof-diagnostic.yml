@@ -1,0 +1,28 @@
+name: K1 Source Proof Reproducibility Diagnostic
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'research/ssi_calc/compiler/k1/audit/diagnose_source_proof_reproducibility.py'
+      - '.github/workflows/k1-source-proof-diagnostic.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test frozen R2 source proof reproducibility across hash seeds
+        run: python research/ssi_calc/compiler/k1/audit/diagnose_source_proof_reproducibility.py
+      - name: Upload diagnostic
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k1-source-proof-repro-diagnostic
+          path: research/ssi_calc/compiler/k1/audit/SOURCE_PROOF_REPRO_DIAGNOSTIC.json
