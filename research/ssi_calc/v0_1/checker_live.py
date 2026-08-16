@@ -38,6 +38,7 @@ class AuthorityView:
         self.history = list(raw["facts"])
         self.req = raw["request"]
         self.jurisdiction = self.req["jurisdiction"]
+        self.edges = list(raw["authority_edges"])
 
     @staticmethod
     def is_live(fact: dict) -> bool:
@@ -108,6 +109,13 @@ class AuthorityView:
                 return True
         return False
 
+    def matching_edge(self, jurisdiction: str, consumer: str | None) -> dict | None:
+        return next((
+            e for e in self.edges
+            if e.get("jurisdiction") == jurisdiction
+            and (consumer is None or e.get("target") == consumer)
+        ), None)
+
 
 def _cert(view: AuthorityView, status: str, locus: str, rule: str,
           missing: list[str] | None = None, why: str = "") -> Certificate:
@@ -123,8 +131,6 @@ def _cert(view: AuthorityView, status: str, locus: str, rule: str,
 
 
 def _rebase_preservation(view: AuthorityView, cert: Certificate) -> Certificate:
-    # Ordinary adjudication preserves the complete historical input record. Reopen
-    # certificates intentionally preserve their narrower trigger lineage as emitted.
     if cert.status == "REOPEN":
         return cert
     return replace(cert, preserved_facts=[f["id"] for f in view.history])
@@ -167,25 +173,40 @@ def _provenance_goal(view: AuthorityView) -> Certificate | None:
 
 
 def _inactive_obligation(view: AuthorityView) -> Certificate | None:
-    """Turn represented-but-inactive premises into typed unresolved obligations.
-
-    These are not new rules. They prevent historical/unresolved facts from either
-    authorizing or prohibiting a live derivation while retaining an exact failure
-    locus for the existing R1..R11 jurisdiction.
-    """
+    """Turn represented-but-inactive premises into typed unresolved obligations."""
     op = view.req["operation"]
     j = view.jurisdiction
 
+    if op == "inform" and view.req.get("args"):
+        source = str(view.req["args"][0])
+        source_history = [f for f in view.history if source in map(str, f.get("args", []))]
+        if any(f.get("authority") == "UNRESOLVED" for f in source_history):
+            return _cert(
+                view, "NOT_IDENTIFIED", "PROVENANCE", "R3:LICENSE",
+                ["feature_information_provenance"],
+                "Feature lineage exists but its information provenance is unresolved.",
+            )
+
     if op == "assert_identity":
         hist = view.historical("identity_by_denotation")
-        if hist and not view.live("identity_by_denotation", j):
+        # A live foreign identity authority creates a transfer obligation and is
+        # handled by the route layer. Only a wholly inactive historical identity
+        # authority is an unresolved liveness obligation.
+        if hist and not view.live("identity_by_denotation"):
             return _cert(
                 view, "NOT_IDENTIFIED", "EQUIV", "R4:EQUIV",
                 ["active_identity_by_denotation_authority"],
-                "Identity-by-denotation exists in lineage but is not live for the current identity obligation.",
+                "Identity-by-denotation exists in lineage but no such authority is live.",
             )
 
     if op == "transport_relation":
+        if view.historical("equivalence_preservation") and not view.live("equivalence_preservation", j):
+            tau = str(view.req.get("args", ["tau"])[0])
+            return _cert(
+                view, "NOT_IDENTIFIED", "TRANSPORT", "R7:TRANSPORT",
+                [f"equivalence_well_formedness({tau})"],
+                "Transport well-formedness is represented but unresolved for the current relation transport.",
+            )
         requirements = [
             ("operations_commute", "active_operations_commutation_certificate"),
             ("target_independent", "active_target_independence_certificate"),
@@ -252,8 +273,11 @@ def _inactive_obligation(view: AuthorityView) -> Certificate | None:
     return None
 
 
-def _historical_lineage_gate(view: AuthorityView) -> Certificate | None:
-    if view.req["operation"] == "inform" and view.req.get("args"):
+def _historical_obligation_gate(view: AuthorityView) -> Certificate | None:
+    op = view.req["operation"]
+    j = view.jurisdiction
+
+    if op == "inform" and view.req.get("args"):
         source = str(view.req["args"][0])
         if view.indirect_lineage_reaches(source, "encodes"):
             return _cert(
@@ -261,6 +285,30 @@ def _historical_lineage_gate(view: AuthorityView) -> Certificate | None:
                 ["oracle_safe_feature_license"],
                 "Historical answer-bearing ancestry creates an information-flow obligation but does not grant detector-safe authority.",
             )
+
+    if op == "assert_different" and view.historical("referentially_distinct"):
+        return _cert(
+            view, "UNLICENSED_JURISDICTION_TRANSFER", "TRANSFER", "R4:EQUIV",
+            ["reference_to_semantic_identity_transfer"],
+            "Reference-level distinctness exists in lineage but cannot discharge semantic-difference authority.",
+        )
+
+    if op == "support" and view.historical("source_attribution"):
+        bridge = bool(view.live("semantic_bridge", j))
+        if not bridge:
+            return _cert(
+                view, "NOT_IDENTIFIED", "PROVENANCE", "R3:LICENSE",
+                ["attributable_source_and_semantic_bridge"],
+                "Source attribution exists, but no live semantic bridge discharges the support obligation.",
+            )
+        consumer = view.req.get("consumer")
+        if not view.matching_edge(j, consumer):
+            return _cert(
+                view, "NOT_IDENTIFIED", "LICENSE", "R3:LICENSE",
+                ["consumer_scoped_support_authority"],
+                "Lineage and a live semantic bridge exist, but consumer-scoped support authority is absent.",
+            )
+
     return None
 
 
@@ -269,7 +317,7 @@ def derive(raw: dict, schema: dict) -> Certificate:
     view = AuthorityView(raw)
 
     # Historical information may create obligations but never discharge them.
-    for gate in (_historical_lineage_gate, _provenance_goal, _inactive_obligation):
+    for gate in (_historical_obligation_gate, _provenance_goal, _inactive_obligation):
         result = gate(view)
         if result is not None:
             return result
