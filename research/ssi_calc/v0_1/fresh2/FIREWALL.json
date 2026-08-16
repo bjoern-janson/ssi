@@ -1,0 +1,14 @@
+{
+  "object": "SSI_CALC_V0.1/HF2_24_POST_SUBSTRATE_FRESH_WHITEBOX",
+  "successor_v2_freeze_merge": "ed9ae7ab94f74bbc39aaadad312c40647aed62d9",
+  "successor_executed_before_freeze": false,
+  "freeze_invariants": {
+    "delta_hf2_24_after_exposure": 0,
+    "delta_expected_after_exposure": 0,
+    "delta_successor_during_first_run": 0,
+    "delta_metrics_after_exposure": 0
+  },
+  "epistemic_role": "POST_SUBSTRATE_FRESH_WHITEBOX_GENERALIZATION",
+  "maximum_claim": "POST_SUBSTRATE_WHITEBOX_GENERALIZATION_SUPPORTED_IN_HF2_24",
+  "external_niche_advantage_authority": false
+}
