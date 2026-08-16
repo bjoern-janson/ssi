@@ -1,0 +1,58 @@
+{
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/SOURCE_FREEZE_LEDGER",
+  "base_main_sha": "97f598d5e4c629ad7d060303177d2d98db989c05",
+  "external_source": {
+    "title": "Software Foundations — Programming Language Foundations 5.6 — Stlc",
+    "version": "PLF 5.6",
+    "selected_scope": "Bool + Arrow STLC typing relation"
+  },
+  "frozen_source": {
+    "case_count": 24,
+    "positive": 12,
+    "negative": 12,
+    "distinction_count": 8,
+    "manifest_sha256": "27e5d9675453f36289bee9af8fc020655c9874799905bdac3a2ea700d6207345"
+  },
+  "remote_verification_lineage": [
+    {
+      "run": 1,
+      "run_id": 31953148603,
+      "job_id": 95179629687,
+      "conclusion": "FAILURE_BEFORE_COMPILER_EXPOSURE",
+      "mechanism": "SOURCE_REF_JSON_ESCAPE_REPRESENTATION_MISMATCH",
+      "expected_source_ref_sha256": "699dfe558884dab051d0b498ea40e28d259fd6852a49e9f656033024c79d4294",
+      "observed_source_ref_sha256": "1253ca5a0b5b20c4848886c3d9ffb51ed03e9af015e5c98684a9c04bcb7964a3",
+      "semantic_change": false,
+      "task_change": false,
+      "gold_change": false,
+      "distinction_change": false
+    },
+    {
+      "correction_commit": "e159aefe9b189a2dc077921b9f1d289da7d74540",
+      "correction": "Align SOURCE_REF.json repository bytes with the already-frozen JSON escape representation in MANIFEST.json.",
+      "semantic_change": false
+    },
+    {
+      "run": 2,
+      "run_id": 31953202429,
+      "job_id": 95179760883,
+      "conclusion": "PASS",
+      "case_count": 24,
+      "positive": 12,
+      "negative": 12,
+      "distinction_count": 8,
+      "gold_recomputed_exact": true,
+      "manifest_sha256": "27e5d9675453f36289bee9af8fc020655c9874799905bdac3a2ea700d6207345",
+      "compiler_executed": false,
+      "ssi_calc_imported": false
+    }
+  ],
+  "authority_ceiling": {
+    "source_constitution_reproducible": true,
+    "compiler_fidelity_established": false,
+    "compiler_adequacy_established": false,
+    "compiler_generalization_established": false,
+    "ssi_calc_external_validation_established": false,
+    "niche_advantage_established": false
+  }
+}
