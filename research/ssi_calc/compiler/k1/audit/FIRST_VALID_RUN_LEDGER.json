@@ -1,0 +1,42 @@
+{
+  "object": "K1-CROSS-REGIME-COMPILER-TRANSFER/FIRST_VALID_RUN_LEDGER",
+  "run": 31955849285,
+  "job": 95186264682,
+  "artifact": 9265912712,
+  "artifact_zip_sha256": "12d29b210012555ca755fb2c1bd20fe21904502fc281cb5f7608133b4b74dccf",
+  "raw_json_sha256": "141c58bb60fb60c5e43f9f77660cb4880ad993480b7cfe650286cdc2646c6f34",
+  "deterministic_gzip_sha256": "7d2fabfe64703f6823af5128ee4f3a43d880ea94c38520f23e421044f6ee3926",
+  "prospective_status": "K1_R2_CROSS_REGIME_STRONG_PASS",
+  "baseline": {
+    "A_comp": 1.0,
+    "accuracy": 1.0,
+    "overreach": 0,
+    "compilation_loss": 0,
+    "distinction_loss": [],
+    "lineage_mismatch": 0,
+    "lineage_fabrication": 0,
+    "lineage_recovery_rate": 1.0,
+    "source_lineage_nodes": 27,
+    "compiled_lineage_nodes": 27
+  },
+  "mutations_caught": "6/6",
+  "lineage_only_controls": {
+    "MUT-105": {"accuracy": 1.0, "detection": "LINEAGE_MISMATCH"},
+    "MUT-106": {"accuracy": 1.0, "detection": "LINEAGE_FABRICATION"}
+  },
+  "interpretation_status": "PRESERVED_PENDING_CONTRADICTION_ANALYSIS",
+  "contradictory_evidence": {
+    "superseded_run_3": 31955831729,
+    "observation": "source derivation digest assertion failed before IR comparison under a separate Python process",
+    "implication": "prospective strong-pass label is preserved historically but full lineage-transfer authority is not granted until source-proof reproducibility is discriminated"
+  },
+  "immutable": {
+    "selection": true,
+    "R2_source": true,
+    "K1_compiler": true,
+    "IR": true,
+    "mutations": true,
+    "expected_mutation_detections": true,
+    "K0": true
+  }
+}

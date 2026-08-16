@@ -1,0 +1,111 @@
+{
+  "object": "K1-CROSS-REGIME-COMPILER-TRANSFER/SOURCE_LINEAGE_ANALYSIS",
+  "raw_first_valid_run": {
+    "run": 31955849285,
+    "job": 95186264682,
+    "artifact": 9265912712,
+    "prospective_status": "K1_R2_CROSS_REGIME_STRONG_PASS",
+    "baseline": {
+      "A_comp": 1.0,
+      "accuracy": 1.0,
+      "overreach": 0,
+      "compilation_loss": 0,
+      "distinction_loss": [],
+      "lineage_mismatch": 0,
+      "lineage_fabrication": 0,
+      "lineage_recovery_rate": 1.0
+    },
+    "mutations_caught": "6/6",
+    "historical_status_preserved": true
+  },
+  "contradiction_signal": {
+    "run": 31955831729,
+    "job": 95186223748,
+    "runner": "superseded original audit harness",
+    "outcome": "failed before IR comparison",
+    "failure": "source derivation digest assertion",
+    "first_witness": "CASE-009",
+    "scientific_role": "contradiction signal only; no compiler result emitted"
+  },
+  "competing_hypotheses": [
+    {
+      "id": "H1_COMPILER_LINEAGE_FAILURE",
+      "prediction": "source proof gold is stable across independent source-only executions; mismatch arises only after compilation",
+      "result": "REJECTED"
+    },
+    {
+      "id": "H2_SOURCE_JUDGMENT_NONREPRODUCIBLE",
+      "prediction": "the 24 source judgment bits change across independent hash seeds",
+      "result": "REJECTED"
+    },
+    {
+      "id": "H3_SOURCE_PROOF_WITNESS_NONCANONICAL",
+      "prediction": "source judgment vector is stable but at least one positive derivation tree changes across independent hash seeds",
+      "result": "SUPPORTED"
+    }
+  ],
+  "independent_discriminators": {
+    "proof_reproducibility": {
+      "run": 31956059458,
+      "job": 95186763363,
+      "artifact": 9265965033,
+      "artifact_zip_sha256": "6c728b90aad18e0b41348f2e4324d317eab7fcd1821be4fe1a946923ab695d2f",
+      "raw_json_sha256": "c597b69e6f3baae1fa17101657254cb91d598a2bdef4683cf087f47d521b99b9",
+      "seeds_tested": 16,
+      "pass_count": 6,
+      "fail_count": 10,
+      "all_failures_first_witness": "CASE-009"
+    },
+    "judgment_vs_proof": {
+      "run": 31956143844,
+      "job": 95186968282,
+      "artifact": 9265989408,
+      "artifact_zip_sha256": "763b477c7c4456c7504e5ec71afc9b6edbc5fd456468652c02a3d8d4e67cede7",
+      "raw_json_sha256": "9763662bb8a2d5e65888df20e2af6f97ab0738a42b6cfbac08cb49dd7ca6d06d",
+      "all_seeds_match_frozen_judgments": true,
+      "unique_judgment_vectors": 1,
+      "unique_proof_vectors": 2,
+      "varying_case": "CASE-009",
+      "stable_root": "TRANSITIVITY",
+      "proof_sha256_values": [
+        "03ddde13bb07bcbacf38dd191c1e4f4fd07f5c418191a9d12d768990aa4f6ba9",
+        "56d686236bb647ccaf20461c31b32ce74681f336831dd35ff37d904c8e8b3bb7"
+      ]
+    }
+  },
+  "shallowest_failure_locus": "SOURCE_CONSTITUTION/PROOF_WITNESS_CANONICALIZATION",
+  "classification": "SOURCE_PROOF_CANONICALIZATION_INADEQUATE",
+  "mechanism": "unordered proof search chooses one of multiple valid TRANSITIVITY derivations for CASE-009; the entailment relation is stable while the exact proof-tree witness is not",
+  "authority_update": {
+    "J_judgment_transfer": "SUPPORTED_IN_R2",
+    "D_001_through_007": "SUPPORTED_IN_R2",
+    "D_008_nested_lineage_topology": "NOT_IDENTIFIED",
+    "A_exact_justification_transfer": "NOT_IDENTIFIED",
+    "L_exact_lineage_transfer": "NOT_IDENTIFIED",
+    "full_J_D_A_L_cross_regime_transfer": "NOT_ESTABLISHED"
+  },
+  "nonredundancy_result": {
+    "J_not_imply_L_reproduced_operationally": true,
+    "MUT_105": "24/24 judgments with LINEAGE_MISMATCH",
+    "MUT_106": "24/24 judgments with LINEAGE_FABRICATION",
+    "ceiling": "shows audit dimensions remain operationally separable in rewriting semantics; does not validate baseline exact lineage transfer because source lineage gold is noncanonical"
+  },
+  "strongest_post_analysis_claim": "K1_R2_CROSS_REGIME_JUDGMENT_TRANSFER_SUPPORTED_SOURCE_LINEAGE_NOT_CANONICALLY_CONSTITUTED",
+  "freshness_consequence": "R2 is exposed. Any later proof-canonicalization repair makes R2 regression/conformance terrain for lineage; a fresh full J,D,A,L transfer claim requires a new unseen regime.",
+  "repair_authority": {
+    "modify_R2_source_now": false,
+    "modify_K1_compiler_now": false,
+    "modify_IR_now": false,
+    "start_R3_in_this_lineage": false
+  },
+  "immutability": {
+    "selection_modified": false,
+    "R2_source_modified": false,
+    "K1_compiler_modified": false,
+    "IR_modified": false,
+    "mutations_modified": false,
+    "expected_detections_modified": false,
+    "K0_modified": false,
+    "raw_prospective_label_rewritten": false
+  }
+}
