@@ -1,0 +1,120 @@
+{
+  "authority_ceiling": {
+    "mutation_success_cannot_establish_compiler_generalization": true,
+    "mutations_are_validation_attacks_not_source_semantics": true
+  },
+  "frozen_before_audit": true,
+  "mutations": [
+    {
+      "expected_detection": [
+        "COMPILATION_LOSS",
+        "DISTINCTION_LOSS:DIST-001"
+      ],
+      "expected_locus": "F_K_f",
+      "id": "MUT-001",
+      "name": "ERASE_CONTEXT_INFORMATION",
+      "operations": [
+        {
+          "op": "set_path",
+          "path": [
+            "context",
+            "lookup"
+          ],
+          "value": "DISABLED"
+        }
+      ],
+      "purpose": "Erase source context lookup so bound variables become unavailable."
+    },
+    {
+      "expected_detection": [
+        "COMPILATION_OVERREACH",
+        "DISTINCTION_LOSS:DIST-002"
+      ],
+      "expected_locus": "F_K_f",
+      "id": "MUT-002",
+      "name": "MERGE_DISTINCT_TYPES",
+      "operations": [
+        {
+          "op": "set_path",
+          "path": [
+            "type_system",
+            "equality"
+          ],
+          "value": "COLLAPSE_BOOL_ARROW"
+        }
+      ],
+      "purpose": "Collapse Bool/Arrow equality so source type distinctions cannot control judgments."
+    },
+    {
+      "expected_detection": [
+        "COMPILATION_OVERREACH",
+        "DISTINCTION_LOSS:DIST-004"
+      ],
+      "expected_locus": "F_K_f",
+      "id": "MUT-003",
+      "name": "DROP_APPLICATION_PREMISE",
+      "operations": [
+        {
+          "op": "remove_rule_requirement",
+          "requirement": "ARGUMENT_MATCHES_ARROW_DOMAIN",
+          "rule_id": "IR-T-APP"
+        }
+      ],
+      "purpose": "Remove the source requirement that application arguments match the Arrow domain."
+    },
+    {
+      "expected_detection": [
+        "LINEAGE_MISMATCH"
+      ],
+      "expected_locus": "F_K_f",
+      "id": "MUT-004",
+      "name": "REPLACE_SOURCE_RULE_ANCESTRY",
+      "operations": [
+        {
+          "field": "source_rule",
+          "op": "set_rule_field",
+          "rule_id": "IR-T-TEST",
+          "value": "T_App"
+        }
+      ],
+      "purpose": "Keep test execution behavior but falsely claim that the compiled rule descends from T_App."
+    },
+    {
+      "expected_detection": [
+        "LINEAGE_FABRICATION"
+      ],
+      "expected_locus": "F_K_f",
+      "id": "MUT-005",
+      "name": "FABRICATE_JUSTIFICATION_EDGE",
+      "operations": [
+        {
+          "op": "set_path",
+          "path": [
+            "justification",
+            "inject_fabricated_node"
+          ],
+          "value": true
+        }
+      ],
+      "purpose": "Insert a compiled justification edge with no source ancestor."
+    },
+    {
+      "expected_detection": [
+        "COMPILATION_OVERREACH",
+        "DISTINCTION_LOSS:DIST-006"
+      ],
+      "expected_locus": "F_K_f",
+      "id": "MUT-006",
+      "name": "COLLAPSE_BRANCH_AGREEMENT_DISTINCTION",
+      "operations": [
+        {
+          "op": "remove_rule_requirement",
+          "requirement": "BRANCH_TYPES_EQUAL",
+          "rule_id": "IR-T-TEST"
+        }
+      ],
+      "purpose": "Erase the source requirement that conditional branches have the same type."
+    }
+  ],
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/HOSTILE_MUTATIONS"
+}

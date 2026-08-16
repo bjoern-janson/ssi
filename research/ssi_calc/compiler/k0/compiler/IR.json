@@ -1,0 +1,206 @@
+{
+  "authority_ceiling": {
+    "source_justification_is_not_automatically_ssi_authority": true,
+    "this_ir_establishes_compilation_generalization": false,
+    "this_ir_modifies_R1_R11": false
+  },
+  "context": {
+    "extension": "APPEND_BINDING_SHADOWS_EARLIER",
+    "lookup": "LATEST_EXACT_VARIABLE_NAME",
+    "representation": "ORDERED_BINDING_LIST"
+  },
+  "distinction_targets": {
+    "DIST-001": [
+      "context.lookup",
+      "IR-T-VAR"
+    ],
+    "DIST-002": [
+      "type_system.constructors.BOOL",
+      "type_system.constructors.ARROW",
+      "type_system.equality"
+    ],
+    "DIST-003": [
+      "IR-T-APP.requirements.FUNCTION_HAS_ARROW_TYPE"
+    ],
+    "DIST-004": [
+      "IR-T-APP.requirements.ARGUMENT_MATCHES_ARROW_DOMAIN"
+    ],
+    "DIST-005": [
+      "IR-T-TEST.requirements.GUARD_HAS_BOOL_TYPE"
+    ],
+    "DIST-006": [
+      "IR-T-TEST.requirements.BRANCH_TYPES_EQUAL"
+    ],
+    "DIST-007": [
+      "context.extension",
+      "IR-T-ABS"
+    ],
+    "DIST-008": [
+      "type_system.constructors.ARROW.ordered_fields",
+      "IR-T-APP"
+    ]
+  },
+  "encoding": {
+    "context": {
+      "source": "mapping variable -> type",
+      "target": "ordered list of {variable,type} sorted by variable for input snapshots"
+    },
+    "terms": {
+      "Abs": {
+        "field_map": {
+          "body": "body",
+          "param": "binder",
+          "param_type": "binder_type"
+        },
+        "kind": "ABS"
+      },
+      "App": {
+        "field_map": {
+          "arg": "argument",
+          "fn": "function"
+        },
+        "kind": "APP"
+      },
+      "False": {
+        "field_map": {},
+        "kind": "FALSE"
+      },
+      "If": {
+        "field_map": {
+          "cond": "guard",
+          "else": "else_branch",
+          "then": "then_branch"
+        },
+        "kind": "IF"
+      },
+      "True": {
+        "field_map": {},
+        "kind": "TRUE"
+      },
+      "Var": {
+        "field_map": {
+          "name": "name"
+        },
+        "kind": "VAR"
+      }
+    },
+    "types": {
+      "Arrow": {
+        "kind": "ARROW",
+        "ordered_fields": {
+          "from": "domain",
+          "to": "codomain"
+        }
+      },
+      "Bool": {
+        "kind": "BOOL"
+      }
+    }
+  },
+  "justification": {
+    "fabricated_source_ancestor_forbidden": true,
+    "source_correspondence": {
+      "T_Abs": "IR-T-ABS",
+      "T_App": "IR-T-APP",
+      "T_Fls": "IR-T-FLS",
+      "T_Test": "IR-T-TEST",
+      "T_Tru": "IR-T-TRU",
+      "T_Var": "IR-T-VAR"
+    },
+    "trace_node_fields": [
+      "ir_rule",
+      "source_rule_ancestor",
+      "judgment",
+      "premises",
+      "evidence"
+    ]
+  },
+  "object": "SSI-IR/K0-STLC-v0.1",
+  "query_contract": {
+    "expected_type_check": "STRUCTURAL_EXACT",
+    "fields": [
+      "context",
+      "term",
+      "expected_type"
+    ],
+    "result": [
+      "JUDGMENT_LICENSED",
+      "JUDGMENT_REJECTED"
+    ]
+  },
+  "rules": [
+    {
+      "id": "IR-T-VAR",
+      "opcode": "LOOKUP",
+      "requirements": [
+        "EXACT_CONTEXT_BINDING"
+      ],
+      "source_rule": "T_Var",
+      "term_kind": "VAR"
+    },
+    {
+      "id": "IR-T-ABS",
+      "opcode": "ABS_EXTEND",
+      "requirements": [
+        "EXTEND_CONTEXT_WITH_BINDER",
+        "TYPE_BODY"
+      ],
+      "source_rule": "T_Abs",
+      "term_kind": "ABS"
+    },
+    {
+      "id": "IR-T-APP",
+      "opcode": "APP_ARROW",
+      "requirements": [
+        "FUNCTION_HAS_ARROW_TYPE",
+        "ARGUMENT_MATCHES_ARROW_DOMAIN"
+      ],
+      "source_rule": "T_App",
+      "term_kind": "APP"
+    },
+    {
+      "id": "IR-T-TRU",
+      "opcode": "CONST_BOOL",
+      "requirements": [],
+      "source_rule": "T_Tru",
+      "term_kind": "TRUE"
+    },
+    {
+      "id": "IR-T-FLS",
+      "opcode": "CONST_BOOL",
+      "requirements": [],
+      "source_rule": "T_Fls",
+      "term_kind": "FALSE"
+    },
+    {
+      "id": "IR-T-TEST",
+      "opcode": "IF_BOOL_BRANCH_EQ",
+      "requirements": [
+        "GUARD_HAS_BOOL_TYPE",
+        "BRANCH_TYPES_EQUAL"
+      ],
+      "source_rule": "T_Test",
+      "term_kind": "IF"
+    }
+  ],
+  "source": {
+    "external_regime": "Software Foundations PLF 5.6 Stlc Bool+Arrow typing relation",
+    "manifest_sha256": "27e5d9675453f36289bee9af8fc020655c9874799905bdac3a2ea700d6207345",
+    "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/SOURCE"
+  },
+  "type_system": {
+    "constructors": {
+      "ARROW": {
+        "arity": 2,
+        "ordered_fields": [
+          "domain",
+          "codomain"
+        ]
+      },
+      "BOOL": {
+        "arity": 0
+      }
+    },
+    "equality": "STRUCTURAL_EXACT"
+  }
+}
