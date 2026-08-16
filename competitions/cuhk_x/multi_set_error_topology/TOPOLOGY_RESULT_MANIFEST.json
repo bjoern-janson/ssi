@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "diagnostic_id": "CUHKX-MULTI-SET-ERROR-TOPOLOGY-1",
+  "specification_freeze_commit": "11339d2a09405ab2218e9ba8115a053a263d2028",
+  "parent_p1_result_commit": "43cda71f081f0cb179007f999cc08458421ad703",
+  "input_raw_sha256": "b3429ee3d9737a98cd4ded5865ffd1d519c812c03b77563c172c98cb2c64e248",
+  "input_metrics_sha256": "f432d854c0973647071db771638191259623ad8a8a9ddff31fb25b3c29680488",
+  "diagnostic_script_sha256": "bac3b71eac5b6789b86e36af767b6521a129f484e7bf9796010c2618187508b9",
+  "result_sha256": "611d06265cb505474895fa2ad6d8a2afab37321dde28146a2d8f939ed1adc342",
+  "result_manifest_sha256": "13f7091b09dfcc1c564e72a8d58fcae880e41010c2cb3d4a3125e6677d21bb2b",
+  "result_note_sha256": "099977e7d13a68758e501e769b996d457fba0cbe0ecd53710113a8b7cb051f47",
+  "library_artifacts": {
+    "script": "/CUHK-X/Diagnostics/MultiSetErrorTopology/SET_ERROR_TOPOLOGY.py",
+    "result": "/CUHK-X/Diagnostics/MultiSetErrorTopology/SET_ERROR_TOPOLOGY_RESULT.json",
+    "manifest": "/CUHK-X/Diagnostics/MultiSetErrorTopology/SET_ERROR_TOPOLOGY_MANIFEST.json",
+    "result_note": "/CUHK-X/Diagnostics/MultiSetErrorTopology/TOPOLOGY_RESULT.md"
+  },
+  "authority": {
+    "model": "NONE",
+    "treatment": "NONE",
+    "P2": "NONE",
+    "joint_composition_mechanism": "NOT_IDENTIFIED",
+    "CARS_CCA_mechanism": "NOT_IDENTIFIED",
+    "SSI_packet7": "NONE"
+  }
+}
