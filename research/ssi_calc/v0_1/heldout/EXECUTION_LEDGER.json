@@ -1,0 +1,56 @@
+{
+  "object": "SSI_CALC_V0.1_H24_EXECUTION_LEDGER",
+  "checker_merge_commit": "8eac548f338f0f8463302f2f1746a2c75f8227ca",
+  "heldout_freeze_merge_commit": "c10eba651c1ae66b32da179c30a1a2a9a0690d90",
+  "checker_sha256": "12f3256abf2755fe6f1b9fdb104b9f7b3038713f8bab6260b4f09ad956d42baa",
+  "h24_sha256": "0910569fe786b29f5f1d64c295f8be7f2857ec6447bd2cf3286a336fc121b941",
+  "kernel_rule_count": 11,
+  "checker_mutated_during_run": false,
+  "heldout_mutated_during_run": false,
+  "kernel_mutated_during_run": false,
+  "first_run": {
+    "threshold_status": "WHITEBOX_HELDOUT_FAILED",
+    "decision_accuracy": 0.5,
+    "overreach_rate": 0.5,
+    "false_refusal_rate": 0.5,
+    "exact_status_accuracy": 0.375,
+    "shallowest_locus_accuracy": 0.375,
+    "preservation_aware_refusal_accuracy": 1.0,
+    "missing_authority_accuracy": 0.2916666666666667,
+    "reopened_set_accuracy": 1.0,
+    "exact_certificate_accuracy": 0.2916666666666667,
+    "confusion_matrix": {"TP": 6, "FP_overreach": 6, "FN_false_refusal": 6, "TN": 6},
+    "mismatch_count": 17,
+    "decision_error_count": 12
+  },
+  "internal_baselines": {
+    "B0_MATCHING_EDGE_POLICY": {
+      "decision_accuracy": 0.5,
+      "overreach_rate": 0.16666666666666666,
+      "false_refusal_rate": 0.8333333333333334
+    },
+    "B1_EDGE_PLUS_COMPOSITION_GUARD": {
+      "decision_accuracy": 0.5,
+      "overreach_rate": 0.16666666666666666,
+      "false_refusal_rate": 0.8333333333333334
+    }
+  },
+  "measurement_status": {
+    "specification_atoms_consumed": "NOT_OPERATIONALIZED_IN_FROZEN_METRIC_CONTRACT",
+    "baseline_localization": "NOT_SUPPORTED_BY_FROZEN_BASELINE_CONTRACT"
+  },
+  "artifacts": {
+    "FIRST_RUN.json": {"sha256": "b8827214f810698acdee58f235db46820fe3feba98114826ab724e3e243e095e"},
+    "FIRST_RUN.json.gz.b64": {"sha256": "91a9d4d9c114e307b835cea8cdb708a3de66876613e931517ddbcf1146a63099"},
+    "BASELINE_RESULTS.json": {"sha256": "d79a10d51c66b0d9859488ab67038bc3c665037fb0f4eeca2ca9ca9193e683d6"},
+    "BASELINE_RESULTS.json.gz.b64": {"sha256": "1e410b23e6b23edb7cc44ce53c995c69976c5902c7703e660af9145b2f42fe96"},
+    "EXECUTION_REPORT.md": {"sha256": "9c065eb03ace4e11c7f1106ce966eb15cc808b1d9dc5d78eef68b63288eeb65a"},
+    "run_h24.py": {"sha256": "3f0e93aed3afda84a67d1189b4b541a920a70c547e742b93d4652de93147ddb6"}
+  },
+  "scientific_status": {
+    "internal_frozen_contract_pass": "PRESERVED",
+    "whitebox_heldout_h24": "FAILED",
+    "niche_advantage_established": false,
+    "next_transition": "FAILURE_LOCALIZATION_BEFORE_ANY_RULE_OR_BENCHMARK_CHANGE"
+  }
+}
