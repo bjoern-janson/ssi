@@ -17,7 +17,7 @@ class Certificate:
 
 class C:
     def __init__(self,r):
-        self.id=r['id']; self.family=r['family']; self.objects=r['objects']; self.facts=r['facts']; self.edges=r['authority_edges']; self.req=r['request']
+        self.id=r['id']; self.objects=r['objects']; self.facts=r['facts']; self.edges=r['authority_edges']; self.req=r['request']
     def fs(self,k): return [f for f in self.facts if f['kind']==k]
     def has(self,k,j=None,a=None): return any((j is None or f.get('jurisdiction')==j) and (a is None or f.get('authority')==a) for f in self.fs(k))
     def f(self,k): return next(iter(self.fs(k)),None)
@@ -138,7 +138,7 @@ def reopen(c):
 PIPE=[declare,admit,license,equiv,substitute,congruence,transport,quotient,compose,preserve,reopen]
 def load_json(path): return json.loads(Path(path).read_text())
 def derive(raw,schema):
-    jsonschema.Draft202012Validator(schema).validate(raw); c=C({k:raw[k] for k in ['id','family','objects','facts','authority_edges','request']})
+    jsonschema.Draft202012Validator(schema).validate(raw); c=C({k:raw[k] for k in ['id','objects','facts','authority_edges','request']})
     for r in PIPE:
         x=r(c)
         if x:return x
