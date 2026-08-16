@@ -1,0 +1,96 @@
+{
+  "object": "SEMANTIC_EQUIVALENCE_REGIME_AUDIT/E2-A/MOORE_BEHAVIOR",
+  "audit_method": "EXECUTABLE_DETERMINISTIC_FINITE_PARTITION_REFINEMENT",
+  "world_object": "E2-A-TRANSITION-INTERFACE-WORLD",
+  "regime": "DETERMINISTIC_MOORE_COALGEBRAIC_BEHAVIOR",
+  "purpose": "FINITE_INPUT_OBSERVATIONAL_BEHAVIOR",
+  "presentation_sort": "Q",
+  "denotation_sort": "(Theta x Y)^(U*)",
+  "initial_output_partition": [
+    [
+      "q1",
+      "q2"
+    ],
+    [
+      "q3",
+      "q4"
+    ]
+  ],
+  "behavioral_partition": [
+    [
+      "q1",
+      "q2"
+    ],
+    [
+      "q3",
+      "q4"
+    ]
+  ],
+  "behavioral_equivalence_pairs": [
+    [
+      "q1",
+      "q1"
+    ],
+    [
+      "q1",
+      "q2"
+    ],
+    [
+      "q2",
+      "q1"
+    ],
+    [
+      "q2",
+      "q2"
+    ],
+    [
+      "q3",
+      "q3"
+    ],
+    [
+      "q3",
+      "q4"
+    ],
+    [
+      "q4",
+      "q3"
+    ],
+    [
+      "q4",
+      "q4"
+    ]
+  ],
+  "number_of_classes": 2,
+  "partition_refinement_rounds_beyond_output_partition": 0,
+  "behavioral_equivalence_equals_immediate_output_equivalence": true,
+  "congruence": {
+    "immediate_readout_preservation": true,
+    "one_step_transition_congruence": true,
+    "congruence_verified": true,
+    "witnesses": []
+  },
+  "u_star_closure": "VERIFIED_BY_ONE_STEP_CONGRUENCE_INDUCTION",
+  "nonempty_word_last_action_property": {
+    "verified": true,
+    "proof_basis": "For each action u, every source state transitions to a state with the same declared output. Therefore the output after any nonempty word depends only on its final action.",
+    "per_action_successor_outputs": {
+      "a": [
+        [
+          "theta",
+          "y1"
+        ]
+      ],
+      "b": [
+        [
+          "theta",
+          "y0"
+        ]
+      ]
+    }
+  },
+  "identity_authorization": "NOT_IN_SCOPE",
+  "identity_regime_membership": "NOT_AUTHORIZED",
+  "future_sufficiency": "NOT_IN_SCOPE",
+  "cross_regime_comparison": "NOT_IN_SCOPE",
+  "terminal_status": "PASS"
+}

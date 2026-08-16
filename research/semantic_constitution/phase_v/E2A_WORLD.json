@@ -1,0 +1,48 @@
+{
+  "object": "E2-A-TRANSITION-INTERFACE-WORLD",
+  "status": "FROZEN_FOR_PHASE_V_EQUIVALENCE_AUDIT",
+  "presentation_sort": "Q",
+  "states": [
+    "q1",
+    "q2",
+    "q3",
+    "q4"
+  ],
+  "actions": [
+    "a",
+    "b"
+  ],
+  "observations": {
+    "q1": "y0",
+    "q2": "y0",
+    "q3": "y1",
+    "q4": "y1"
+  },
+  "types": {
+    "q1": "theta",
+    "q2": "theta",
+    "q3": "theta",
+    "q4": "theta"
+  },
+  "step": {
+    "q1": {
+      "a": "q3",
+      "b": "q1"
+    },
+    "q2": {
+      "a": "q4",
+      "b": "q2"
+    },
+    "q3": {
+      "a": "q3",
+      "b": "q1"
+    },
+    "q4": {
+      "a": "q4",
+      "b": "q2"
+    }
+  },
+  "identity_authorization": "NOT_IN_SCOPE",
+  "future_sufficiency": "NOT_IN_SCOPE",
+  "cross_regime_comparison": "NOT_IN_SCOPE"
+}

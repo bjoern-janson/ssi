@@ -1,0 +1,85 @@
+{
+  "status_snapshot": "2026-08-16",
+  "object": "SSI-PHASE-V-SEMANTIC-EQUIVALENCE",
+  "phase_v_boundary": "DEMONSTRATED_IN_FROZEN_SYNTHETIC_FORMAL_SCOPE",
+  "operational_signature": [
+    "receive",
+    "scope",
+    "audit",
+    "use",
+    "stop"
+  ],
+  "registries": {
+    "constituted_equivalence_regimes": [
+      "DETERMINISTIC_MOORE_COALGEBRAIC_BEHAVIOR"
+    ],
+    "audited_equivalence_regimes": [
+      "DETERMINISTIC_MOORE_COALGEBRAIC_BEHAVIOR"
+    ],
+    "constituted_identity_regimes": [],
+    "audited_identity_regimes": []
+  },
+  "behavioral_regime": {
+    "object_class": "SEMANTIC_EQUIVALENCE_REGIME",
+    "regime": "DETERMINISTIC_MOORE_COALGEBRAIC_BEHAVIOR",
+    "purpose": "FINITE_INPUT_OBSERVATIONAL_BEHAVIOR",
+    "presentation_sort": "Q",
+    "denotation_sort": "(Theta x Y)^(U*)",
+    "external_provenance": "CONSTITUTED_FOR_SCOPED_USE",
+    "semantic_equivalence": "CONSTITUTED",
+    "congruence_scope": "VERIFIED",
+    "identity_role": "NOT_IN_SCOPE",
+    "identity_regime_membership": "NOT_AUTHORIZED",
+    "future_sufficiency": "NOT_IN_SCOPE"
+  },
+  "e2a_audit": {
+    "object": "SEMANTIC_EQUIVALENCE_REGIME_AUDIT/E2-A/MOORE_BEHAVIOR",
+    "terminal_status": "PASS",
+    "behavioral_partition": [
+      [
+        "q1",
+        "q2"
+      ],
+      [
+        "q3",
+        "q4"
+      ]
+    ],
+    "behavioral_equivalence_equals_immediate_output_equivalence": true,
+    "partition_refinement_rounds_beyond_output_partition": 0,
+    "u_star_closure": "VERIFIED_BY_ONE_STEP_CONGRUENCE_INDUCTION",
+    "identity_authorization": "NOT_IN_SCOPE",
+    "future_sufficiency": "NOT_IN_SCOPE",
+    "cross_regime_comparison": "NOT_IN_SCOPE"
+  },
+  "cross_regime_gate": {
+    "status": "DEFINED_NOT_EXECUTED",
+    "requirements": [
+      "PURPOSE_OR_PROPOSITION_COMPATIBILITY",
+      "CONSTITUTED_CARRIER_ALIGNMENT",
+      "RELATION_AND_OPERATION_TYPING_COMPATIBILITY",
+      "TARGET_INDEPENDENT_TRANSPORT"
+    ],
+    "failure_status": "JURISDICTIONAL_DIVERGENCE",
+    "anti_leak": "UNLICENSED_ALIGNMENT_DOES_NOT_AUTHORIZE_CROSS_REGIME_COMPARISON"
+  },
+  "permanent_principles": [
+    "AN_EQUIVALENCE_RELATION_CARRIES_AUTHORITY_ONLY_WITH_THE_JURISDICTION_THAT_CONSTITUTED_IT",
+    "EQUALITY_OF_DENOTATIONS_BELONGS_FIRST_TO_THE_DENOTATION_DOMAIN",
+    "SEMANTIC_EQUIVALENCE_DOES_NOT_IMPLY_PRESENTATION_IDENTITY",
+    "CONGRUENCE_DOES_NOT_IMPLY_FUTURE_SUFFICIENCY",
+    "NO_DOWNSTREAM_CONVENIENCE_MAY_CREATE_UPSTREAM_SEMANTIC_AUTHORITY"
+  ],
+  "next_transition": "NONE_OWED_REQUIRES_GENUINELY_NEW_INDEPENDENTLY_CONSTITUTED_OBJECT_OR_CHALLENGE",
+  "artifacts": {
+    "E2A_WORLD.json": {
+      "sha256": "40631f87972439dbff9a442375b10c767ea9b04191692c401ffb990b3e668021"
+    },
+    "verify_moore_behavior.py": {
+      "sha256": "641f72ded761448d11318eb99f7f00788b9c0458b2ac4d28f8d8232771560029"
+    },
+    "E2A_MOORE_BEHAVIOR_RESULT.json": {
+      "sha256": "55624bce2ad25c2800a42f40b29f0aa6b7b8fbcd50a32770a32b0637b0837cc5"
+    }
+  }
+}
