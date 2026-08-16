@@ -1,0 +1,113 @@
+{
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/FIRST_FIDELITY_AUDIT_LEDGER",
+  "first_run": {
+    "head_sha": "4683285698dc36941ebf2a081080825fd1247842",
+    "run_id": 31954003742,
+    "job_id": 95181711422,
+    "artifact_id": 9265432313,
+    "artifact_zip_sha256": "4e7c3e0a2fc0a96b95c992d4cd3fc15e2a647d57da20f4de73a7083285b5621e",
+    "raw_result_bytes": 28927,
+    "raw_result_sha256": "7c942655936a7c0b336051e0d27a005d07e17114b94546e5bbc46abf7220db01",
+    "preserved_gzip_bytes": 2092,
+    "preserved_gzip_sha256": "9eb71f375c7a394cef3d7f551fae390c800c4d324eb7b7fc42ed1ae417d87f6b"
+  },
+  "frozen_inputs": {
+    "source_freeze_merge": "722f2a1be4d2a3d2200d4cbc2b3ec7dc94728d79",
+    "compiler_freeze_merge": "7c419d970eb8235e4352c3f38ac23c8c0c1e6d0f",
+    "source_manifest_sha256": "27e5d9675453f36289bee9af8fc020655c9874799905bdac3a2ea700d6207345",
+    "compiler_manifest_sha256": "de904002f50199349af1d678eb161237ac61149e03c79c7fe24146a0f0fe03c1",
+    "ir_sha256": "f551d61884dd26e110e6d2af71a8a911fc5abc812282b974dab0b4b4fe7717d9"
+  },
+  "prospective_status": "K0_COMPILER_AUDIT_STRONG_PASS",
+  "baseline": {
+    "A_comp": 1.0,
+    "representable": 24,
+    "total": 24,
+    "TP": 12,
+    "TN": 12,
+    "compilation_overreach": 0,
+    "compilation_loss": 0,
+    "judgment_accuracy": 1.0,
+    "distinction_loss": [],
+    "rule_units": 37,
+    "rule_units_recovered": 37,
+    "rule_ancestry_accuracy": 1.0,
+    "evidence_units": 21,
+    "evidence_units_recovered": 21,
+    "lineage_recovery_rate": 1.0,
+    "lineage_topology_mismatch": 0,
+    "lineage_rule_ancestry_mismatch": 0,
+    "lineage_fabrication": 0
+  },
+  "mutation_sensitivity": {
+    "caught": 6,
+    "total": 6,
+    "all_expected_detections_satisfied": true,
+    "results": [
+      {
+        "id": "MUT-001",
+        "name": "ERASE_CONTEXT_INFORMATION",
+        "judgment_accuracy": 0.625,
+        "compilation_overreach": 0,
+        "compilation_loss": 9,
+        "distinction_loss": ["DIST-001", "DIST-003", "DIST-004", "DIST-007", "DIST-008"],
+        "expected_detection_satisfied": true
+      },
+      {
+        "id": "MUT-002",
+        "name": "MERGE_DISTINCT_TYPES",
+        "judgment_accuracy": 0.625,
+        "compilation_overreach": 9,
+        "compilation_loss": 0,
+        "distinction_loss": ["DIST-002", "DIST-004", "DIST-005", "DIST-006", "DIST-007", "DIST-008"],
+        "expected_detection_satisfied": true
+      },
+      {
+        "id": "MUT-003",
+        "name": "DROP_APPLICATION_PREMISE",
+        "judgment_accuracy": 0.9166666666666666,
+        "compilation_overreach": 2,
+        "compilation_loss": 0,
+        "distinction_loss": ["DIST-004", "DIST-008"],
+        "expected_detection_satisfied": true
+      },
+      {
+        "id": "MUT-004",
+        "name": "REPLACE_SOURCE_RULE_ANCESTRY",
+        "judgment_accuracy": 1.0,
+        "compilation_overreach": 0,
+        "compilation_loss": 0,
+        "rule_ancestry_mismatch": 2,
+        "lineage_recovery_rate": 0.9655172413793104,
+        "detections": ["LINEAGE_MISMATCH"],
+        "expected_detection_satisfied": true
+      },
+      {
+        "id": "MUT-005",
+        "name": "FABRICATE_JUSTIFICATION_EDGE",
+        "judgment_accuracy": 1.0,
+        "compilation_overreach": 0,
+        "compilation_loss": 0,
+        "lineage_fabrication": 12,
+        "detections": ["LINEAGE_FABRICATION"],
+        "expected_detection_satisfied": true
+      },
+      {
+        "id": "MUT-006",
+        "name": "COLLAPSE_BRANCH_AGREEMENT_DISTINCTION",
+        "judgment_accuracy": 0.9166666666666666,
+        "compilation_overreach": 2,
+        "compilation_loss": 0,
+        "distinction_loss": ["DIST-006"],
+        "expected_detection_satisfied": true
+      }
+    ]
+  },
+  "authority_ceiling": {
+    "K0_source_specific_compiler_conformance_supported": true,
+    "compiler_generalization_established": false,
+    "universal_SSI_IR_adequacy_established": false,
+    "SSI_CALC_external_niche_advantage_established": false,
+    "R1_R11_modified": false
+  }
+}
