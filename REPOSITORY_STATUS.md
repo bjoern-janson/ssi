@@ -1,6 +1,6 @@
 # Repository Status and Navigation
 
-Status snapshot: 2026-08-15.
+Status snapshot: 2026-08-16.
 
 This file is a **navigation and authority map**, not a scientific artifact. It does not override frozen benchmark bytes, authorization certificates, preregistrations, or preserved negative results. If a summary here conflicts with a content-addressed scientific object, the scientific object governs.
 
@@ -12,7 +12,8 @@ The repository intentionally contains several kinds of material:
 2. **preserved scientific lineage** — failed, rejected, superseded, and authorized benchmark states retained for provenance;
 3. **active prospective experiment** — VFA-0.2 Packet 7, frozen and authorized but not yet realized;
 4. **post-authorization interpretation/theory** — blind outcome adjudication and Future-Safe Option Structure, explicitly outside Packet 7;
-5. **parallel research tracks** — archival recovery, A1 statehood work, energy experiments, and competition work that do not automatically inherit authority from VFA.
+5. **jurisdiction-falsification work** — one failed executed S0 lineage plus a separate semantic-constitution lineage whose current frontier is V8 identity constitution;
+6. **parallel research tracks** — archival recovery, A1 statehood work, energy experiments, and competition work that do not automatically inherit authority from VFA or jurisdiction falsification.
 
 The repository should therefore not be read as "latest filename wins." Scientific authority is local to an explicitly identified lineage and object.
 
@@ -98,6 +99,66 @@ Interpretation:
 
 Do not squash this stack merely to reduce PR count. The intermediate failures are part of the evidence chain.
 
+## SSI jurisdiction falsification and semantic constitution
+
+This is a separate scientific lineage from Packet 7 and CUHK-X.
+
+### S0 Lineage 1 — preserved executed failure
+
+PR #18 (`agent/ssi-jurisdiction-falsification-s0`) froze and executed `SSI-JURISDICTION-FALSIFICATION/S0`.
+
+Terminal result:
+
+```text
+constitution = 8/11
+fresh        = 38/48
+S0_VALID     = false
+terminal     = OPERATIONALIZATION_INADEQUATE
+Stage 1      = NONE_STOP
+```
+
+The failure is specifically an `R/L` identification confound: the frozen leverage rule was conditional on reachability, so `R↓` forced the assay to report both `R=0` and `L=0` even when leverage itself was intact.
+
+This is an **assay operationalization failure**, not support or falsification of the SSI kernel. PR #18 remains failed and must not be repaired in place.
+
+### S0 Lineage 2 — semantic layer before measurement
+
+The successor work moved upstream and asks whether the intended `D, R, L_cap, I_cap` target can be semantically constituted before an observation operator is allowed to exist.
+
+The full handoff is:
+
+- [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md)
+
+Current state:
+
+```text
+V1 = FAILED_STATIC_CLOSURE
+V2 = CLOSED -> SEMANTICALLY_REJECTED
+V3 = FAILED_STATIC_CLOSURE
+V4 = CLOSED -> SEMANTICALLY_REJECTED
+V5 = CLOSED -> SEMANTICALLY_REJECTED
+V6 = FAILED_STATIC_CLOSURE
+V7 = CLOSED -> SEMANTICALLY_REJECTED
+V8 = NOT_YET_CONSTITUTED
+O = UNDEFINED
+ASSAY = UNDEFINED
+```
+
+Current frontier:
+
+> **What independently makes a relation among licensed inputs part of the identity of the composed semantic object?**
+
+The semantic lineage enforces the permanent distinction:
+
+```text
+formal closure
+    != semantic adequacy
+    != observational identifiability
+    != executed assay validity
+```
+
+No successor should build a second assay or observation operator until V8 identity constitution has itself passed static closure and hostile semantic attack.
+
 ## Other repository tracks
 
 These tracks are scientifically separate unless a later artifact explicitly establishes a bridge:
@@ -105,7 +166,8 @@ These tracks are scientifically separate unless a later artifact explicitly esta
 - **PR #2 — V0.x archival preservation.** Preserves recovered frozen artifacts separately from the VFA stack; one manifest-listed runner remains explicitly unreconstructed.
 - **PR #7 — A1 corrective-statehood preregistration.** Separate state-sufficiency experiment; it does not inherit VFA execution authority.
 - **PR #4 — energy suite.** Merged isolated energy/computation lineage. Its evidence cannot retroactively redefine SSI core theory or VFA.
-- **PR #8 / #10 — CUHK-X competition work.** Historical/closed competition branches; not part of the VFA causal chain.
+- **PR #8 / #10 — historical CUHK-X branches.** Historical/closed provenance, not current VFA or SSI-jurisdiction authority.
+- **PR #14–#20 — current CUHK-X competitive/diagnostic lineages.** Separate competition work. Competitive results do not acquire SSI scientific authority automatically.
 
 Because several tracks branch independently from `main`, a single branch is not necessarily the union of every repository experiment.
 
@@ -120,7 +182,9 @@ The following may look redundant but are **provenance-bearing** and should not b
 - Packet 1-6 candidates and rejection evidence;
 - failed and repaired predicate-I attack fixtures;
 - freeze anchors and content-addressed manifests;
-- exact files named in Packet 7.
+- exact files named in Packet 7;
+- PR #18 Stage-0 failure artifacts;
+- semantic-contract versions and hostile/static failure witnesses once they are materialized into the semantic Lineage 2 ledger.
 
 In particular, the crowded `empirical/benchmark_v0_2_quotient/construction/` directory is an append-only scientific lineage more than a conventional software package.
 
@@ -128,14 +192,34 @@ In particular, the crowded `empirical/benchmark_v0_2_quotient/construction/` dir
 
 For a fast but correct pass through the repository:
 
-1. `README.md` — program thesis and current empirical boundary.
-2. `ARCHITECTURE.md` — core state/authority architecture.
-3. `retrospective/LOCALIZATION_CALCULUS.md` — V0.x localization grammar.
-4. `benchmarks/V0X_LINEAGE.md` — closed synthetic benchmark lineage.
-5. `empirical/README.md` — empirical lineage index.
-6. `empirical/benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json` — current VFA authority state.
-7. `research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json` — blind post-shot interpretation tree.
-8. `theory/FUTURE_SAFE_OPTION_STRUCTURE.md` — current theory extension outside the authorized shot.
+1. `README.md` — program thesis and current empirical/semantic boundaries.
+2. `REPOSITORY_STATUS.md` — authority map and branch/track routing.
+3. `ARCHITECTURE.md` — core state/authority architecture.
+4. `research/semantic_constitution/README.md` — current jurisdiction-falsification semantic frontier and exact takeover instructions.
+5. `retrospective/LOCALIZATION_CALCULUS.md` — V0.x localization grammar.
+6. `benchmarks/V0X_LINEAGE.md` — closed synthetic benchmark lineage.
+7. `empirical/README.md` — empirical lineage index.
+8. `empirical/benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json` — current VFA authority state.
+9. `research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json` — blind post-shot interpretation tree.
+10. `theory/FUTURE_SAFE_OPTION_STRUCTURE.md` — current theory extension outside the authorized shot.
+
+## Takeover rule
+
+A new researcher should first determine **which lineage they are entering** before changing anything.
+
+For the current semantic frontier:
+
+```text
+read PR #18 failure
+    -> read research/semantic_constitution/README.md
+    -> preserve V1-V7 as failed/rejected provenance
+    -> constitute only the minimal V8 identity candidate
+    -> run static closure first
+    -> hostile semantic attack only if CLOSED
+    -> do not define O or an assay yet
+```
+
+For the prospective VFA experiment, do not modify Packet 7; the next information must come from the frozen external future-obligation process.
 
 ## Cleanup rule
 
