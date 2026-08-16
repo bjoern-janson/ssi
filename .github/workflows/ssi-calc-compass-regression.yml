@@ -1,0 +1,31 @@
+name: SSI-CALC Compass Regression
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'research/ssi_calc/v0_1/checker_orchestrated.py'
+      - 'research/ssi_calc/v0_1/heldout/run_compass_regression.py'
+      - '.github/workflows/ssi-calc-compass-regression.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r research/ssi_calc/v0_1/requirements.txt
+      - name: Run B64 + H24 regression
+        run: python research/ssi_calc/v0_1/heldout/run_compass_regression.py
+      - name: Upload full result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: compass-regression-result
+          path: research/ssi_calc/v0_1/heldout/COMPASS_REGRESSION_RESULT.json
