@@ -59,6 +59,8 @@ $$
 
 Future Sufficiency is about reachable corrective structure, not raw multiplicity.
 
+$\Phi_t$ is a **structural descriptor**, not a primitive scalar "amount of optionality" and not an objective the theory currently licenses maximizing. Any scalar ordering or optimization objective over corrective topology requires additional declared assumptions about admissible futures, costs, and value.
+
 ## 3. Corrective pipeline
 
 The current causal architecture is
@@ -93,6 +95,8 @@ Interpretation:
 8. **$H_{\rm future}$ — future adaptation / correction consequence.** The system later encounters demands not exhausted by its present state.
 
 Upstream success never automatically licenses downstream success.
+
+The separate V8 semantic-constitution lineage is currently investigating whether identity constitution is a prerequisite for constructing or licensing $O$. That question is a **challengeable research frontier**, not yet a promoted replacement for this architecture.
 
 ## 4. Three jurisdictions
 
@@ -250,3 +254,5 @@ The selection operation and the interface supplied to it are therefore themselve
 Operationally:
 
 > **Preserve distinctions until their future consequences are exhausted; grant commitment authority only to the level the evidence identifies.**
+
+This is not a preservation-maximalist rule. It does not authorize retaining arbitrary structure merely because it might matter someday: which distinctions belong to the object's identity, and which future consequences license preservation, must themselves be constituted at the appropriate layer. Gratuitous permanent distinctions are an error just as premature merging is.

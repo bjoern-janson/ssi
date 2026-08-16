@@ -55,6 +55,18 @@ For the reconstructed V1→V8 semantic lineage, failure classes, witnesses, inhe
 
 For the exact branch/PR lineage, authoritative files, frozen hashes, and preservation rules, start with [`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md).
 
+## Interpretive guardrails
+
+Several tempting summaries are stronger than the repository currently earns:
+
+- **Corrective topology is structural, not a primitive scalar amount.** `Φ` and FSO describe reachable corrective structure; the theory does not currently define a universal scalar "amount of optionality" or an objective that should simply be maximized.
+- **SSI is not preservation-maximalist.** More retained distinctions are not automatically better. Premature merging and gratuitous permanent distinctions are symmetric risks; preservation authority depends on the relevant semantic and future-sufficiency conditions being constituted.
+- **Identity constitution is currently upstream of compression only as a research frontier.** V8 asks what makes a relational distinction part of the object's identity before that distinction can be licensed for preservation or compression. This frontier is challengeable and has not been promoted into the core `W -> O -> ...` architecture.
+- **Provenance levels are not interchangeable.** Packet 7 has content-addressed executable provenance. V1→V7 semantic work is presently a reconstructed handoff ledger without equivalent byte-complete checker/witness provenance.
+- **FSO is post-authorization theory, not a validated optimization law.** No universal objective of the form `present utility + future corrective capability` has been constituted. Any scalar option value requires additional declared assumptions about admissible futures, probability/weighting, costs, and utility.
+
+These guardrails are authority ceilings, not new theory objects.
+
 ## Core state object
 
 We represent an adaptive system at time $t$ as
