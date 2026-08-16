@@ -146,6 +146,8 @@ O = UNDEFINED
 ASSAY = UNDEFINED
 ```
 
+All V1→V7 statuses in this block are reconstructed handoff adjudications unless exact source artifacts are later materialized.
+
 Current frontier:
 
 > **What independently makes a relation among licensed inputs part of the identity of the composed semantic object?**
