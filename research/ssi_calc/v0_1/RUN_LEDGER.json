@@ -25,31 +25,15 @@
       "F7_TRANSPORT": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
       "F8_FUTURE": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8}
     },
-    "mismatches": [
-      {
-        "id": "CASE-044",
-        "family": "F6_REGIME",
-        "title": "Admission rule depends on the desired downstream result",
-        "expected": {
-          "status": "REGIME_MISMATCH",
-          "failure_locus": "ADMIT",
-          "preserved_facts": ["f1"],
-          "missing_authority": ["target_independent_admission"],
-          "reopened": []
-        },
-        "observed": {
-          "status": "NOT_IDENTIFIED",
-          "failure_locus": "LICENSE",
-          "rule": "EVALUATOR",
-          "preserved_facts": ["f1"],
-          "missing_authority": ["derivation_not_available_in_R1_R11"],
-          "reopened": [],
-          "explanation": "No R1..R11 derivation or localized refusal applies to the requested edge."
-        },
-        "checks": {"status": false, "locus": false, "preserved": true, "missing": false, "reopened": true},
-        "case_sha256": "35d85805219a912f0d84c450bec25c06935d5420d91ba6647fa3f3d01378f51a"
-      }
-    ]
+    "mismatches": [{
+      "id": "CASE-044",
+      "family": "F6_REGIME",
+      "title": "Admission rule depends on the desired downstream result",
+      "expected": {"status": "REGIME_MISMATCH", "failure_locus": "ADMIT", "preserved_facts": ["f1"], "missing_authority": ["target_independent_admission"], "reopened": []},
+      "observed": {"status": "NOT_IDENTIFIED", "failure_locus": "LICENSE", "rule": "EVALUATOR", "preserved_facts": ["f1"], "missing_authority": ["derivation_not_available_in_R1_R11"], "reopened": [], "explanation": "No R1..R11 derivation or localized refusal applies to the requested edge."},
+      "checks": {"status": false, "locus": false, "preserved": true, "missing": false, "reopened": true},
+      "case_sha256": "35d85805219a912f0d84c450bec25c06935d5420d91ba6647fa3f3d01378f51a"
+    }]
   },
   "failure_classification": {
     "case": "CASE-044",
@@ -59,14 +43,7 @@
     "minimal_correction": "startswith(desired) -> contains(desired)"
   },
   "regression_run": {
-    "metrics": {
-      "status_accuracy": 1.0,
-      "locus_accuracy": 1.0,
-      "preserved_accuracy": 1.0,
-      "missing_accuracy": 1.0,
-      "reopened_accuracy": 1.0,
-      "exact_certificate_accuracy": 1.0
-    },
+    "metrics": {"status_accuracy": 1.0, "locus_accuracy": 1.0, "preserved_accuracy": 1.0, "missing_accuracy": 1.0, "reopened_accuracy": 1.0, "exact_certificate_accuracy": 1.0},
     "family_metrics": {
       "F1_ORACLE": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
       "F2_SUBSTITUTION": {"total": 8, "status": 8, "locus": 8, "preserved": 8, "missing": 8, "reopened": 8, "exact": 8},
@@ -81,10 +58,10 @@
   },
   "authority_ceiling": "INTERNAL_FROZEN_CONTRACT_PASS_NOT_COMPETITIVE_VALIDATION",
   "artifacts": {
-    "checker.py": {"sha256": "0c4631056a9a3d263e28ecc5b651ba6e6d5dc59bab021e898fc217077d61785c", "bytes": 14963},
-    "run_benchmark.py": {"sha256": "2b6e6b45b74703f62b6939dcb5cab5edee89dbf4f83ceb27ff3284fdb3499a93", "bytes": 3494},
-    "requirements.txt": {"sha256": "48bdd1a500202e6cd681cb6e978b2c525ce9fb262013f8ff4a9bd2bb46419130", "bytes": 20},
-    "REFERENCE_CHECKER.md": {"sha256": "1689df940ac0ee117d81bf22d9caec399a554ff43c0552a707e78d770a76b3f6", "bytes": 4722}
+    "checker.py": {"sha256": "ec47dcda390a282351679737c23644e129f6ed278663225826036a9d53aa4b17", "git_blob_sha": "cb9d62b3c92a9e493115db43617fc2ebeb3e3402", "bytes": 14907},
+    "run_benchmark.py": {"sha256": "2b6e6b45b74703f62b6939dcb5cab5edee89dbf4f83ceb27ff3284fdb3499a93", "git_blob_sha": "cc5ca9ee4f4de0c904d3a48587ffeb3d73ee2dce", "bytes": 3494},
+    "requirements.txt": {"sha256": "48bdd1a500202e6cd681cb6e978b2c525ce9fb262013f8ff4a9bd2bb46419130", "git_blob_sha": "ec38a0f6375f4015e96264d325fbd20cc27004d6", "bytes": 20},
+    "REFERENCE_CHECKER.md": {"sha256": "8e4a8d3757f9b401197016d76d63ff7a18fc60bb5b6e6a96d2e0ec1716b6a05e", "git_blob_sha": "0be63ce82fcb43e33eab152e86a8ce26b155cd65", "bytes": 4716}
   },
   "current_regression_result_sha256": "2eb0cc6836cf6c4c2225a1287a1af65c740eda7a82ecc5969f4b7759a9814e94"
 }
