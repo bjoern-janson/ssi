@@ -8,6 +8,7 @@ pre-merge contract through the production emission/binding functions.
 """
 from __future__ import annotations
 
+import base64
 import gzip
 import hashlib
 import json
@@ -22,7 +23,7 @@ from semantic_certificate import (
 
 HERE = Path(__file__).resolve().parent
 K1_EVALUATOR = HERE.parent / "compiler" / "ir_evaluator.py"
-FIXTURE = HERE / "R3_REGRESSION_FIXTURE.json.gz"
+FIXTURE = HERE / "R3_REGRESSION_FIXTURE.json.gz.b64"
 
 
 def hfile(path: Path) -> str:
@@ -30,8 +31,8 @@ def hfile(path: Path) -> str:
 
 
 def main():
-    with gzip.open(FIXTURE, "rt") as fh:
-        fx = json.load(fh)
+    fixture_bytes = base64.b64decode(FIXTURE.read_text())
+    fx = json.loads(gzip.decompress(fixture_bytes).decode())
 
     # Hard freeze: this patch is not permitted to repair the runtime execution engine.
     assert hfile(K1_EVALUATOR) == fx["runtime_evaluator_sha256"]
