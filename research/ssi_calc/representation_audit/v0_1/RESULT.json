@@ -1,0 +1,24 @@
+{
+  "object": "SSI_CALC_REPRESENTATION_AUDIT_V0.1/BENCHMARK_RESULT_01",
+  "passed": 16,
+  "rows": [
+    {"actual":"REPRESENTATION_SUFFICIENT","collision_count":0,"expected":"REPRESENTATION_SUFFICIENT","family":"SUFFICIENCY","id":"RA-001","passed":true,"reason":"FINITE_KERNEL_CONTAINMENT_ESTABLISHED"},
+    {"actual":"REPRESENTATION_SUFFICIENT","collision_count":0,"expected":"REPRESENTATION_SUFFICIENT","family":"SUFFICIENCY","id":"RA-002","passed":true,"reason":"FINITE_KERNEL_CONTAINMENT_ESTABLISHED"},
+    {"actual":"AUTHORIZED_DISTINCTION_LOST","collision_count":1,"expected":"AUTHORIZED_DISTINCTION_LOST","family":"SUFFICIENCY","id":"RA-003","passed":true,"reason":"KERNEL_CONTAINMENT_VIOLATED"},
+    {"actual":"REPRESENTATION_NOT_IDENTIFIED","collision_count":0,"expected":"REPRESENTATION_NOT_IDENTIFIED","family":"SUFFICIENCY","id":"RA-004","passed":true,"reason":"AUDIT_DOMAIN_INCOMPLETE"},
+    {"actual":"REPRESENTATION_SUFFICIENT","collision_count":0,"expected":"REPRESENTATION_SUFFICIENT","family":"PURPOSE_INDEXING","id":"RA-005","passed":true,"reason":"FINITE_KERNEL_CONTAINMENT_ESTABLISHED"},
+    {"actual":"AUTHORIZED_DISTINCTION_LOST","collision_count":1,"expected":"AUTHORIZED_DISTINCTION_LOST","family":"PURPOSE_INDEXING","id":"RA-006","passed":true,"reason":"KERNEL_CONTAINMENT_VIOLATED"},
+    {"actual":"REPRESENTATION_NOT_IDENTIFIED","collision_count":0,"expected":"REPRESENTATION_NOT_IDENTIFIED","family":"PURPOSE_INDEXING","id":"RA-007","passed":true,"reason":"AUDIT_DOMAIN_INCOMPLETE"},
+    {"actual":"REPRESENTATION_SUFFICIENT","collision_count":0,"expected":"REPRESENTATION_SUFFICIENT","family":"MASKING","id":"RA-008","passed":true,"reason":"FINITE_KERNEL_CONTAINMENT_ESTABLISHED"},
+    {"actual":"AUTHORIZED_DISTINCTION_LOST","collision_count":1,"expected":"AUTHORIZED_DISTINCTION_LOST","family":"MASKING","id":"RA-009","passed":true,"reason":"KERNEL_CONTAINMENT_VIOLATED"},
+    {"actual":"REPRESENTATION_NOT_IDENTIFIED","collision_count":0,"expected":"REPRESENTATION_NOT_IDENTIFIED","family":"MASKING","id":"RA-010","passed":true,"reason":"AUDIT_DOMAIN_INCOMPLETE"},
+    {"actual":"REPRESENTATION_NOT_IDENTIFIED","collision_count":0,"expected":"REPRESENTATION_NOT_IDENTIFIED","family":"TYPING","id":"RA-011","passed":true,"reason":"PURPOSE_NOT_BOUND"},
+    {"actual":"REPRESENTATION_NOT_IDENTIFIED","collision_count":0,"expected":"REPRESENTATION_NOT_IDENTIFIED","family":"TYPING","id":"RA-012","passed":true,"reason":"OBSERVABLE_NOT_CONSTITUTED"},
+    {"actual":"REPRESENTATION_NOT_IDENTIFIED","collision_count":0,"expected":"REPRESENTATION_NOT_IDENTIFIED","family":"TYPING","id":"RA-013","passed":true,"reason":"REPRESENTATION_VALUE_MISSING"},
+    {"actual":"REPRESENTATION_NOT_IDENTIFIED","collision_count":0,"expected":"REPRESENTATION_NOT_IDENTIFIED","family":"TYPING","id":"RA-014","passed":true,"reason":"OPERATION_NOT_IMPLEMENTED"},
+    {"actual":"AUTHORIZED_DISTINCTION_LOST","collision_count":1,"expected":"AUTHORIZED_DISTINCTION_LOST","family":"SUFFICIENCY","id":"RA-015","passed":true,"reason":"KERNEL_CONTAINMENT_VIOLATED"},
+    {"actual":"REPRESENTATION_NOT_IDENTIFIED","collision_count":0,"expected":"REPRESENTATION_NOT_IDENTIFIED","family":"TYPING","id":"RA-016","passed":true,"reason":"MASK_NOT_BOUND"}
+  ],
+  "status": "PASS",
+  "total": 16
+}
