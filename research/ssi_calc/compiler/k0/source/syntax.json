@@ -1,0 +1,58 @@
+{
+  "context": "finite mapping string -> type; abstraction extends/shadows at parameter name",
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/SYNTAX",
+  "terms": {
+    "Abs": {
+      "fields": [
+        "param",
+        "param_type",
+        "body"
+      ],
+      "tag": "Abs"
+    },
+    "App": {
+      "fields": [
+        "fn",
+        "arg"
+      ],
+      "tag": "App"
+    },
+    "False": {
+      "external_name": "fls",
+      "fields": [],
+      "tag": "False"
+    },
+    "If": {
+      "external_name": "test",
+      "fields": [
+        "cond",
+        "then",
+        "else"
+      ],
+      "tag": "If"
+    },
+    "True": {
+      "external_name": "tru",
+      "fields": [],
+      "tag": "True"
+    },
+    "Var": {
+      "fields": [
+        "name"
+      ],
+      "tag": "Var"
+    }
+  },
+  "types": {
+    "Arrow": {
+      "fields": [
+        "from",
+        "to"
+      ],
+      "tag": "Arrow"
+    },
+    "Bool": {
+      "tag": "Bool"
+    }
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "distinctions": [
+    {
+      "description": "A variable judgment depends on a matching binding in Gamma.",
+      "id": "DIST-001",
+      "name": "CONTEXT_MEMBERSHIP",
+      "witness_cases": [
+        "CASE-003",
+        "CASE-013"
+      ]
+    },
+    {
+      "description": "Bool and Arrow types are not interchangeable.",
+      "id": "DIST-002",
+      "name": "BOOL_VS_ARROW",
+      "witness_cases": [
+        "CASE-001",
+        "CASE-015"
+      ]
+    },
+    {
+      "description": "The function position of application must synthesize an Arrow type.",
+      "id": "DIST-003",
+      "name": "APPLICATION_REQUIRES_ARROW",
+      "witness_cases": [
+        "CASE-004",
+        "CASE-016",
+        "CASE-020"
+      ]
+    },
+    {
+      "description": "The argument type must equal the function Arrow domain.",
+      "id": "DIST-004",
+      "name": "APPLICATION_DOMAIN_MATCH",
+      "witness_cases": [
+        "CASE-004",
+        "CASE-017",
+        "CASE-021"
+      ]
+    },
+    {
+      "description": "Conditional guard must have Bool type.",
+      "id": "DIST-005",
+      "name": "IF_GUARD_BOOL",
+      "witness_cases": [
+        "CASE-007",
+        "CASE-018"
+      ]
+    },
+    {
+      "description": "Both conditional branches must have the same result type.",
+      "id": "DIST-006",
+      "name": "IF_BRANCH_AGREEMENT",
+      "witness_cases": [
+        "CASE-007",
+        "CASE-019",
+        "CASE-024"
+      ]
+    },
+    {
+      "description": "Abstraction extends Gamma and shadows an outer binding with the same name.",
+      "id": "DIST-007",
+      "name": "SCOPE_SENSITIVE_CONTEXT_EXTENSION",
+      "witness_cases": [
+        "CASE-005",
+        "CASE-011",
+        "CASE-022"
+      ]
+    },
+    {
+      "description": "Arrow domain and codomain are ordered and have different roles in application.",
+      "id": "DIST-008",
+      "name": "ARROW_DOMAIN_CODOMAIN_DIRECTION",
+      "witness_cases": [
+        "CASE-012",
+        "CASE-023"
+      ]
+    }
+  ],
+  "frozen_before_compiler": true,
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/DISTINCTIONS"
+}

@@ -1,0 +1,19 @@
+{
+  "external_source": {
+    "accessed_utc": "2026-08-16",
+    "selected_scope": "Bool + Arrow STLC syntax and typing relation",
+    "title": "Software Foundations \u2014 Programming Language Foundations 5.6 \u2014 Stlc: The Simply Typed Lambda-Calculus",
+    "url": "https://softwarefoundations.cis.upenn.edu/plf-5.6/Stlc.html",
+    "version": "PLF 5.6"
+  },
+  "normative_rule_names": [
+    "T_Var",
+    "T_Abs",
+    "T_App",
+    "T_Tru",
+    "T_Fls",
+    "T_Test"
+  ],
+  "note": "Negative diagnostic witness codes are K0 constitution artifacts layered on the external positive typing relation.",
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/SOURCE_REF"
+}
