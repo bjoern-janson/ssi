@@ -1,0 +1,22 @@
+name: K0 Source Freeze Verify
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'research/ssi_calc/compiler/k0/source/**'
+      - '.github/workflows/k0-source-freeze-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-source-freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify frozen source hashes and source semantics only
+        run: python research/ssi_calc/compiler/k0/source/verify_source_freeze.py
