@@ -121,18 +121,20 @@ The failure is specifically an `R/L` identification confound: the frozen leverag
 
 This is an **assay operationalization failure**, not support or falsification of the SSI kernel. PR #18 remains failed and must not be repaired in place.
 
-### S0 Lineage 2 — semantic layer before measurement
+### Jurisdiction Lineage 2 — semantic constitution before measurement
 
-The successor work moved upstream and asks whether the intended `D, R, L_cap, I_cap` target can be semantically constituted before an observation operator is allowed to exist.
+The successor work moved upstream and asks whether the intended `D, R, L_cap, I_cap` target can be semantically constituted before an observation operator is allowed to exist. This is **not yet a second S0 assay**; `S0-2` should be reserved for an actual later assay object if one is eventually constituted.
 
 The full handoff is:
 
 - [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md)
 
-Current state:
+The V1→V7 entries in that handoff are currently **reconstructed research provenance**. Exact contract/checker/witness artifacts have not yet been materialized in the repository, so they should not be treated as byte-addressable execution evidence.
+
+Current handoff state:
 
 ```text
-V1 = FAILED_STATIC_CLOSURE
+V1 = FAILED_STATIC_CLOSURE          # reconstructed adjudication
 V2 = CLOSED -> SEMANTICALLY_REJECTED
 V3 = FAILED_STATIC_CLOSURE
 V4 = CLOSED -> SEMANTICALLY_REJECTED
@@ -148,6 +150,8 @@ Current frontier:
 
 > **What independently makes a relation among licensed inputs part of the identity of the composed semantic object?**
 
+This is the **current best-localized frontier, not an untouchable premise**. A successor may reopen a shallower layer if independent analysis falsifies an inherited assumption.
+
 The semantic lineage enforces the permanent distinction:
 
 ```text
@@ -157,7 +161,7 @@ formal closure
     != executed assay validity
 ```
 
-No successor should build a second assay or observation operator until V8 identity constitution has itself passed static closure and hostile semantic attack.
+Under the current frontier, no successor should build a second assay or observation operator until V8 identity constitution has itself passed static closure and hostile semantic attack.
 
 ## Other repository tracks
 
@@ -212,12 +216,15 @@ For the current semantic frontier:
 ```text
 read PR #18 failure
     -> read research/semantic_constitution/README.md
-    -> preserve V1-V7 as failed/rejected provenance
-    -> constitute only the minimal V8 identity candidate
-    -> run static closure first
+    -> treat V1-V7 as reconstructed handoff provenance unless exact artifacts are later materialized
+    -> independently challenge the current frontier if warranted
+    -> otherwise constitute only the minimal V8 identity candidate
+    -> run and bind an explicit static-closure procedure first
     -> hostile semantic attack only if CLOSED
     -> do not define O or an assay yet
 ```
+
+The current repository does **not** contain an executable semantic static checker. Future closure adjudications must state and bind the exact manual/declarative or executable procedure used.
 
 For the prospective VFA experiment, do not modify Packet 7; the next information must come from the frozen external future-obligation process.
 
