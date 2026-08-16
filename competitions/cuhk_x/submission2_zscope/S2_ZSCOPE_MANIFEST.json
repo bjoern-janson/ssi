@@ -1,0 +1,32 @@
+{
+  "submission_id": "CUHKX_SUBMISSION_2_Z_SCOPE_EXTERNAL_DIAGNOSTIC",
+  "state": "PACKAGE_FROZEN_LOCAL_GENERATION_REQUIRES_OFFICIAL_INPUTS",
+  "base_main": "7bec11badfbd51117ec942819e4c7dc15647c360",
+  "parent_submission": "CUHKX_SUBMISSION_1_V7_ROUTER",
+  "parent_s1_script_sha256": "38152a54acde3e5241a15ab03d364e8f08164b7ae81ece86738ae45ebe2e594f",
+  "main_script": "cuhkx_submission2_zscope.py",
+  "main_script_sha256": "16533abbd43781c898e0a9488844ae1fb16c32eb29fa70416c4f481aa73fe781",
+  "package_sha256": "ffb9e912f632d3406cba07d2727d6f457d58416493ff777edc0fa44435eff318",
+  "expected_output": "cuhkx_submission2_zscope.csv",
+  "expected_rows": 682,
+  "columns": ["qa_id", "prediction"],
+  "changed_scope": ["HAU/emotion", "HAU/single", "HAU/combination"],
+  "unchanged_scope": ["HAU/multi", "HAU/sequence", "HARn/single", "HARn/object_interaction"],
+  "historical_motivation": {
+    "AIM3_status": "Z_CLOSED",
+    "response_signature_approx": [0.02163, 0.01781, 0.02461],
+    "test_weighted_mass_approx": 0.01334,
+    "authority": "motivation_only_not_support"
+  },
+  "authority_firewall": {
+    "P1": "NONE",
+    "Packet7": "NONE",
+    "AIM3_gate_reversal": false,
+    "leaderboard_role": "external_transfer_diagnostic"
+  },
+  "library_path": "/CUHK-X/Submission2/cuhkx_submission2_zscope_package.zip",
+  "runtime_here": {
+    "static_audit": "PASS",
+    "precheck": "BLOCKED_MISSING_OFFICIAL_LARGE_INPUTS"
+  }
+}
