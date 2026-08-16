@@ -1,0 +1,24 @@
+{
+  "object": "K1-CROSS-REGIME-COMPILER-TRANSFER/AUDIT_EXECUTION_ATTEMPT_01",
+  "workflow_run": 31955428508,
+  "job": 95185233096,
+  "status_at_classification": "IN_PROGRESS_NO_RESULT_EMITTED",
+  "artifact_emitted_at_classification": false,
+  "classification": "OPERATIONALIZATION_INADEQUATE",
+  "failure_locus": "AUDIT_EXECUTION",
+  "mechanism": "RECOMPUTES_FULL_REWRITE_CLOSURE_ONCE_PER_QUERY_FOR_EACH_VARIANT",
+  "evidence_used": "static inspection of the frozen audit runner plus independent runtime-complexity check; no source-vs-IR outcome was observed",
+  "scientific_result_observed": false,
+  "supersession_rule": "Any later output from this already-running attempt is non-authoritative for K1/R2 because the attempt was prospectively superseded before its outcome was observed.",
+  "allowed_revision": "audit harness execution strategy only; compute each frozen variant closure once and reuse it across queries; preserve scoring contract exactly",
+  "immutable": {
+    "selection": true,
+    "R2_source": true,
+    "K1_compiler": true,
+    "IR": true,
+    "mutations": true,
+    "expected_mutation_detections": true,
+    "K0": true,
+    "prospective_thresholds": true
+  }
+}
