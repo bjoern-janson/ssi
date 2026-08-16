@@ -1,0 +1,39 @@
+{
+  "object": "SSI_CALC_V0.1/OBLIGATION_RESOLUTION_REPAIR",
+  "status": "KNOWN_OBLIGATION_RESOLUTION_FAILURES_REPAIRED_NOT_GENERALIZATION",
+  "base_merge": "991a58285d457a7c28215dd2a69c8a55810a2fda",
+  "kernel_rule_count": 11,
+  "rules_added_beyond_R11": 0,
+  "frozen_inputs": {
+    "B64": 64,
+    "H24": 24,
+    "HF16": 16,
+    "HF2_24": 24
+  },
+  "change_surface": [
+    "path-aware obligation resolution",
+    "live sufficient route precedence over inactive alternative routes"
+  ],
+  "earned_invariant": "If a live path already discharges G, an inactive or unresolved alternative path may not veto G unless the obligation is explicitly conjunctive.",
+  "remote_regression": {
+    "run_id": 31951331769,
+    "job_id": 95175129022,
+    "artifact_id": 9264717259,
+    "artifact_digest": "sha256:8dd29d3df67b832a0249b50691e0f2b8daf75674d9ca5be30a5c7e08fe229ca7",
+    "tested_head": "864e4c793109035fc2a5e2f749fd49468e64306d",
+    "B64_exact": "64/64",
+    "H24_exact": "24/24",
+    "HF16_exact": "16/16",
+    "HF2_24_exact": "24/24",
+    "total_exact": "128/128",
+    "overreach_rate": 0.0,
+    "false_refusal_rate": 0.0
+  },
+  "authority_ceiling": {
+    "known_failures_repaired": true,
+    "HF2_24_generalization_authority": "EXHAUSTED_BY_REPAIR_USE",
+    "R12_authorized": false,
+    "generalization_established": false,
+    "niche_advantage_established": false
+  }
+}
