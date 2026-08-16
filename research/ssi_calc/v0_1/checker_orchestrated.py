@@ -47,9 +47,17 @@ def cert(c,status,locus,rule,missing=None,preserved=None,why=''):
 def args_cover(f, values):
     args=set(map(str,f.get('args',[]))); return all(str(v) in args for v in values)
 
+def transfer_label(f):
+    a=list(map(str,f.get('args',[])))
+    return f"{a[0]}_to_{a[1]}" if len(a)>=2 else str(f.get('id','transfer'))
+
 def indirect_answer_lineage(c, source):
-    source=str(source); enc={str(f['args'][0]) for f in c.afs('encodes') if f.get('args')}; parents={}
-    for f in c.afs('derived_from'):
+    source=str(source)
+    # Information-flow lineage may be provenance-only: it is usable to discover
+    # ancestry without thereby acquiring semantic/action authority.
+    enc={str(f['args'][0]) for f in c.fs('encodes') if f.get('args')}
+    parents={}
+    for f in c.fs('derived_from'):
         a=list(map(str,f.get('args',[])))
         if len(a)>=2: parents.setdefault(a[0],[]).append(a[1])
     q=deque([source]); seen={source}
@@ -60,13 +68,13 @@ def indirect_answer_lineage(c, source):
             if p not in seen: seen.add(p); q.append(p)
     return False
 
-def composition_certificate_covers(c, ids):
-    ids=list(map(str,ids))
+def composition_certificate_covers(c, labels, allow_pairwise=False):
+    labels=list(map(str,labels))
     for f in c.afs('compose_chain_compatible'):
-        if not f.get('args') or args_cover(f,ids): return True
-    if len(ids)==2:
+        if not f.get('args') or args_cover(f,labels): return True
+    if allow_pairwise:
         for f in c.afs('compose_compatible'):
-            if not f.get('args') or args_cover(f,ids): return True
+            if not f.get('args') or args_cover(f,labels): return True
     return False
 
 def orchestrate(c):
@@ -85,10 +93,10 @@ def orchestrate(c):
                     return cert(c,'AUTHORIZED_SCOPED','NONE','R5:SUBSTITUTE',why='Exact source-to-target substitution transfer is active.')
                 path=c.transfer_path(src,j)
                 if path and len(path)>1:
-                    ids=[str(f['id']) for f in path]
-                    if composition_certificate_covers(c,ids) and cong:
+                    labels=[transfer_label(f) for f in path]
+                    if composition_certificate_covers(c,labels,allow_pairwise=True) and cong:
                         return cert(c,'AUTHORIZED_SCOPED','NONE','R5:SUBSTITUTE',why='A licensed transfer chain composes into the requested substitution jurisdiction.')
-                    return cert(c,'COMPOSITION_FAILURE','COMPOSE','R9:COMPOSE',[f"composition_certificate({','.join(ids)})"],why='Multi-hop transfer does not compose automatically.')
+                    return cert(c,'COMPOSITION_FAILURE','COMPOSE','R9:COMPOSE',[f"composition_certificate({','.join(labels)})"],why='Multi-hop transfer does not compose automatically.')
                 if c.afs('transfer_rule'):
                     return cert(c,'UNLICENSED_JURISDICTION_TRANSFER','SUBSTITUTE','R5:SUBSTITUTE',[f"{src}_to_{j}_substitution_transfer"],why='A transfer exists, but not to the requested jurisdiction.')
 
@@ -100,11 +108,11 @@ def orchestrate(c):
                 e=edge_by_id[i]; ej=e.get('jurisdiction')
                 if ej!=j and not c.transfer(ej,j): bad.append(i)
             if bad:
-                return cert(c,'COMPOSITION_FAILURE','COMPOSE','R9:COMPOSE',['component_authority_in_requested_jurisdiction'],why='A component edge is not licensed in the requested composition jurisdiction.')
+                return cert(c,'COMPOSITION_FAILURE','COMPOSE','R9:COMPOSE',['jurisdiction_aligned_component_edges'],why='A component edge is not licensed in the requested composition jurisdiction.')
             pairwise=bool(c.afs('compose_compatible')); chain=bool(c.afs('compose_chain_compatible'))
             if len(requested)>2 and pairwise and not chain:
                 return cert(c,'COMPOSITION_FAILURE','COMPOSE','R9:COMPOSE',[f"composition_certificate({','.join(requested)})"],why='Pairwise compatibility does not authorize the whole chain.')
-            if (pairwise or chain) and not composition_certificate_covers(c,requested):
+            if (pairwise or chain) and not composition_certificate_covers(c,requested,allow_pairwise=len(requested)==2):
                 return cert(c,'COMPOSITION_FAILURE','COMPOSE','R9:COMPOSE',[f"composition_certificate({','.join(requested)})"],why='The available certificate does not cover the requested composition.')
 
     if op=='assert_identity':
@@ -149,12 +157,12 @@ def orchestrate(c):
         if c.ahas('non_injective') and c.ahas('well_formed_transport_semantics',j) and c.ahas('operations_commute',j) and c.ahas('target_independent',j):
             return cert(c,'AUTHORIZED_SCOPED','NONE','R7:TRANSPORT',why='Constituted quotient-style semantics licenses this non-injective transport.')
         if c.fs('operations_commute') and not c.ahas('operations_commute'):
-            return cert(c,'NOT_IDENTIFIED','TRANSPORT','R7:TRANSPORT',['active_operations_commute'],why='Withdrawn or unresolved commutation evidence cannot discharge transport.')
+            return cert(c,'NOT_IDENTIFIED','TRANSPORT','R7:TRANSPORT',['active_operations_commutation_certificate'],why='Withdrawn or unresolved commutation evidence cannot discharge transport.')
 
     if op=='consume_quotient' and c.ahas('local_quotient_licensed') and c.fs('future_invariant_under') and not c.ahas('future_invariant_under'):
-        return cert(c,'NOT_IDENTIFIED','PRESERVE','R10:PRESERVE',['active_future_invariant_under'],why='Unresolved future invariance cannot discharge preservation.')
+        return cert(c,'NOT_IDENTIFIED','PRESERVE','R10:PRESERVE',['constituted_future_invariance_proof'],why='Unresolved future invariance cannot discharge preservation.')
     if op=='assert_future_safe' and c.fs('future_distinguishes') and not c.ahas('future_distinguishes'):
-        return cert(c,'NOT_IDENTIFIED','PRESERVE','R10:PRESERVE',['active_future_distinction_evidence'],why='Withdrawn future-distinction evidence cannot establish future unsafety.')
+        return cert(c,'NOT_IDENTIFIED','PRESERVE','R10:PRESERVE',['active_future_distinction_or_preservation_proof'],why='Withdrawn future-distinction evidence cannot establish future unsafety.')
 
     return None
 
