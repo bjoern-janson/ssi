@@ -1,0 +1,51 @@
+{
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/COMPILER_FREEZE_LEDGER",
+  "source_freeze_merge": "722f2a1be4d2a3d2200d4cbc2b3ec7dc94728d79",
+  "source_manifest_sha256": "27e5d9675453f36289bee9af8fc020655c9874799905bdac3a2ea700d6207345",
+  "compiler_manifest_sha256": "de904002f50199349af1d678eb161237ac61149e03c79c7fe24146a0f0fe03c1",
+  "ir_sha256": "f551d61884dd26e110e6d2af71a8a911fc5abc812282b974dab0b4b4fe7717d9",
+  "hostile_mutation_count": 6,
+  "remote_verification_lineage": [
+    {
+      "run": 1,
+      "run_id": 31953710779,
+      "job_id": 95180996000,
+      "conclusion": "FAILURE_BEFORE_AUDIT",
+      "mechanism": "EVALUATOR_COMMENT_BYTE_MISMATCH",
+      "expected_evaluator_sha256": "2a19a84721e0fbc004cb50fd444766b61853961b686e492b7ff9ffbdc34bf07e",
+      "observed_evaluator_sha256": "f57be45bf9d5cf8c237f8e4ef5bc71850e06816e3cf74473404c4bc131d18846",
+      "semantic_change": false,
+      "ir_change": false,
+      "mutation_change": false,
+      "source_change": false,
+      "tasks_executed": false
+    },
+    {
+      "correction_commit": "8a579545f956c61ca86efe7d2453b4a25e24a387",
+      "correction": "Restore an explanatory evaluator comment already included in the frozen compiler manifest.",
+      "semantic_change": false
+    },
+    {
+      "run": 2,
+      "run_id": 31953766289,
+      "job_id": 95181129566,
+      "conclusion": "PASS",
+      "ir_rebuilt_exact": true,
+      "ir_sha256": "f551d61884dd26e110e6d2af71a8a911fc5abc812282b974dab0b4b4fe7717d9",
+      "compiler_manifest_sha256": "de904002f50199349af1d678eb161237ac61149e03c79c7fe24146a0f0fe03c1",
+      "hostile_mutation_count": 6,
+      "source_gold_read": false,
+      "tasks_executed": false,
+      "ssi_calc_R1_R11_modified": false
+    }
+  ],
+  "authority_ceiling": {
+    "deterministic_compiler_artifact_frozen": true,
+    "compiler_fidelity_established": false,
+    "compiler_adequacy_established": false,
+    "distinction_preservation_established": false,
+    "lineage_fidelity_established": false,
+    "compiler_generalization_established": false,
+    "niche_advantage_established": false
+  }
+}
