@@ -8,13 +8,16 @@
     "CASE-119", "CASE-120", "CASE-121", "CASE-122", "CASE-123", "CASE-124"
   ],
   "h24_sha256": "0910569fe786b29f5f1d64c295f8be7f2857ec6447bd2cf3286a336fc121b941",
+  "packed_h24_sha256": "e8239be1c79062fdf4cc43034a4075fed118027d2bf331ead42e571f0c0a45ea",
   "schema_sha256": "9b14274e1bb232daf7dc4eed11f869fb9ed44400b8d682070c23afd41aee12fd",
   "contract_artifacts": {
     "HELDOUT_SPEC.md": "eab02339e28c048b640d0e3dfbd1ba29328eb4c829ed44eb6dd83296075dc3a1",
     "FIREWALL.json": "2131e66e1c547305bfb9947b3ae4084aff016efbdffac19f2b50c7b5ac47e2aa",
     "METRICS.json": "248464183c84d92d7d4f8fa276bced54d2c5025b851ebf2519adbdc9f5e335ea",
-    "BASELINES.md": "087d10ed95f3cce25e79846bd7cae9ddf41fe33bd34b644adf75d6e81d78b0df"
+    "BASELINES.md": "087d10ed95f3cce25e79846bd7cae9ddf41fe33bd34b644adf75d6e81d78b0df",
+    "unpack_h24.py": "069bfdc5683b1da020cdc488b1d7dc41e4ae60e283172d93ac37bf242154b353"
   },
   "freeze_order_respected": true,
-  "mutation_after_first_run": false
+  "mutation_after_first_run": false,
+  "checker_executed_during_freeze": false
 }
