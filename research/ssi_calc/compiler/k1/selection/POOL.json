@@ -1,0 +1,43 @@
+{
+  "object": "K1-CROSS-REGIME-COMPILER-TRANSFER/R2_POOL",
+  "seed_commit": "be08eb4f9f42373b5bf4c2e18e82cd95036d38bc",
+  "eligibility": [
+    "published formal source semantics",
+    "mechanically reproducible judgments or derivations",
+    "nontrivial premise/rule structure",
+    "negative judgments can be constituted without SSI-specific semantics",
+    "task-relevant distinctions can be frozen before compiler construction",
+    "small enough for a source-specific conformance experiment"
+  ],
+  "selection_rule": "For each eligible candidate compute SHA256(seed_commit + '|' + canonical_url); select lexicographically smallest hexadecimal digest. No compiler-compatibility score participates.",
+  "candidates": [
+    {
+      "id": "CAND-K",
+      "class": "configuration_rewrite_operational",
+      "source": "K Framework Lesson 1.13: Basics of K Rewriting",
+      "canonical_url": "https://kframework.org/k-distribution/k-tutorial/1_basic/13_rewrite_rules/",
+      "selection_hash": "fe97615d5d9325aa919de508a80bcab544b2f280a6d4bcdea85f4edac4fcb400"
+    },
+    {
+      "id": "CAND-MAUDE",
+      "class": "rewriting_logic",
+      "source": "Maude Manual 4.2.1 Theories and Deduction",
+      "canonical_url": "https://maude.cs.illinois.edu/maude1/manual/maude-manual-html/maude-manual_62.html",
+      "selection_hash": "595b3cbfb665303d3f71a2a146222309e69168942671b018185b6cbe12a2b0c4"
+    },
+    {
+      "id": "CAND-SF",
+      "class": "small_step_operational",
+      "source": "Software Foundations PLF Smallstep",
+      "canonical_url": "https://softwarefoundations.cis.upenn.edu/plf-current/Smallstep.html",
+      "selection_hash": "7485e7a73e68733135a4efa2c764b833103c62481559d52a72478491a6a46bd6"
+    },
+    {
+      "id": "CAND-ISABELLE",
+      "class": "natural_deduction",
+      "source": "Isabelle Programming and Proving Logic",
+      "canonical_url": "https://isabelle.in.tum.de/library/Doc/Prog_Prove/Logic.html",
+      "selection_hash": "9c8c3268386f1e0e06f6e3244826faa2e286d8aea6247a9dc5ce38727b731122"
+    }
+  ]
+}
