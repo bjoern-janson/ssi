@@ -1,0 +1,104 @@
+{
+  "object": "SSI_CALC_V0.1/LIVE_AUTHORITY_SUBSTRATE_REPAIR",
+  "status": "KNOWN_AUTHORITY_STATE_FAILURES_REPAIRED",
+  "kernel_rule_count": 11,
+  "rules_added_beyond_R11": 0,
+  "frozen_inputs": {
+    "base_analysis_merge": "6e120f053508b17dbf692265ad2d9f2b35d0804d",
+    "B64": "CONTRACT_CONFORMANCE_REGRESSION",
+    "H24": "KNOWN_FAILURE_REGRESSION",
+    "HF16": "KNOWN_FAILURE_REGRESSION_AFTER_REPAIR_EXPOSURE"
+  },
+  "implementation_hypothesis": {
+    "exists": "fact is retained in historical lineage",
+    "live": "fact belongs to the current live-authority projection",
+    "discharges": "live fact or route satisfies the current typed obligation",
+    "invariant": "EXISTS does not imply LIVE; LIVE does not imply DISCHARGES",
+    "change_surface": [
+      "typed_live_authority_projection",
+      "historical_obligation_construction",
+      "generic_typed_bridge_discharge"
+    ]
+  },
+  "runs": [
+    {
+      "ordinal": 1,
+      "github_actions_run": 31950188837,
+      "job": 95172364006,
+      "head_sha": "ee2d7285ce570869a9a32dc42e1c9cb67d1316d2",
+      "result": "EXECUTION_INTERFACE_FAILURE",
+      "diagnosis": "live projection dropped schema-required validation envelope fields before prior validator",
+      "scientific_adjudication": "NO_CASES_EXECUTED"
+    },
+    {
+      "ordinal": 2,
+      "github_actions_run": 31950237124,
+      "job": 95172480845,
+      "artifact": 9264430760,
+      "artifact_digest": "sha256:fedc6465cb422429b97cdbaf4213c27b0a2e093614b053aad868a88042d8062b",
+      "head_sha": "724bf5cb666627cc76fde689363622551e144890",
+      "B64": {
+        "decision_accuracy": 1.0,
+        "exact_certificate_accuracy": 0.9375,
+        "overreach_rate": 0.0,
+        "false_refusal_rate": 0.0,
+        "mismatch_count": 4
+      },
+      "H24": {
+        "decision_accuracy": 1.0,
+        "exact_certificate_accuracy": 0.9166666666666666,
+        "overreach_rate": 0.0,
+        "false_refusal_rate": 0.0,
+        "mismatch_count": 2
+      },
+      "HF16": {
+        "decision_accuracy": 1.0,
+        "exact_certificate_accuracy": 1.0,
+        "overreach_rate": 0.0,
+        "false_refusal_rate": 0.0,
+        "mismatch_count": 0
+      },
+      "diagnosis": "historical facts correctly stopped discharging live obligations, but six legacy certificates still required historical facts to create the correct obligation/locus"
+    },
+    {
+      "ordinal": 3,
+      "github_actions_run": 31950311940,
+      "job": 95172662508,
+      "artifact": 9264451077,
+      "artifact_digest": "sha256:f4d61b69e00fcb77028ed118dbf52b2d6ff199ffdc29edf9736aec8922168cfe",
+      "head_sha": "162e5697c10d71f37f637ca4b6f7acbde4dc75ee",
+      "B64": {
+        "cases": 64,
+        "decision_accuracy": 1.0,
+        "exact_certificate_accuracy": 1.0,
+        "overreach_rate": 0.0,
+        "false_refusal_rate": 0.0
+      },
+      "H24": {
+        "cases": 24,
+        "decision_accuracy": 1.0,
+        "exact_certificate_accuracy": 1.0,
+        "overreach_rate": 0.0,
+        "false_refusal_rate": 0.0
+      },
+      "HF16": {
+        "cases": 16,
+        "decision_accuracy": 1.0,
+        "exact_certificate_accuracy": 1.0,
+        "overreach_rate": 0.0,
+        "false_refusal_rate": 0.0
+      },
+      "result": "THREE_SUITE_EXACT_REGRESSION_PASS"
+    }
+  ],
+  "authority_ceiling": {
+    "internal_frozen_contract_pass": "PRESERVED",
+    "h24_known_failure_regression": "PASSED",
+    "hf16_known_failure_regression": "PASSED",
+    "hf16_generalization_authority": "EXHAUSTED_BY_REPAIR_USE",
+    "r12_authorized": false,
+    "post_repair_generalization_established": false,
+    "niche_advantage_established": false
+  },
+  "next_transition": "FREEZE_SUCCESSOR_V2_THEN_CONSTITUTE_FRESH2_BEFORE_EXPOSURE"
+}
