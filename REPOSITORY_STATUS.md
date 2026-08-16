@@ -173,7 +173,8 @@ These tracks are scientifically separate unless a later artifact explicitly esta
 - **PR #7 — A1 corrective-statehood preregistration.** Separate state-sufficiency experiment; it does not inherit VFA execution authority.
 - **PR #4 — energy suite.** Merged isolated energy/computation lineage. Its evidence cannot retroactively redefine SSI core theory or VFA.
 - **PR #8 / #10 — historical CUHK-X branches.** Historical/closed provenance, not current VFA or SSI-jurisdiction authority.
-- **PR #14–#20 — current CUHK-X competitive/diagnostic lineages.** Separate competition work. Competitive results do not acquire SSI scientific authority automatically.
+- **PR #14–#17 and #20 — current/preserved CUHK-X competitive/diagnostic lineages.** Separate competition work. Competitive results do not acquire SSI scientific authority automatically.
+- **PR #19 — abandoned CUHK-X Z-scope provenance.** Closed and explicitly non-S2; preserve only as historical provenance unless its unique commits are materialized elsewhere.
 
 Because several tracks branch independently from `main`, a single branch is not necessarily the union of every repository experiment.
 
@@ -229,6 +230,12 @@ read PR #18 failure
 The current repository does **not** contain an executable semantic static checker. Future closure adjudications must state and bind the exact manual/declarative or executable procedure used.
 
 For the prospective VFA experiment, do not modify Packet 7; the next information must come from the frozen external future-obligation process.
+
+## Branch retention rule
+
+A scientific branch may be deleted only when its head is durably preserved by an authoritative merged or archival object, no open lineage depends on it as a base, and no executable workflow or reproducibility path references that branch name.
+
+Branch deletion is repository hygiene, not scientific adjudication: deleting a ref must never be used to erase a failed, rejected, or superseded result whose provenance is not otherwise durable.
 
 ## Cleanup rule
 
