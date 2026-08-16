@@ -1,0 +1,21 @@
+{
+  "object": "SSI_CALC_V0.1/HF2_24_POST_SUBSTRATE_FRESH_WHITEBOX",
+  "successor_v2_freeze_merge": "ed9ae7ab94f74bbc39aaadad312c40647aed62d9",
+  "case_count": 24,
+  "case_ids": "CASE-301..CASE-324",
+  "families": 8,
+  "cases_per_family": 3,
+  "licensed": 12,
+  "non_authorized": 12,
+  "plain_sha256": "96498b2f195cdf6ca99e0c5f4efbf99305f2bc7168ff008eda3f6cca14c78218",
+  "gzip_sha256": "fa0e12c1e01d2465e2e1a1a1de48f2be95662ad3256f1868af2c2346838e8d64",
+  "packed_file": "HF2_24.json.gz.b64",
+  "successor_executed": false,
+  "thresholds_frozen_before_exposure": true,
+  "result_labels": [
+    "HF2_24_STRONG_PASS",
+    "HF2_24_PASS",
+    "HF2_24_PARTIAL",
+    "HF2_24_FAILED"
+  ]
+}
