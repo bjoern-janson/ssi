@@ -1,0 +1,47 @@
+{
+  "compiler_executed": false,
+  "distinction_count": 8,
+  "files": {
+    "SOURCE_REF.json": {
+      "bytes": 656,
+      "sha256": "699dfe558884dab051d0b498ea40e28d259fd6852a49e9f656033024c79d4294"
+    },
+    "SPEC.md": {
+      "bytes": 2324,
+      "sha256": "420669a3d4951ce866440b954693a255ddf0eebe583ae13e87ea681ec04c1d3f"
+    },
+    "TASKS.json": {
+      "bytes": 5358,
+      "sha256": "04b1bcde43fbfd513d6498fe76e9e479d4d56a53cc387ef76663965df7cfe35f"
+    },
+    "distinctions.json": {
+      "bytes": 2066,
+      "sha256": "67421e22b05caf2e3abaf09037dbccdde7e924fe0aeefef29facaca3f3666e62"
+    },
+    "gold/GOLD.json": {
+      "bytes": 15970,
+      "sha256": "1a4dc4a493d68a9b4db29bb61191ee1f0cc08f459a642fc5449c570b2b915b5b"
+    },
+    "source_reference.py": {
+      "bytes": 6856,
+      "sha256": "4e63318395e17f768a4849581aab81cafad9ff7485248b4533e18caae1dd1a0a"
+    },
+    "syntax.json": {
+      "bytes": 944,
+      "sha256": "26a4dd1ba42fb0c95a8c85d3adfa1559f5d2f80ab92d10fe43c0f5b9715816cd"
+    },
+    "typing_rules.json": {
+      "bytes": 1225,
+      "sha256": "f5f22bd7cac5301313ee5a9bd9ca355832ee1b485cec34a0c3d3012af46f0d10"
+    },
+    "verify_source_freeze.py": {
+      "bytes": 2078,
+      "sha256": "1725cc54402b6a8dd82f5717fd4ad4e17d55e0134b12ac278efccd209221bf2f"
+    }
+  },
+  "object": "K0-SOURCE-TYPE-SYSTEM-COMPILER/SOURCE_MANIFEST",
+  "source_case_count": 24,
+  "source_negative": 12,
+  "source_positive": 12,
+  "ssi_calc_imported": false
+}
