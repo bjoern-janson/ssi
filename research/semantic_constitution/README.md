@@ -4,6 +4,20 @@ Status snapshot: 2026-08-16.
 
 This directory is a **research handoff and authority map** for the semantic lineage that follows the failed `SSI-JURISDICTION-FALSIFICATION/S0` assay in PR #18. It is not an assay, observation operator, implementation, or scientific result. It does not modify the failed S0 lineage, Packet 7, CUHK-X, or any frozen object.
 
+## Provenance and takeover status
+
+The V1→V7 material below is currently a **reconstructed research ledger**, not a byte-complete executable scientific lineage. It records the semantic contracts, checker adjudications, hostile witnesses, and constraints developed in the originating research process, but the exact V1→V7 contract files, checker inputs/outputs, and witness artifacts have not yet been materialized in this repository.
+
+Therefore:
+
+```text
+V1-V7 HANDOFF CONTENT = RECONSTRUCTED
+EXACT EXECUTABLE PROVENANCE = NOT_MATERIALIZED
+CURRENT FRONTIER = CHALLENGEABLE
+```
+
+A successor inherits the evidence and failure arguments, **not an obligation to preserve our confidence in the current frontier**. If independent analysis falsifies an inherited premise, reopen the shallowest affected layer, preserve the existing lineage, and constitute a new successor rather than rewriting history.
+
 ## Why this lineage exists
 
 PR #18 froze and executed the first jurisdiction-falsification Stage-0 assay. It terminated:
@@ -24,9 +38,11 @@ so an `R↓` break forced the assay to report `L=0` even when leverage itself wa
 
 That failed lineage remains failed. It is not repaired in place.
 
-The only inherited scientific requirement was:
+The **current successor requirement motivated by that failure** is:
 
 > `D`, `R`, `L_cap`, and `I_cap` must be independently semantically identifiable under controlled breaks before a new assay can claim to measure them.
+
+This requirement is part of the successor semantic program; it should not be read as though PR #18 itself uniquely derived the later `L_cap` / `I_cap` ontology.
 
 This Lineage 2 therefore moved **upstream of measurement** and asked whether the semantic target itself could be constituted before any observation operator was designed.
 
@@ -79,7 +95,7 @@ No current observation operator `O` is authorized for Lineage 2.
 
 ## V1 → V8 lineage
 
-The versions below are semantic-contract lineages, not software releases.
+The versions below are semantic-contract lineages, not software releases. Their status entries are reconstructed adjudications until exact source artifacts are materialized.
 
 | Version | Static status | Semantic status | Decisive result |
 | --- | --- | --- | --- |
@@ -94,7 +110,7 @@ The versions below are semantic-contract lineages, not software releases.
 
 ### V1 — closure failure
 
-The static checker rejected V1 before hostile semantic attack. The decisive cycle was:
+The reconstructed static adjudication rejected V1 before hostile semantic attack. The decisive cycle was:
 
 \[
 T\rightarrow D\rightarrow e_H\rightarrow Q_H\rightarrow\mathcal S_{\rm control}\rightarrow T.
@@ -102,7 +118,7 @@ T\rightarrow D\rightarrow e_H\rightarrow Q_H\rightarrow\mathcal S_{\rm control}\
 
 `S_control` had been defined partly by whether the target was semantically meaningful. That made the target participate in defining its own domain.
 
-This established a durable rule:
+This yielded the inherited rule:
 
 > A target domain must be constituted independently of whether the target later evaluates successfully.
 
@@ -169,7 +185,7 @@ fixed extension       != grounded extension
 
 ### V6 — compatibility grounding idea, missing identity machinery
 
-V6 proposed the first non-arbitrary grounding candidate:
+V6 proposed a compatibility-grounding candidate:
 
 \[
 \mathcal C(I)=\{s'\in\mathcal S_{\rm control}:I_H(s')\equiv_I I\},
@@ -186,13 +202,21 @@ Interpretation:
 
 > A licensed input determines the answer iff no semantically compatible world permits a different answer.
 
-The grounding idea itself was not semantically rejected. The static checker stopped earlier because `I`, `equiv_I`, and the cross-world proposition identity were not fully declared.
+The candidate was not semantically adjudicated in V6 because the static checker stopped earlier: `I`, `equiv_I`, and the cross-world proposition identity were not fully declared.
 
 No dependency cycle was found in the intended direction:
 
 ```text
 S_control -> I_H -> C(I) -> G -> JNO_H
 ```
+
+Accordingly, `G` is retained only as:
+
+```text
+G = RETAINED_UNADJUDICATED_CANDIDATE
+```
+
+Its survival from one failure does not make it an earned semantic rule.
 
 ### V7 — component identity is not composition identity
 
@@ -210,31 +234,35 @@ Static closure passed.
 
 Hostile attack then changed only the licensed **joint interpretation relation** between otherwise component-identical inputs. The same component values could determine opposite answers under different joint semantic relations.
 
-Therefore:
+Therefore, in the class of composed objects exposed by the witness:
 
 ```text
 part identity != composition identity
 ```
 
-and, more generally:
+The scoped lesson is:
 
-> Semantic identity is relationally closed, not merely componentwise closed.
+> When relations are constitutive of a composed object's licensed semantics, componentwise identity is insufficient to establish composition identity.
+
+This does **not** establish that every semantic identity is relational or that every relation belongs in identity.
 
 ## Current frontier: V8 identity constitution
 
-Authoritative state:
+Current reconstructed handoff state:
 
 ```text
 V7_STATIC   = CLOSED
 V7_SEMANTIC = REJECTED
 V8          = NOT_YET_CONSTITUTED
 O           = UNDEFINED
-V0.2        = UNTESTED
+ASSAY       = UNDEFINED
 ```
 
-V8 owns exactly one question:
+V8 currently asks one question:
 
 > **What independently makes a relation among licensed inputs part of the identity of the composed semantic object?**
+
+This is the current best-localized frontier, **not an untouchable premise**. A successor may challenge it if independent evidence localizes the problem more shallowly.
 
 Do not broaden V8 into a theory of prediction, measurement, information, or all possible composition.
 
@@ -272,7 +300,9 @@ A relation does **not** earn identity membership merely because:
 - preserving it makes `G` produce a preferred result;
 - it is convenient to serialize as a field.
 
-The V8 candidate must independently ground constitutiveness **before** compatibility grounding `G` is allowed to use the resulting identity relation.
+Here, **independently grounded** means independent of downstream desired determinacy, predictive success, measurement outcome, or `G`'s preferred result. It does not require a context-free or metaphysically absolute notion of identity; the licensed semantic contract or sort may legitimately determine which identity question is being asked.
+
+The V8 candidate must ground constitutiveness **before** compatibility grounding `G` is allowed to use the resulting identity relation.
 
 Forbidden direction:
 
@@ -293,6 +323,12 @@ licensed input semantics
     -> G
 ```
 
+## Relation to the current core architecture
+
+The repository's promoted core architecture still begins at `W -> O -> ...`. V8 is investigating a **candidate semantic precondition for constructing or licensing `O`**. It has not yet survived semantic adequacy and therefore has **not** been promoted into the frozen/core SSI architecture.
+
+Do not rewrite `ARCHITECTURE.md` to insert V8 merely because this handoff identifies it as the current research frontier.
+
 ## Literature-derived attack material, not construction authority
 
 The literature review conducted for this frontier supports only the weak claim that joint/contextual structure can carry information not recoverable from isolated component descriptions. It does **not** identify which relations belong in semantic identity.
@@ -309,7 +345,7 @@ They are attacks, not rules for constructing identity.
 
 ## Program-level chain
 
-The current upstream-to-downstream order is:
+The current research ordering is:
 
 ```text
 identity constitution
@@ -319,17 +355,25 @@ identity constitution
     -> correction
 ```
 
-V8 owns only the first object.
+V8 currently investigates only the first object. This ordering is a research hypothesis/frontier map, not yet a promoted replacement for the core architecture.
 
 The strongest current compression is:
 
 > **You cannot safely compress an object until you know what makes it the same object.**
 
+## Static-checker status
+
+`STATIC_CLOSURE_CHECKER` currently names the **declarative/manual closure procedure** used in the reconstructed V1→V7 lineage: declare semantic nodes, dependencies, identities, scopes, transformation behavior, and verify that the target dependency graph has no free referents, type mismatches, unresolved identities, or forbidden cycles.
+
+There is **no executable static-checker artifact currently materialized in this repository**.
+
+Therefore a successor must not report a future V8 `CLOSED` result as mechanically reproducible unless the exact checker specification or executable used for that adjudication is committed with the candidate. A manual adjudication may still be recorded, but it must be labeled as such.
+
 ## Exact next move for a successor
 
-Do **not** build an assay and do **not** define an observation operator.
+Do **not** build an assay and do **not** define an observation operator unless the inherited frontier itself is first overturned by independent analysis.
 
-The next legitimate artifact is a minimal V8 relational-identity constitution candidate whose only burden is:
+Under the current frontier, the next legitimate artifact is a minimal V8 relational-identity constitution candidate whose only burden is:
 
 > What independent fact makes relation `r` constitutive, nonconstitutive, or not identified for the composed licensed input object?
 
@@ -337,10 +381,12 @@ After writing that candidate:
 
 ```text
 V8 candidate
-    -> STATIC_CLOSURE_CHECKER
+    -> STATIC_CLOSURE_CHECK
         -> SEMANTIC_TYPE_ERROR : STOP, preserve failure
         -> CLOSED              : authorize hostile semantic attack
 ```
+
+The adjudication must state whether the closure check was manual/declarative or executable and bind the exact procedure used.
 
 Only a statically closed candidate may be attacked with `W_comp`, `W_ctx`, and `W_rel` or other semantic counterexamples.
 
@@ -352,26 +398,32 @@ A successor should preserve these rules:
 
 1. **Do not modify PR #18 to repair S0.** It is a failed lineage and its failure is evidence.
 2. **Do not collapse failure classes.** Static type failure, semantic inadequacy, observational nonidentifiability, and executed assay failure have different authority.
-3. **Run the static checker before hostile semantic attack.** If closure fails, semantic adequacy is not adjudicated.
+3. **Run the static closure check before hostile semantic attack.** If closure fails, semantic adequacy is not adjudicated.
 4. **Stop after a decisive witness.** Inherited constraints should be minimal; do not accumulate speculative repairs.
 5. **No earned transition, no transition.** A negative or unconstituted state is a valid endpoint.
 6. **Do not let downstream success define upstream semantics.** Prediction, `G`, measurement, or desired outcomes cannot constitute identity retroactively.
 7. **Preserve failed versions.** Do not rewrite V1–V7 as if the final formulation had always been known.
-8. **Keep `O` undefined until semantic constitution survives.** The current bottleneck is semantic identity, not instrumentation.
+8. **Keep `O` undefined under the current frontier until semantic constitution survives.** The current bottleneck is semantic identity, not instrumentation.
+9. **Challenge the frontier when warranted.** Inherit the evidence, not the current team's confidence; if a premise fails, reopen the shallowest affected layer and preserve the displaced frontier as provenance.
+10. **Do not overstate reconstructed provenance.** Until exact V1–V7 artifacts are materialized, distinguish this handoff ledger from byte-addressable scientific execution evidence.
 
-## What is already earned vs not earned
+## What is already supported vs not established
 
-Earned:
+Supported by the reconstructed lineage:
 
-- a recursive semantic type/closure discipline;
+- a recursive semantic type/closure discipline worth retaining as a research method;
 - a distinct hostile semantic adequacy layer;
-- failure witnesses showing that equivalence, information safety, substitution, and identity can fail compositionally;
-- compatibility-grounding candidate `G` as an idea worth retaining once identity is constituted;
-- the V8 frontier above.
+- failure witnesses showing that equivalence, information safety, substitution, and identity can fail compositionally in the tested constructions;
+- the current V8 frontier as the best-localized open question in this lineage.
 
-Not earned:
+Retained but unadjudicated:
+
+- compatibility-grounding candidate `G`.
+
+Not established:
 
 - a V8 identity rule;
+- a universal relational-identity principle;
 - a general composition algebra;
 - a general information measure;
 - an observation operator for Lineage 2;
@@ -384,8 +436,9 @@ Not earned:
 This handoff document records the current research state. It does not itself establish V8, S0-2, Stage 1, or SSI.
 
 ```text
-SEMANTIC_FRONTIER = IDENTIFIED
+SEMANTIC_FRONTIER = RECONSTRUCTED_CURRENT_BEST
 V8_CONSTRUCTION   = NOT_YET_CONSTITUTED
+G                  = RETAINED_UNADJUDICATED_CANDIDATE
 ASSAY              = UNDEFINED
 OBSERVATION_O      = UNDEFINED
 SSI_VALIDATION     = NOT_ESTABLISHED
