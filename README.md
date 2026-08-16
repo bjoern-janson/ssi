@@ -33,6 +33,26 @@ FUTURE_RUN = NOT_EXECUTED
 
 The authorized scientific object is frozen. The next scientific information must come from the preregistered external source; Packet 7 is not to be tuned, extended, or repaired in response to imagined or realized future outcomes.
 
+A separate **SSI jurisdiction-falsification** track has also produced one preserved Stage-0 failure. PR #18 terminated `OPERATIONALIZATION_INADEQUATE` because the frozen assay could not independently identify reachability and leverage under an `R↓` break. That lineage remains failed and is not repaired in place.
+
+The successor semantic lineage has deliberately moved **upstream of measurement**. Repeated static-closure and hostile-semantic attacks have localized the current frontier to **V8 identity constitution**:
+
+> **What independently makes a relation among licensed inputs part of the identity of the composed semantic object?**
+
+Current authority boundary for that lineage:
+
+```text
+V7_STATIC   = CLOSED
+V7_SEMANTIC = REJECTED
+V8          = NOT_YET_CONSTITUTED
+OBSERVATION_O = UNDEFINED
+ASSAY         = UNDEFINED
+```
+
+The V1→V7 history is currently preserved as reconstructed handoff provenance rather than byte-complete executable evidence. V8 is the current best-localized, challengeable frontier. It is investigating a candidate precondition for `O`; it has not been promoted into the frozen/core architecture.
+
+For the reconstructed V1→V8 semantic lineage, failure classes, witnesses, inherited constraints, and successor instructions, see [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md).
+
 For the exact branch/PR lineage, authoritative files, frozen hashes, and preservation rules, start with [`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md).
 
 ## Core state object
@@ -187,9 +207,10 @@ Neither artifact may modify Packet 7 or broaden its execution authority.
 
 - [`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md) — current authority state, stacked PR topology, parallel tracks, and preservation rules.
 - [`ARCHITECTURE.md`](ARCHITECTURE.md) — core state, transitions, jurisdictions, and invariants.
-- [`retrospective/LOCALIZATION_CALCULUS.md`](retrospective/LOCALIZATION_CALCULUS.md) — the common equivalence/authority grammar extracted from V0.x.
+- [`retrospective/LOCALIZATION_CALCULUS.md`](retrospective/LOCALIZATION_CALCULUS.md) — V0.x localization grammar.
 - [`benchmarks/V0X_LINEAGE.md`](benchmarks/V0X_LINEAGE.md) — benchmark-by-benchmark scientific lineage, including negative results.
 - [`empirical/README.md`](empirical/README.md) — empirical lineage index and authority routing.
+- [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md) — jurisdiction-falsification Lineage 2, V1→V8 semantic failures, and takeover instructions.
 - [`empirical/INDEPENDENT_FUTURE_ADAPTATION.md`](empirical/INDEPENDENT_FUTURE_ADAPTATION.md) — program-level independent future-adaptation design.
 - [`empirical/benchmark_v0_2_quotient/`](empirical/benchmark_v0_2_quotient/) — active authorized VFA lineage and preserved construction history.
 - [`results/FROZEN_RESULTS.md`](results/FROZEN_RESULTS.md) — frozen V0.x adjudications and recovered artifact hashes.
