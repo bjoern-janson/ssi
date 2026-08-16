@@ -127,6 +127,8 @@ def synth(term, context, ir):
             })
 
         if fn_ty.get("kind") != "ARROW":
+            # This branch is reachable only in a deliberately mutated IR that
+            # removed the source Arrow prerequisite.
             domain = {"kind": "BOOL"}
             codomain = {"kind": "BOOL"}
         else:
