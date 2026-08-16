@@ -1,0 +1,191 @@
+{
+  "artifact_ids": {
+    "cf_horizon_v0_1": {
+      "constitution_sha256": "060aad7c1479ba5a18fadce7d66b438c5551cb9cbbb086fc3b7f336d434b1bee",
+      "result_sha256": "7aa277698194943638d0186fb3860a8f94056e6f54f0abfc977a65018288b4e2"
+    },
+    "cf_sufficiency_v0_1": {
+      "constitution_sha256": "f4b67289bb11ada0317f02f441ec573088f3337e434cee8934c00de50e35d823",
+      "result_sha256": "da9f9603291faefabcc73416baa793cf04dc6b7287eb4d0faaf5e518088ec5cc"
+    },
+    "goal_authority_behavior_nondominated_v0_1": {
+      "constitution_sha256": "29713830c679bd2a586e997d5ef2b9d092aa930b0670a3eebd45d2ac51a577ab",
+      "contrast_freeze_sha256": "c50e5aa6d9f135d6aebddc7393eecd0cbd0becad27e5d481d54c84a8e9f72464",
+      "result_sha256": "f5caec95cf9009f8a67846a305edb9615f6bded8225906184d96c58a4963c109"
+    },
+    "goal_authority_behavior_v0_1": {
+      "conflict_freeze_sha256": "6e373093d275480cbcb7a516675170d84909614a8dc79c7ee1ce563b587b04a3",
+      "constitution_sha256": "bfe237f18bffda9285917049bc099a0def2dd24d6e0378695a83dfefda4a5955",
+      "result_sha256": "513809c804fee71df31bed52c61dcb09ea8c4717884dc95f2a951a6369b3d357"
+    },
+    "goal_authority_interface_v0_1": {
+      "constitution_sha256": "edc62a0e8fe610989d586c266395103f40167a2634c4ca399468c63f8321b36c",
+      "result_sha256": "1dca6cac0f2214c4c6c0f31d6aa2e5c3e0ee32c3d485a47a412008d97407f7ca"
+    },
+    "goal_sufficiency_v0_1": {
+      "constitution_sha256": "926ddc3e22d83b01ba97fbcad583c297f1391211ed21bc1d083d377ff8bc9b08",
+      "goal_geometry_freeze_sha256": "58f356821026308f7a3e9c0f41f6108134b6a9aeae9c0de6454c97a923215758",
+      "result_sha256": "17f59c04e2f11185c211fbb2bc784c55982affe7b6fd5e0bfcc1409efc85e840"
+    },
+    "latent_goal_authority_refinement_v0_1": {
+      "constitution_sha256": "41f0cc1e1e38c712ff6c5c7e1e3bcfc03f2259cbc2b9a40ac7ab480e0141a011",
+      "coordinate_gate_sha256": "840ea3f0ccb1b548d005a801e5d394ec4b4a09909660a83d6094a5a425d6e068",
+      "result_sha256": "09af81dffd7cea250e3945776eb6fbb2f9c7417bdfa846664f19c3f557d75029"
+    },
+    "wm_error_allocation_v0_4": {
+      "constitution_sha256": "482ec0d8595fff0c1e21ccf484ddd61cfe88ae2c1f9ff514e783d0ba1d091d35",
+      "pair_freeze_sha256": "d238a9a7f630d119d4132c609343af691c3a85b471f8667ea3774b234c72006a",
+      "result_sha256": "72f6d0e04e30e1b2107bba6618c61cd60e6ccd4f45f71269a2a8e3879d49d998"
+    },
+    "wm_planning_v0_5": {
+      "constitution_sha256": "8584886d1e3f65eb70fa378300c754bdfa8c796487851791b7601c6706ce2f7e",
+      "result_sha256": "6db4688e54748e4bad73cd2065f837c7e9e619b4d9b83befc31b85a310160c75",
+      "task_freeze_sha256": "5a6711cc1054f94a29a29252df4d1ea152e4f77efb1ad8346183951802d56e2d"
+    },
+    "wm_prediction_v0_1": {
+      "constitution_sha256": "29c3c0a4625c07fd99bcb707a20309d2f839e4ec9da1c8f63bda06210ca4651a",
+      "result_sha256": "f139003c71f0c6973632eb90e609c8df86f4c6dfdc2064dabb75849561f87f30"
+    },
+    "wm_semantic_transition_audit_v0_2": {
+      "constitution_sha256": "df473b440ba9f9fc178dc63133bc2a26e6402b6503b649e2261e6ee2fe6dc43b",
+      "result_sha256": "be9f22c97f5e6db8e80c0dd4a023c159a015cdbded25d8e9dab2c770aec41a74"
+    }
+  },
+  "authority": {
+    "jepa": "PARKED",
+    "overrides_frozen_scientific_objects": false,
+    "repository_main_binding": "9ada96e664db90fb922a1b6e6601489dac4ddc9c",
+    "role": "navigation_and_research_state_only",
+    "ssi_calc_kernel_delta": 0
+  },
+  "current_chain": [
+    "represented_distinctions",
+    "attainable_semantic_adequacy",
+    "counterfactual_consequence_sufficiency",
+    "learned_transition_interface",
+    "predictive_counterfactual_sufficiency",
+    "goal_authority_interface",
+    "plan_selection",
+    "behavior"
+  ],
+  "current_frontier": {
+    "candidate_only_not_authorized": "separate read-action burden and write-action burden",
+    "do_not_repair_v0_1_in_place": true,
+    "failure_locus_v0_1": "AUTHORITY CONSTITUTION / SECONDARY-OBJECTIVE_GEOMETRY",
+    "object": "GOAL_AUTHORITY_BEHAVIOR_NONDOMINATED",
+    "required_successor": "Prospectively constitute independently varying authorized resource coordinates before any task/outcome inspection.",
+    "status": "OPEN_NOT_TESTED_AFTER_V0_1_CONTRAST_NOT_IDENTIFIED"
+  },
+  "hard_boundaries": {
+    "challenge_geometry_order4": "DO_NOT_RUN",
+    "intrinsic_universal_representation_quality_descriptor_hunt": "CLOSED",
+    "jepa": "PARKED",
+    "liveness_branch": "CLOSED",
+    "neural_world_model": "UNTESTED",
+    "ssi_calc_rule_from_downstream_line": "NOT_EARNED",
+    "universal_scalarization": "PROHIBITED_BY_CURRENT_EVIDENCE"
+  },
+  "laws": [
+    "available distinction != authorized distinction",
+    "validated consequence grants local authority; it does not automatically grant causal authority",
+    "present sufficiency does not imply counterfactual consequence sufficiency",
+    "irrelevant now does not imply irrelevant after intervention",
+    "CF=0 implies PCF=0 in the deterministic rollout construction; CF=1 does not imply PCF=1",
+    "prediction error amount != error location != semantic damage",
+    "predicting latent state well != preserving semantic future",
+    "latent heuristic != semantic adjudicator",
+    "semantic interface grows when authority grows, not merely when representation contains more distinctions",
+    "multiple admissible plans != multiple authorized tradeoffs"
+  ],
+  "resume_contract": [
+    "preserve negative and contrast-not-identified results",
+    "do not reopen liveness absent new external evidence/question",
+    "do not scalarize representation, liveness, error allocation, or planner authority",
+    "keep representation ceilings separate from transition losses",
+    "keep goal semantics separate from goal metrics",
+    "keep proposal heuristics separate from authority-bearing adjudication",
+    "freeze independently varying resource objectives before reopening nondominated behavior",
+    "keep JEPA parked until explicitly authorized",
+    "keep SSI_CALC_KERNEL_DELTA=0 unless a source-specific frozen benchmark earns a rule"
+  ],
+  "schema": "ssi-research-ledger/v0.1",
+  "snapshot_date": "2026-08-16",
+  "statuses": {
+    "counterfactual_consequence_composition_v0_1": {
+      "status": "CLOSED_FAMILY_NO_NEW_HORIZON_DISTINCTION"
+    },
+    "counterfactual_consequence_horizon_v0_1": {
+      "status": "SUPPORTED"
+    },
+    "counterfactual_consequence_sufficiency_v0_1": {
+      "status": "SUPPORTED"
+    },
+    "counterfactual_world_model_prediction_v0_1": {
+      "ceiling": "FINITE_COMPLETE_DOMAIN_TABLE_PREDICTOR",
+      "status": "SUPPORTED"
+    },
+    "counterfactual_world_model_semantic_error_allocation_v0_3": {
+      "H_alloc": "OPEN_NOT_TESTED",
+      "status": "CONTRAST_NOT_IDENTIFIED"
+    },
+    "counterfactual_world_model_semantic_error_allocation_v0_3b": {
+      "H_alloc": "OPEN_NOT_TESTED",
+      "status": "CONTRAST_NOT_IDENTIFIED"
+    },
+    "counterfactual_world_model_semantic_transition_audit_v0_2": {
+      "status": "SUPPORTED_STRUCTURAL"
+    },
+    "goal_authority_behavior_nondominated_v0_1": {
+      "H_nondominated_behavior": "OPEN_NOT_TESTED",
+      "status": "CONTRAST_NOT_IDENTIFIED",
+      "true_outcomes_opened": false
+    },
+    "goal_authority_behavior_v0_1": {
+      "general_nondominated_behavior": "UNOPENED",
+      "status": "SUPPORTED_CONSTRUCTIVE_CONTROL"
+    },
+    "goal_authority_interface_v0_1": {
+      "I_J": "SUPPORTED_MINIMAL_FINITE_FOR_PRIMARY_GOAL",
+      "I_JK": "SUPPORTED_MINIMAL_FINITE_FOR_PRIMARY_PLUS_CONSTITUTED_BURDEN",
+      "latent_centroid": "HEURISTIC_ONLY_UNDER_CURRENT_AUTHORITY",
+      "status": "SUPPORTED_FINITE"
+    },
+    "latent_goal_authority_refinement_v0_1": {
+      "behavioral_H_refine": "OPEN_NOT_TESTED",
+      "centroid_goal_coordinate_authority": "NOT_EARNED",
+      "status": "LATENT_GOAL_METRIC_REPRESENTATION_SENSITIVE"
+    },
+    "learned_representation_question_conditioned_alignment_v0_1": {
+      "claim": "explicit future-question jurisdiction makes attainable alignment predictively legible",
+      "status": "SUPPORTED"
+    },
+    "learned_representation_question_dependence_v0_1": {
+      "claim": "representation ordering is jurisdiction-relative",
+      "status": "SUPPORTED"
+    },
+    "liveness_branch": {
+      "status": "CLOSED",
+      "terminal_result": "H_LIVE_NOT_SUPPORTED_ON_FROZEN_TIED_CHANNEL_TERRAIN"
+    },
+    "mechanism_conditioned_correction_v0_1": {
+      "status": "STRONG_PROFILE_NOT_SUPPORTED / BOUNDED_MECHANISM_RELEVANCE_SUPPORTED"
+    },
+    "question_conditioned_corrective_behavior_v0_1": {
+      "claim": "alignment audit does not by itself predict online correction dynamics",
+      "status": "NOT_SUPPORTED"
+    },
+    "semantic_goal_sufficiency_v0_1": {
+      "behavioral_H_goal": "OPEN_NOT_TESTED",
+      "local_positive": "centroid distance preserves binary A goal ordering on frozen geometry",
+      "status": "LATENT_GOAL_CONTRAST_NOT_IDENTIFIED"
+    },
+    "wm_counterfactual_planning_safety_v0_5": {
+      "planning_effect": "SPARSE_DIRECTIONALLY_CLEAN_AT_H3",
+      "status": "SUPPORTED_BOUNDED"
+    },
+    "wm_semantic_error_allocation_v0_4": {
+      "H_alloc": "SUPPORTED_BOUNDED",
+      "status": "SUPPORTED_BOUNDED"
+    }
+  }
+}
