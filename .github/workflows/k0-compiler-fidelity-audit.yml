@@ -1,0 +1,28 @@
+name: K0 Compiler Fidelity Audit
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'research/ssi_calc/compiler/k0/audit/**'
+      - '.github/workflows/k0-compiler-fidelity-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  first-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Execute first frozen K0 compiler fidelity audit
+        run: python research/ssi_calc/compiler/k0/audit/audit_k0.py
+      - name: Upload immutable first audit result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k0-compiler-first-audit
+          path: research/ssi_calc/compiler/k0/audit/K0_AUDIT_FIRST_RUN.json
