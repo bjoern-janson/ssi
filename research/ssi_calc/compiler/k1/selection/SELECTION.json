@@ -1,0 +1,11 @@
+{
+  "object": "K1-CROSS-REGIME-COMPILER-TRANSFER/R2_SELECTION",
+  "selected": "CAND-MAUDE",
+  "selected_source": "Maude Manual 4.2.1 Theories and Deduction",
+  "selected_class": "rewriting_logic",
+  "selected_url": "https://maude.cs.illinois.edu/maude1/manual/maude-manual-html/maude-manual_62.html",
+  "selected_hash": "595b3cbfb665303d3f71a2a146222309e69168942671b018185b6cbe12a2b0c4",
+  "selection_depends_on_compiler_compatibility": false,
+  "K0_STLC_modified": false,
+  "authority_ceiling": "SELECTION_ONLY_NO_R2_CONFORMANCE_CLAIM"
+}
