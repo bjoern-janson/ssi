@@ -433,7 +433,7 @@ Not established:
 
 ## Scientific authority ceiling
 
-This handoff document records the current research state. It does not itself establish V8, S0-2, Stage 1, or SSI.
+This handoff document records the current research state. It does not itself establish V8, a second S0 assay, Stage 1, or SSI.
 
 ```text
 SEMANTIC_FRONTIER = RECONSTRUCTED_CURRENT_BEST
