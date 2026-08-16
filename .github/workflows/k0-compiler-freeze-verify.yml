@@ -1,0 +1,22 @@
+name: K0 Compiler Freeze Verify
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'research/ssi_calc/compiler/k0/compiler/**'
+      - '.github/workflows/k0-compiler-freeze-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify-compiler-freeze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Rebuild and hash IR without audit execution
+        run: python research/ssi_calc/compiler/k0/compiler/verify_compiler_freeze.py
