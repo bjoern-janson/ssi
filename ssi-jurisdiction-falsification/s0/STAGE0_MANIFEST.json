@@ -1,0 +1,24 @@
+{
+  "authority_ceiling": [
+    "NO_KERNEL_SUPPORT",
+    "NO_STAGE2_AUTHORITY",
+    "NO_PACKET7_AUTHORITY",
+    "NO_CUHKX_AUTHORITY"
+  ],
+  "base_branch": "main",
+  "base_sha": "7bec11badfbd51117ec942819e4c7dc15647c360",
+  "fresh_seed_rule": "sha256(\"SSI-JF-S0-FRESH:\" + lowercase(spec_freeze_commit_sha))[:16] interpreted as hex integer",
+  "gate": "S0_VALID iff all constitution and fresh cases pass exact component and classification requirements; otherwise OPERATIONALIZATION_INADEQUATE and STOP",
+  "object_id": "SSI-JURISDICTION-FALSIFICATION/S0",
+  "post_observation_prohibition": "NO_SEMANTIC_REPAIR_OF_STAGE0_COMPONENT_DEFINITIONS",
+  "repository": "bjoern-janson/ssi",
+  "scope": "Stage-0 operational assay validity only",
+  "source_sha256": {
+    "STAGE0_ASSAY_SPEC.md": "71407168b2939c023a22f347977e622f9bfa463cf2cc4f49c76d927581632470",
+    "controlled_breaks.py": "b70cf274dfa918e7f2f2a22da81402747484a220d73042c3dc83f7be36bced6d",
+    "fresh_breaks.py": "38237008b116582e7a0af9a5728a87b93e17fd3bfc47ad83fe5b2d41ee84d892",
+    "jurisdiction_assay.py": "000482eaf6d31f5a937ca0588be1f46e1a7600e7374168e99979f391e171390e",
+    "stage0_runner.py": "32896e07a2ddb150af898cfc6d8e626e41a3ec664d56a179de20785aa098c3e2"
+  },
+  "state": "FROZEN_NOT_EXECUTED"
+}
