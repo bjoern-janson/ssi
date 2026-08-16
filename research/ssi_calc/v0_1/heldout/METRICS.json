@@ -1,0 +1,31 @@
+{
+  "object": "SSI_CALC_V0.1_HELDOUT_METRICS",
+  "authorize_statuses": ["AUTHORIZED", "AUTHORIZED_SCOPED"],
+  "metrics": [
+    "decision_accuracy",
+    "overreach_rate",
+    "false_refusal_rate",
+    "exact_status_accuracy",
+    "shallowest_locus_accuracy",
+    "preservation_aware_refusal_accuracy",
+    "missing_authority_accuracy",
+    "reopened_set_accuracy",
+    "specification_atoms_consumed"
+  ],
+  "severity_order": ["overreach", "false_refusal", "mislocalization"],
+  "internal_thresholds": {
+    "WHITEBOX_HELDOUT_PASS": {
+      "decision_accuracy_min": 0.90,
+      "overreach_rate_max": 0.05,
+      "false_refusal_rate_max": 0.10
+    },
+    "WHITEBOX_HELDOUT_PARTIAL": {
+      "decision_accuracy_min": 0.75
+    },
+    "WHITEBOX_HELDOUT_FAILED": {
+      "decision_accuracy_below": 0.75,
+      "or_overreach_rate_above": 0.15
+    }
+  },
+  "niche_advantage_claim_authorized": false
+}

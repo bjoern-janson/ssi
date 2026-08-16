@@ -1,0 +1,18 @@
+{
+  "object": "SSI_CALC_V0.1_HELDOUT_FIREWALL",
+  "checker_freeze_required_before_H": true,
+  "checker_merge_commit": "8eac548f338f0f8463302f2f1746a2c75f8227ca",
+  "whitebox_attack": true,
+  "independent_authorship": false,
+  "family_metadata_is_semantic_evidence": false,
+  "expected_metadata_is_semantic_evidence": false,
+  "post_exposure_mutations_forbidden": [
+    "heldout_cases",
+    "expected_labels",
+    "metrics",
+    "baseline_contract",
+    "checker_for_first_run"
+  ],
+  "first_run_must_be_preserved": true,
+  "kernel_growth_during_first_run": false
+}
