@@ -1,0 +1,11 @@
+{
+  "object": "K1-CROSS-REGIME-COMPILER-TRANSFER/PRE_AUDIT_MUTATIONS",
+  "mutations": [
+    {"id":"MUT-101","name":"SYMMETRIZE_DIRECTION","patch":{"direction":"SYMMETRIZE"},"expected_any":["COMPILATION_OVERREACH","DISTINCTION_LOSS:DIST-001"]},
+    {"id":"MUT-102","name":"DROP_R_BC_SOURCE_RULE","patch":{"drop_source_rule":"r_bc"},"expected_any":["COMPILATION_LOSS","DISTINCTION_LOSS:DIST-002"]},
+    {"id":"MUT-103","name":"MERGE_F_G_CONGRUENCE","patch":{"congruence_policy":"MERGE_F_G"},"expected_any":["COMPILATION_OVERREACH","DISTINCTION_LOSS:DIST-003"]},
+    {"id":"MUT-104","name":"UNCONSTRAIN_REPLACEMENT_VARIABLE_EVOLUTION","patch":{"replacement_policy":"VARIABLE_EVOLUTION_UNCONSTRAINED"},"expected_any":["COMPILATION_OVERREACH","DISTINCTION_LOSS:DIST-005"]},
+    {"id":"MUT-105","name":"REPLACE_CONGRUENCE_SOURCE_ANCESTRY","patch":{"rule_ancestry":{"IR-CONG":"REPLACEMENT"}},"expected_any":["LINEAGE_MISMATCH"],"expected_judgment_accuracy":1.0},
+    {"id":"MUT-106","name":"FABRICATE_JUSTIFICATION_EDGE","patch":{"inject_fabricated_node":true},"expected_any":["LINEAGE_FABRICATION"],"expected_judgment_accuracy":1.0}
+  ]
+}
