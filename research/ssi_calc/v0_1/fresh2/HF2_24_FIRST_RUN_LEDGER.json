@@ -1,0 +1,64 @@
+{
+  "object": "SSI_CALC_V0.1/HF2_24_FIRST_EXPOSURE",
+  "threshold_status": "HF2_24_PARTIAL",
+  "successor_v2_freeze_merge": "ed9ae7ab94f74bbc39aaadad312c40647aed62d9",
+  "hf2_24_freeze_merge": "4c7c2c0d4c91fa420053a552759a16934ab42b50",
+  "hf2_24_plain_sha256": "96498b2f195cdf6ca99e0c5f4efbf99305f2bc7168ff008eda3f6cca14c78218",
+  "kernel_rule_count": 11,
+  "rules_added_beyond_R11": 0,
+  "delta_successor": 0,
+  "delta_hf2_24": 0,
+  "github_actions": {
+    "run": 31950896524,
+    "job": 95174071387,
+    "artifact": 9264604486,
+    "artifact_digest": "sha256:ebe087917cf21e269bf77ed6cffd91bdb4a4f1756fbb82e3d5178dba7124b623",
+    "head_sha": "d895f585a9eccf4e0a531a2e5f178c94a08a3474"
+  },
+  "confusion_matrix": {
+    "TP": 10,
+    "FP_overreach": 0,
+    "FN_false_refusal": 2,
+    "TN": 12,
+    "licensed": 12,
+    "unlicensed": 12
+  },
+  "metrics": {
+    "decision_accuracy": 0.9166666666666666,
+    "overreach_rate": 0.0,
+    "false_refusal_rate": 0.16666666666666666,
+    "exact_status_accuracy": 0.9166666666666666,
+    "shallowest_locus_accuracy": 0.9166666666666666,
+    "preservation_aware_refusal_accuracy": 1.0,
+    "missing_authority_accuracy": 0.9166666666666666,
+    "reopened_set_accuracy": 1.0,
+    "exact_certificate_accuracy": 0.9166666666666666
+  },
+  "mismatch_count": 2,
+  "decision_error_count": 2,
+  "witnesses": [
+    {
+      "id": "CASE-312",
+      "family": "F4_IDENTITY",
+      "expected": "AUTHORIZED_SCOPED",
+      "observed": "NOT_IDENTIFIED",
+      "diagnostic_description": "explicit live identity transfer coexists with inactive identity-by-denotation history"
+    },
+    {
+      "id": "CASE-322",
+      "family": "F8_FUTURE",
+      "expected": "AUTHORIZED_SCOPED",
+      "observed": "NOT_IDENTIFIED",
+      "diagnostic_description": "live kernel-containment proof coexists with unresolved alternative future-invariance path"
+    }
+  ],
+  "authority_ceiling": {
+    "post_substrate_whitebox_generalization_strong_pass": false,
+    "post_substrate_whitebox_generalization_pass": false,
+    "partial_generalization_evidence": true,
+    "fresh_overreach_observed": false,
+    "r12_authorized": false,
+    "niche_advantage_established": false
+  },
+  "next_transition": "MERGE_FIRST_RUN_THEN_CLASSIFY_TWO_FALSE_REFUSAL_WITNESSES_BEFORE_ANY_REPAIR"
+}
