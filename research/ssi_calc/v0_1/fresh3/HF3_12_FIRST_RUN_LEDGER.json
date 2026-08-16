@@ -1,0 +1,47 @@
+{
+  "object": "SSI_CALC_V0.1/HF3_12_FIRST_EXPOSURE",
+  "threshold_status": "HF3_12_STRONG_PASS",
+  "successor_v3_freeze_merge": "559ce29d0ace8f518009067639a39ba6ac3994dc",
+  "hf3_12_freeze_merge": "b52e99ac4b06b29d5c7318c6fa9186bb76ae34e2",
+  "hf3_12_plain_sha256": "0747244689af2caca39c4f692e4c0eccf7ce39cda386c5855620bb8ce286ae33",
+  "kernel_rule_count": 11,
+  "rules_added_beyond_R11": 0,
+  "remote_run": {
+    "run_id": 31951747818,
+    "job_id": 95176155518,
+    "artifact_id": 9264823939,
+    "artifact_digest": "sha256:132bb2afa6edbeece10676d2fc2c6b31417045b403ca425715b1b938c277a7de",
+    "tested_head": "4e325ab61745b770d37dda4322fee9155d6a3e4a"
+  },
+  "confusion_matrix": {
+    "TP": 6,
+    "FP_overreach": 0,
+    "FN_false_refusal": 0,
+    "TN": 6
+  },
+  "metrics": {
+    "decision_accuracy": 1.0,
+    "overreach_rate": 0.0,
+    "false_refusal_rate": 0.0,
+    "status_accuracy": 0.9166666666666666,
+    "locus_accuracy": 1.0,
+    "preserved_accuracy": 1.0,
+    "missing_accuracy": 1.0,
+    "reopened_accuracy": 1.0,
+    "exact_certificate_accuracy": 0.9166666666666666
+  },
+  "mismatches": [
+    {
+      "id": "CASE-402",
+      "expected_status": "AUTHORIZED_SCOPED",
+      "observed_status": "AUTHORIZED",
+      "decision_correct": true,
+      "all_other_certificate_fields_correct": true
+    }
+  ],
+  "authority_ceiling": {
+    "targeted_whitebox_generalization": "SUPPORTED_AT_DECISION_LEVEL_IN_HF3_12",
+    "exact_certificate_generalization": "NOT_CLEAN_DUE_TO_ONE_STATUS_GRANULARITY_MISMATCH",
+    "niche_advantage_established": false
+  }
+}
