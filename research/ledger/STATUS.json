@@ -16,7 +16,7 @@
     "goal_authority_adjudication_v0_1": {
       "constitution_sha256": "ce816952fceb4e650d01a02ecfee315245aae3bfd282a87f267c69c897ad4215",
       "planner_freeze_sha256": "506d648ecb8bd9c6e58fccae83ad7efac4183c5683cc50b0780b71e5b17eda91",
-      "predictor_freeze_sha256": "84413a7cc8bb864133cfaf0b8601e6751211d8915de0fb44ff02fbff5f81e183",
+      "predictor_freeze_sha256": "84413a7cc8bb864133cfaf0b8601e6751211d8915de0fb44ff02fb5f81e183",
       "result_sha256": "59ee82c58728327c1ef4dd2bfda5a3e6d5144b133cbdd60100962d1d33d4ce73"
     },
     "goal_authority_advisory_selection_v0_1": {
@@ -48,6 +48,13 @@
     "goal_authority_interface_v0_1": {
       "constitution_sha256": "edc62a0e8fe610989d586c266395103f40167a2634c4ca399468c63f8321b36c",
       "result_sha256": "1dca6cac0f2214c4c6c0f31d6aa2e5c3e0ee32c3d485a47a412008d97407f7ca"
+    },
+    "goal_authority_license_transfer_v0_1": {
+      "active_r1_constitution_sha256": "7f78a016c83a1ab7c1905bfa2da99bc897030384a75ab09c0e78b94ffba8b1f4",
+      "pre_behavior_freeze_sha256": "783f75b2867e1f9f39f0cdf8e1309e0c1d7e9457c3a6a8b48672217d0546a413",
+      "pre_r1_constitution_sha256": "164ab131f7a5da517f85fc0b45482e8364d310bc66144f6d71d56725a9d5606e",
+      "result_sha256": "b2072d3e908dbc8e882845cf516b3e43735a095bb6232f22334be5e2b3238b2c",
+      "zip_sha256": "80c5b0bd056da05defa809fc5c01ea7c5bc7ece0bcf61e1599afb0e37bbfdb00"
     },
     "goal_authority_opportunity_world_v0_1": {
       "constitution_sha256": "2110be133abb61560e6995149ab54060ff5c4de2ddecd0d679da94e783dc230e",
@@ -97,6 +104,18 @@
       "constitution_sha256": "926ddc3e22d83b01ba97fbcad583c297f1391211ed21bc1d083d377ff8bc9b08",
       "goal_geometry_freeze_sha256": "58f356821026308f7a3e9c0f41f6108134b6a9aeae9c0de6454c97a923215758",
       "result_sha256": "17f59c04e2f11185c211fbb2bc784c55982affe7b6fd5e0bfcc1409efc85e840"
+    },
+    "ssi_relicense_certificate_calculus_v0_1": {
+      "active_calculus_sha256": "af394081b10be84d7fd4d0b1f03e4ab13f4839d0ed661e812d3b8d81fd54aa40",
+      "active_certificate_schema_sha256": "cff76ed9a30a45a99612e15b0846e34351405e8241594f2b7769d1ba3800b642",
+      "constitution_sha256": "a3175b8bebd5144a618fabccd83599e759766e0f07f050cc5ae907d3d7a61e4e",
+      "result_sha256": "fa3cd12faf65f461f3052ed31110368359c59646fb6eef8d1654b6ae362acdcb",
+      "zip_sha256": "04febe87f8b98c1dd9c6aff5e94d2b310ad8844071b06ecde726bbb35b13eb10"
+    },
+    "ssi_relicense_formal_adversarial_f5_v0_1": {
+      "constitution_sha256": "3726bbdf0f25fd6b2fb546b7f76e4bf4cd8a9502054b1e4f9055aec395d619fe",
+      "result_sha256": "b6b72a0722c70c0f0ac1194d26e74dda1b3404207c73807a99eb95faaa2d94a7",
+      "zip_sha256": "2337c8e79a436f5a2eaa3859ff8e1ae3d2c1d211e18e33afdce1bddfe4746cdd"
     },
     "wm_error_allocation_v0_3": {
       "constitution_sha256": "9afaec36b2a876292524bc6591a56bbc8259643f2be38beebe6c800c678720ab",
@@ -151,40 +170,58 @@
     "wm_semantic_error_allocation_v0_3": "CONTRAST_NOT_IDENTIFIED",
     "wm_semantic_error_allocation_v0_3b": "CONTRAST_NOT_IDENTIFIED"
   },
-  "core_theory": {
-    "candidate_abstractions": {
-      "License(H,J)": "role-restricted permission to refine representative choice within J-equivalence classes; cross-jurisdiction transfer UNOPENED"
-    },
-    "central_noncollapse": [
-      "representation != authority != prediction != behavior",
-      "observable != authorized != consequential",
-      "semantic authority != licensed advisory information != behavioral consequence",
-      "available distinction != authorized distinction",
-      "semantic state != semantic provenance",
-      "maximum provenance != minimal authority interface"
+  "conceptual_frontier": {
+    "current_master_candidate": "SCOPE_INDEXED_ENTITLEMENT",
+    "effect_judgment": "Gamma |- (d ->[operation] effect) @ scope",
+    "noncollapse": [
+      "access != causal influence != licensed effect",
+      "endpoint legality != role license != execution entitlement",
+      "capability != entitlement != actual causal exercise",
+      "Can != May != Did"
     ],
-    "equivalence_relations": {
-      "auth": "indistinguishable for constituted authority",
-      "beh": "indistinguishable under downstream execution",
-      "pred": "indistinguishable to learned predictor/interface"
+    "causal_envelopes": {
+      "A": "ActualEffects / Did",
+      "C": "EntitledEffects / May",
+      "Q": "Required warranted envelope",
+      "R": "RealizableEffects / Can",
+      "W": "R intersect C / warranted executable envelope"
     },
-    "laws": [
-      "an interface is sufficient only if it preserves every distinction the downstream jurisdiction is entitled to adjudicate",
-      "behavioral distinguishability does not retroactively create semantic authority",
-      "authorized equivalence is permission for unresolved choice, not a claim of physical interchangeability",
-      "behavioral usefulness is evidence for utility, not evidence for jurisdiction",
-      "non-authoritative does not imply operationally useless",
-      "licensed advisory information may refine representative choice without modifying the authority quotient",
-      "selected witness != semantic denotation",
-      "latent heuristic != semantic adjudicator"
-    ]
+    "candidate_contract": [
+      "Q subseteq W",
+      "A subseteq W"
+    ],
+    "compression": "Improve Can. Justify May. Constrain Did.",
+    "master_formulation": "Safe self-improvement is warrant-bounded causal expansion"
   },
   "current_terminal_state": {
-    "branch": "goal_authority_advisory_selection",
-    "latent_representative_subbranch": "CLOSED_CURRENT_FINAL_STATE_METRIC_CONTRAST_NOT_IDENTIFIED",
-    "license_transfer": "UNOPENED",
+    "branch": "scope_indexed_entitlement_after_f5",
+    "formal_soundness": "UNESTABLISHED",
+    "internal_consistency": "SUPPORTED_BY_19_CHECK_AUDIT",
+    "license_scope": "JURISDICTION_RELATIVE_SUPPORTED_FINITE",
+    "license_transfer_mechanism": "SUPPORTED_FINITE_WITH_RELICENSING",
     "no_next_experiment_owed": true,
-    "status": "LICENSED_ADVISORY_INFORMATION_SUPPORTED_FINITE"
+    "status": "F5_FORMAL_COUNTERMODEL_SUPPORTED",
+    "wholesale_choice_transfer": "NOT_SUPPORTED__JURISDICTION_LEAKAGE_IDENTIFIED"
+  },
+  "formal_frontier": {
+    "C_auth": "DEFINED_FORMAL_CANDIDATE",
+    "C_util": "DEFINED_FORMAL_CANDIDATE",
+    "F1_nested_refinement": "OPEN_NOT_RUN",
+    "F2_incomparable_jurisdictions": "OPEN_NOT_RUN",
+    "F3_candidate_domain_laundering": "OPEN_NOT_RUN",
+    "F4_certificate_composition": "OPEN_NOT_RUN",
+    "F5_effect_trace_laundering": "FORMAL_COUNTERMODEL_SUPPORTED",
+    "c_auth_valid_implies_trace_validity": "NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5",
+    "certificate_composition": "NONRULE_UNTIL_EARNED",
+    "effect_capability_set": "CANDIDATE_OBJECT",
+    "endpoint_valid_implies_trace_validity": "NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5",
+    "relicense_calculus": "FORMAL_CANDIDATE_NOT_YET_EMPIRICALLY_VALIDATED",
+    "role_license": "EXISTING_CALCULUS_SEMANTICS",
+    "effect_license": "NEWLY_EXPOSED_FORMAL_OBLIGATION",
+    "trace_challengeability": "OPEN",
+    "trace_completeness": "OPEN",
+    "trace_entitlement": "OPEN",
+    "trace_interface": "OPEN"
   },
   "hard_boundaries": {
     "challenge_geometry_order4": "DO_NOT_RUN",
@@ -197,33 +234,41 @@
   },
   "open_hypotheses": {
     "H_nondominated_behavior": "OPEN_NOT_TESTED_OUTSIDE_CLOSED_CURRENT_WORLD",
-    "license_transfer": "UNOPENED",
     "neural_world_model_generalization": "UNTESTED",
+    "trace_challengeability": "OPEN",
+    "trace_completeness": "OPEN",
+    "trace_entitlement": "OPEN",
     "universal_provenance_schema": "UNTESTED",
     "unseen_one_step_input_generalization": "UNTESTED",
     "variable_horizon_provenance_minimality": "UNTESTED"
   },
   "resume_contract": [
-    "preserve negative and contrast-not-identified results",
-    "frozen experiment objects outrank navigation summaries",
+    "preserve negative, contrast-not-identified, formal-correction, and adversarial-countermodel results",
+    "frozen scientific objects outrank navigation summaries",
     "do not reopen old nondominated world",
     "do not reopen liveness absent genuinely new external evidence/question",
-    "do not scalarize representation, liveness, semantic error allocation, authority, or policy freedom",
-    "keep representation, transition, path provenance, authority, advisory information, and behavior as separate layers",
-    "keep heuristics separate from authority-bearing adjudication",
-    "do not promote behavioral distinctions into authority without independent constitution",
-    "authorized equivalence is not physical equivalence",
+    "do not scalarize representation, semantic error allocation, authority, freedom, or causal-envelope objects",
+    "keep Can, May, and Did separate",
+    "keep access, causal influence, and licensed effect separate",
+    "keep endpoint validity, candidate-domain validity, role license, and whole-execution effect entitlement separate",
     "advisory usefulness is evidence for utility, not jurisdiction",
-    "advisory information requires an explicit role license and may not silently modify admissibility or authority equivalence",
-    "License(H,J) transfer is unopened and must be separately constituted",
+    "License(H,J) is jurisdiction-relative; permission does not transfer wholesale",
+    "evidence transport is not permission transport",
+    "preserve U_fresh != U_inherited",
+    "preserve INTERNAL_CONSISTENCY != FORMAL_SOUNDNESS != EMPIRICAL_VALIDITY",
+    "do not patch CA-R1 post hoc from F5; separately constitute any effect-level object",
+    "do not infer trace completeness from trace validity",
+    "certificate composition remains a non-rule until earned",
     "keep JEPA parked until explicitly authorized",
     "keep SSI_CALC_KERNEL_DELTA=0 unless a source-specific frozen benchmark earns a rule"
   ],
-  "schema": "ssi-research-ledger/v0.3",
+  "schema": "ssi-research-ledger/v0.4",
   "snapshot_date": "2026-08-17",
   "supported_empirical_claims": {
     "H_advisory": "SUPPORTED_FINITE_ON_FROZEN_IMPLEMENTATION_PANEL",
     "H_freedom": "SUPPORTED_FINITE_ON_FROZEN_ACTION_NAME_FAULT_FAMILY",
+    "H_license_mechanism_transfer": "SUPPORTED_FINITE_WITH_RELICENSING",
+    "H_wholesale_choice_transfer": "NOT_SUPPORTED__JURISDICTION_LEAKAGE_IDENTIFIED",
     "counterfactual_consequence_horizon_v0_1": "SUPPORTED",
     "counterfactual_consequence_sufficiency_v0_1": "SUPPORTED",
     "counterfactual_world_model_prediction_v0_1": "SUPPORTED",
@@ -231,8 +276,10 @@
     "goal_authority_advisory_selection_v0_1": "SUPPORTED_FINITE",
     "goal_authority_behavior_v0_1": "SUPPORTED_CONSTRUCTIVE_CONTROL",
     "goal_authority_interface_v0_1": "SUPPORTED_FINITE",
+    "goal_authority_license_transfer_v0_1": "SUPPORTED_FINITE_WITH_JURISDICTION_RELATIVE_SCOPE",
     "goal_authority_opportunity_world_v0_1": "SUPPORTED",
     "goal_authority_provenance_interface_v0_1": "SUPPORTED_FINITE",
+    "license_scope": "JURISDICTION_RELATIVE_SUPPORTED_FINITE",
     "licensed_advisory_information": "SUPPORTED_FINITE",
     "mechanism_conditioned_correction": "SUPPORTED_BOUNDED",
     "predictor_exposes_authorized_freedom": "SUPPORTED_ON_ADJUDICATION_V0_1",
