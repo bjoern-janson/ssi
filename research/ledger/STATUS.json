@@ -19,6 +19,12 @@
       "predictor_freeze_sha256": "84413a7cc8bb864133cfaf0b8601e6751211d8915de0fb44ff02fbff5f81e183",
       "result_sha256": "59ee82c58728327c1ef4dd2bfda5a3e6d5144b133cbdd60100962d1d33d4ce73"
     },
+    "goal_authority_advisory_selection_v0_1": {
+      "constitution_sha256": "d768ffa2da2eb32d2f078dd13d5c5c4d877f043427f7c555b16d74123dd12419",
+      "pre_behavior_selector_freeze_sha256": "ec230a3749a34000f321065d0362483a3daf0ce0768f6450f6f6ba7c1c34165f",
+      "result_sha256": "b3b59ac2586ee7ca2d4c05e855b47a91e2f1813a5a66cdf8ee65954ff1763ffa",
+      "zip_sha256": "25c49435fc547aac4e35cb2b25a32b8da0921e5f95c89ea57212fdd534268dd1"
+    },
     "goal_authority_behavior_nondominated_v0_1": {
       "constitution_sha256": "29713830c679bd2a586e997d5ef2b9d092aa930b0670a3eebd45d2ac51a577ab",
       "contrast_freeze_sha256": "c50e5aa6d9f135d6aebddc7393eecd0cbd0becad27e5d481d54c84a8e9f72464",
@@ -146,9 +152,13 @@
     "wm_semantic_error_allocation_v0_3b": "CONTRAST_NOT_IDENTIFIED"
   },
   "core_theory": {
+    "candidate_abstractions": {
+      "License(H,J)": "role-restricted permission to refine representative choice within J-equivalence classes; cross-jurisdiction transfer UNOPENED"
+    },
     "central_noncollapse": [
       "representation != authority != prediction != behavior",
       "observable != authorized != consequential",
+      "semantic authority != licensed advisory information != behavioral consequence",
       "available distinction != authorized distinction",
       "semantic state != semantic provenance",
       "maximum provenance != minimal authority interface"
@@ -162,15 +172,19 @@
       "an interface is sufficient only if it preserves every distinction the downstream jurisdiction is entitled to adjudicate",
       "behavioral distinguishability does not retroactively create semantic authority",
       "authorized equivalence is permission for unresolved choice, not a claim of physical interchangeability",
+      "behavioral usefulness is evidence for utility, not evidence for jurisdiction",
+      "non-authoritative does not imply operationally useless",
+      "licensed advisory information may refine representative choice without modifying the authority quotient",
       "selected witness != semantic denotation",
       "latent heuristic != semantic adjudicator"
     ]
   },
   "current_terminal_state": {
-    "branch": "goal_authority_opportunity_provenance_freedom",
+    "branch": "goal_authority_advisory_selection",
     "latent_representative_subbranch": "CLOSED_CURRENT_FINAL_STATE_METRIC_CONTRAST_NOT_IDENTIFIED",
+    "license_transfer": "UNOPENED",
     "no_next_experiment_owed": true,
-    "status": "CLOSED_WITH_H_FREEDOM_SUPPORTED_FINITE"
+    "status": "LICENSED_ADVISORY_INFORMATION_SUPPORTED_FINITE"
   },
   "hard_boundaries": {
     "challenge_geometry_order4": "DO_NOT_RUN",
@@ -183,6 +197,7 @@
   },
   "open_hypotheses": {
     "H_nondominated_behavior": "OPEN_NOT_TESTED_OUTSIDE_CLOSED_CURRENT_WORLD",
+    "license_transfer": "UNOPENED",
     "neural_world_model_generalization": "UNTESTED",
     "universal_provenance_schema": "UNTESTED",
     "unseen_one_step_input_generalization": "UNTESTED",
@@ -194,25 +209,31 @@
     "do not reopen old nondominated world",
     "do not reopen liveness absent genuinely new external evidence/question",
     "do not scalarize representation, liveness, semantic error allocation, authority, or policy freedom",
-    "keep representation, transition, path provenance, authority, and behavior as separate layers",
+    "keep representation, transition, path provenance, authority, advisory information, and behavior as separate layers",
     "keep heuristics separate from authority-bearing adjudication",
     "do not promote behavioral distinctions into authority without independent constitution",
     "authorized equivalence is not physical equivalence",
+    "advisory usefulness is evidence for utility, not jurisdiction",
+    "advisory information requires an explicit role license and may not silently modify admissibility or authority equivalence",
+    "License(H,J) transfer is unopened and must be separately constituted",
     "keep JEPA parked until explicitly authorized",
     "keep SSI_CALC_KERNEL_DELTA=0 unless a source-specific frozen benchmark earns a rule"
   ],
-  "schema": "ssi-research-ledger/v0.2",
+  "schema": "ssi-research-ledger/v0.3",
   "snapshot_date": "2026-08-17",
   "supported_empirical_claims": {
+    "H_advisory": "SUPPORTED_FINITE_ON_FROZEN_IMPLEMENTATION_PANEL",
     "H_freedom": "SUPPORTED_FINITE_ON_FROZEN_ACTION_NAME_FAULT_FAMILY",
     "counterfactual_consequence_horizon_v0_1": "SUPPORTED",
     "counterfactual_consequence_sufficiency_v0_1": "SUPPORTED",
     "counterfactual_world_model_prediction_v0_1": "SUPPORTED",
     "ct_v0_2": "SUPPORTED_ACROSS_8_BLINDED_WORLDS",
+    "goal_authority_advisory_selection_v0_1": "SUPPORTED_FINITE",
     "goal_authority_behavior_v0_1": "SUPPORTED_CONSTRUCTIVE_CONTROL",
     "goal_authority_interface_v0_1": "SUPPORTED_FINITE",
     "goal_authority_opportunity_world_v0_1": "SUPPORTED",
     "goal_authority_provenance_interface_v0_1": "SUPPORTED_FINITE",
+    "licensed_advisory_information": "SUPPORTED_FINITE",
     "mechanism_conditioned_correction": "SUPPORTED_BOUNDED",
     "predictor_exposes_authorized_freedom": "SUPPORTED_ON_ADJUDICATION_V0_1",
     "predictor_off_frontier_hallucinations": "IDENTIFIED",

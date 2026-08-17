@@ -6,18 +6,18 @@ This file is a navigation layer, not an executable scientific artifact. The deta
 
 - [`research/ledger/CURRENT.md`](research/ledger/CURRENT.md)
 - [`research/ledger/STATUS.json`](research/ledger/STATUS.json)
+- [`research/ledger/SNAPSHOT_2026-08-16.md`](research/ledger/SNAPSHOT_2026-08-16.md)
 
-The previous 2026-08-16 ledger snapshot remains preserved in Git history at base commit
-`93c0171ec46b7a7529a19b6b5d6db4f60309ea75`. It is historical provenance and must not be treated as the current frontier.
+The preserved 2026-08-16 snapshot is historical provenance and must not be treated as the current frontier.
 
 ## Provenance order
 
-For claims whose experiments were executed outside the repository:
+For claims backed by frozen external experiments:
 
 ```text
 frozen/content-addressed experiment artifact
     > current durable research ledger
-    > older repository snapshot
+    > derived summaries / older navigation snapshots
 ```
 
 Here `>` means **more current for that claim**, not globally more authoritative in every respect.
@@ -28,21 +28,21 @@ If a navigation ledger conflicts with frozen scientific bytes, the frozen object
 
 ```text
 representation != authority != prediction != behavior
-```
-
-and:
-
-```text
 observable != authorized != consequential
+semantic authority != licensed advisory information != behavioral consequence
 ```
 
 The current experimental center of gravity is:
 
-> **A system can contain a distinction, preserve it, use it, or be entitled to use it—and those are different properties.**
+> **A system can contain a distinction, preserve it, use it, be helped by it, or be entitled to use it for judgment—and those are different properties.**
 
-The opportunity/provenance/freedom line adds:
+The opportunity/provenance/freedom/advisory line adds:
 
 > **Authorized equivalence is not physical equivalence. A jurisdiction may intentionally leave distinctions free even when the world preserves downstream consequences of those distinctions.**
+
+and:
+
+> **Not authoritative does not mean irrelevant. Information can be licensed for the narrower role of choosing among already-authorized alternatives without acquiring semantic authority.**
 
 ## Current branch terminal state
 
@@ -67,6 +67,18 @@ GOAL_AUTHORITY_FREEDOM_BEHAVIOR_V0.1 / H_freedom
 
 LATENT_REPRESENTATIVE_CONSEQUENCE
     = CONTRAST_NOT_IDENTIFIED
+
+GOAL_AUTHORITY_ADVISORY_SELECTION_V0.1 / H_advisory
+    = SUPPORTED_FINITE_ON_FROZEN_IMPLEMENTATION_PANEL
+
+LICENSED_ADVISORY_INFORMATION
+    = SUPPORTED_FINITE
+
+AUTHORITY_LEAKAGE_EVENTS
+    = 0
+
+LICENSE_TRANSFER
+    = UNOPENED
 
 JEPA = PARKED
 SSI_CALC_KERNEL_DELTA = 0
