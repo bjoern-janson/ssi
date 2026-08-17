@@ -1,36 +1,131 @@
 {
   "artifact_ids": {
+    "cf_composition_v0_1": {
+      "constitution_sha256": "fe616fdeb5ad38deeb22248b7b4485bec797d54323b5160832c624b9d737fb8c",
+      "result_sha256": "ff611358ea63b93bbc822067649b5b1f2e910388e63d92d305a1177c2fd6d08b"
+    },
     "cf_horizon_v0_1": {
       "constitution_sha256": "060aad7c1479ba5a18fadce7d66b438c5551cb9cbbb086fc3b7f336d434b1bee",
+      "horizon_gate_sha256": "801b8a63f38ccb26546ead4ab2630922ea45e021d2812eebb9d9f7e4046d2ebc",
       "result_sha256": "7aa277698194943638d0186fb3860a8f94056e6f54f0abfc977a65018288b4e2"
     },
     "cf_sufficiency_v0_1": {
       "constitution_sha256": "f4b67289bb11ada0317f02f441ec573088f3337e434cee8934c00de50e35d823",
       "result_sha256": "da9f9603291faefabcc73416baa793cf04dc6b7287eb4d0faaf5e518088ec5cc"
     },
+    "goal_authority_adjudication_v0_1": {
+      "constitution_sha256": "ce816952fceb4e650d01a02ecfee315245aae3bfd282a87f267c69c897ad4215",
+      "planner_freeze_sha256": "506d648ecb8bd9c6e58fccae83ad7efac4183c5683cc50b0780b71e5b17eda91",
+      "predictor_freeze_sha256": "84413a7cc8bb864133cfaf0b8601e6751211d8915de0fb44ff02fb5f81e183",
+      "result_sha256": "59ee82c58728327c1ef4dd2bfda5a3e6d5144b133cbdd60100962d1d33d4ce73"
+    },
+    "goal_authority_advisory_selection_v0_1": {
+      "constitution_sha256": "d768ffa2da2eb32d2f078dd13d5c5c4d877f043427f7c555b16d74123dd12419",
+      "pre_behavior_selector_freeze_sha256": "ec230a3749a34000f321065d0362483a3daf0ce0768f6450f6f6ba7c1c34165f",
+      "result_sha256": "b3b59ac2586ee7ca2d4c05e855b47a91e2f1813a5a66cdf8ee65954ff1763ffa",
+      "zip_sha256": "25c49435fc547aac4e35cb2b25a32b8da0921e5f95c89ea57212fdd534268dd1"
+    },
     "goal_authority_behavior_nondominated_v0_1": {
       "constitution_sha256": "29713830c679bd2a586e997d5ef2b9d092aa930b0670a3eebd45d2ac51a577ab",
       "contrast_freeze_sha256": "c50e5aa6d9f135d6aebddc7393eecd0cbd0becad27e5d481d54c84a8e9f72464",
       "result_sha256": "f5caec95cf9009f8a67846a305edb9615f6bded8225906184d96c58a4963c109"
+    },
+    "goal_authority_behavior_nondominated_v0_2": {
+      "constitution_sha256": "da9cbb64a393d921b7bba5fd0610e9db1e7050511ca28e9a56b368fa267dbef9",
+      "result_sha256": "b39f671cabc4d0c3e7561e7676cb30dc95c68e0a567f47988e60be7a29a69f05",
+      "typed_task_freeze_sha256": "19e29cc936be2ddb22742ac8a76d253169ae17d197d451abea240d9fe3f04a61"
     },
     "goal_authority_behavior_v0_1": {
       "conflict_freeze_sha256": "6e373093d275480cbcb7a516675170d84909614a8dc79c7ee1ce563b587b04a3",
       "constitution_sha256": "bfe237f18bffda9285917049bc099a0def2dd24d6e0378695a83dfefda4a5955",
       "result_sha256": "513809c804fee71df31bed52c61dcb09ea8c4717884dc95f2a951a6369b3d357"
     },
+    "goal_authority_freedom_behavior_v0_1": {
+      "authority_selector_freeze_sha256": "aa33d99ac3bddf151b263ceeb1d0c53f53121fc19b95786cf9a7e8f2e346b34f",
+      "constitution_sha256": "043986773374fac369cca6327c4291038e97a6563216927ea3c6daa7d64c490e",
+      "result_sha256": "c69a173d411835d35a98669b2513823ac93d1746fe163aa4d478deff80a2b773"
+    },
     "goal_authority_interface_v0_1": {
       "constitution_sha256": "edc62a0e8fe610989d586c266395103f40167a2634c4ca399468c63f8321b36c",
       "result_sha256": "1dca6cac0f2214c4c6c0f31d6aa2e5c3e0ee32c3d485a47a412008d97407f7ca"
     },
-    "goal_sufficiency_v0_1": {
-      "constitution_sha256": "926ddc3e22d83b01ba97fbcad583c297f1391211ed21bc1d083d377ff8bc9b08",
-      "goal_geometry_freeze_sha256": "58f356821026308f7a3e9c0f41f6108134b6a9aeae9c0de6454c97a923215758",
-      "result_sha256": "17f59c04e2f11185c211fbb2bc784c55982affe7b6fd5e0bfcc1409efc85e840"
+    "goal_authority_license_transfer_v0_1": {
+      "active_r1_constitution_sha256": "7f78a016c83a1ab7c1905bfa2da99bc897030384a75ab09c0e78b94ffba8b1f4",
+      "pre_behavior_freeze_sha256": "783f75b2867e1f9f39f0cdf8e1309e0c1d7e9457c3a6a8b48672217d0546a413",
+      "pre_r1_constitution_sha256": "164ab131f7a5da517f85fc0b45482e8364d310bc66144f6d71d56725a9d5606e",
+      "result_sha256": "b2072d3e908dbc8e882845cf516b3e43735a095bb6232f22334be5e2b3238b2c",
+      "zip_sha256": "80c5b0bd056da05defa809fc5c01ea7c5bc7ece0bcf61e1599afb0e37bbfdb00"
+    },
+    "goal_authority_opportunity_world_v0_1": {
+      "constitution_sha256": "2110be133abb61560e6995149ab54060ff5c4de2ddecd0d679da94e783dc230e",
+      "opportunity_frontier_freeze_sha256": "49a4e67b0fa90cfc28242117a7d3396985c0d41076dd1d0282b301e558678dd9",
+      "pre_r1_constitution_sha256": "264bb90adfe87357622bea423208ca4205c8341c485df607ae8ba00cb6a067d1",
+      "result_sha256": "4ad521d6101823fe10000b12e57ef70d7b4b92218956512380ca91728726842e"
+    },
+    "goal_authority_path_interface_v0_1": {
+      "constitution_sha256": "70fe48973ecab043ec92fd1f3648fcb5fedcc5b2b942370a789a7076eceeb68d",
+      "result_sha256": "74b633448e030e501ca89bc7cff682b3f730eaa04f313480104895026caae561"
+    },
+    "goal_authority_provenance_interface_v0_1": {
+      "constitution_sha256": "cb257a05fc6d280b11ac8bfbca63f3302e4b3ee0412d8d29ab1723b129569365",
+      "minimality_certificate_sha256": "a417672d1dfcc09db683fbcc65eea2555ad932f59978d19dc9245abc99b0cb95",
+      "result_sha256": "a2f2d325570ae509aef6e25a992ccf3f75e27cd2d9a3ae17401fd6d39d4f2e09"
     },
     "latent_goal_authority_refinement_v0_1": {
       "constitution_sha256": "41f0cc1e1e38c712ff6c5c7e1e3bcfc03f2259cbc2b9a40ac7ab480e0141a011",
       "coordinate_gate_sha256": "840ea3f0ccb1b548d005a801e5d394ec4b4a09909660a83d6094a5a425d6e068",
       "result_sha256": "09af81dffd7cea250e3945776eb6fbb2f9c7417bdfa846664f19c3f557d75029"
+    },
+    "liveness_orthogonalization_v0_1": {
+      "constitution_sha256": "6540a5678bac47ebbc7f4b63069b3766f0c62932f5ff6014e29701fa179836df",
+      "preflight_sha256": "3a791408a7e1584965897270607a87a9711672c4b5c5b4919d0032cee4797a01",
+      "result_sha256": "b8a488d66883c39cf18c785bd5ccad03b684609191e88523aff57dabf2dd8f36"
+    },
+    "mechanism_correction_v0_1": {
+      "binding_sha256": "bc19773f246c3ec48d27c2378afec810d740d9fd1ed713e53340e038082c0899",
+      "constitution_sha256": "80defca43f01db9a7522048217b3efadf15535b204764b31c0fdc8bfec845e43",
+      "result_sha256": "b3c43c0ecae1f06224bbc09cab1c99d9fc8a52573b27d0d59b495f34f0602a73"
+    },
+    "qccb_v0_1": {
+      "constitution_sha256": "7f6c6e8df913562181d23fa53bbfd5ed4c102a2f31e4ea561daa9ea8724c46fc",
+      "execution_binding_sha256": "396df5ce32b7fd13ce7dce3d2994d0fc040647886768bd15b932f47fd51c5ba3",
+      "result_sha256": "cf3032638fb4952256d9f22753510c007e9b5da9e830bcadc9c26ed93ca12f20"
+    },
+    "question_conditioned_alignment_v0_1": {
+      "constitution_sha256": "cdc6c6b2e5ec584d428b9c0c9251a23c766e5dbc3defc939ef9c7109b25a4216",
+      "instrument_freeze_sha256": "8e2164cb7a0b36c0841bffde444bfbf473fb33b07fc0fa8902ebc399aa5bc04e",
+      "result_sha256": "cc6080ec971ebced176ee531a513d012e822036e08a291c4580fb1701cd717e2"
+    },
+    "question_dependence_v0_1": {
+      "constitution_sha256": "a82bdad58e0dd3b8b14938558ff2fe089ea91bab13b66e88334dc2e03a9e2855",
+      "result_sha256": "038b6fa87a575a3ff73bb04068257bb9e10339fa24b3edbce9a43b03991caf9d"
+    },
+    "semantic_goal_sufficiency_v0_1": {
+      "constitution_sha256": "926ddc3e22d83b01ba97fbcad583c297f1391211ed21bc1d083d377ff8bc9b08",
+      "goal_geometry_freeze_sha256": "58f356821026308f7a3e9c0f41f6108134b6a9aeae9c0de6454c97a923215758",
+      "result_sha256": "17f59c04e2f11185c211fbb2bc784c55982affe7b6fd5e0bfcc1409efc85e840"
+    },
+    "ssi_relicense_certificate_calculus_v0_1": {
+      "active_calculus_sha256": "af394081b10be84d7fd4d0b1f03e4ab13f4839d0ed661e812d3b8d81fd54aa40",
+      "active_certificate_schema_sha256": "cff76ed9a30a45a99612e15b0846e34351405e8241594f2b7769d1ba3800b642",
+      "constitution_sha256": "a3175b8bebd5144a618fabccd83599e759766e0f07f050cc5ae907d3d7a61e4e",
+      "result_sha256": "fa3cd12faf65f461f3052ed31110368359c59646fb6eef8d1654b6ae362acdcb",
+      "zip_sha256": "04febe87f8b98c1dd9c6aff5e94d2b310ad8844071b06ecde726bbb35b13eb10"
+    },
+    "ssi_relicense_formal_adversarial_f5_v0_1": {
+      "constitution_sha256": "3726bbdf0f25fd6b2fb546b7f76e4bf4cd8a9502054b1e4f9055aec395d619fe",
+      "result_sha256": "b6b72a0722c70c0f0ac1194d26e74dda1b3404207c73807a99eb95faaa2d94a7",
+      "zip_sha256": "2337c8e79a436f5a2eaa3859ff8e1ae3d2c1d211e18e33afdce1bddfe4746cdd"
+    },
+    "wm_error_allocation_v0_3": {
+      "constitution_sha256": "9afaec36b2a876292524bc6591a56bbc8259643f2be38beebe6c800c678720ab",
+      "pair_freeze_sha256": "0b4e3c9db15735aa9350b31ca033be9cba76005884ebfcf9885c634be70bed8b",
+      "result_sha256": "c5a69bd79305fd52e44e54c6149340187ae4d4ea851eb2b5510e6933f9715f4d"
+    },
+    "wm_error_allocation_v0_3b": {
+      "constitution_sha256": "bcfc570876f80e8b717e8149f68149afdc4ac9144f59cab82a26a115b4edb6ca",
+      "pair_freeze_sha256": "0827923aba44986539043639d82c2b6ac3cd39b3412d53ca5363ba1967cd1e9f",
+      "result_sha256": "f4f3590f905f197ea1bfc5632f2ae45828a289ec42ace010a5f818ae4c910d3a"
     },
     "wm_error_allocation_v0_4": {
       "constitution_sha256": "482ec0d8595fff0c1e21ccf484ddd61cfe88ae2c1f9ff514e783d0ba1d091d35",
@@ -44,6 +139,7 @@
     },
     "wm_prediction_v0_1": {
       "constitution_sha256": "29c3c0a4625c07fd99bcb707a20309d2f839e4ec9da1c8f63bda06210ca4651a",
+      "horizon_freeze_sha256": "4bc3b8411e2e5744811a20bac8fb90a4295f36ecff507e91e1a99a3876527d55",
       "result_sha256": "f139003c71f0c6973632eb90e609c8df86f4c6dfdc2064dabb75849561f87f30"
     },
     "wm_semantic_transition_audit_v0_2": {
@@ -54,138 +150,186 @@
   "authority": {
     "jepa": "PARKED",
     "overrides_frozen_scientific_objects": false,
-    "repository_main_binding": "9ada96e664db90fb922a1b6e6601489dac4ddc9c",
     "role": "navigation_and_research_state_only",
     "ssi_calc_kernel_delta": 0
   },
-  "current_chain": [
-    "represented_distinctions",
-    "attainable_semantic_adequacy",
-    "counterfactual_consequence_sufficiency",
-    "learned_transition_interface",
-    "predictive_counterfactual_sufficiency",
-    "goal_authority_interface",
-    "plan_selection",
-    "behavior"
-  ],
-  "current_frontier": {
-    "candidate_only_not_authorized": "separate read-action burden and write-action burden",
-    "do_not_repair_v0_1_in_place": true,
-    "failure_locus_v0_1": "AUTHORITY CONSTITUTION / SECONDARY-OBJECTIVE_GEOMETRY",
-    "object": "GOAL_AUTHORITY_BEHAVIOR_NONDOMINATED",
-    "required_successor": "Prospectively constitute independently varying authorized resource coordinates before any task/outcome inspection.",
-    "status": "OPEN_NOT_TESTED_AFTER_V0_1_CONTRAST_NOT_IDENTIFIED"
+  "base_main_before_consolidation": "93c0171ec46b7a7529a19b6b5d6db4f60309ea75",
+  "closed_negative_terrain": {
+    "H_cross": "NOT_SUPPORTED_ON_FROZEN_BLIND_PREDICTOR_FINAL_STATE_LATENT_TERRAIN",
+    "centroid_goal_coordinate_authority": "NOT_EARNED",
+    "counterfactual_consequence_composition_v0_1": "CLOSED_FAMILY_NO_NEW_HORIZON_DISTINCTION",
+    "goal_authority_behavior_nondominated_current_world": "CLOSED_CURRENT_WORLD_CONTRAST_NOT_IDENTIFIED",
+    "goal_authority_behavior_nondominated_v0_1": "CONTRAST_NOT_IDENTIFIED",
+    "goal_authority_behavior_nondominated_v0_2": "CONTRAST_NOT_IDENTIFIED",
+    "latent_representative_consequence": "CONTRAST_NOT_IDENTIFIED__CURRENT_FINAL_STATE_METRIC_BRANCH_CLOSED",
+    "learned_path_authority": "NOT_SUPPORTED_ON_FROZEN_BLIND_PREDICTOR_TRAJECTORY_TERRAIN",
+    "liveness_branch": "CLOSED__H_LIVE_NOT_SUPPORTED_ON_FROZEN_ORTHOGONALIZED_TIED_CHANNEL_TERRAIN",
+    "pqc_1_strong_target_blind_prediction": "NOT_SUPPORTED",
+    "question_conditioned_corrective_behavior_v0_1": "NOT_SUPPORTED",
+    "semantic_goal_sufficiency_v0_1": "CONTRAST_NOT_IDENTIFIED",
+    "wm_semantic_error_allocation_v0_3": "CONTRAST_NOT_IDENTIFIED",
+    "wm_semantic_error_allocation_v0_3b": "CONTRAST_NOT_IDENTIFIED"
+  },
+  "conceptual_frontier": {
+    "master_theoretical_candidate": "SCOPE_INDEXED_ENTITLEMENT",
+    "effect_judgment": "Gamma |- (d ->[operation] effect) @ scope",
+    "causal_noncollapse": [
+      "access != causal influence != licensed effect",
+      "endpoint legality != role license != execution entitlement",
+      "capability != entitlement != actual causal exercise",
+      "Can != May != Did"
+    ],
+    "causal_envelopes": {
+      "A": "ActualEffects / Did",
+      "C": "EntitledEffects / May",
+      "Q": "Required warranted envelope",
+      "R": "RealizableEffects / Can",
+      "W": "R intersect C / warranted executable envelope"
+    },
+    "candidate_contract": [
+      "Q subseteq W",
+      "A subseteq W"
+    ],
+    "compression": "Improve Can. Justify May. Constrain Did.",
+    "master_formulation": "Safe self-improvement is warrant-bounded causal expansion"
+  },
+  "transition_frontier": {
+    "master_methodological_candidate": "TRANSITION_BOUNDARY_DISCIPLINE",
+    "transition_judgment": "Gamma |- X ==[W_12 ; sigma_1 -> sigma_2]=> Y",
+    "transition_noncollapse": "validity != transportability != composability",
+    "structure": "PARTIAL_DIRECTED_GRAPH_OF_SCOPED_JUDGMENTS__NOT_A_CATEGORY",
+    "node": "J_i = scoped judgment",
+    "edge": "W_ij = scope-relative boundary witness",
+    "composition_witness": "W_ijk = conceptual interaction/composition witness; not an earned rule",
+    "nonrules": [
+      "valid endpoints !=> valid transition",
+      "valid transitions !=> valid composition",
+      "witness exists !=> witness sufficient",
+      "source entitlement !=> target entitlement",
+      "capability growth !=> entitlement growth"
+    ],
+    "transition_outcomes": [
+      "PRESERVED",
+      "EXTENDED",
+      "REVOKED",
+      "UNPROVEN"
+    ],
+    "status_firewall": "UNPROVEN != REVOKED",
+    "transportability": "CANDIDATE_RELATIONAL_RESEARCH_OBJECT_NOT_FORMAL_FIELD",
+    "diagnostic_triage": [
+      "missing argument: identify the scope that makes the judgment relational",
+      "missing witness: identify what licenses the boundary crossing",
+      "missing interaction structure: identify why individually valid crossings do not compose"
+    ],
+    "methodological_rule": "Do not coerce across a boundary. Certify the boundary.",
+    "deeper_rule": "A justified state does not imply a justified change. A justified change does not imply a justified composition."
+  },
+  "current_terminal_state": {
+    "branch": "transition_boundary_discipline_after_f5",
+    "formal_soundness": "UNESTABLISHED",
+    "internal_consistency": "SUPPORTED_BY_19_CHECK_AUDIT",
+    "license_scope": "JURISDICTION_RELATIVE_SUPPORTED_FINITE",
+    "license_transfer_mechanism": "SUPPORTED_FINITE_WITH_RELICENSING",
+    "no_next_experiment_owed": true,
+    "status": "CONCEPTUAL_FLOOR_FROZEN_AFTER_F5",
+    "wholesale_choice_transfer": "NOT_SUPPORTED__JURISDICTION_LEAKAGE_IDENTIFIED"
+  },
+  "formal_frontier": {
+    "C_auth": "DEFINED_FORMAL_CANDIDATE",
+    "C_util": "DEFINED_FORMAL_CANDIDATE",
+    "F1_nested_refinement": "OPEN_NOT_RUN",
+    "F2_incomparable_jurisdictions": "OPEN_NOT_RUN",
+    "F3_candidate_domain_laundering": "OPEN_NOT_RUN",
+    "F4_certificate_composition": "OPEN_NOT_RUN__TRANSPORT_AND_COMPOSITION_WITNESSES_CONCEPTUAL_ONLY",
+    "F5_effect_trace_laundering": "FORMAL_COUNTERMODEL_SUPPORTED",
+    "c_auth_valid_implies_trace_validity": "NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5",
+    "certificate_composition": "NONRULE_UNTIL_EARNED",
+    "effect_capability_set": "CANDIDATE_OBJECT",
+    "endpoint_valid_implies_trace_validity": "NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5",
+    "relicense_calculus": "FORMAL_CANDIDATE_NOT_YET_EMPIRICALLY_VALIDATED",
+    "role_license": "EXISTING_CALCULUS_SEMANTICS",
+    "effect_license": "NEWLY_EXPOSED_FORMAL_OBLIGATION",
+    "transport_witness": "CONCEPTUAL_PLACEHOLDER_ONLY",
+    "composition_witness": "CONCEPTUAL_PLACEHOLDER_ONLY",
+    "trace_challengeability": "OPEN",
+    "trace_completeness": "OPEN",
+    "trace_entitlement": "OPEN",
+    "trace_interface": "OPEN"
   },
   "hard_boundaries": {
     "challenge_geometry_order4": "DO_NOT_RUN",
     "intrinsic_universal_representation_quality_descriptor_hunt": "CLOSED",
     "jepa": "PARKED",
     "liveness_branch": "CLOSED",
-    "neural_world_model": "UNTESTED",
+    "old_nondominated_world": "CLOSED",
     "ssi_calc_rule_from_downstream_line": "NOT_EARNED",
     "universal_scalarization": "PROHIBITED_BY_CURRENT_EVIDENCE"
   },
-  "laws": [
-    "available distinction != authorized distinction",
-    "validated consequence grants local authority; it does not automatically grant causal authority",
-    "present sufficiency does not imply counterfactual consequence sufficiency",
-    "irrelevant now does not imply irrelevant after intervention",
-    "CF=0 implies PCF=0 in the deterministic rollout construction; CF=1 does not imply PCF=1",
-    "prediction error amount != error location != semantic damage",
-    "predicting latent state well != preserving semantic future",
-    "latent heuristic != semantic adjudicator",
-    "semantic interface grows when authority grows, not merely when representation contains more distinctions",
-    "multiple admissible plans != multiple authorized tradeoffs"
-  ],
+  "open_hypotheses": {
+    "H_nondominated_behavior": "OPEN_NOT_TESTED_OUTSIDE_CLOSED_CURRENT_WORLD",
+    "neural_world_model_generalization": "UNTESTED",
+    "transportability": "CANDIDATE_RELATIONAL_RESEARCH_OBJECT_NOT_FORMALIZED",
+    "trace_challengeability": "OPEN",
+    "trace_completeness": "OPEN",
+    "trace_entitlement": "OPEN",
+    "universal_provenance_schema": "UNTESTED",
+    "unseen_one_step_input_generalization": "UNTESTED",
+    "variable_horizon_provenance_minimality": "UNTESTED"
+  },
   "resume_contract": [
-    "preserve negative and contrast-not-identified results",
-    "do not reopen liveness absent new external evidence/question",
-    "do not scalarize representation, liveness, error allocation, or planner authority",
-    "keep representation ceilings separate from transition losses",
-    "keep goal semantics separate from goal metrics",
-    "keep proposal heuristics separate from authority-bearing adjudication",
-    "freeze independently varying resource objectives before reopening nondominated behavior",
+    "preserve negative, contrast-not-identified, formal-correction, and adversarial-countermodel results",
+    "frozen scientific objects outrank navigation summaries",
+    "do not reopen old nondominated world",
+    "do not reopen liveness absent genuinely new external evidence/question",
+    "do not scalarize representation, semantic error allocation, authority, freedom, transportability, or causal-envelope objects",
+    "keep Can, May, and Did separate",
+    "keep validity, transportability, and composability separate",
+    "keep access, causal influence, and licensed effect separate",
+    "keep endpoint validity, candidate-domain validity, role license, and whole-execution effect entitlement separate",
+    "advisory usefulness is evidence for utility, not jurisdiction",
+    "License(H,J) is jurisdiction-relative; permission does not transfer wholesale",
+    "evidence transport is not permission transport",
+    "preserve U_fresh != U_inherited",
+    "preserve INTERNAL_CONSISTENCY != FORMAL_SOUNDNESS != EMPIRICAL_VALIDITY",
+    "preserve UNPROVEN != REVOKED",
+    "do not infer transition validity from endpoint validity",
+    "do not infer composition from adjacent valid transitions",
+    "do not infer witness sufficiency from witness existence",
+    "do not patch CA-R1 post hoc from F5; separately constitute any effect-level object",
+    "do not infer trace completeness from trace validity",
+    "treat W_transport and W_composition as conceptual placeholders until separately constituted and attacked",
+    "treat external analogies as context, not SSI evidence or rule authority",
+    "use diagnostic order: missing argument -> missing witness -> missing interaction structure",
+    "certificate composition remains a non-rule until earned",
     "keep JEPA parked until explicitly authorized",
     "keep SSI_CALC_KERNEL_DELTA=0 unless a source-specific frozen benchmark earns a rule"
   ],
-  "schema": "ssi-research-ledger/v0.1",
-  "snapshot_date": "2026-08-16",
-  "statuses": {
-    "counterfactual_consequence_composition_v0_1": {
-      "status": "CLOSED_FAMILY_NO_NEW_HORIZON_DISTINCTION"
-    },
-    "counterfactual_consequence_horizon_v0_1": {
-      "status": "SUPPORTED"
-    },
-    "counterfactual_consequence_sufficiency_v0_1": {
-      "status": "SUPPORTED"
-    },
-    "counterfactual_world_model_prediction_v0_1": {
-      "ceiling": "FINITE_COMPLETE_DOMAIN_TABLE_PREDICTOR",
-      "status": "SUPPORTED"
-    },
-    "counterfactual_world_model_semantic_error_allocation_v0_3": {
-      "H_alloc": "OPEN_NOT_TESTED",
-      "status": "CONTRAST_NOT_IDENTIFIED"
-    },
-    "counterfactual_world_model_semantic_error_allocation_v0_3b": {
-      "H_alloc": "OPEN_NOT_TESTED",
-      "status": "CONTRAST_NOT_IDENTIFIED"
-    },
-    "counterfactual_world_model_semantic_transition_audit_v0_2": {
-      "status": "SUPPORTED_STRUCTURAL"
-    },
-    "goal_authority_behavior_nondominated_v0_1": {
-      "H_nondominated_behavior": "OPEN_NOT_TESTED",
-      "status": "CONTRAST_NOT_IDENTIFIED",
-      "true_outcomes_opened": false
-    },
-    "goal_authority_behavior_v0_1": {
-      "general_nondominated_behavior": "UNOPENED",
-      "status": "SUPPORTED_CONSTRUCTIVE_CONTROL"
-    },
-    "goal_authority_interface_v0_1": {
-      "I_J": "SUPPORTED_MINIMAL_FINITE_FOR_PRIMARY_GOAL",
-      "I_JK": "SUPPORTED_MINIMAL_FINITE_FOR_PRIMARY_PLUS_CONSTITUTED_BURDEN",
-      "latent_centroid": "HEURISTIC_ONLY_UNDER_CURRENT_AUTHORITY",
-      "status": "SUPPORTED_FINITE"
-    },
-    "latent_goal_authority_refinement_v0_1": {
-      "behavioral_H_refine": "OPEN_NOT_TESTED",
-      "centroid_goal_coordinate_authority": "NOT_EARNED",
-      "status": "LATENT_GOAL_METRIC_REPRESENTATION_SENSITIVE"
-    },
-    "learned_representation_question_conditioned_alignment_v0_1": {
-      "claim": "explicit future-question jurisdiction makes attainable alignment predictively legible",
-      "status": "SUPPORTED"
-    },
-    "learned_representation_question_dependence_v0_1": {
-      "claim": "representation ordering is jurisdiction-relative",
-      "status": "SUPPORTED"
-    },
-    "liveness_branch": {
-      "status": "CLOSED",
-      "terminal_result": "H_LIVE_NOT_SUPPORTED_ON_FROZEN_TIED_CHANNEL_TERRAIN"
-    },
-    "mechanism_conditioned_correction_v0_1": {
-      "status": "STRONG_PROFILE_NOT_SUPPORTED / BOUNDED_MECHANISM_RELEVANCE_SUPPORTED"
-    },
-    "question_conditioned_corrective_behavior_v0_1": {
-      "claim": "alignment audit does not by itself predict online correction dynamics",
-      "status": "NOT_SUPPORTED"
-    },
-    "semantic_goal_sufficiency_v0_1": {
-      "behavioral_H_goal": "OPEN_NOT_TESTED",
-      "local_positive": "centroid distance preserves binary A goal ordering on frozen geometry",
-      "status": "LATENT_GOAL_CONTRAST_NOT_IDENTIFIED"
-    },
-    "wm_counterfactual_planning_safety_v0_5": {
-      "planning_effect": "SPARSE_DIRECTIONALLY_CLEAN_AT_H3",
-      "status": "SUPPORTED_BOUNDED"
-    },
-    "wm_semantic_error_allocation_v0_4": {
-      "H_alloc": "SUPPORTED_BOUNDED",
-      "status": "SUPPORTED_BOUNDED"
-    }
+  "schema": "ssi-research-ledger/v0.5",
+  "snapshot_date": "2026-08-17",
+  "supported_empirical_claims": {
+    "H_advisory": "SUPPORTED_FINITE_ON_FROZEN_IMPLEMENTATION_PANEL",
+    "H_freedom": "SUPPORTED_FINITE_ON_FROZEN_ACTION_NAME_FAULT_FAMILY",
+    "H_license_mechanism_transfer": "SUPPORTED_FINITE_WITH_RELICENSING",
+    "H_wholesale_choice_transfer": "NOT_SUPPORTED__JURISDICTION_LEAKAGE_IDENTIFIED",
+    "counterfactual_consequence_horizon_v0_1": "SUPPORTED",
+    "counterfactual_consequence_sufficiency_v0_1": "SUPPORTED",
+    "counterfactual_world_model_prediction_v0_1": "SUPPORTED",
+    "ct_v0_2": "SUPPORTED_ACROSS_8_BLINDED_WORLDS",
+    "goal_authority_advisory_selection_v0_1": "SUPPORTED_FINITE",
+    "goal_authority_behavior_v0_1": "SUPPORTED_CONSTRUCTIVE_CONTROL",
+    "goal_authority_interface_v0_1": "SUPPORTED_FINITE",
+    "goal_authority_license_transfer_v0_1": "SUPPORTED_FINITE_WITH_JURISDICTION_RELATIVE_SCOPE",
+    "goal_authority_opportunity_world_v0_1": "SUPPORTED",
+    "goal_authority_provenance_interface_v0_1": "SUPPORTED_FINITE",
+    "license_scope": "JURISDICTION_RELATIVE_SUPPORTED_FINITE",
+    "licensed_advisory_information": "SUPPORTED_FINITE",
+    "mechanism_conditioned_correction": "SUPPORTED_BOUNDED",
+    "predictor_exposes_authorized_freedom": "SUPPORTED_ON_ADJUDICATION_V0_1",
+    "predictor_off_frontier_hallucinations": "IDENTIFIED",
+    "question_conditioned_alignment": "SUPPORTED",
+    "question_dependence": "SUPPORTED",
+    "wm_counterfactual_planning_safety_v0_5": "SUPPORTED_BOUNDED",
+    "wm_semantic_error_allocation_v0_4": "SUPPORTED_BOUNDED",
+    "wm_semantic_transition_audit_v0_2": "SUPPORTED_STRUCTURAL"
   }
 }
