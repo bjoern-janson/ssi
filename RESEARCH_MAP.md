@@ -1,255 +1,289 @@
 # SSI Research Map
 
-> **Navigation only.** This file explains how the repository fits together; it does not supersede frozen scientific artifacts, result ledgers, or their provenance.
+> **Navigation only.** Frozen experiment artifacts, exact first results, and their provenance remain authoritative.
 
-SSI is easier to read as a graph of research questions than as a chronological file tree. The major tracks below ask different questions and carry different authority.
+For the exact current stop, see [`research/CURRENT_FRONTIER.md`](research/CURRENT_FRONTIER.md).
 
 ---
 
-## 1. Current earned frontier
+## 1. Current frontier graph
 
 ```mermaid
 flowchart TD
-    I[Interface / representation] --> S[Role separation]
-    S --> H[Held-out structural transport]
-    H --> T[Semantic / evidential transport]
-    T --> Q[Structured ignorance]
+    A[PR59 role separation] --> B[PR60 held-out structural transport]
+    B --> C[PR61 semantic / evidential transport]
+    C --> D[PR63 adequacy / reopening governor]
+    D --> E[PR64 H9 constitution collision]
+    E --> F[PR65 one-bit candidate search]
+    F --> G[PR67 external-to-SSI mapping M_F]
+    G --> H[Self-contained path-run dependency closure]
+    H --> I[Future constituted path test]
 
-    S -. PR59 .-> S1[Four-coordinate separability]
-    H -. PR60 .-> H1[G1/G3/G4/G5 supported\nG2 not evaluable]
-    T -. PR61 .-> T1[Cross-carrier semantic transport supported\non frozen constructed suite]
+    X[Apparent path collision] --> Y[Localization]
+    Y --> Z[Pre-certificate mapping collapse]
+    Z -. invalidates path-collision interpretation .-> G
 
-    Q --> U1[interaction?]
-    Q --> U2[certificate relation?]
-    Q --> U3[authority interaction?]
-    Q --> U4[challenge topology?]
-    Q --> U5[time / mutability?]
-    Q --> U6[something unnamed?]
-
-    style Q stroke-dasharray: 5 5
-    style U1 stroke-dasharray: 5 5
-    style U2 stroke-dasharray: 5 5
-    style U3 stroke-dasharray: 5 5
-    style U4 stroke-dasharray: 5 5
-    style U5 stroke-dasharray: 5 5
-    style U6 stroke-dasharray: 5 5
+    style H stroke-dasharray: 5 5
+    style I stroke-dasharray: 5 5
 ```
 
-The post-PR61 frontier is deliberately **unconstituted**. The current constraint is:
+The current stop is at `H`: the complete path-run dependency closure is **not yet constituted**.
 
-```text
-LOCAL_PRESERVATION_TO_PATH_PRESERVATION = NOT_ESTABLISHED
-```
-
-with the non-rule:
-
-```text
-Legit(T1) AND Legit(T2) !=> Legit(T2 ∘ T1)
-```
-
-This does not authorize a composition experiment or identify composition as the missing object.
+The old post-PR61 question remains scientifically live, but the first attempted path witness did not reach it.
 
 ---
 
 ## 2. Transition / relicense ladder
 
-The most recent research sequence lives in [`research/relicense/`](research/relicense/).
+The active sequence lives mainly in [`research/relicense/`](research/relicense/).
 
-| Layer | Directory | Question | Current bounded state |
+| Layer | Directory / object | Question | Current bounded state |
 |---|---|---|---|
-| Interaction representation | [`interaction_interface_v0_1`](research/relicense/interaction_interface_v0_1/) | Can higher-order interaction distinctions be represented when the local quotient collapses them? | pair identifiability supported on frozen constructed suite |
-| Independent detection | [`interaction_detection_v0_1`](research/relicense/interaction_detection_v0_1/) | Can an independently constituted channel discriminate interaction states that local derivatives cannot? | independent higher-order detection supported on frozen constructed suite |
-| Detection stress | [`interaction_detection_stress_v0_1`](research/relicense/interaction_detection_stress_v0_1/) | Does detection survive held-out world/channel/coverage/failure/conflict stress? | mixed typed result; semantic-binding boundary exposed |
-| Semantic binding | [`interaction_semantic_binding_v0_1`](research/relicense/interaction_semantic_binding_v0_1/) | Does the observation relation actually constitute the target predicate? | first negative preserved; provenance-backed equivalence blocked by representation mismatch |
-| Factored evidence interface | [`interaction_factored_evidence_interface_v0_1`](research/relicense/interaction_factored_evidence_interface_v0_1/) | Can relation identity and provenance remain separately addressable? | prospective representation experiment lineage |
-| Transition role separation | [`transition_interface_separability_v0_1`](research/relicense/transition_interface_separability_v0_1/) | Can `S`, `L`, `V`, `Lambda` remain separately identifiable? | **supported on frozen constructed suite** |
-| Held-out structural transport | [`transition_interface_separability_heldout_stress_v0_1`](research/relicense/transition_interface_separability_heldout_stress_v0_1/) | Does the factorization survive unfamiliar realizations? | G1/G3/G4/G5 supported; G2 **not evaluable under frozen binding** |
-| Semantic / evidential transport | [`transition_semantic_transport_v0_1`](research/relicense/transition_semantic_transport_v0_1/) | Can constituted meaning cross new carriers without manufacturing evidence status? | **supported on frozen constructed cross-carrier suite** |
-
-Also relevant: [`transport_witness_v0_1`](research/relicense/transport_witness_v0_1/) records the earlier composed-boundary witness gap that motivates caution about local-to-path inference.
+| Interaction representation | `interaction_interface_v0_1` | Can higher-order interaction distinctions be represented? | pair identifiability supported on frozen constructed suite |
+| Independent detection | `interaction_detection_v0_1` | Can an independent channel discriminate states collapsed locally? | supported on frozen constructed suite |
+| Detection stress | `interaction_detection_stress_v0_1` | Does detection survive held-out stress? | mixed typed result; binding boundary exposed |
+| Semantic binding | `interaction_semantic_binding_v0_1` | Does the relation constitute the target predicate? | first negative preserved; provenance/representation problem localized |
+| Factored evidence | `interaction_factored_evidence_interface_v0_1` | Can relation identity and provenance remain separate? | bounded prospective/experimental lineage |
+| PR59 | `transition_interface_separability_v0_1` | Can `S,L,V,Lambda` remain separately identifiable? | **supported on frozen constructed suite** |
+| PR60 | `transition_interface_separability_heldout_stress_v0_1` | Does the factorization survive unfamiliar realizations? | G1/G3/G4/G5 supported; G2 **not evaluable** |
+| PR61 | `transition_semantic_transport_v0_1` | Can constituted meaning cross changed carriers without evidence laundering? | **supported on frozen constructed cross-carrier suite** |
+| PR63 | adequacy governor | When has a frozen representation earned local reopening? | three-valued governor; only inadequacy licenses local search |
+| PR64 | H9 hostile case | Can positive adequacy be distinguished from caller assertion? | **constitution nonidentifiability supported in H9** |
+| PR65 | one-bit candidate search | Does any plausible one-bit repair reproduce the frozen neighborhood? | **NO_EXACT_CANDIDATE** |
+| PR67 | `external_to_ssi_mapping_v0_1` | Can external transition records be mapped into SSI-local inputs without silent collapse or backward-flow leakage? | **12/12 mapper-only suite; branch-local draft** |
 
 ---
 
-## 3. What PR59–61 actually establish
+## 3. The path-collision correction
 
-### PR59 — separation
+The path-level target remains:
 
 ```text
+Psi_F(P_A) == Psi_F(P_B)
+AND
+Y_path(P_A) != Y_path(P_B)
+```
+
+but the first constructed witness did not establish it as a property of the frozen SSI representation.
+
+Localization showed:
+
+```text
+E(P_A) != E(P_B)
+    -> mapper constructed equivalent SSI inputs
+    -> I_F(P_A) == I_F(P_B)
+    -> Psi_F(P_A) == Psi_F(P_B)
+```
+
+The external distinction disappeared before certification. Therefore:
+
+```text
+PRE_CERTIFICATE_MAPPING_COLLAPSE = ESTABLISHED_FOR_THAT_ATTEMPT
+PATH_LEVEL_SSI_INADEQUACY        = NOT_ESTABLISHED
+CERTIFICATE_PROJECTION_LOSS      = NOT_TESTED
+RELATIONAL_COMPOSITION_FAILURE   = NOT_TESTED
+```
+
+This is why PR67 exists.
+
+---
+
+## 4. PR67: constituted mapping boundary
+
+PR67 freezes:
+
+```text
+M_F : E(T) -> I_F(T)
+```
+
+with four explicit dispositions:
+
+```text
+PRESERVE
+NORMALIZE
+EXCLUDE_WITH_BASIS
+NOT_EVALUABLE
+```
+
+and the nonrule:
+
+```text
+excluded from I_F != irrelevant to Y_path
+```
+
+Unknown information fails closed. Unconstituted path relations become `NOT_EVALUABLE`. Downstream consequence/certificate/collision information is rejected by a backward-flow firewall.
+
+The mapper is applied independently to each transition. Equality of mapped A/B inputs is therefore a result, not an experimental premise.
+
+---
+
+## 5. Reproducibility / dependency closure
+
+The next path run depends on a complete set:
+
+```text
+D_R = {
+    M_F,
+    P_A,
+    P_B,
+    independent Y_path evaluator,
+    one-shot runner,
+    freeze manifest,
+    exact SSI dependencies
+}
+```
+
+For every `d` in `D_R`:
+
+```text
+identified(d)
+AND immutable(d)
+AND resolvable_by_executor(d)
+```
+
+must hold before execution.
+
+The current next object is therefore not a theory object but an experimental package:
+
+```text
+SELF_CONTAINED_PATH_RUN_DEPENDENCY_BUNDLE
+```
+
+Current status:
+
+```text
+COMPLETE_PATH_RUN_BUNDLE = NOT_CONSTITUTED
+PATH_RUN_AFTER_M_F       = NOT_EXECUTED
+```
+
+---
+
+## 6. PR59–61 empirical spine
+
+### PR59
+
+```text
+K = (S, L, V, Lambda)
+
 FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY
     = SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE
 ```
 
-The object is:
+This does not establish coordinate completeness.
+
+### PR60
 
 ```text
-K = (S, L, V, Lambda)
+G1 world novelty        = SUPPORTED
+G2 observation channel  = NOT_EVALUABLE_UNDER_FROZEN_BINDING
+G3 coverage degradation = SUPPORTED
+G4 failure structure    = SUPPORTED
+G5 conflicting channels = SUPPORTED
 ```
 
-The result supports separate representation and recovery of state, response law, validity/applicability, and authority on the frozen constructed geometry. It does not establish that these four coordinates are complete for transition governance.
-
-### PR60 — held-out structural transport
-
-```text
-G1 world novelty          = SUPPORTED
-G2 observation channel    = NOT_EVALUABLE_UNDER_FROZEN_BINDING
-G3 coverage degradation   = SUPPORTED
-G4 failure structure      = SUPPORTED
-G5 conflicting channels   = SUPPORTED
-```
-
-The central lesson is typed:
-
-```text
-complete novel semantics + outside frozen input contract
-    -> NOT_EVALUABLE_UNDER_FROZEN_BINDING
-```
-
-not `NOT_SUPPORTED`.
-
-### PR61 — semantic / evidential transport
-
-The experiment freezes five obligations plus a hard role firewall:
-
-```text
-ST-A1 semantic identity preservation
-ST-A2 semantic separation
-ST-A3 evidence-type legitimacy
-ST-A4 provenance factor separation / recoverability
-ST-A5 uncertainty preservation
-ROLE_PRESERVATION_FIREWALL
-```
-
-All were supported on their frozen constructed scopes. The admission surface matched the independent oracle across all 44 cases:
-
-```text
-24 ADMIT + 12 REJECT + 8 UNRESOLVED = 44/44
-```
-
-The strongest earned promotion is:
+### PR61
 
 ```text
 TRANSITION_SEMANTIC_TRANSPORT
     = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE
 ```
 
----
+The key surviving boundary is still:
 
-## 4. The older semantic-constitution track
+```text
+local preservation != path preservation
+```
 
-[`research/semantic_constitution/`](research/semantic_constitution/) contains the lineage that asks how semantic identity is constituted and transported across regimes.
-
-Useful entry points:
-
-- [`README.md`](research/semantic_constitution/README.md)
-- [`BOTTLENECK_HISTORY.md`](research/semantic_constitution/BOTTLENECK_HISTORY.md)
-- [`V1_V8_RECONSTRUCTED_HANDOFF.md`](research/semantic_constitution/V1_V8_RECONSTRUCTED_HANDOFF.md)
-- [`phase_v/PHASE_V_SEMANTIC_EQUIVALENCE.md`](research/semantic_constitution/phase_v/PHASE_V_SEMANTIC_EQUIVALENCE.md)
-- [`phase_v/CROSS_REGIME_TRANSPORT_CONTRACT.md`](research/semantic_constitution/phase_v/CROSS_REGIME_TRANSPORT_CONTRACT.md)
-
-This lineage is conceptually adjacent to PR61 but is not silently merged into it. Each object retains its own evidence and authority scope.
+but no composition failure has yet been established.
 
 ---
 
-## 5. SSI-CALC
+## 7. PR63–65 adequacy-governor spine
 
-[`research/ssi_calc/`](research/ssi_calc/) contains executable checker/compiler research.
+### PR63
 
-Current governing boundary:
+```text
+SUPPORTED_ADEQUATE_ON_TESTED_SCOPE
+UNKNOWN
+INADEQUATE
+```
+
+`NOT_EVALUABLE` remains separate. Only `INADEQUATE` opens local search.
+
+### PR64 / H9
+
+```text
+coverage assertion != coverage warrant
+```
+
+is supported as a local constitution failure on the frozen H9 scope.
+
+### PR65
+
+```text
+NO_EXACT_CANDIDATE
+```
+
+for five frozen one-bit candidates. `C1 AND C4` is an exact extensional fit on the frozen ten-world ledger only; it is not an identified mechanism or licensed repair.
+
+---
+
+## 8. SSI-CALC
+
+[`research/ssi_calc/`](research/ssi_calc/) remains a separate frozen executable lineage.
 
 ```text
 SSI_CALC_KERNEL_DELTA = 0
 ```
 
-The current frozen checker work supports bounded decision-level generalization in its own held-out suites, but does not establish universal soundness, niche advantage, or authority to absorb newer transition/relicense concepts into the kernel.
-
-Important areas:
-
-- [`v0_1/`](research/ssi_calc/v0_1/) — checker, benchmark, held-out/fresh suites.
-- [`compiler/k0/`](research/ssi_calc/compiler/k0/) — K0 source/compiler/audit freeze.
-- [`compiler/k1/`](research/ssi_calc/compiler/k1/) — K1 source/compiler/audit and runtime semantic ABI.
-- [`representation_audit/v0_1/`](research/ssi_calc/representation_audit/v0_1/) — representation audit.
-
-Conceptual relevance does not constitute kernel authority.
+No current relicense result authorizes a new SSI-CALC rule or coordinate.
 
 ---
 
-## 6. Empirical benchmark lineage
+## 9. Older / adjacent tracks
 
-[`empirical/`](empirical/) contains earlier benchmark work on interface insufficiency, quotient construction, authorization, and adversarial attacks.
-
-Useful routes:
-
-- [`empirical/README.md`](empirical/README.md)
-- [`benchmark_v0_1/`](empirical/benchmark_v0_1/)
-- [`benchmark_v0_2/`](empirical/benchmark_v0_2/)
-- [`benchmark_v0_2_quotient/`](empirical/benchmark_v0_2_quotient/)
-- [`benchmarks/V0X_LINEAGE.md`](benchmarks/V0X_LINEAGE.md)
-
-These lineages supply important historical distinctions, but later relicense experiments do not retroactively rewrite their frozen outcomes.
-
----
-
-## 7. Energy / corrective economy
-
-[`energy/`](energy/) studies whether adaptive correction can improve future viability while accounting for execution and measurement costs.
-
-Start with:
-
-- [`energy/README.md`](energy/README.md)
-- [`energy/EVIDENCE_LEDGER.md`](energy/EVIDENCE_LEDGER.md)
-- [`energy/LINEAGE_CORRECTIVE_ECONOMY.md`](energy/LINEAGE_CORRECTIVE_ECONOMY.md)
-- [`energy/experiments/`](energy/experiments/)
-
-This is a separate empirical axis from semantic/relicense authority.
-
----
-
-## 8. Retrospective and theory
-
+- [`research/semantic_constitution/`](research/semantic_constitution/) — semantic identity and cross-regime transport lineage.
+- [`empirical/`](empirical/) — interface/quotient/authorization benchmark lineage.
+- [`benchmarks/`](benchmarks/) — benchmark history and V0.x lineage.
+- [`energy/`](energy/) — corrective-economy / viability-cost experiments.
 - [`retrospective/LOCALIZATION_CALCULUS.md`](retrospective/LOCALIZATION_CALCULUS.md) — failure-localization discipline.
-- [`theory/FUTURE_SAFE_OPTION_STRUCTURE.md`](theory/FUTURE_SAFE_OPTION_STRUCTURE.md) — prospective theory / option structure.
-- [`ARCHITECTURE.md`](ARCHITECTURE.md) — broad conceptual architecture.
-
-Treat theory candidates as candidates unless a frozen result explicitly promotes them.
+- [`theory/`](theory/) — prospective theoretical objects; not automatically empirical claims.
 
 ---
 
-## 9. Authority map
-
-The repository distinguishes at least four kinds of statements:
+## 10. Authority map
 
 | Type | Meaning | Example |
 |---|---|---|
-| **Frozen empirical result** | supported/failed on a specified frozen suite | PR61 semantic transport result |
-| **Formal countermodel / formal candidate** | formal relation established under a frozen formal object | F4/F5 lineage |
-| **Architectural candidate** | useful compression motivated by evidence, not theorem | `LEGITIMATE_TRANSPORT_NON_AMPLIFICATION` |
-| **Prospective frontier** | deliberately not constituted | post-PR61 `?` |
+| Frozen empirical result | Result on an exact constituted suite | PR61 semantic transport |
+| Frozen negative result | Preserved failure / no-fit result | PR65 `NO_EXACT_CANDIDATE` |
+| Local collision / inadequacy witness | Independently constituted nonidentifiability on a frozen interface | PR64 H9 |
+| Mapping constitution | Tested external-to-interface mapping contract | PR67 `M_F` |
+| Workflow/reproducibility constraint | Controls whether an experiment is evaluable | dependency closure requirement |
+| Prospective theory | Useful candidate not established as empirical primitive | composition / future challengeability candidates |
 
 Never upgrade one category into another by prose alone.
 
 ---
 
-## 10. Core non-rules to carry across tracks
+## 11. Core non-rules
 
 ```text
 Can != May != Did
 validity != transportability != composability
 information != admissible evidence
-information transport != semantic transport
-semantic equivalence != evidence-type admission
+semantic identity != evidence admission
 unproven != revoked
 not evaluable != failed
-correct output != legitimate selection process
-role license != execution license
 local preservation != path preservation
+excluded from local input != globally irrelevant
+research-state assertion != reproducibly accessible artifact
 ```
-
-These are useful routing constraints. Their exact authority still depends on the object and scope in which each was frozen or supported.
 
 ---
 
-## 11. Reader rule
+## 12. Reader rule
 
-> **Do not infer authority from recency. Infer authority from provenance, frozen dependency order, and the exact claim scope.**
+> **Do not infer authority from recency. Infer authority from provenance, frozen dependency order, and exact claim scope.**
 
 If this map conflicts with a frozen experiment artifact, the frozen artifact governs.
