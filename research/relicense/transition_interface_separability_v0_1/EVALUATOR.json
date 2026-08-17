@@ -1,0 +1,233 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_V0.1",
+  "stage": "EVALUATOR",
+  "status": "EVALUATOR_FROZEN__NO_RESULT",
+  "parent_protocol_commit": "1ec9ef86e3f4066d5d55fed00867d177f3f73912",
+  "frozen_dependencies": {
+    "SPEC": "0178c84388e6bb6e7f866f9af79846c62a63b78c",
+    "CASES": "571f447b50a4d18b12442f752d7feb3ba64fb0ac",
+    "BINDINGS": "4199cb0c9fd7607ee15fabdcca63f7ea05e9c356",
+    "DESCRIPTIVE_ORACLE": "93d3f4ca55102e77f08dfd4091cef92748ac768a",
+    "PROTOCOL": "1ec9ef86e3f4066d5d55fed00867d177f3f73912"
+  },
+  "scientific_scope": "CLASSIFY_FROZEN_PROTOCOL_OUTPUTS_ONLY",
+  "purpose": "MAP_FROZEN_DESCRIPTIVE_COMPARISONS_TO_PREAUTHORIZED_ADEQUACY_AND_FAILURE_STATUSES_WITHOUT_MODIFYING_UPSTREAM_ARTIFACTS_OR_OPENING_RUNTIME_SEMANTICS",
+  "dependency_firewall": {
+    "may_modify_spec": false,
+    "may_modify_cases": false,
+    "may_modify_bindings": false,
+    "may_modify_oracle": false,
+    "may_modify_protocol": false,
+    "may_redefine_coordinate_semantics": false,
+    "may_redecode_candidate_outside_protocol": false,
+    "may_repair_candidate": false,
+    "may_invent_new_coordinate": false,
+    "may_open_boundary_semantics": false,
+    "may_open_boundary_response": false,
+    "may_open_repair_authority": false,
+    "result_available_to_evaluator_at_freeze": false
+  },
+  "authorized_diagnostic_vocabulary": {
+    "pairwise_primary_failure_modes": [
+      "UNDER_RESOLUTION",
+      "COORDINATE_CONTAMINATION"
+    ],
+    "adequacy_dimensions": [
+      "A1_RELEVANT_SEPARATION",
+      "A2_ORTHOGONAL_INVARIANCE",
+      "A3_COORDINATE_RECOVERABILITY",
+      "A4_UNCERTAINTY_PRESERVATION"
+    ],
+    "adequacy_statuses": [
+      "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "SUPPORTED_ON_FROZEN_CONSTRUCTED_CONTROLS",
+      "NOT_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "NOT_SUPPORTED_ON_FROZEN_CONSTRUCTED_CONTROLS"
+    ],
+    "uncertainty_directional_diagnoses": [
+      "UNDER_LOCALIZATION",
+      "OVER_LOCALIZATION"
+    ],
+    "non_directional_uncertainty_mismatch": "PRESERVE_PROTOCOL_SET_RELATION_WITHOUT_INVENTING_A_NEW_FAILURE_TYPE"
+  },
+  "pairwise_classification": {
+    "domain": "PROTOCOL.pairwise_delta_records",
+    "coordinate_rule": {
+      "if_oracle_delta_1_and_candidate_delta_0": "UNDER_RESOLUTION",
+      "if_oracle_delta_0_and_candidate_delta_1": "COORDINATE_CONTAMINATION",
+      "if_oracle_delta_equals_candidate_delta": "NO_PAIRWISE_FAILURE_ON_THIS_COORDINATE"
+    },
+    "localization": "REPORT_COORDINATE_AND_PAIR_JOIN_KEYS_FOR_EACH_CLASSIFIED_FAILURE",
+    "pure_edge_subset": {
+      "definition": "protocol pairs with oracle Delta_K Hamming weight 1",
+      "use": "PRIMARY_SINGLE_COORDINATE_INTERVENTION_DIAGNOSTIC"
+    },
+    "multi_coordinate_subset": {
+      "definition": "protocol pairs with oracle Delta_K Hamming weight greater than 1",
+      "use": "JOINT_VARIATION_DIAGNOSTIC",
+      "non_rule": "MULTI_COORDINATE_DELTA_MATCH_DOES_NOT_ESTABLISH_REPAIR_COMPOSABILITY"
+    }
+  },
+  "A1_relevant_separation": {
+    "support_condition": "for every unordered cube-world pair and every coordinate i with oracle Delta_K[i] == 1, candidate Delta_q[i] == 1",
+    "failure_condition": "exists pair and coordinate i with oracle Delta_K[i] == 1 and candidate Delta_q[i] == 0",
+    "failure_class": "UNDER_RESOLUTION",
+    "positive_status": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "negative_status": "NOT_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "required_reporting": [
+      "overall_A1_status",
+      "per_coordinate_A1_status",
+      "all_under_resolution_witnesses",
+      "pure_edge_under_resolution_witnesses",
+      "multi_coordinate_under_resolution_witnesses"
+    ]
+  },
+  "A2_orthogonal_invariance": {
+    "support_condition": "for every unordered cube-world pair and every coordinate i with oracle Delta_K[i] == 0, candidate Delta_q[i] == 0",
+    "failure_condition": "exists pair and coordinate i with oracle Delta_K[i] == 0 and candidate Delta_q[i] == 1",
+    "failure_class": "COORDINATE_CONTAMINATION",
+    "positive_status": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "negative_status": "NOT_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "required_reporting": [
+      "overall_A2_status",
+      "per_coordinate_A2_status",
+      "all_coordinate_contamination_witnesses",
+      "pure_edge_coordinate_contamination_witnesses",
+      "multi_coordinate_coordinate_contamination_witnesses"
+    ]
+  },
+  "A3_coordinate_recoverability": {
+    "domain": "PROTOCOL.recoverability_vectors for all 16 complete cube worlds",
+    "support_condition": "every world has relation EQUIVALENT for S, L, V, and Lambda",
+    "negative_condition": "any complete-world coordinate relation is NON_EQUIVALENT or UNRESOLVED_DUE_TO_COVERAGE",
+    "positive_status": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "negative_status": "NOT_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "required_reporting": [
+      "overall_A3_status",
+      "per_coordinate_A3_status",
+      "all_non_equivalent_world_coordinate_witnesses",
+      "all_unresolved_complete_world_coordinate_witnesses"
+    ],
+    "non_rule": "PAIRWISE_DELTA_SUCCESS_DOES_NOT_OVERRIDE_A_COMPLETE_WORLD_RECOVERABILITY_FAILURE"
+  },
+  "A4_uncertainty_preservation": {
+    "domain": "PROTOCOL.uncertainty_set_relations for the three frozen controls",
+    "support_condition": "every control has set relation EQUAL",
+    "positive_status": "SUPPORTED_ON_FROZEN_CONSTRUCTED_CONTROLS",
+    "negative_status": "NOT_SUPPORTED_ON_FROZEN_CONSTRUCTED_CONTROLS",
+    "per_control_classification": {
+      "EQUAL": "UNCERTAINTY_SET_PRESERVED",
+      "PROPER_SUBSET": "UNDER_LOCALIZATION",
+      "PROPER_SUPERSET": "OVER_LOCALIZATION",
+      "PARTIAL_OVERLAP": "UNCERTAINTY_PRESERVATION_NOT_SUPPORTED__PRESERVE_PARTIAL_OVERLAP_RELATION",
+      "DISJOINT": "UNCERTAINTY_PRESERVATION_NOT_SUPPORTED__PRESERVE_DISJOINT_RELATION"
+    },
+    "required_reporting": [
+      "overall_A4_status",
+      "per_control_protocol_set_relation",
+      "directional_diagnosis_only_when_proper_subset_or_proper_superset",
+      "candidate_changed_projection_coordinates",
+      "candidate_unresolved_identity_coordinates",
+      "oracle_supported_candidate_coordinates"
+    ],
+    "non_rules": [
+      "UNRESOLVED != NO_CHANGE",
+      "BOUNDED_CANDIDATE_SET != SINGLETON_LOCALIZATION",
+      "SET_EQUALITY != BOUNDARY_SEMANTICS"
+    ]
+  },
+  "joint_variation_assessment": {
+    "domain": "multi-coordinate cube pairs only",
+    "supported_condition": "candidate Delta_q vector exactly equals oracle Delta_K vector for every multi-coordinate pair",
+    "positive_status": "MULTI_COORDINATE_IDENTIFIABILITY_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "negative_status": "MULTI_COORDINATE_IDENTIFIABILITY_NOT_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "diagnostic_rule": "retain underlying UNDER_RESOLUTION and/or COORDINATE_CONTAMINATION witnesses; do not invent a composition failure type",
+    "non_rules": [
+      "PAIRWISE_SEPARABILITY != JOINT_SEPARABILITY",
+      "MULTI_COORDINATE_IDENTIFIABILITY != REPAIR_COMPOSABILITY",
+      "JOINT_DELTA_MATCH != FORMAL_TRANSITION_CALCULUS"
+    ]
+  },
+  "shallowest_failure_ordering": {
+    "principle": "REPORT_THE_SHALLOWEST_DIRECTLY_SUPPORTED_INTERFACE_DEFECT_WITHOUT_ERASING_DOWNSTREAM_SIGNATURES",
+    "ordering": [
+      {
+        "rank": 1,
+        "evidence": "complete-world oracle/candidate coordinate relation NON_EQUIVALENT or UNRESOLVED_DUE_TO_COVERAGE",
+        "interpretation": "A3_COORDINATE_RECOVERABILITY_NOT_SUPPORTED_AT_THE_IDENTIFIED_COORDINATE"
+      },
+      {
+        "rank": 2,
+        "evidence": "pairwise oracle/candidate delta mismatch",
+        "interpretation": "UNDER_RESOLUTION_OR_COORDINATE_CONTAMINATION_AS_DEFINED_BY_DELTA_DIRECTION"
+      },
+      {
+        "rank": 3,
+        "evidence": "uncertainty-control set mismatch",
+        "interpretation": "A4_UNCERTAINTY_PRESERVATION_NOT_SUPPORTED_WITH_DIRECTION_ONLY_IF_SUBSET_OR_SUPERSET"
+      }
+    ],
+    "non_suppression_rule": "lower-ranked descriptive signatures remain reported even when a shallower supported defect exists",
+    "no_causal_overclaim": "ordering is diagnostic precedence within this frozen interface experiment, not a proof of causal mechanism"
+  },
+  "overall_separability_judgment": {
+    "positive_condition": "A1 supported AND A2 supported AND A3 supported AND A4 supported",
+    "positive_status": "FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY_SUPPORTED_ON_FROZEN_SUITE",
+    "negative_status": "FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY_NOT_SUPPORTED_ON_FROZEN_SUITE",
+    "negative_reporting_rule": "if negative, report each failed adequacy dimension and its frozen witnesses; do not collapse heterogeneous failures into one scalar score",
+    "scalar_score": "FORBIDDEN",
+    "non_rules": [
+      "SEPARABILITY_SUPPORTED != FOUR_COORDINATE_COMPLETENESS",
+      "SEPARABILITY_SUPPORTED != REAL_WORLD_BOUNDARY_GENERALIZATION",
+      "SEPARABILITY_SUPPORTED != BOUNDARY_SEMANTICS",
+      "SEPARABILITY_SUPPORTED != BOUNDARY_RESPONSE",
+      "SEPARABILITY_SUPPORTED != REPAIR_AUTHORITY"
+    ]
+  },
+  "result_output_contract": {
+    "result_stage_may_execute_evaluator": true,
+    "result_stage_must_preserve_first_run": true,
+    "required_top_level_fields": [
+      "A1_RELEVANT_SEPARATION",
+      "A2_ORTHOGONAL_INVARIANCE",
+      "A3_COORDINATE_RECOVERABILITY",
+      "A4_UNCERTAINTY_PRESERVATION",
+      "MULTI_COORDINATE_IDENTIFIABILITY",
+      "FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY",
+      "failure_witnesses",
+      "authority_ceiling"
+    ],
+    "forbidden_result_repairs": [
+      "MODIFY_BINDING_AFTER_SEEING_FAILURE",
+      "MODIFY_ORACLE_AFTER_SEEING_FAILURE",
+      "MODIFY_PROTOCOL_AFTER_SEEING_FAILURE",
+      "MODIFY_EVALUATOR_AFTER_SEEING_FAILURE",
+      "ADD_FIFTH_COORDINATE_TO_RESCUE_RESULT",
+      "OPEN_BOUNDARY_SEMANTICS_TO_RESCUE_RESULT"
+    ]
+  },
+  "authority_ceiling": {
+    "four_coordinate_interface_separability": "NOT_YET_EVALUATED",
+    "relevant_separation": "NOT_YET_EVALUATED",
+    "orthogonal_invariance": "NOT_YET_EVALUATED",
+    "coordinate_recoverability": "NOT_YET_EVALUATED",
+    "uncertainty_preservation": "NOT_YET_EVALUATED",
+    "multi_coordinate_identifiability": "NOT_YET_EVALUATED",
+    "boundary_semantics": "NOT_CONSTITUTED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "repair_composability": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "BINDINGS": "FROZEN",
+    "DESCRIPTIVE_ORACLE": "FROZEN",
+    "PROTOCOL": "FROZEN",
+    "EVALUATOR": "FROZEN",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}
