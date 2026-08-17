@@ -12,10 +12,10 @@ The preserved 2026-08-16 snapshot is historical provenance and must not be treat
 
 ## Provenance order
 
-For claims backed by frozen external experiments:
+For claims backed by frozen external experiments or formal artifacts:
 
 ```text
-frozen/content-addressed experiment artifact
+frozen/content-addressed scientific object
     > current durable research ledger
     > derived summaries / older navigation snapshots
 ```
@@ -29,59 +29,85 @@ If a navigation ledger conflicts with frozen scientific bytes, the frozen object
 ```text
 representation != authority != prediction != behavior
 observable != authorized != consequential
-semantic authority != licensed advisory information != behavioral consequence
+information != license != selected representative
+access != causal influence != licensed effect
+role license != execution license
+Can != May != Did
 ```
 
-The current experimental center of gravity is:
+The current master candidate is **scope-indexed entitlement**: information does not carry intrinsic permission; permission is an evidence-supported entitlement to produce a specified effect under a specified scope.
 
-> **A system can contain a distinction, preserve it, use it, be helped by it, or be entitled to use it for judgment—and those are different properties.**
+The current causal-envelope notation is:
 
-The opportunity/provenance/freedom/advisory line adds:
+```text
+R = realizable effects / Can
+C = entitled effects / May
+W = R intersect C = warranted executable envelope
+Q = required warranted envelope
+A = actual effects / Did
+```
 
-> **Authorized equivalence is not physical equivalence. A jurisdiction may intentionally leave distinctions free even when the world preserves downstream consequences of those distinctions.**
+with the candidate execution contract:
 
-and:
+```text
+Q subseteq W
+A subseteq W
+```
 
-> **Not authoritative does not mean irrelevant. Information can be licensed for the narrower role of choosing among already-authorized alternatives without acquiring semantic authority.**
+This remains a conceptual/formal candidate, not a promoted SSI-CALC rule.
 
 ## Current branch terminal state
 
 ```text
-GOAL_AUTHORITY_BEHAVIOR_NONDOMINATED
-    = CLOSED_CURRENT_WORLD_CONTRAST_NOT_IDENTIFIED
-
-GOAL_AUTHORITY_OPPORTUNITY_WORLD_V0.1
-    = SUPPORTED
-
-GOAL_AUTHORITY_ADJUDICATION_V0.1 / H_cross
-    = NOT_SUPPORTED_ON_FROZEN_BLIND_PREDICTOR_FINAL_STATE_LATENT_TERRAIN
-
-GOAL_AUTHORITY_PATH_INTERFACE_V0.1 / learned path authority
-    = NOT_SUPPORTED_ON_FROZEN_BLIND_PREDICTOR_TRAJECTORY_TERRAIN
-
-GOAL_AUTHORITY_PROVENANCE_INTERFACE_V0.1
-    = SUPPORTED_FINITE
-
-GOAL_AUTHORITY_FREEDOM_BEHAVIOR_V0.1 / H_freedom
-    = SUPPORTED_FINITE_ON_FROZEN_ACTION_NAME_FAULT_FAMILY
-
-LATENT_REPRESENTATIVE_CONSEQUENCE
-    = CONTRAST_NOT_IDENTIFIED
-
-GOAL_AUTHORITY_ADVISORY_SELECTION_V0.1 / H_advisory
+GOAL_AUTHORITY_ADVISORY_SELECTION_V0.1
     = SUPPORTED_FINITE_ON_FROZEN_IMPLEMENTATION_PANEL
 
-LICENSED_ADVISORY_INFORMATION
-    = SUPPORTED_FINITE
+GOAL_AUTHORITY_LICENSE_TRANSFER_V0.1
+    = SUPPORTED_FINITE_WITH_RELICENSING
 
-AUTHORITY_LEAKAGE_EVENTS
-    = 0
+WHOLESALE_SOURCE_REPRESENTATIVE_TRANSFER
+    = NOT_SUPPORTED__JURISDICTION_LEAKAGE_IDENTIFIED
 
-LICENSE_TRANSFER
-    = UNOPENED
+LICENSE_SCOPE
+    = JURISDICTION_RELATIVE_SUPPORTED_FINITE
+
+SSI_RELICENSE_CERTIFICATE_CALCULUS_V0.1
+    = FORMAL_CANDIDATE_NOT_YET_EMPIRICALLY_VALIDATED
+
+INTERNAL_CONSISTENCY
+    = SUPPORTED_BY_19_CHECK_AUDIT
+
+FORMAL_SOUNDNESS
+    = UNESTABLISHED
+
+F5_EFFECT_TRACE_LAUNDERING
+    = FORMAL_COUNTERMODEL_SUPPORTED
+
+C_AUTH_VALID_IMPLIES_TRACE_VALIDITY
+    = NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5
+
+ENDPOINT_VALIDITY_IMPLIES_TRACE_VALIDITY
+    = NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5
+
+TRACE_INTERFACE
+    = OPEN
+TRACE_ENTITLEMENT
+    = OPEN
+TRACE_COMPLETENESS
+    = OPEN
+TRACE_CHALLENGEABILITY
+    = OPEN
 
 JEPA = PARKED
 SSI_CALC_KERNEL_DELTA = 0
 ```
+
+F5 does **not** invalidate CA-R1 relative to its narrow role-scoped conclusion. It identifies a missing whole-execution/effect-footprint object:
+
+> **A licensed function does not imply a licensed execution.**
+
+The current compact research law is:
+
+> **Improve Can. Justify May. Constrain Did.**
 
 No downstream result in this ledger creates or modifies an SSI-CALC kernel rule.
