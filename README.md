@@ -2,247 +2,310 @@
 
 > **Research on reality-tracking interfaces, scoped authority, evidence typing, and corrigible transformation.**
 
-SSI studies a recurring failure mode in adaptive systems: a system can produce a locally correct answer, transformation, or certificate while still lacking the authority or information needed to generalize that success across a boundary.
+SSI studies a recurring failure mode in adaptive systems: a system can produce a locally correct answer, transformation, or certificate while still lacking the information or authority needed to generalize that success across a boundary.
 
-The program therefore separates questions that are often collapsed:
+The program therefore keeps several distinctions explicit:
 
 ```text
 Can != May != Did
 information != evidence != authority
 representation != legitimacy of representation
 semantic identity != evidence admission != provenance != uncertainty
+validity != transportability != composability
 local preservation != path preservation
 ```
 
-The repository is empirical-first. Claims are frozen at the narrowest scope actually supported by preregistered or independently constituted cases, oracles, protocols, evaluators, and first results.
+The repository is empirical-first. Claims are frozen at the narrowest scope actually supported by constituted cases, oracles, protocols, evaluators, and first results.
 
 ---
 
 ## Current frontier
 
-The newest transition/relicense sequence has earned three distinct rungs:
+The current research state is summarized in [`research/CURRENT_FRONTIER.md`](research/CURRENT_FRONTIER.md).
 
-```mermaid
-flowchart LR
-    A[Representation] --> B[Role separation]
-    B --> C[Held-out structural transport]
-    C --> D[Semantic / evidential transport]
-    D --> E[?]
-
-    style E stroke-dasharray: 5 5
-```
-
-| Rung | Experiment | Strongest earned result | Explicit ceiling |
-|---|---|---|---|
-| **Role separation** | [`transition_interface_separability_v0_1`](research/relicense/transition_interface_separability_v0_1/) | `FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY = SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE` | completeness, real-world boundary generalization, boundary semantics: **not established** |
-| **Held-out structural transport** | [`transition_interface_separability_heldout_stress_v0_1`](research/relicense/transition_interface_separability_heldout_stress_v0_1/) | G1/G3/G4/G5 supported on frozen held-out axes | G2 novel-channel transport: **not evaluable under the frozen binding**; full generalization: **not established** |
-| **Semantic / evidential transport** | [`transition_semantic_transport_v0_1`](research/relicense/transition_semantic_transport_v0_1/) | `TRANSITION_SEMANTIC_TRANSPORT = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE` | held-out semantic transport, universal carrier equivalence, boundary semantics: **not established** |
-| **Post-PR61 frontier** | — | **structured ignorance** | deliberately **unconstituted** |
-
-The blank is intentional. The strongest surviving constraint is:
-
-> **A system may preserve every locally certified object while still failing to preserve the legitimacy of the path connecting them.**
-
-This supports the non-rule
+The empirical ladder now includes:
 
 ```text
-Legit(T1) AND Legit(T2) !=> Legit(T2 ∘ T1)
+PR59  transition-role separation
+PR60  held-out structural transport
+PR61  semantic / evidential transport
+PR63  adequacy / reopening governor
+PR64  H9 positive-adequacy constitution collision
+PR65  negative one-bit candidate search
+PR67  external-to-SSI mapping contract M_F [draft / branch-local]
 ```
 
-but does **not** identify composition, certificate interaction, authority interaction, challenge topology, mutability, or any other candidate as the next research object.
+The important correction after PR67 is that an apparent path-level collision was **not** a valid SSI path collision. Localization found that the external paths had been collapsed while constructing SSI-local inputs, before the frozen SSI certificate boundary was reached.
+
+Current status:
+
+```text
+FIRST_ECDSA_RESULT
+    = INVALID_AS_PATH_COLLISION
+      __PRE_CERTIFICATE_MAPPING_COLLAPSE
+
+M_F
+    = FROZEN_ON_PR67
+      __SUPPORTED_ON_FROZEN_ABSTRACT_MAPPING_SUITE
+
+COMPLETE_PATH_RUN_BUNDLE
+    = NOT_CONSTITUTED
+
+PATH_RUN_AFTER_M_F
+    = NOT_EXECUTED
+
+PATH_LEVEL_INADEQUACY
+    = NOT_ESTABLISHED
+
+CERTIFICATE_PROJECTION_LOSS
+    = NOT_TESTED
+
+RELATIONAL_COMPOSITION_FAILURE
+    = NOT_TESTED
+
+COMPOSITION_INSUFFICIENCY
+    = NOT_ESTABLISHED
+
+SSI_CALC_KERNEL_DELTA
+    = 0
+```
+
+The current hard methodological rule is:
+
+> **Constitute the witness at every interface it is supposed to falsify.**
+
+The next scientific increment is not a new theory object or checker repair. It is a self-contained, independently resolvable path-run dependency bundle.
 
 ---
 
-## What SSI is trying to measure
+## Core research architecture
 
-A central object in the current transition work is the task-relative tuple
-
-```text
-K = (S, L, V, Lambda)
-```
-
-where:
-
-- `S` — current state/configuration,
-- `L` — response law,
-- `V` — applicability / validity envelope,
-- `Lambda` — authority envelope.
-
-The program asks whether these coordinates can remain separately identifiable, whether that separation survives unfamiliar realizations, and whether constituted meaning can cross a changed carrier without silently changing its evidential type.
-
-The governing transport decomposition is:
+A central object is a licensed transition:
 
 ```text
-carrier != semantic object != evidence type != provenance
+X_t --T--> X_{t+1}
 ```
 
-and the governing epistemic discipline is:
+The governing question is:
+
+> **What independently constituted warrant licenses T?**
+
+A recurring failure pattern is:
 
 ```text
-semantic transport != evidence-type admission != authority transport
+A, B !=> standing for R(A,B)
 ```
 
-This is why a `0.999`-confidence prediction is still not automatically an observation, why an empty observed fragment is not automatically a complete empty envelope, and why unverified provenance can change admissibility without changing semantic identity.
+or, more compactly:
+
+> **The standing of individually legitimate ingredients does not automatically become the standing of the relation that consumes them.**
+
+This is why SSI separates evidence validity, evidence admission, provenance, authority, transport, and composition rather than allowing one successful local result to authorize all downstream uses.
 
 ---
 
 ## Read the repository in the right order
 
-This repository contains frozen experimental artifacts, evolving research ledgers, executable prototypes, historical lineages, and reader-facing navigation. They do **not** all carry the same authority.
+### Fast route
 
-### Fast route — understand the current program
+1. **[`research/CURRENT_FRONTIER.md`](research/CURRENT_FRONTIER.md)** — exact current research stop.
+2. **This README** — front-door orientation.
+3. **[`RESEARCH_MAP.md`](RESEARCH_MAP.md)** — research topology.
+4. **[`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md)** — administrative/scientific status board.
+5. **[`research/SSI_BIG_PICTURE.md`](research/SSI_BIG_PICTURE.md)** — non-authoritative synthesis.
+6. **[`research/relicense/README.md`](research/relicense/README.md)** — transition/relicense lineage.
 
-1. **This README** — orientation and current frontier.
-2. **[`RESEARCH_MAP.md`](RESEARCH_MAP.md)** — visual map of the major research tracks.
-3. **[`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md)** — current administrative status and authority ceilings.
-4. **[`ARCHITECTURE.md`](ARCHITECTURE.md)** — broader architecture and conceptual vocabulary.
-5. **[`research/relicense/README.md`](research/relicense/README.md)** — index of the relicense / transition experiment chain.
+### Evidence route
 
-### Evidence route — inspect what was actually earned
-
-For a frozen experiment, read in dependency order whenever those artifacts exist:
+For a frozen experiment, follow its dependency order whenever those artifacts exist:
 
 ```text
 SPEC
-  -> CASES
-  -> BINDINGS / candidate
-  -> independent ORACLE
-  -> PROTOCOL
-  -> EVALUATOR
-  -> RESULT
+-> CASES
+-> BINDINGS / CANDIDATE
+-> independent ORACLE
+-> PROTOCOL
+-> EVALUATOR / RUNNER
+-> FIRST RESULT
 ```
 
-A later file does not retroactively rewrite an earlier frozen stage.
-
-### Historical route
-
-- [`benchmarks/V0X_LINEAGE.md`](benchmarks/V0X_LINEAGE.md) — synthetic benchmark lineage.
-- [`empirical/`](empirical/) — empirical benchmark and quotient work.
-- [`research/semantic_constitution/`](research/semantic_constitution/) — semantic-constitution lineage.
-- [`research/ssi_calc/`](research/ssi_calc/) — SSI-CALC compiler/checker research and frozen audits.
-- [`energy/`](energy/) — corrective-economy / energy experiments.
-- [`retrospective/LOCALIZATION_CALCULUS.md`](retrospective/LOCALIZATION_CALCULUS.md) — retrospective failure-localization calculus.
+A later success never rewrites an earlier frozen failure.
 
 ---
 
-## Research discipline
+## Current empirical spine
 
-SSI uses a strict freeze-and-attack workflow.
+### PR59 — role separation
 
-### 1. Constitute before evaluating
-
-The candidate must not define the criterion that certifies it.
+The task-relative transition tuple
 
 ```text
-candidate output != oracle truth != evaluator judgment
+K = (S, L, V, Lambda)
 ```
 
-Where possible, case geometry, target evidence contracts, semantic oracles, protocols, and evaluators are frozen before first execution.
+was separable on the frozen constructed suite.
 
-### 2. Preserve typed negative results
-
-The repository distinguishes states such as:
+Strongest result:
 
 ```text
-SUPPORTED
-NOT_SUPPORTED
+FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY
+    = SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE
+```
+
+### PR60 — held-out structural transport
+
+The factorization survived the evaluable held-out axes. Observation-channel novelty remained:
+
+```text
 NOT_EVALUABLE_UNDER_FROZEN_BINDING
-UNPROVEN
-REVOKED
-NOT_ESTABLISHED
-NOT_OPENED
 ```
 
-These are not interchangeable. In particular:
+This preserves the distinction between information existing and the frozen interface being entitled to consume it.
 
-```text
-not evaluable != failed
-unproven != revoked
-correct output != legitimate evidence path
-```
+### PR61 — semantic / evidential transport
 
-### 3. Repair minimally and prospectively
+Already constituted meaning crossed changed carriers on the frozen constructed cross-carrier suite while semantic identity, evidence type, provenance, uncertainty, and role identity remained separated.
 
-A contradiction is a diagnostic signal, not permission to rewrite history. The default procedure is:
-
-```text
-observe failure
--> localize the shallowest supported locus
--> preserve the failed first result
--> constitute a prospective repair separately
--> retest on held-out evidence
-```
-
-### 4. No authority leakage
-
-SSI repeatedly enforces:
-
-```text
-validity != transportability != composability
-role license != execution license
-successful parsing != semantic transport
-semantic equivalence != evidence-type admission
-```
-
-A useful result is not automatically a mechanism claim, a transport claim, a composition claim, or an authorization.
-
----
-
-## Current transition result in one view
-
-The PR61 semantic-transport experiment froze a 44-case constructed cross-carrier suite with separate obligations for meaning, evidence admission, provenance, uncertainty, and role identity.
-
-```text
-ST-A1  semantic identity preservation                 SUPPORTED
-ST-A2  semantic separation                            SUPPORTED
-ST-A3  evidence-type legitimacy                       SUPPORTED
-ST-A4  provenance factor separation / recoverability  SUPPORTED
-ST-A5  uncertainty preservation                       SUPPORTED
-ROLE_PRESERVATION_FIREWALL                            SUPPORTED
-```
-
-Admission matched the independently frozen target-evidence oracle across the entire suite:
-
-```text
-ADMIT       24 / 24
-REJECT      12 / 12
-UNRESOLVED   8 /  8
-TOTAL       44 / 44
-```
-
-No frozen failure trigger fired for semantic under-resolution, semantic contamination, evidence-type laundering, evidence-type under-admission, provenance conflation, uncertainty laundering, or role crossing.
-
-The bounded promotion is therefore:
+Strongest result:
 
 ```text
 TRANSITION_SEMANTIC_TRANSPORT
     = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE
 ```
 
-Nothing stronger is implied.
+### PR63–65 — disciplined reopening
+
+PR63 supplied a narrow adequacy/reopening governor. PR64/H9 exposed:
+
+```text
+coverage assertion != coverage warrant
+```
+
+PR65 then tested five plausible one-bit repairs and found:
+
+```text
+NO_EXACT_CANDIDATE
+```
+
+No repair or new coordinate was licensed.
+
+### PR67 — constituted external-to-SSI mapping
+
+PR67 freezes:
+
+```text
+M_F : E(T) -> I_F(T)
+```
+
+with explicit dispositions:
+
+```text
+PRESERVE
+NORMALIZE
+EXCLUDE_WITH_BASIS
+NOT_EVALUABLE
+```
+
+and a backward-flow firewall preventing path consequences, certificate outputs, collision expectations, or desired diagnoses from influencing the mapping.
+
+Mapper-only first exposure: `12/12` on the frozen abstract mapping suite.
+
+PR67 is branch-local / draft and remains bounded by its own authority ceiling.
 
 ---
 
-## What is deliberately **not** established
+## Current path question
+
+The path-level target remains conceptually:
 
 ```text
-UNIVERSAL_CARRIER_EQUIVALENCE          = NOT_ESTABLISHED
-ARBITRARY_REAL_WORLD_SEMANTIC_TRANSPORT = NOT_ESTABLISHED
-HELDOUT_SEMANTIC_TRANSPORT_GENERALIZATION = NOT_ESTABLISHED
-LOCAL_PRESERVATION_TO_PATH_PRESERVATION = NOT_ESTABLISHED
-TRANSFORMATION_COMPOSITION              = NOT_OPENED
-CERTIFICATE_COMPOSITION                 = NOT_OPENED
-AUTHORITY_COMPOSITION                   = NOT_OPENED
-CHALLENGE_PATH_PRESERVATION             = NOT_OPENED
-MUTABILITY                              = NOT_OPENED
-BOUNDARY_SEMANTICS                      = NOT_OPENED
-BOUNDARY_RESPONSE                       = NOT_OPENED
-BOUNDARY_REPAIR                         = NOT_OPENED
-FORMAL_TRANSITION_CALCULUS              = NOT_CONSTITUTED
-SSI_CALC_KERNEL_DELTA                   = 0
+Psi_F(P_A) == Psi_F(P_B)
+AND
+Y_path(P_A) != Y_path(P_B)
+```
+
+but it is meaningful only after the complete experiment is constituted through every interface:
+
+```text
+external path
+-> frozen M_F
+-> SSI local input
+-> frozen SSI certificate
+-> ordered certificate history
+-> independent path consequence
+```
+
+The previous apparent collision failed this requirement because the mapper constructed equal SSI inputs rather than deriving them from the external path records.
+
+The next run is blocked until the entire dependency closure is frozen and independently resolvable.
+
+---
+
+## Reproducibility boundary
+
+For a run dependency set
+
+```text
+D_R = {
+  M_F,
+  P_A,
+  P_B,
+  Y_path evaluator,
+  one-shot runner,
+  freeze manifest,
+  exact SSI dependencies
+}
+```
+
+every dependency must be:
+
+```text
+identified
+AND immutable
+AND resolvable by the executor
+```
+
+Important nonrules:
+
+```text
+artifact exists != artifact is addressable
+artifact is addressable != artifact is reachable by this executor
+research-state assertion != reproducibly accessible artifact
+```
+
+A package that requires reconstructing scientific state from conversation or hidden repository knowledge is not yet a valid experimental artifact.
+
+---
+
+## What is deliberately not established
+
+```text
+GENERAL_SAFE_SELF_IMPROVEMENT             = NOT_ESTABLISHED
+LEVEL_3_INTERFACE_INVENTION               = OPEN
+PATH_LEVEL_SSI_INADEQUACY                 = NOT_ESTABLISHED
+CERTIFICATE_PROJECTION_LOSS               = NOT_TESTED
+RELATIONAL_COMPOSITION_FAILURE            = NOT_TESTED
+COMPOSITION_INSUFFICIENCY                 = NOT_ESTABLISHED
+COMPOSITION_THEOREM                       = NOT_EARNED
+NEW_RELATION                              = NOT_EARNED
+NEW_COORDINATE                            = NOT_EARNED
+SSI_NOVELTY                               = NOT_ESTABLISHED
+SSI_CALC_KERNEL_DELTA                     = 0
 ```
 
 The absence of a claim is part of the scientific state, not an invitation to infer it.
+
+---
+
+## Research discipline
+
+1. **Constitute before evaluating.** Candidate output must not define oracle truth.
+2. **Preserve typed negative results.** `NOT_EVALUABLE`, `NOT_SUPPORTED`, `UNPROVEN`, and `REVOKED` are different states.
+3. **Localize before repairing.** Revise at the shallowest supported failure locus.
+4. **Preserve first results.** Later repairs do not rewrite earlier failures.
+5. **Do not manufacture collisions by mapping.** Equality at a tested interface must be a derived result.
+6. **Preserve authority ceilings.** Validity does not automatically grant transport, composition, repair, or execution authority.
+7. **Require dependency closure for reproducibility.** Described provenance is not enough if an executor cannot resolve the exact bytes.
 
 ---
 
@@ -250,66 +313,33 @@ The absence of a claim is part of the scientific state, not an invitation to inf
 
 ```text
 .
-├── README.md                    # front door
-├── RESEARCH_MAP.md              # research topology / navigation
-├── REPOSITORY_STATUS.md         # current administrative status
-├── ARCHITECTURE.md              # architecture and conceptual frame
-├── CONTRIBUTING.md              # research + contribution protocol
-├── benchmarks/                  # benchmark lineage
-├── empirical/                   # empirical benchmark work
-├── energy/                      # corrective-economy experiments
+├── README.md
+├── RESEARCH_MAP.md
+├── REPOSITORY_STATUS.md
+├── ARCHITECTURE.md
+├── CONTRIBUTING.md
+├── benchmarks/
+├── empirical/
+├── energy/
 ├── research/
-│   ├── ledger/                  # evolving research ledger
-│   ├── relicense/               # authority / interaction / transition experiments
-│   ├── semantic_constitution/   # semantic-constitution lineage
-│   └── ssi_calc/                # executable checker/compiler research
-├── results/                     # frozen result summaries
-├── retrospective/              # retrospective diagnostics
-└── theory/                     # theory candidates and option structure
+│   ├── CURRENT_FRONTIER.md
+│   ├── SSI_BIG_PICTURE.md
+│   ├── ledger/
+│   ├── relicense/
+│   ├── semantic_constitution/
+│   └── ssi_calc/
+├── results/
+├── retrospective/
+└── theory/
 ```
-
-See [`RESEARCH_MAP.md`](RESEARCH_MAP.md) for the annotated version.
-
----
-
-## Reproducing executable experiments
-
-There is no single monolithic test command: different frozen lineages have different environments and execution contracts. Start from the local `SPEC`, `README`, `RUN_MANIFEST`, `requirements.txt`, or verification script for the experiment you are inspecting.
-
-Examples of executable areas include:
-
-- [`research/ssi_calc/v0_1/`](research/ssi_calc/v0_1/)
-- [`research/ssi_calc/compiler/`](research/ssi_calc/compiler/)
-- [`energy/experiments/`](energy/experiments/)
-- [`empirical/`](empirical/)
-
-Do not rerun a frozen experiment and silently replace its first result. A new run that changes scientific interpretation should receive explicit lineage and provenance.
-
----
-
-## Contributing
-
-Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before changing scientific material. The short version:
-
-- preserve frozen artifacts,
-- separate scientific changes from administrative polish,
-- state the exact parent commit / branch,
-- constitute evaluation criteria before execution,
-- preserve negative results,
-- state the strongest earned claim and the authority ceiling,
-- never treat a later successful repair as if the earlier failure never happened.
 
 ---
 
 ## Status of this README
 
-This README is **navigation**, not a scientific authority source. If a summary here conflicts with a frozen experiment artifact, the frozen artifact and its provenance lineage govern.
+This README is navigation, not a scientific authority source. If it conflicts with a frozen experiment artifact, first-result ledger, or exact authority ceiling, the frozen object governs.
 
-In particular:
-
-> **“Newest file wins” is not a valid epistemic rule in this repository.**
-
-Authority comes from the frozen dependency structure, not file recency.
+> **Newest file wins is not an epistemic rule in this repository.**
 
 ---
 

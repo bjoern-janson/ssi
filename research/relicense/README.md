@@ -2,9 +2,9 @@
 
 > **Human index only.** Frozen experiment artifacts inside this directory remain the scientific authority sources.
 
-This directory contains the SSI work on interaction interfaces, warrant transport, semantic binding, transition-role separation, and cross-carrier semantic/evidential transport.
+This directory contains SSI work on interaction interfaces, warrant transport, semantic binding, transition-role separation, adequacy governance, and external-to-SSI mapping.
 
-The unifying question is not simply whether a system can compute a result. It is whether the evidence, semantic object, role, and authority required for a transformation are actually constituted at the boundary where that transformation is used.
+For the exact current stop, see [`../CURRENT_FRONTIER.md`](../CURRENT_FRONTIER.md).
 
 ---
 
@@ -16,140 +16,33 @@ flowchart LR
     B --> C[Held-out detection stress]
     C --> D[Semantic binding]
     D --> E[Factored evidence]
-    E --> F[Transition role separation]
-    F --> G[Held-out structural transport]
-    G --> H[Semantic / evidential transport]
-    H --> I[?]
+    E --> F[PR59 role separation]
+    F --> G[PR60 held-out structural transport]
+    G --> H[PR61 semantic / evidential transport]
+    H --> I[PR63 adequacy governor]
+    I --> J[PR64 H9 constitution collision]
+    J --> K[PR65 one-bit candidate search]
+    K --> L[PR67 external-to-SSI mapping M_F]
+    L --> M[Dependency closure]
+    M --> N[Future constituted path test]
 
-    style I stroke-dasharray: 5 5
+    style M stroke-dasharray: 5 5
+    style N stroke-dasharray: 5 5
 ```
 
-The post-transport `?` is intentionally unconstituted.
+The current stop is dependency closure, not composition theory.
 
 ---
 
-## Experiments
-
-### 1. Interaction interface
-
-[`interaction_interface_v0_1/`](interaction_interface_v0_1/)
-
-Prospective higher-order interface:
-
-```text
-Phi_int = (
-  boundary_path,
-  local_certificate_refs,
-  interaction_scope,
-  interaction_facts,
-  observation_coverage,
-  provenance,
-  challenge_record
-)
-```
-
-Bounded result: pair identifiability supported on the frozen constructed suite. This is interface correction after diagnosis, not blind interface invention.
-
----
-
-### 2. Independent interaction detection
-
-[`interaction_detection_v0_1/`](interaction_detection_v0_1/)
-
-Tests whether a channel independently constituted relative to the frozen local quotient can discriminate higher-order interaction states that local derivatives cannot.
-
-Bounded result: independent higher-order detection supported on the frozen constructed suite.
-
-Non-rule:
-
-```text
-detection supported != witness sufficiency
-```
-
----
-
-### 3. Held-out interaction detection stress
-
-[`interaction_detection_stress_v0_1/`](interaction_detection_stress_v0_1/)
-
-Stress axes include world novelty, channel novelty, coverage degradation, failure-structure novelty, and independent contradiction.
-
-The mixed result preserves a critical boundary:
-
-```text
-information preservation != semantic preservation
-```
-
-Novel semantic carriers cannot be converted into answers or legacy evidence merely because the information is available.
-
----
-
-### 4. Semantic binding
-
-[`interaction_semantic_binding_v0_1/`](interaction_semantic_binding_v0_1/)
-
-Asks whether a source relation actually constitutes the target predicate.
-
-This experiment preserves its first negative result: positive provenance-backed equivalence was blocked by a protocol/evaluator representation mismatch rather than silently repaired.
-
-Key diagnosis:
-
-```text
-RELATION_PROVENANCE_COLLAPSE
-INTERFACE_NONIDENTIFIABILITY_VIA_COORDINATE_CONFLATION
-```
-
-The resulting prospective repair direction was to factor relation identity and provenance.
-
----
-
-### 5. Factored evidence interface
-
-[`interaction_factored_evidence_interface_v0_1/`](interaction_factored_evidence_interface_v0_1/)
-
-Candidate representation:
-
-```text
-e = (r_P, pi_r)
-```
-
-The key design constraint is:
-
-```text
-relation identity != provenance identity
-```
-
-with relevant separation, orthogonal invariance, and provenance recoverability treated as distinct obligations.
-
----
-
-### 6. Transport witness
-
-[`transport_witness_v0_1/`](transport_witness_v0_1/)
-
-Earlier transport-witness work exposed a higher-order problem: locally preserved boundary witnesses did not automatically determine the status of a longer composed crossing.
-
-Important non-rule:
-
-```text
-local warrant preservation != composed warrant preservation
-```
-
-This lineage motivates caution after PR61 but does not by itself identify the post-PR61 frontier.
-
----
-
-### 7. Transition interface separability — PR59
+## PR59 — transition interface separability
 
 [`transition_interface_separability_v0_1/`](transition_interface_separability_v0_1/)
 
-Target object:
+Target:
 
 ```text
 K = (S, L, V, Lambda)
 ```
-
-where state, response law, validity/applicability, and authority remain independently addressable.
 
 Frozen bounded result:
 
@@ -158,27 +51,15 @@ FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY
     = SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE
 ```
 
-The constructed suite supports relevant separation, orthogonal invariance, coordinate recoverability, uncertainty preservation, and multi-coordinate identifiability.
-
-Not established:
-
-```text
-four-coordinate completeness
-real-world boundary generalization
-boundary semantics
-repair authority
-formal transition calculus
-```
+Completeness, general composition, and authority transfer remain unestablished.
 
 ---
 
-### 8. Held-out transition separability stress — PR60
+## PR60 — held-out transition separability stress
 
 [`transition_interface_separability_heldout_stress_v0_1/`](transition_interface_separability_heldout_stress_v0_1/)
 
-Tests whether the PR59 factorization survives unfamiliar stress geometry without changing the inherited binding.
-
-Frozen result vector:
+Frozen typed vector:
 
 ```text
 G1 world novelty          = SUPPORTED
@@ -188,25 +69,17 @@ G4 failure structure      = SUPPORTED
 G5 conflicting channels   = SUPPORTED
 ```
 
-Critical boundary:
+Critical rule:
 
 ```text
-complete semantics exist
-AND
-carrier is outside frozen input contract
-
-=> NOT_EVALUABLE_UNDER_FROZEN_BINDING
+information exists != frozen interface is entitled to consume it
 ```
-
-not a separability failure.
 
 ---
 
-### 9. Transition semantic transport — PR61
+## PR61 — transition semantic transport
 
 [`transition_semantic_transport_v0_1/`](transition_semantic_transport_v0_1/)
-
-Opens a new, separately constituted bridge rather than repairing PR60's inherited binding.
 
 Core decomposition:
 
@@ -214,82 +87,207 @@ Core decomposition:
 carrier != semantic object != evidence type != provenance
 ```
 
-The 44-case suite tests:
-
-```text
-ST-A1 semantic identity preservation
-ST-A2 semantic separation
-ST-A3 evidence-type legitimacy
-ST-A4 provenance factor separation / recoverability
-ST-A5 uncertainty preservation
-ROLE_PRESERVATION_FIREWALL
-```
-
-All frozen obligations were supported on their stated constructed scopes.
-
-Strongest earned result:
+Strongest frozen result:
 
 ```text
 TRANSITION_SEMANTIC_TRANSPORT
     = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE
 ```
 
-Key empirical distinction:
-
-```text
-recovered meaning != entitlement to call it evidence
-```
-
-Provenance-sensitive rejection can change admission without changing semantic identity; partial/conflicted sources remain non-complete; high-confidence predictions remain non-observations; role-looking fields do not manufacture role identity.
-
----
-
-## Current boundary
-
-The sequence currently stops here:
-
-```text
-role separation
--> held-out structural transport
--> semantic / evidential transport
--> ?
-```
-
-The blank is structured ignorance.
-
-Current non-rule:
-
-```text
-Legit(T1) AND Legit(T2) !=> Legit(T2 ∘ T1)
-```
-
-Current broader boundary:
+The nonrule remains:
 
 ```text
 local preservation != path preservation
 ```
 
-Prospective possibilities such as transformation composition, certificate composition, authority composition, challenge-path preservation, and mutability remain **NOT OPENED**. None is designated as the next research object.
+but this does not establish a path-composition defect.
+
+---
+
+## PR63 — adequacy / reopening governor
+
+The adequacy governor is deliberately narrow:
+
+```text
+SUPPORTED_ADEQUATE_ON_TESTED_SCOPE
+UNKNOWN
+INADEQUATE
+```
+
+with `NOT_EVALUABLE` separate. Only `INADEQUATE` yields local search permission.
+
+It does not generate repairs, infer coordinates, modify the frozen representation, or change SSI-CALC.
+
+---
+
+## PR64 — H9 constitution collision
+
+The hostile suite preserved its first 8/10 result.
+
+H9 supports, on its frozen scope:
+
+```text
+coverage assertion != coverage warrant
+```
+
+The positive-adequacy interface could not distinguish independently constituted coverage from caller assertion.
+
+This is a local constitution/interface inadequacy witness, not a general theory of coverage.
+
+---
+
+## PR65 — one-bit candidate search
+
+Five frozen one-bit candidates were tested against the ten-world H9 neighborhood.
+
+Result:
+
+```text
+NO_EXACT_CANDIDATE
+exact_candidates = []
+repair_permitted = false
+new_ssi_coordinate_established = false
+SSI_CALC_KERNEL_DELTA = 0
+```
+
+`C1 AND C4` exactly fits the frozen ledger extensionally, but sufficiency and mechanism remain unestablished.
+
+---
+
+## Path attack: first apparent collision and correction
+
+A later constructed path attempt appeared to satisfy:
+
+```text
+Psi_F(P_A) == Psi_F(P_B)
+AND
+Y_path(P_A) != Y_path(P_B)
+```
+
+Localization showed that the external paths were collapsed while constructing SSI-local cases, before the certificate boundary.
+
+Therefore:
+
+```text
+PRE_CERTIFICATE_MAPPING_COLLAPSE = ESTABLISHED_FOR_THAT_ATTEMPT
+PATH_LEVEL_SSI_INADEQUACY        = NOT_ESTABLISHED
+CERTIFICATE_PROJECTION_LOSS      = NOT_TESTED
+RELATIONAL_COMPOSITION_FAILURE   = NOT_TESTED
+```
+
+The lesson is procedural:
+
+> **Constitute the witness at every interface it is supposed to falsify.**
+
+---
+
+## PR67 — external-to-SSI mapping contract
+
+[`external_to_ssi_mapping_v0_1/`](external_to_ssi_mapping_v0_1/)
+
+PR67 freezes:
+
+```text
+M_F : E(T) -> I_F(T)
+```
+
+with explicit dispositions:
+
+```text
+PRESERVE
+NORMALIZE
+EXCLUDE_WITH_BASIS
+NOT_EVALUABLE
+```
+
+The mapper may not inspect downstream path consequences, certificate outputs, path outputs, collision expectations, or desired diagnoses.
+
+Important nonrules:
+
+```text
+excluded from I_F != globally irrelevant
+unknown field != safe to drop
+unmappable != irrelevant
+A/B local-input equality = derived result only
+```
+
+Frozen mapper-only first result:
+
+```text
+12 / 12 obligations passed
+```
+
+Strongest branch-local result:
+
+```text
+EXTERNAL_TO_SSI_MAPPING_CONSTITUTION
+    = SUPPORTED_ON_FROZEN_ABSTRACT_MAPPING_SUITE
+```
+
+PR67 remains a draft / branch-local object until merged through normal repository review.
+
+---
+
+## Current boundary: complete dependency closure
+
+The next path run requires a self-contained dependency set:
+
+```text
+D_R = {
+    M_F,
+    P_A,
+    P_B,
+    independent Y_path evaluator,
+    one-shot runner,
+    freeze manifest,
+    exact SSI dependencies
+}
+```
+
+Every dependency must be:
+
+```text
+identified
+AND immutable
+AND resolvable by the executor
+```
+
+Current status:
+
+```text
+COMPLETE_PATH_RUN_BUNDLE = NOT_CONSTITUTED
+PATH_RUN_AFTER_M_F       = NOT_EXECUTED
+```
+
+No path result should be issued from a runner that cannot resolve the exact frozen dependency closure.
+
+A failed run caused by unresolved artifacts is `NOT_EVALUABLE`, not a scientific negative.
 
 ---
 
 ## How to inspect an experiment
 
-Prefer the experiment's frozen dependency order. A common pattern is:
+Prefer the exact frozen dependency order:
 
 ```text
 SPEC
 -> CASES
--> BINDINGS
--> ORACLE
+-> BINDINGS / CANDIDATE
+-> independent ORACLE
 -> PROTOCOL
--> EVALUATOR
--> RESULT
+-> EVALUATOR / RUNNER
+-> FIRST RESULT
 ```
 
-Do not infer authority from filename date or Git recency alone.
+For multi-interface experiments, also verify that each upstream mapping is independently constituted rather than manually forcing the downstream representation.
 
-If an experiment preserves a failed first result and later opens a repair lineage, both are part of the evidence.
+For externally executed experiments, verify dependency closure:
+
+```text
+artifact identity
++ artifact immutability
++ artifact resolvability
+```
 
 ---
 
@@ -299,22 +297,40 @@ If an experiment preserves a failed first result and later opens a repair lineag
 validity != transportability != composability
 information != admissible evidence
 semantic identity != evidence admission
-semantic equivalence != provenance equivalence
 not evaluable != failed
 unproven != revoked
-role license != execution license
 local preservation != path preservation
+same certificate != certificate projection loss
+same certificate history != composition insufficiency
+excluded from local input != globally irrelevant
+research-state assertion != reproducibly accessible artifact
 ```
 
-The exact scope of each statement still depends on the experiment that earned or motivated it.
+---
+
+## Current authority ceiling
+
+```text
+PATH_LEVEL_SSI_INADEQUACY        = NOT_ESTABLISHED
+CERTIFICATE_PROJECTION_LOSS      = NOT_TESTED
+RELATIONAL_COMPOSITION_FAILURE   = NOT_TESTED
+INTERFACE_AUTHORITY_BOUNDARY     = UNKNOWN
+COMPOSITION_INSUFFICIENCY        = NOT_ESTABLISHED
+COMPOSITION_THEOREM              = NOT_EARNED
+NEW_RELATION                     = NOT_EARNED
+NEW_COORDINATE                   = NOT_EARNED
+REPAIR                           = NOT_EARNED
+SSI_CALC_KERNEL_DELTA            = 0
+```
 
 ---
 
 ## Navigation
 
+- Current exact frontier: [`../CURRENT_FRONTIER.md`](../CURRENT_FRONTIER.md)
 - Repository front door: [`../../README.md`](../../README.md)
-- Full research topology: [`../../RESEARCH_MAP.md`](../../RESEARCH_MAP.md)
-- Current status board: [`../../REPOSITORY_STATUS.md`](../../REPOSITORY_STATUS.md)
-- Contribution / freeze protocol: [`../../CONTRIBUTING.md`](../../CONTRIBUTING.md)
+- Full topology: [`../../RESEARCH_MAP.md`](../../RESEARCH_MAP.md)
+- Status board: [`../../REPOSITORY_STATUS.md`](../../REPOSITORY_STATUS.md)
+- Synthesis: [`../SSI_BIG_PICTURE.md`](../SSI_BIG_PICTURE.md)
 
 If this index conflicts with a frozen experiment artifact, the frozen artifact governs.

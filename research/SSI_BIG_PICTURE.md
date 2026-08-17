@@ -1,24 +1,21 @@
 # SSI Big-Picture Synthesis
 
-Status: **research synthesis / non-authoritative interpretation**
+Status: **research synthesis / non-authoritative interpretation**  
+Date: **2026-08-17**
 
-Date: 2026-08-17
+For the exact current stop, see [`CURRENT_FRONTIER.md`](CURRENT_FRONTIER.md).
 
-This note consolidates the current research architecture without modifying any frozen scientific artifact, experiment, calculator, candidate family, or authority rule. It is stacked on the exact frozen PR #65 head and must not be read as promoting unmerged branch results into mainline authority.
-
-If this synthesis conflicts with a frozen scientific object, first-result ledger, branch-local specification, executable result, or authority ceiling, the frozen object governs.
+This note consolidates the current research architecture without modifying any frozen scientific artifact, experiment, calculator, candidate family, or authority rule. If this synthesis conflicts with a frozen object, first-result ledger, executable result, or authority ceiling, the frozen object governs.
 
 ---
 
 ## 1. Ultimate problem
 
-The broad problem is no longer well described by the phrase **self-improvement** alone.
-
-A sharper formulation is:
+A sharper formulation than “self-improvement” is:
 
 > **How can an adaptive system escape the limits of its own representation without making the act of escape sufficient authority for the replacement?**
 
-The two failure poles are:
+The two failure poles remain:
 
 ```text
 EPISTEMIC_CLOSURE
@@ -28,130 +25,94 @@ EPISTEMIC_SELF_AUTHORIZATION
     the system can ratify its own representational succession
 ```
 
-The target is therefore:
+The target is:
 
 > **maximum adaptive openness subject to bounded transition authority.**
-
-A sufficiently capable system must be able to discover that its current interface is inadequate. But the ability to construct a replacement must not itself establish that the replacement deserves standing.
 
 ---
 
 ## 2. Core architecture: licensed epistemic transition
 
-The most stable research object is a transition:
+The stable research object is a transition:
 
-\[
-X_t \xrightarrow{T} X_{t+1}.
-\]
+```text
+X_t --T--> X_{t+1}
+```
 
-The central question is not merely whether \(X_t\) and \(X_{t+1}\) are individually acceptable. It is:
+The central question is:
 
-\[
-\boxed{\text{What independently constituted warrant licenses }T?}
-\]
+> **What independently constituted warrant licenses T?**
 
-The governing principle is:
+The governing nonrule is:
 
-> **A system may change what it represents, relies on, authorizes, or does only to the extent that independently constituted evidence has earned that particular transition for the implicated property, scope, and role.**
+```text
+standing at stage i !=> standing at stage i+1
+```
 
-This yields the recurring nonrule:
+This includes:
 
-\[
-\boxed{\text{standing at stage }i \not\Rightarrow \text{standing at stage }i+1.}
-\]
-
-Examples include:
-
-\[
-\text{Can}\neq\text{May}\neq\text{Did},
-\]
-
-\[
-\text{evidence}\neq\text{admission}\neq\text{authority},
-\]
-
-\[
-\text{validity}\neq\text{transportability}\neq\text{composability}.
-\]
-
-A good endpoint does not retroactively legitimate the transition that produced it.
+```text
+Can != May != Did
+evidence != admission != authority
+validity != transportability != composability
+good endpoint != good transition
+```
 
 ---
 
 ## 3. Recurring failure pattern: unearned standing transport across a relation
 
-Across the lineage, the recurring failure is not merely that a field was missing or that two objects were collapsed.
+Across the lineage, a recurring structure is:
 
-The more invariant pattern is:
+```text
+A, B !=> standing for R(A,B)
+```
 
-\[
-A, B \not\Rightarrow R(A,B).
-\]
-
-A system possesses individually legitimate ingredients and silently transports their standing into a downstream relation whose warrant has not been separately established.
+Individually legitimate ingredients do not automatically confer standing on a downstream relation that consumes them.
 
 Examples:
 
 ```text
-semantic content            != semantic identity
-information availability    != legitimate consumption
-evidence                     != evidence admission
-admission                    != authority
-provenance                   != meaning
-constituted domain           != coverage discharge
-coverage assertion           != coverage warrant
-candidate repair             != validated repair
-local certificate            != path legitimacy
-local legitimacy             != established future challenge preservation
+semantic content          != semantic identity
+information availability  != legitimate consumption
+evidence                   != evidence admission
+admission                  != authority
+coverage assertion         != coverage warrant
+candidate repair           != validated repair
+local certificate          != path legitimacy
 ```
 
-The compact warning is:
+The compact warning remains:
 
 > **The standing of the ingredients does not automatically become the standing of the relation that consumes them.**
-
-This is the common denominator behind many apparently separate SSI failures.
 
 ---
 
 ## 4. Abstraction as a downstream irrelevance claim
 
-Abstraction is necessary for intelligence. The problem is not compression itself.
+When a representation identifies two states,
 
-When a system identifies:
+```text
+x_a ~ x_b
+```
 
-\[
-x_a \sim x_b,
-\]
+it is making a task-relative claim that their difference is irrelevant downstream.
 
-it is implicitly claiming that the distinction between \(x_a\) and \(x_b\) is irrelevant to some downstream use.
+The properly indexed object is:
 
-The claim is therefore properly indexed:
+```text
+x_a ~_(P,sigma,r) x_b
+```
 
-\[
-x_a \sim_{P,\sigma,r} x_b.
-\]
+A consequential collision exists only when the tested representation identifies two states while an independently constituted downstream property distinguishes them on the relevant scope.
 
-A quotient is consequently an epistemic claim about downstream irrelevance.
+Hence:
 
 > **Compression is licensed only as far as the irrelevance of the discarded distinction has been established.**
-
-If later consequence supplies:
-
-\[
-\Phi(x_a)=\Phi(x_b)
-\quad\land\quad
-Y_{P,\sigma,r}(x_a)\neq Y_{P,\sigma,r}(x_b),
-\]
-
-then the frozen representation has a local consequential collision for that indexed use.
-
-This preserves the original anti-collapse insight without requiring preservation of arbitrary distinctions forever.
 
 ---
 
 ## 5. Two coupled loops
-
-The research now separates an object loop from a meta loop.
 
 ### Object loop
 
@@ -179,61 +140,63 @@ Failure / challenge
 -> Bounded relicensing
 ```
 
-The meta loop is necessary for advanced adaptation. The design requirement is not to eliminate it.
-
-The requirement is:
-
-> **The meta loop must have enough independence from the object loop to challenge it rather than merely ratify it.**
-
-This is the broad form of the earlier recursive challenge problem in which a challenge mechanism can inherit the assumptions of the interface it is meant to test.
+The meta loop must be independent enough to challenge the object loop rather than merely ratify it.
 
 ---
 
 ## 6. Empirical spine: PR59–61
 
-PR59–61 form three increasingly demanding local transition tests.
-
 ### PR59 — transition-role separation
 
-The four-coordinate transition interface:
+```text
+K = (S, L, V, Lambda)
+```
 
-\[
-K^{\sigma,P}=(S,L,V,\Lambda)
-\]
+was separable on the frozen constructed suite.
 
-was separable on its frozen constructed suite.
+```text
+FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY
+    = SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE
+```
 
-The result supports local role separation. It does not establish completeness, universal transport, composition, or authority transfer.
+This does not establish completeness.
 
 ### PR60 — held-out structural transport
 
-The factorization survived the evaluable frozen held-out structural axes, while observation-channel novelty remained not evaluable under the frozen binding.
+The factorization survived the evaluable frozen held-out axes. Observation-channel novelty remained:
 
-This preserved the distinction:
+```text
+NOT_EVALUABLE_UNDER_FROZEN_BINDING
+```
 
-> **semantic information may exist without the current interface being entitled to consume it.**
+This preserved the distinction between information existing and the current interface being entitled to consume it.
 
-### PR61 — semantic transport across changed carriers
+### PR61 — semantic / evidential transport
 
-A separate frozen candidate successfully transported already constituted coordinate meaning across changed carriers on the constructed cross-carrier suite while keeping semantic identity, evidence type, provenance, uncertainty, and role identity separate.
+Constituted meaning crossed changed carriers on the frozen constructed cross-carrier suite while semantic identity, evidence type, provenance, uncertainty, and role identity remained separately tracked.
 
-The important boundary remains:
+```text
+TRANSITION_SEMANTIC_TRANSPORT
+    = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE
+```
 
-\[
-\boxed{\text{local preservation}\not\Rightarrow\text{path preservation}.}
-\]
+The boundary remains:
 
-No certificate-composition rule, authority-composition rule, transformation-composition rule, or challenge-path preservation rule has been established.
+```text
+local preservation != path preservation
+```
 
-The post-PR61 frontier remains unconstituted.
+but composition failure is not thereby established.
 
 ---
 
-## 7. NSS as theory-growth governance
+## 7. PR63–65: disciplined reopening
 
-Negative-Space Search is best understood as a governor on representational reopening, not a solver for Level-3 invention.
+PR63–65 are mainline-reachable in the current repository history.
 
-The epistemic states remain:
+### PR63 — adequacy governor
+
+The narrow gate distinguishes:
 
 ```text
 SUPPORTED_ADEQUATE_ON_TESTED_SCOPE
@@ -241,232 +204,238 @@ UNKNOWN
 INADEQUATE
 ```
 
-with:
+with `NOT_EVALUABLE` kept separate. Only `INADEQUATE` yields local search permission.
 
-```text
-NOT_EVALUABLE
-```
-
-kept separate as a protocol / constitution failure.
-
-The key asymmetry is:
-
-\[
-\exists a,b:
-\Phi_F(a)=\Phi_F(b)
-\land
-Y_P(a)\neq Y_P(b)
-\]
-
-with independently admissible consequence can establish local inadequacy.
-
-But:
-
-```text
-no observed collision != adequacy
-UNKNOWN != inadequacy
-inadequacy != repair
-search license != repair authority
-repair != validation
-validation != authority
-```
-
-The governing research rule is:
-
-> **Do not expand the ontology merely because a richer ontology is imaginable. Reopen only after the current representation has demonstrated independently consequential inadequacy.**
-
----
-
-## 8. PR63–65: the adequacy-governor lineage
-
-PR63–65 are frozen draft branches stacked above the post-PR61 base. They are not merged mainline results.
-
-### PR63 — narrow adequacy / reopening calculator
-
-PR63 operationalizes one transition:
-
-```text
-frozen representation
--> adequacy status
--> possible local reopening
-```
-
-Only `INADEQUATE` yields `search_license = LOCAL`.
-
-The calculator does not generate repairs, invent coordinates, establish novelty, grant execution authority, or modify SSI-CALC.
-
-This exemplifies a broader design preference:
-
-> **build narrow mechanisms whose authority is smaller than the questions they are unable to resolve.**
+The gate does not generate repairs, invent coordinates, grant execution authority, or modify SSI-CALC.
 
 ### PR64 / H9 — positive-adequacy constitution collision
 
-The hostile suite produced a frozen 8/10 first result.
+The hostile suite preserved its first 8/10 result.
 
-H9 exposed a local interface collision at the positive-adequacy constitution boundary:
+H9 supports the local distinction:
 
 ```text
 coverage assertion != coverage warrant
 ```
 
-The executable representation could not distinguish independently constituted positive coverage from a merely self-asserted `coverage.constituted=true` claim, while the external adequacy consequence differed.
-
-The failed checker did not authorize its own repair. The external hostile comparison earned local reopening of that representation.
+The executable positive-adequacy representation could not distinguish independently constituted coverage from caller assertion at that interface boundary.
 
 ### PR65 — frozen one-bit candidate search
 
-Five one-bit candidates were frozen and tested against a 10-world H9 neighborhood.
-
-All five separated the original H9 anchor:
+Five plausible one-bit repairs were frozen and tested.
 
 ```text
-H9 anchor separation = 5/5
+NO_EXACT_CANDIDATE
 ```
 
-None reproduced the neighborhood exactly:
+No repair or new SSI coordinate was licensed.
 
-```text
-exact one-bit neighborhood match = 0/5
-```
-
-Therefore:
-
-\[
-\boxed{\text{counterexample fit}\neq\text{neighborhood preservation}.}
-\]
-
-The result is `NO_EXACT_CANDIDATE`. No conjunction, sixth feature, or repair is automatically licensed.
+`C1 AND C4` is an exact extensional fit on the frozen ten-world ledger only. It does not establish sufficiency or mechanism.
 
 ---
 
-## 9. Identification ladder from PR65
+## 8. The apparent path collision and its correction
 
-Ledger-level analysis of the frozen 10-world domain \(\mathcal T_{10}\) found the exact extensional relation:
-
-\[
-Y_{\rm adequacy}=\texttt{SUPPORTABLE}
-\iff
-C_1\land C_4
-\qquad\text{on }\mathcal T_{10}.
-\]
-
-This advances identification only to finite partition fit.
-
-The evidential ladder is:
-
-\[
-\boxed{
-\begin{aligned}
-\text{witness fit}
-&\neq \text{neighborhood preservation}\\
-&\neq \text{extensional partition fit}\\
-&\neq \text{criterion identification}\\
-&\neq \text{mechanism identification}.
-\end{aligned}}
-\]
-
-The frozen suite does not contain the discriminating world:
-
-\[
-C_1=1,\qquad
-C_4=1,\qquad
-Y_{\rm adequacy}=\texttt{NOT\_ESTABLISHED}.
-\]
-
-Therefore these hypotheses remain observationally equivalent on current evidence:
+A later constructed experiment initially appeared to satisfy the desired path-level falsification form:
 
 ```text
-H_A
-    C1 AND C4 is sufficient
-
-H_B
-    C1 and C4 are ingredients in some additional unidentified discharge relation
+Psi_F(P_A) == Psi_F(P_B)
+AND
+Y_path(P_A) != Y_path(P_B)
 ```
 
-Hence:
+That interpretation did not survive localization.
 
-\[
-H_A\sim_{\mathcal T_{10}}H_B.
-\]
+The first equality boundary was:
 
-The strongest methodological rule is:
+```text
+external path
+-> experiment mapping
+-> SSI local input
+```
 
-> **Exact fit on a frozen domain is evidence about that domain, not automatically evidence about the mechanism generating the partition.**
+The mapper constructed equivalent SSI-local cases rather than deriving them from the external path records. Therefore equal certificate histories were downstream of a pre-certificate mapping collapse.
 
-The relational interpretation is plausible pressure, not an identified mechanism.
+Current correction:
+
+```text
+FIRST_ECDSA_RESULT
+    = INVALID_AS_PATH_COLLISION
+      __PRE_CERTIFICATE_MAPPING_COLLAPSE
+
+PATH_LEVEL_SSI_INADEQUACY
+    = NOT_ESTABLISHED
+
+CERTIFICATE_PROJECTION_LOSS
+    = NOT_TESTED
+
+RELATIONAL_COMPOSITION_FAILURE
+    = NOT_TESTED
+```
+
+The key methodological result is:
+
+> **A falsification witness must be constituted all the way to the interface being falsified.**
+
+Equivalent compression:
+
+> **Constitute the witness at every interface it is supposed to falsify.**
 
 ---
 
-## 10. What remains open
+## 9. PR67: freezing the missing mapping interface
 
-The following are not established:
+PR67 introduces no new SSI theory object. It freezes an experimental precondition:
 
 ```text
-GENERAL_SAFE_SELF_IMPROVEMENT
+M_F : E(T) -> I_F(T)
+```
+
+The mapper disposition vocabulary is:
+
+```text
+PRESERVE
+NORMALIZE
+EXCLUDE_WITH_BASIS
+NOT_EVALUABLE
+```
+
+and exclusion is jurisdictional, not an irrelevance claim:
+
+```text
+excluded from I_F != irrelevant to Y_path
+```
+
+The mapper cannot read path consequence, certificate output, path output, collision expectation, or desired diagnosis information.
+
+Frozen mapper-only first result on PR67:
+
+```text
+12 / 12 obligations passed
+```
+
+Strongest branch-local claim:
+
+```text
+EXTERNAL_TO_SSI_MAPPING_CONSTITUTION
+    = SUPPORTED_ON_FROZEN_ABSTRACT_MAPPING_SUITE
+```
+
+PR67 remains draft / branch-local and does not establish path inadequacy or composition failure.
+
+---
+
+## 10. Reproducibility as dependency closure
+
+The next path test has a complete dependency set:
+
+```text
+D_R = {
+    M_F,
+    P_A,
+    P_B,
+    independent Y_path evaluator,
+    one-shot runner,
+    freeze manifest,
+    exact SSI dependencies
+}
+```
+
+For each dependency:
+
+```text
+identified
+AND immutable
+AND resolvable by the executor
+```
+
+is a precondition of evaluation.
+
+This yields a three-way distinction:
+
+```text
+artifact exists
+    != artifact is addressable
+    != artifact is reachable by a particular executor
+```
+
+A provenance description is therefore insufficient if an independent runner cannot resolve the exact bytes.
+
+The current operational rule is:
+
+> **If packaging the experiment requires reconstructing scientific state, the package is not yet a valid experimental artifact.**
+
+This is presently a workflow/reproducibility constraint, not a constitutive SSI primitive.
+
+---
+
+## 11. Current scientific frontier
+
+The path hypothesis remains live, but no post-`M_F` path test has yet been executed under a complete self-contained dependency closure.
+
+```text
+M_F
+    = FROZEN_ON_PR67
+      __SUPPORTED_ON_FROZEN_ABSTRACT_MAPPING_SUITE
+
+COMPLETE_PATH_RUN_BUNDLE
+    = NOT_CONSTITUTED
+
+PATH_RUN_AFTER_M_F
+    = NOT_EXECUTED
+
+PATH_COLLISION
+    = NOT_TESTED_UNDER_CONSTITUTED_MAPPING
+
+CERTIFICATE_PROJECTION_LOSS
+    = NOT_TESTED
+
+RELATIONAL_COMPOSITION_FAILURE
+    = NOT_TESTED
+
+INTERFACE_AUTHORITY_BOUNDARY
+    = UNKNOWN
+
+COMPOSITION_INSUFFICIENCY
+    = NOT_ESTABLISHED
+
+COMPOSITION_THEOREM
+    = NOT_EARNED
+
+NEW_RELATION
+    = NOT_EARNED
+
+NEW_COORDINATE
+    = NOT_EARNED
+
 LEVEL_3_INTERFACE_INVENTION
-GENERAL INDEPENDENT CHALLENGE CONSTRUCTION
-TRANSFORMATION COMPOSITION
-CERTIFICATE COMPOSITION
-AUTHORITY COMPOSITION
-PATH-LEVEL LEGITIMACY
-PRESERVATION OF FUTURE CHALLENGEABILITY UNDER LEGITIMATE TRANSFORMATION
-H9 RELATIONAL MECHANISM
-NEW SSI COORDINATE
-DISTINCT SSI NOVELTY CLAIM
+    = OPEN
+
+SSI_NOVELTY
+    = NOT_ESTABLISHED
+
+SSI_CALC_KERNEL_DELTA
+    = 0
 ```
 
-In particular, future independent challengeability remains an important prospective boundary, not yet a universal constitutive requirement of transition legitimacy.
-
-The SSI-CALC kernel remains frozen:
-
-```text
-SSI_CALC_KERNEL_DELTA = 0
-```
+The next scientific increment is a self-contained path-run dependency bundle, not a new concept.
 
 ---
 
-## 11. Level 3 remains the deepest scientific frontier
+## 12. Level 3 remains open
 
-The unresolved problem is not merely whether a model can generate novel descriptions or predicates.
-
-The harder problem is:
+The deepest unresolved problem remains:
 
 > **Can a system acquire a genuinely new discriminating interface to reality without being handed the distinction, while independently establishing what standing the new interface deserves?**
 
-This contains at least two distinct questions:
+This still separates:
 
 ```text
 Where does the new distinction come from?
 Why is the system entitled to rely on it?
 ```
 
-The current program is stronger at governing when Level 3 may be opened, rejecting underidentified candidate repairs, and bounding authority after evidence than at Level-3 invention itself.
-
-That boundary must remain explicit.
-
----
-
-## 12. Big-picture research objective
-
-The oldest intelligence compression still survives with an authority qualification:
-
-> **Intelligence includes the capacity to generate, repair, and inherit reality-tracking interfaces.**
-
-SSI adds:
-
-> **Increased access to reality does not itself confer unlimited authority to reinterpret, replace, or act through the interface that produced that access.**
-
-The resulting large-scale research question is:
-
-> **How can a system remain capable of discovering that its own interface to reality is inadequate, construct a better one, and transfer reliance to it without becoming the sole authority for why that transfer was legitimate?**
-
-The current methodological answer is a discipline rather than a solved theory:
-
-> **When evidence stops identifying, authority stops with it.**
-
-Equivalent compression:
-
-> **Do not ask only whether the evidence fits. Ask exactly which transition that evidence has earned.**
+The present work improves theory-growth governance and experimental constitution; it does not solve general interface invention.
 
 ---
 
@@ -495,14 +464,8 @@ CORE_NONRULE
 ABSTRACTION_PRINCIPLE
     = EVERY_QUOTIENT_ASSERTS_DOWNSTREAM_IRRELEVANCE
 
-THEORY_GROWTH
-    = REOPEN_ONLY_AFTER_INDEPENDENT_CONSEQUENTIAL_INADEQUACY
-
 PR59_61
     = FROZEN EMPIRICAL TRANSITION RUNGS
-
-POST_PR61_FRONTIER
-    = UNCONSTITUTED
 
 PR63
     = FROZEN ADEQUACY / REOPENING GOVERNOR
@@ -514,25 +477,27 @@ PR65
     = FROZEN NEGATIVE ONE-BIT CANDIDATE SEARCH
 
 C1_AND_C4
-    = EXACT EXTENSIONAL FIT ON T10
+    = EXACT_EXTENSIONAL_FIT_ON_T10_ONLY
 
 C1_AND_C4_SUFFICIENCY
     = NOT_ESTABLISHED
 
-H_A_VS_H_B
-    = NONIDENTIFIABLE_ON_CURRENT_EVIDENCE
+FIRST_ECDSA_PATH_ATTEMPT
+    = INVALID_AS_PATH_COLLISION
+      __PRE_CERTIFICATE_MAPPING_COLLAPSE
 
-CRITICAL_DISCRIMINATOR
-    = C1=1
-      C4=1
-      Y=NOT_ESTABLISHED
+PR67_M_F
+    = FROZEN_BRANCH_LOCAL
+      __SUPPORTED_ON_FROZEN_ABSTRACT_MAPPING_SUITE
 
-RELATIONAL_MECHANISM
-    = PLAUSIBLE
-      __UNIDENTIFIED
+COMPLETE_PATH_RUN_DEPENDENCY_CLOSURE
+    = NOT_CONSTITUTED
 
-COMPOSITE_REPAIR
-    = NOT_LICENSED
+PATH_RUN_AFTER_M_F
+    = NOT_EXECUTED
+
+COMPOSITION_INSUFFICIENCY
+    = NOT_ESTABLISHED
 
 NEW_COORDINATE
     = NOT_ESTABLISHED
@@ -549,15 +514,8 @@ SSI_CALC_KERNEL_DELTA
 
 ---
 
-## 14. Stopping rule for synthesis
+## 14. Stopping rule
 
-Further conceptual compression is useful only if it does at least one of:
+Further conceptual synthesis is useful only if it removes a contradiction, separates evidential statuses, identifies a more accurate common structure, or yields a sharper empirical discriminator.
 
-- removes a genuine contradiction;
-- separates previously conflated evidential statuses;
-- identifies a more accurate common structure;
-- identifies a sharper empirical discriminator.
-
-It has stopped being productive when it mainly renames the same architecture, converts metaphors into definitions, or folds prospective boundaries into the canonical object.
-
-At this point the broad synthesis is sufficiently stable to freeze verbally. Further scientific movement should come from new discriminatory evidence, not additional renaming.
+The current execution route should not be forced through additional tooling layers. Further movement should come from a reproducible dependency bundle and then new discriminatory evidence.
