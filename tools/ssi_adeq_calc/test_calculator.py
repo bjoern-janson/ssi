@@ -103,6 +103,12 @@ class AdequacyGovernorTests(unittest.TestCase):
         self.assertEqual(result.status, Status.UNKNOWN)
         self.assertEqual(result.search_license, SearchLicense.NONE)
 
+    def test_missing_frozen_signature_is_not_evaluable(self):
+        result = evaluate(request(case("a", None, "ALLOW")))
+
+        self.assertEqual(result.status, Status.NOT_EVALUABLE)
+        self.assertEqual(result.search_license, SearchLicense.NONE)
+
     def test_missing_external_consequence_is_not_evaluable(self):
         result = evaluate(request(case("a", ["same"], None)))
 
