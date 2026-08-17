@@ -1,0 +1,110 @@
+{
+  "authority_ceiling": "LOCAL_CANDIDATE_SEARCH_ONLY",
+  "h9_anchor": [
+    "W0_SELF_ASSERTED",
+    "W1_INDEPENDENTLY_CONSTITUTED"
+  ],
+  "suite_id": "SSI_ADEQ_H9_NEIGHBORHOOD_CANDIDATE_SEARCH_V0_1",
+  "worlds": [
+    {
+      "Y_adequacy": "NOT_ESTABLISHED",
+      "checkable_coverage_witness": false,
+      "claim_source_has_standing": false,
+      "description": "H9-like self-asserted positive coverage declaration; observed classes may be present but no independent constitution basis is admitted.",
+      "id": "W0_SELF_ASSERTED",
+      "independent_provenance": false,
+      "independently_constituted_selector_domain": false,
+      "trusted_input_boundary": false
+    },
+    {
+      "Y_adequacy": "SUPPORTABLE",
+      "checkable_coverage_witness": true,
+      "claim_source_has_standing": true,
+      "description": "Coverage claim is independently constituted through an admissible external process.",
+      "id": "W1_INDEPENDENTLY_CONSTITUTED",
+      "independent_provenance": true,
+      "independently_constituted_selector_domain": true,
+      "trusted_input_boundary": true
+    },
+    {
+      "Y_adequacy": "NOT_ESTABLISHED",
+      "checkable_coverage_witness": false,
+      "claim_source_has_standing": false,
+      "description": "Independent provenance exists, but the source has no standing to constitute coverage and supplies no checkable coverage basis.",
+      "id": "W2_PROVENANCE_ONLY_UNAUTHORIZED",
+      "independent_provenance": true,
+      "independently_constituted_selector_domain": false,
+      "trusted_input_boundary": false
+    },
+    {
+      "Y_adequacy": "NOT_ESTABLISHED",
+      "checkable_coverage_witness": false,
+      "claim_source_has_standing": false,
+      "description": "The claim enters through a trusted input boundary, but the payload is still self-asserted coverage.",
+      "id": "W3_TRUSTED_CHANNEL_SELF_ASSERTED",
+      "independent_provenance": false,
+      "independently_constituted_selector_domain": false,
+      "trusted_input_boundary": true
+    },
+    {
+      "Y_adequacy": "NOT_ESTABLISHED",
+      "checkable_coverage_witness": true,
+      "claim_source_has_standing": false,
+      "description": "A checkable witness exists only relative to a self-declared selector/test domain.",
+      "id": "W4_WITNESS_SELF_DECLARED_DOMAIN",
+      "independent_provenance": false,
+      "independently_constituted_selector_domain": false,
+      "trusted_input_boundary": false
+    },
+    {
+      "Y_adequacy": "NOT_ESTABLISHED",
+      "checkable_coverage_witness": false,
+      "claim_source_has_standing": false,
+      "description": "The selector/test domain is independently constituted, but no witness or authorized attestation discharges coverage over it.",
+      "id": "W5_INDEPENDENT_DOMAIN_NO_DISCHARGE",
+      "independent_provenance": false,
+      "independently_constituted_selector_domain": true,
+      "trusted_input_boundary": false
+    },
+    {
+      "Y_adequacy": "NOT_ESTABLISHED",
+      "checkable_coverage_witness": false,
+      "claim_source_has_standing": true,
+      "description": "The source has standing and independent provenance, but the submitted basis does not establish coverage.",
+      "id": "W6_STANDING_SOURCE_INCOMPLETE_BASIS",
+      "independent_provenance": true,
+      "independently_constituted_selector_domain": false,
+      "trusted_input_boundary": false
+    },
+    {
+      "Y_adequacy": "SUPPORTABLE",
+      "checkable_coverage_witness": true,
+      "claim_source_has_standing": false,
+      "description": "A checkable coverage witness discharges coverage over an independently constituted selector/test domain.",
+      "id": "W7_WITNESS_ON_INDEPENDENT_DOMAIN",
+      "independent_provenance": true,
+      "independently_constituted_selector_domain": true,
+      "trusted_input_boundary": false
+    },
+    {
+      "Y_adequacy": "SUPPORTABLE",
+      "checkable_coverage_witness": false,
+      "claim_source_has_standing": true,
+      "description": "An independently sourced coverage attestation enters through the trusted constitution boundary from a source with standing; no local coverage witness is required in this world.",
+      "id": "W8_AUTHORIZED_EXTERNAL_ATTESTATION",
+      "independent_provenance": true,
+      "independently_constituted_selector_domain": true,
+      "trusted_input_boundary": true
+    },
+    {
+      "Y_adequacy": "NOT_ESTABLISHED",
+      "checkable_coverage_witness": false,
+      "claim_source_has_standing": false,
+      "description": "A second self-asserted control with a different narrative but the same candidate-relevant constitution state and same adequacy consequence.",
+      "id": "W9_INERT_SELF_ASSERTED_CONTROL",
+      "independent_provenance": false,
+      "independently_constituted_selector_domain": false,
+      "trusted_input_boundary": false
+    }
+  ]
+}
