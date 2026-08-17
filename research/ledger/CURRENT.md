@@ -31,9 +31,9 @@ R13 = NOT_EARNED
 
 ---
 
-# CURRENT MASTER CANDIDATE
+# CURRENT CONCEPTUAL FLOOR
 
-## Scope-indexed entitlement
+## Master theoretical candidate: scope-indexed entitlement
 
 The current conceptual center is not an intrinsic type attached to information. It is a scoped judgment about what causal effect a distinction is entitled to exercise:
 
@@ -41,7 +41,7 @@ The current conceptual center is not an intrinsic type attached to information. 
 Gamma |- (d ->[operation] effect) @ scope
 ```
 
-The governing non-collapses are:
+The governing causal non-collapses are:
 
 ```text
 access != causal influence != licensed effect
@@ -74,7 +74,7 @@ Interpretation:
 - `Q not subseteq W` -> under-realization: the system cannot realize everything the current scope warrants and requires.
 - `A not subseteq W` -> over-exercise: the system caused something outside the warranted executable envelope.
 
-Compact research law:
+Compact operational law:
 
 > **Improve Can. Justify May. Constrain Did.**
 
@@ -83,6 +83,107 @@ Candidate master formulation:
 > **Safe self-improvement is warrant-bounded causal expansion.**
 
 This is a conceptual/formal candidate. It is not an SSI-CALC rule and is not claimed as a general empirical theorem.
+
+## Master methodological candidate: transition-boundary discipline
+
+The latest conceptual synthesis adds a second, orthogonal discipline:
+
+```text
+validity != transportability != composability
+```
+
+The primitive methodological object is a **scope-relative witnessed transition**, not a generic proof token:
+
+```text
+Gamma |- X ==[W_12 ; sigma_1 -> sigma_2]=> Y
+```
+
+`W_12` is meaningful only relative to the boundary and judgments it is intended to justify. A witness that licenses one transition may be irrelevant to another.
+
+The current structural picture is therefore a **partial directed graph of scoped judgments**, not a category and not a composition algebra:
+
+```text
+J_0 --W_01--> J_1 --W_12--> J_2
+```
+
+with explicit non-rules:
+
+```text
+valid endpoints !=> valid transition
+valid transitions !=> valid composition
+witness exists !=> witness sufficient
+source entitlement !=> target entitlement
+capability growth !=> entitlement growth
+```
+
+In particular:
+
+```text
+(J_0 --W_01--> J_1)
+AND
+(J_1 --W_12--> J_2)
+!=>
+(J_0 --W_02--> J_2)
+```
+
+No associativity, identity, transitivity, weakening, subtyping, or composition closure is inferred from the notation.
+
+Transition outcomes remain deliberately asymmetric:
+
+```text
+PRESERVED
+EXTENDED
+REVOKED
+UNPROVEN
+```
+
+with the firewall:
+
+```text
+UNPROVEN != REVOKED
+```
+
+The governing methodological rule is:
+
+> **Do not coerce across a boundary. Certify the boundary.**
+
+Deeper form:
+
+> **A justified state does not imply a justified change. A justified change does not imply a justified composition.**
+
+## Reusable diagnostic triad
+
+The accumulated program now supports a stable research procedure:
+
+```text
+claim looks intrinsic
+    -> find the missing argument
+
+boundary is crossed
+    -> find the missing witness
+
+multiple valid crossings appear composable
+    -> find the missing interaction structure
+```
+
+This is a methodological candidate, not a theorem or SSI-CALC rule.
+
+## Transportability as a relational research question
+
+`TRANSPORTABILITY` is not currently a formal certificate field. The candidate question is relational:
+
+```text
+Can this justified judgment cross this particular boundary
+without changing what it is entitled to support?
+```
+
+Thus:
+
+```text
+validity != transportability != composability
+```
+
+remains a non-collapse, not a newly defined algebra.
 
 ## Quotients and licensed optimization
 
@@ -396,6 +497,63 @@ which connects effect-trace incompleteness to the older blind-challenge problem.
 
 ---
 
+# F4 COMPOSITION FRONTIER
+
+`F4_CERTIFICATE_COMPOSITION` remains:
+
+```text
+OPEN_NOT_RUN
+```
+
+The current calculus explicitly preserves:
+
+```text
+C_auth^12 AND C_auth^23 !=> C_auth^13
+C_util^12 AND C_util^23 !=> C_util^13
+```
+
+The post-F5 conceptual work sharpens the future attack without adding a rule. The current placeholders are:
+
+```text
+W_tr^12  = boundary-specific transport witness -- CONCEPTUAL ONLY
+W_tr^23  = boundary-specific transport witness -- CONCEPTUAL ONLY
+W_comp^123 = additional composition/interaction witness -- CONCEPTUAL ONLY
+```
+
+The candidate distinction is:
+
+```text
+local validity != transportability != compositional validity
+```
+
+and the candidate research question is:
+
+> **What additional structure makes a locally valid scoped judgment transportable across a particular boundary, and what further interaction structure is required before multiple transported judgments may compose?**
+
+No implication is earned between these placeholders.
+
+## External methodological bridge — non-evidence
+
+[arXiv:2601.07222, *The Motivic Class of the Space of Genus 0 Maps to the Flag Variety*](https://arxiv.org/abs/2601.07222) provides a useful **methodological analogy only**. Its proof architecture distinguishes local motivic fiber-class agreement from the stronger stratified local-triviality structure needed to derive a global multiplicative class formula. It also gives examples where equality at the motivic level does not promote to isomorphism or homotopy equivalence.
+
+SSI does **not** treat this paper as empirical or formal evidence for its own calculus. The bridge is only:
+
+```text
+local validity != global compositional entitlement
+```
+
+and the constructive methodological lesson:
+
+```text
+when local truth is insufficient for composition,
+identify the missing transport / interaction structure
+instead of silently promoting the conclusion
+```
+
+Connection discovered does not mean rule earned.
+
+---
+
 # PRESERVED EMPIRICAL / NEGATIVE TERRAIN
 
 The prior frozen terrain remains unchanged, including:
@@ -447,7 +605,7 @@ Formal adversarial work remains distinct from empirical validation.
 F1 = nested refinement
 F2 = incomparable jurisdictions
 F3 = candidate-domain laundering
-F4 = certificate composition
+F4 = certificate composition -- OPEN_NOT_RUN
 F5 = effect-trace laundering -- COUNTERMODEL SUPPORTED
 ```
 
@@ -460,11 +618,13 @@ TRACE_COMPLETENESS = OPEN
 TRACE_CHALLENGEABILITY = OPEN
 ```
 
-No automatic composition rule is earned:
+After the transition-boundary synthesis:
 
 ```text
-C_auth^12 AND C_auth^23 !=> C_auth^13
-C_util^12 AND C_util^23 !=> C_util^13
+TRANSPORTABILITY = CANDIDATE_RELATIONAL_RESEARCH_OBJECT
+W_transport = CONCEPTUAL_PLACEHOLDER_ONLY
+W_composition = CONCEPTUAL_PLACEHOLDER_ONLY
+COMPOSITION = NONRULE_UNTIL_EARNED
 ```
 
 ---
@@ -475,20 +635,27 @@ C_util^12 AND C_util^23 !=> C_util^13
 2. Frozen/content-addressed scientific objects outrank this navigation ledger for their claims.
 3. Do not reopen the old nondominated world.
 4. Do not reopen liveness absent genuinely new external evidence/question.
-5. Do not scalarize representation quality, semantic error allocation, authority, policy freedom, or the new causal-envelope objects.
+5. Do not scalarize representation quality, semantic error allocation, authority, policy freedom, transportability, or the causal-envelope objects.
 6. Keep `Can`, `May`, and `Did` separate.
-7. Keep access, causal influence, and licensed effect separate.
-8. Keep endpoint validity, candidate-domain validity, role license, and whole-execution effect entitlement separate.
-9. Advisory usefulness is evidence for utility, not jurisdiction.
-10. `License(H,J)` is jurisdiction-relative; permission does not transfer wholesale.
-11. Evidence transport is not permission transport; relicensing reconstructs a target-scoped judgment.
-12. Preserve `U_fresh != U_inherited`.
-13. Preserve `INTERNAL_CONSISTENCY != FORMAL_SOUNDNESS != EMPIRICAL_VALIDITY`.
-14. Do not patch CA-R1 post hoc from F5; any effect-level object must be separately constituted and attacked.
-15. Do not claim trace completeness from a trace-validity checker.
-16. Keep certificate composition a non-rule until separately earned.
-17. Keep JEPA parked until explicitly authorized.
-18. Keep `SSI_CALC_KERNEL_DELTA = 0` unless a source-specific frozen benchmark earns a rule.
+7. Keep `validity`, `transportability`, and `composability` separate.
+8. Keep access, causal influence, and licensed effect separate.
+9. Keep endpoint validity, candidate-domain validity, role license, and whole-execution effect entitlement separate.
+10. Advisory usefulness is evidence for utility, not jurisdiction.
+11. `License(H,J)` is jurisdiction-relative; permission does not transfer wholesale.
+12. Evidence transport is not permission transport; relicensing reconstructs a target-scoped judgment.
+13. Preserve `U_fresh != U_inherited`.
+14. Preserve `INTERNAL_CONSISTENCY != FORMAL_SOUNDNESS != EMPIRICAL_VALIDITY`.
+15. Preserve `UNPROVEN != REVOKED`.
+16. Do not infer transition validity from endpoint validity.
+17. Do not infer composition from adjacent valid transitions.
+18. Do not infer witness sufficiency from witness existence.
+19. Do not patch CA-R1 post hoc from F5; any effect-level object must be separately constituted and attacked.
+20. Do not claim trace completeness from a trace-validity checker.
+21. Treat `W_transport` and `W_composition` as conceptual placeholders until separately constituted and attacked.
+22. Treat external analogies as context, not SSI evidence or rule authority.
+23. Use the diagnostic order: missing argument -> missing witness -> missing interaction structure.
+24. Keep JEPA parked until explicitly authorized.
+25. Keep `SSI_CALC_KERNEL_DELTA = 0` unless a source-specific frozen benchmark earns a rule.
 
 ---
 
