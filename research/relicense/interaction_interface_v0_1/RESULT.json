@@ -1,0 +1,86 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_INTERFACE_V0.1/RESULT",
+  "status": "PAIR_IDENTIFIABILITY_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+  "lineage": {
+    "parent_pr53_head": "8753a936ff39efb35d2f37f2ef81efb1ee39e957",
+    "spec_commit": "d52ff9d5885d360cbe86f61eb01bdd951b305b83",
+    "pairs_commit": "57300a384b4dddee89e3f9fa880954720f93f4a3",
+    "execution_protocol_commit": "f04a78092b6afe51dfcc4c321f1a0647b7c74d6c"
+  },
+  "aggregate": {
+    "primary_discriminating_pairs": 3,
+    "primary_pair_identification_correct": 3,
+    "primary_pair_identification_accuracy": 1.0,
+    "negative_control_pass": true,
+    "epistemic_unknown_control_pass": true,
+    "local_certificate_mutations": 0,
+    "oracle_label_leakage_events": 0,
+    "identifier_only_separations": 0
+  },
+  "pairs": [
+    {
+      "pair_id": "II-I1-SHARED-STATE-ALIAS",
+      "baseline_local_interface": "NON_IDENTIFYING",
+      "candidate_interaction_interface": "PAIR_IDENTIFYING",
+      "semantic_discriminator": "SHARED_STATE_ALIAS.observed_relation"
+    },
+    {
+      "pair_id": "II-I2-ORDER-DEPENDENCE",
+      "baseline_local_interface": "NON_IDENTIFYING",
+      "candidate_interaction_interface": "PAIR_IDENTIFYING",
+      "semantic_discriminator": "ORDER_DEPENDENCE.observed_relation"
+    },
+    {
+      "pair_id": "II-I3-CROSS-BOUNDARY-EFFECT",
+      "baseline_local_interface": "NON_IDENTIFYING",
+      "candidate_interaction_interface": "PAIR_IDENTIFYING",
+      "semantic_discriminator": "CROSS_BOUNDARY_EFFECT.observed_relation"
+    },
+    {
+      "pair_id": "II-I4-NEGATIVE-CONTROL-ID-LEAKAGE",
+      "candidate_interaction_interface": "NEGATIVE_CONTROL_PASS",
+      "semantic_projection_equal": true,
+      "identifier_leakage": false
+    },
+    {
+      "pair_id": "II-I5-UNKNOWN-VS-POSITIVE-DEFEATER",
+      "candidate_interaction_interface": "EPISTEMIC_UNKNOWN_CONTROL_PASS",
+      "supported_distinction": "UNKNOWN != OBSERVED_POSITIVE_INTERACTION",
+      "unknown_case_entitlement_inferred": false
+    }
+  ],
+  "classification": {
+    "higher_order_nonidentifiability": "WORKING_RESEARCH_HYPOTHESIS",
+    "interface_correction_after_diagnosis": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "blind_level_3_interface_invention": "NOT_CLAIMED"
+  },
+  "supported_bounded_claim": "On the prospectively frozen paired suite, the candidate interaction representation preserves higher-order-relevant distinctions that the unchanged local transport interface does not preserve.",
+  "not_established": [
+    "general higher-order identifiability",
+    "interaction detection completeness",
+    "interaction vocabulary completeness",
+    "witness sufficiency",
+    "PRESERVED sufficiency",
+    "REVOKED sufficiency",
+    "W_int sufficiency",
+    "W_comp",
+    "certificate composition",
+    "formal soundness",
+    "empirical validity"
+  ],
+  "next_scientific_boundary": "DETECTION",
+  "next_question": "Given an interaction interface capable of representing the relevant distinction, what independent observation process can populate that interface without inheriting the blindness of the local certificates?",
+  "authority_ceiling": {
+    "detectability": "OPEN",
+    "detection_completeness": "OPEN",
+    "witness_sufficiency": "NOT_TESTED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "composition_rule": "NOT_ADMITTED",
+    "formal_soundness": "UNESTABLISHED",
+    "empirical_validity": "NOT_CLAIMED",
+    "ssi_calc_kernel_delta": 0,
+    "jepa": "PARKED",
+    "behavioral_experiment_authority": "NONE"
+  }
+}

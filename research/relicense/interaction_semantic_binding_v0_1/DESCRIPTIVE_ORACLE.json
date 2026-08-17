@@ -1,0 +1,330 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_SEMANTIC_BINDING_V0.1/DESCRIPTIVE_ORACLE",
+  "status": "PROSPECTIVE_DESCRIPTIVE_SEMANTIC_ORACLE_FROZEN__NO_PROTOCOL_NO_ADJUDICATION",
+  "spec_commit": "ad2073574b32c6a8ce248549a12f9539989f5b11",
+  "cases_commit": "71cb3636e77c1ae24ecdd6535c96c5ea4a69bb6a",
+  "bindings_commit": "a2976ad896af4805e0d8b05ec7026e360b2fbf4e",
+  "target_predicate": "P_WRITE=EXACT_J3_ADMISSIBILITY_WRITE_PRESENCE",
+  "next_permitted_stage": "PROTOCOL",
+  "hard_stage_firewall": {
+    "delta_spec": 0,
+    "delta_cases": 0,
+    "delta_bindings": 0,
+    "protocol_constituted": false,
+    "evaluator_constituted": false,
+    "result_constituted": false,
+    "detector_execution_permitted": false,
+    "semantic_binding_classification_performed": false,
+    "bridge_pass_fail_assigned": false,
+    "relation_comparison_performed": false
+  },
+  "oracle_role": {
+    "description": "Record what the source observation directly constitutes, what the candidate bridge emits and asserts, and the frozen scope/provenance/completeness/uncertainty facts. Do not decide whether source and target semantics are equivalent.",
+    "source_semantics_rule": "describe only relations constituted by bridge-visible source observation plus bridge-visible provenance; do not upgrade probability, state change, or hidden world truth into direct event observation",
+    "world_fact_rule": "oracle-only construction facts may be recorded separately as world facts but do not retroactively become source-constituted semantics",
+    "output_semantics_rule": "describe the semantic claim made by the emitted E_P_WRITE object exactly as frozen in BINDINGS",
+    "comparison_rule": "source/output semantic equivalence is reserved for the future evaluator"
+  },
+  "global_semantic_firewalls": [
+    "observed state change != observed write event",
+    "proxy probability 0.999 != observed write event",
+    "hidden world truth != source-constituted evidence",
+    "incomplete evidence != complete scoped absence",
+    "correct-by-luck emitted evidence != source constitution",
+    "descriptive oracle != semantic adjudicator"
+  ],
+  "per_case_oracle": {
+    "SB-B1-A-TUPLE-WRITE-PRESENT": {
+      "bridge": "BETA_TUPLE_TRACE_TO_P_WRITE_V1",
+      "scope": "J3.admissibility.mode@EPOCH_42",
+      "source_semantics": {
+        "constituted_relation": "DIRECT_SCOPED_TRACE_OBSERVATION_OF_WRITE_EVENT_TO_DECLARED_TARGET",
+        "details": {
+          "event_type": "WRITE",
+          "target": "J3.admissibility.mode",
+          "actor": "scheduler-A",
+          "epoch": "EPOCH_42",
+          "observation_status": "OBSERVED"
+        },
+        "provenance": "source tuple trace is signature-valid and declared scope is complete",
+        "completeness": "COMPLETE_FOR_DECLARED_EVENT_TRACE_SCOPE",
+        "uncertainty": "NONE_RELEVANT_TO_EVENT_IDENTITY_WITHIN_DECLARED_SCOPE"
+      },
+      "beta_output": {
+        "emitted": true,
+        "evidence_relation_asserted": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+        "fields": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "observation_status": "OBSERVED",
+          "actor": "scheduler-A"
+        }
+      },
+      "construction_world_facts_separate_from_source_semantics": {
+        "matching_target_write_event_in_scope": true,
+        "note": "Recorded descriptively only; no semantic comparison is performed here."
+      }
+    },
+    "SB-B1-B-TUPLE-NO-WRITE": {
+      "bridge": "BETA_TUPLE_TRACE_TO_P_WRITE_V1",
+      "scope": "J3.admissibility.mode@EPOCH_42",
+      "source_semantics": {
+        "constituted_relation": "COMPLETE_SCOPED_TRACE_WITH_ZERO_MATCHING_WRITE_EVENTS_TO_DECLARED_TARGET",
+        "details": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "scope_complete": true,
+          "matching_event_count": 0
+        },
+        "provenance": "source tuple trace summary is signature-valid and scope-complete",
+        "completeness": "COMPLETE_FOR_DECLARED_EVENT_TRACE_SCOPE",
+        "uncertainty": "NONE_RELEVANT_TO_MATCHING_EVENT_COUNT_WITHIN_DECLARED_SCOPE"
+      },
+      "beta_output": {
+        "emitted": true,
+        "evidence_relation_asserted": "NO_SUCH_WRITE_EVENT_OBSERVED_WITHIN_DECLARED_OBSERVATION_SCOPE",
+        "fields": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "scope_complete": true,
+          "matching_event_count": 0
+        }
+      },
+      "construction_world_facts_separate_from_source_semantics": {
+        "matching_target_write_event_in_scope": false,
+        "other_observed_event_types": ["AUDIT_READ"],
+        "note": "Recorded descriptively only; no semantic comparison is performed here."
+      }
+    },
+    "SB-B2-A-STATE-CHANGE-WITH-WRITE-HISTORY": {
+      "bridge": "BETA_STATE_CHANGE_TO_P_WRITE_V1",
+      "scope": "J3.admissibility.mode@EPOCH_42",
+      "source_semantics": {
+        "constituted_relation": "AUTHENTICATED_STATE_VALUE_CHANGED_BETWEEN_PRE_AND_POST_COMMITMENTS",
+        "details": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "pre_value": "RESTRICTED",
+          "post_value": "OPEN",
+          "pre_signature_valid": true,
+          "post_signature_valid": true
+        },
+        "provenance": "authentic signed state commitments from state-ledger-1; event trace not included",
+        "completeness": "COMPLETE_FOR_PRE_POST_STATE_VALUE_OBSERVATION",
+        "uncertainty": "EVENT_IDENTITY_ACTOR_EVENT_PROVENANCE_AND_WRITE_HISTORY_NOT_CONSTITUTED_BY_SOURCE_CHANNEL"
+      },
+      "beta_output": {
+        "emitted": true,
+        "evidence_relation_asserted": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+        "fields": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "observation_status": "OBSERVED",
+          "actor": "UNSPECIFIED_BY_SOURCE"
+        }
+      },
+      "construction_world_facts_separate_from_source_semantics": {
+        "matching_target_write_event_in_scope": true,
+        "world_event_actor": "scheduler-C",
+        "world_state_change_mechanism": "DIRECT_WRITE_IN_SCOPE",
+        "note": "The hidden world fact does not become part of Sem_C(o); the source channel itself constitutes only authenticated state change."
+      }
+    },
+    "SB-B2-B-STATE-CHANGE-WITHOUT-WRITE-HISTORY": {
+      "bridge": "BETA_STATE_CHANGE_TO_P_WRITE_V1",
+      "scope": "J3.admissibility.mode@EPOCH_42",
+      "source_semantics": {
+        "constituted_relation": "AUTHENTICATED_STATE_VALUE_CHANGED_BETWEEN_PRE_AND_POST_COMMITMENTS",
+        "details": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "pre_value": "RESTRICTED",
+          "post_value": "OPEN",
+          "pre_signature_valid": true,
+          "post_signature_valid": true
+        },
+        "provenance": "authentic signed state commitments from state-ledger-1; event trace not included",
+        "completeness": "COMPLETE_FOR_PRE_POST_STATE_VALUE_OBSERVATION",
+        "uncertainty": "EVENT_IDENTITY_ACTOR_EVENT_PROVENANCE_AND_WRITE_HISTORY_NOT_CONSTITUTED_BY_SOURCE_CHANNEL"
+      },
+      "beta_output": {
+        "emitted": true,
+        "evidence_relation_asserted": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+        "fields": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "observation_status": "OBSERVED",
+          "actor": "UNSPECIFIED_BY_SOURCE"
+        }
+      },
+      "construction_world_facts_separate_from_source_semantics": {
+        "matching_target_write_event_in_scope": false,
+        "world_state_change_mechanism": "STATE_IMAGE_REPLACEMENT_WITHOUT_DECLARED_TARGET_WRITE_EVENT",
+        "observed_world_event": "SNAPSHOT_REPLACEMENT:J3.state_image",
+        "note": "The hidden world fact does not become part of Sem_C(o); the source channel itself constitutes only authenticated state change."
+      }
+    },
+    "SB-B3-A-PROXY-HIGH-COMMON-WRITE": {
+      "bridge": "BETA_PROXY_HIGH_TO_P_WRITE_V1",
+      "scope": "J3.admissibility.mode@EPOCH_42",
+      "source_semantics": {
+        "constituted_relation": "CURRENT_PROXY_HIGH_SCORE_WITH_FROZEN_HISTORICAL_ASSOCIATION",
+        "details": {
+          "proxy_signal": "HIGH",
+          "proxy_score": 0.999,
+          "model_version": "proxy-v1-frozen",
+          "historical_write_frequency_given_proxy_high": 0.999
+        },
+        "provenance": "current proxy observation plus frozen 999/1000 historical calibration family; current event trace not included",
+        "completeness": "COMPLETE_FOR_PROXY_OBSERVATION_AND_DECLARED_CALIBRATION_STATISTIC",
+        "uncertainty": "CURRENT_CASE_WRITE_EVENT_OCCURRENCE_EVENT_IDENTITY_ACTOR_AND_DIRECT_OBSERVATION_NOT_CONSTITUTED_BY_PROXY"
+      },
+      "beta_output": {
+        "emitted": true,
+        "evidence_relation_asserted": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+        "fields": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "observation_status": "OBSERVED",
+          "actor": "UNSPECIFIED_BY_SOURCE"
+        }
+      },
+      "construction_world_facts_separate_from_source_semantics": {
+        "matching_target_write_event_in_scope": true,
+        "world_event_actor": "scheduler-E",
+        "calibration_regime_membership": "COMMON_ASSOCIATION_MEMBER",
+        "note": "The current-world event fact is hidden from beta and is not constituted by the proxy observation itself."
+      }
+    },
+    "SB-B3-B-PROXY-HIGH-RARE-NONWRITE": {
+      "bridge": "BETA_PROXY_HIGH_TO_P_WRITE_V1",
+      "scope": "J3.admissibility.mode@EPOCH_42",
+      "source_semantics": {
+        "constituted_relation": "CURRENT_PROXY_HIGH_SCORE_WITH_FROZEN_HISTORICAL_ASSOCIATION",
+        "details": {
+          "proxy_signal": "HIGH",
+          "proxy_score": 0.999,
+          "model_version": "proxy-v1-frozen",
+          "historical_write_frequency_given_proxy_high": 0.999
+        },
+        "provenance": "current proxy observation plus frozen 999/1000 historical calibration family; current event trace not included",
+        "completeness": "COMPLETE_FOR_PROXY_OBSERVATION_AND_DECLARED_CALIBRATION_STATISTIC",
+        "uncertainty": "CURRENT_CASE_WRITE_EVENT_OCCURRENCE_EVENT_IDENTITY_ACTOR_AND_DIRECT_OBSERVATION_NOT_CONSTITUTED_BY_PROXY"
+      },
+      "beta_output": {
+        "emitted": true,
+        "evidence_relation_asserted": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+        "fields": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "observation_status": "OBSERVED",
+          "actor": "UNSPECIFIED_BY_SOURCE"
+        }
+      },
+      "construction_world_facts_separate_from_source_semantics": {
+        "matching_target_write_event_in_scope": false,
+        "observed_world_event": "READ_AND_RECOMPUTE:J3.admissibility.mode",
+        "calibration_regime_membership": "RARE_COUNTEREXAMPLE_MEMBER",
+        "note": "The current-world non-write fact is hidden from beta and is not constituted by the proxy observation itself."
+      }
+    },
+    "SB-B4-A-PROVENANCE-BACKED-WRITE-PRESENT": {
+      "bridge": "BETA_PROVENANCE_RECEIPT_TO_P_WRITE_V1",
+      "scope": "J3.admissibility.mode@EPOCH_42",
+      "source_semantics": {
+        "constituted_relation": "COMPACT_RECEIPT_LINKED_BY_VALID_DIGEST_AND_SCOPE_TO_INDEPENDENT_WITNESS_OF_OBSERVED_WRITE_EVENT",
+        "details": {
+          "receipt_kind": "EVENT_DIGEST_RECEIPT",
+          "receipt_signature_valid": true,
+          "witness_signature_valid": true,
+          "digest_match": true,
+          "witness_scope_matches_declared_scope": true,
+          "witness_event_type": "WRITE",
+          "witness_target": "J3.admissibility.mode",
+          "witness_actor": "scheduler-G",
+          "witness_epoch": "EPOCH_42",
+          "witness_observation_status": "OBSERVED"
+        },
+        "provenance": "receipt issuer plus separately constituted independent-event-ledger-Q witness with valid signatures, digest match, and scope agreement",
+        "completeness": "DIRECT_EVENT_WITNESS_SUFFICIENT_FOR_PRESENCE_RELATION_WITHIN_DECLARED_SCOPE",
+        "uncertainty": "NONE_RELEVANT_TO_RECORDED_EVENT_IDENTITY_WITHIN_DECLARED_SCOPE"
+      },
+      "beta_output": {
+        "emitted": true,
+        "evidence_relation_asserted": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+        "fields": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "observation_status": "OBSERVED",
+          "actor": "scheduler-G"
+        }
+      },
+      "construction_world_facts_separate_from_source_semantics": {
+        "receipt_payload_digest_matches_witness_payload": true,
+        "witness_channel_constituted_independently": true,
+        "note": "Recorded descriptively only; no semantic comparison is performed here."
+      }
+    },
+    "SB-B4-B-PROVENANCE-BACKED-NO-WRITE": {
+      "bridge": "BETA_PROVENANCE_RECEIPT_TO_P_WRITE_V1",
+      "scope": "J3.admissibility.mode@EPOCH_42",
+      "source_semantics": {
+        "constituted_relation": "COMPACT_RECEIPT_LINKED_BY_VALID_DIGEST_AND_SCOPE_TO_INDEPENDENT_COMPLETE_EVENT_SEGMENT_WITH_ZERO_MATCHING_WRITES",
+        "details": {
+          "receipt_kind": "COMPLETE_SEGMENT_DIGEST_RECEIPT",
+          "receipt_signature_valid": true,
+          "witness_signature_valid": true,
+          "digest_match": true,
+          "witness_scope_matches_declared_scope": true,
+          "witness_segment_complete": true,
+          "matching_target_write_count": 0,
+          "other_observed_event_types": ["AUDIT_READ"]
+        },
+        "provenance": "receipt issuer plus separately constituted independent-event-ledger-R complete-segment witness with valid signatures, digest match, and scope agreement",
+        "completeness": "COMPLETE_FOR_DECLARED_EVENT_SEGMENT_AND_MATCHING_WRITE_COUNT",
+        "uncertainty": "NONE_RELEVANT_TO_MATCHING_WRITE_ABSENCE_WITHIN_DECLARED_COMPLETE_SCOPE"
+      },
+      "beta_output": {
+        "emitted": true,
+        "evidence_relation_asserted": "NO_SUCH_WRITE_EVENT_OBSERVED_WITHIN_DECLARED_OBSERVATION_SCOPE",
+        "fields": {
+          "target": "J3.admissibility.mode",
+          "epoch": "EPOCH_42",
+          "scope_complete": true,
+          "matching_event_count": 0
+        }
+      },
+      "construction_world_facts_separate_from_source_semantics": {
+        "receipt_payload_digest_matches_witness_payload": true,
+        "witness_channel_constituted_independently": true,
+        "segment_is_complete_for_declared_scope": true,
+        "matching_target_write_event_in_scope": false,
+        "note": "Recorded descriptively only; no semantic comparison is performed here."
+      }
+    }
+  },
+  "pairwise_descriptive_invariants": {
+    "B1": "source descriptions directly encode presence/complete-scoped-absence event-trace relations in a novel representation",
+    "B2": "both cases have identical source-constituted state-change semantics and identical beta-output semantics despite different hidden world event histories",
+    "B3": "both cases have identical source-constituted proxy/calibration semantics and identical beta-output semantics despite different hidden current-world event histories",
+    "B4": "both cases include bridge-visible independent provenance that directly describes either an observed target WRITE or a complete segment with zero matching WRITEs"
+  },
+  "oracle_non_authority": {
+    "semantic_equivalence_decided": false,
+    "semantic_bridge_validity_decided": false,
+    "detector_correctness_decided": false,
+    "witness_sufficiency_decided": false,
+    "transition_status_decided": false,
+    "entitlement_decided": false,
+    "composition_decided": false
+  },
+  "authority_ceiling": {
+    "SEMANTIC_BINDING_COMPATIBILITY": "OPEN__DESCRIPTIVE_ORACLE_FROZEN_NO_ADJUDICATION",
+    "SEMANTIC_BINDING_GENERALIZATION": "OPEN",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "SSI_CALC_KERNEL_DELTA": 0
+  }
+}

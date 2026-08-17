@@ -1,0 +1,524 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_DETECTION_STRESS_V0.1/HELDOUT_CASES",
+  "status": "PROSPECTIVE_HELDOUT_CASES_FROZEN__NO_BINDINGS_NO_ORACLE",
+  "spec_commit": "a35b68779994026427dcc759ddc1188b8e604406",
+  "parent_pr55_head": "c379294a56ba82336e7d335fa343ed40467b4c70",
+  "freeze_stage": "HELDOUT_CASES",
+  "next_permitted_stage": "DETECTOR_CHANNEL_BINDINGS",
+  "hard_constraints": {
+    "delta_spec_after_case_exposure": 0,
+    "detector_bindings_present": false,
+    "descriptive_oracle_present": false,
+    "expected_detector_outputs_present": false,
+    "transition_statuses_present": false,
+    "witness_sufficiency_tested": false,
+    "entitlement_tested": false,
+    "composition_tested": false,
+    "case_ids_axis_tags_visible_to_detector": false,
+    "local_quotient_must_remain_equal_where_declared": true,
+    "local_closure_must_remain_equal_where_declared": true
+  },
+  "scoring_severity_freeze": {
+    "note": "Weights are typed severity weights for reporting and adjudication. They may not be summed into a compensatory scalar.",
+    "weights": {
+      "FALSE_POSITIVE_CONFIDENT_DETECTION": 5,
+      "FALSE_NEGATIVE_CONFIDENT_DETECTION": 4,
+      "FABRICATED_ABSENCE_FROM_PARTIAL_OR_MISSING_COVERAGE": 6,
+      "FABRICATED_RESOLUTION_UNDER_CHANNEL_CONFLICT": 6,
+      "CORRECT_UNKNOWN": 0,
+      "CORRECT_COVERAGE_LIMIT": 0,
+      "CORRECT_DETECTION_CONFLICT": 0
+    },
+    "aggregation_rule": "NO_COMPENSATORY_SCALAR",
+    "governing_order": "PRESERVE_UNCERTAINTY > FABRICATE_RESOLUTION"
+  },
+  "canonical_local_quotient": {
+    "Phi_local": {
+      "W_tr_12": {
+        "record": "LOCAL12_CANONICAL",
+        "status": "PRESERVED",
+        "source": "J1",
+        "target": "J2",
+        "scope": "certified_local_scope_12"
+      },
+      "W_tr_23": {
+        "record": "LOCAL23_CANONICAL",
+        "status": "PRESERVED",
+        "source": "J2",
+        "target": "J3",
+        "scope": "certified_local_scope_23"
+      }
+    },
+    "C_local": {
+      "derived_feature_set": [
+        "LOCAL12_STATUS=PRESERVED",
+        "LOCAL23_STATUS=PRESERVED",
+        "LOCAL_PATH=J1->J2->J3",
+        "LOCAL_CERTIFICATE_COUNT=2",
+        "LOCAL_SCOPE_PAIR=certified_local_scope_12|certified_local_scope_23"
+      ]
+    }
+  },
+  "families": [
+    {
+      "axis": "G1_WORLD_NOVELTY",
+      "purpose": "Fresh composed-window interaction with unchanged local quotient and local deterministic closure.",
+      "freshness_delta": "Temporal aggregate-window coupling was absent from the four constituting D2 worlds; this is not an identifier rename of alias, reverse-order, direct write-trace, or composed-precondition worlds.",
+      "comparison_shape": "PAIR",
+      "required_equalities": [
+        "Phi_local(a)=Phi_local(b)",
+        "C_local(a)=C_local(b)"
+      ],
+      "worlds": [
+        {
+          "case_id": "HD-G1-A-WINDOW-SEPARATED",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "TEMPORAL_AGGREGATE_WINDOW",
+            "window_seconds": 60,
+            "aggregate_limit": 8,
+            "transition_12_events": [
+              {
+                "t": 0,
+                "amount": 4
+              }
+            ],
+            "transition_23_events": [
+              {
+                "t": 61,
+                "amount": 5
+              }
+            ],
+            "local_per_transition_limit": 5
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "composed_window_probe",
+              "mechanism_family": "COMPOSED_PRECONDITION_STYLE_RAW_OBSERVATION",
+              "independence_basis": "global_rate_window_clock_and_counter_not_derived_from_Phi_local",
+              "payload": {
+                "window_seconds": 60,
+                "aggregate_limit": 8,
+                "events": [
+                  {
+                    "phase": "12",
+                    "t": 0,
+                    "amount": 4
+                  },
+                  {
+                    "phase": "23",
+                    "t": 61,
+                    "amount": 5
+                  }
+                ]
+              },
+              "coverage": "COMPLETE"
+            }
+          ]
+        },
+        {
+          "case_id": "HD-G1-B-WINDOW-OVERLAP",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "TEMPORAL_AGGREGATE_WINDOW",
+            "window_seconds": 60,
+            "aggregate_limit": 8,
+            "transition_12_events": [
+              {
+                "t": 0,
+                "amount": 4
+              }
+            ],
+            "transition_23_events": [
+              {
+                "t": 45,
+                "amount": 5
+              }
+            ],
+            "local_per_transition_limit": 5
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "composed_window_probe",
+              "mechanism_family": "COMPOSED_PRECONDITION_STYLE_RAW_OBSERVATION",
+              "independence_basis": "global_rate_window_clock_and_counter_not_derived_from_Phi_local",
+              "payload": {
+                "window_seconds": 60,
+                "aggregate_limit": 8,
+                "events": [
+                  {
+                    "phase": "12",
+                    "t": 0,
+                    "amount": 4
+                  },
+                  {
+                    "phase": "23",
+                    "t": 45,
+                    "amount": 5
+                  }
+                ]
+              },
+              "coverage": "COMPLETE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "G2_CHANNEL_NOVELTY",
+      "purpose": "Hold a cross-boundary state relation fixed while replacing direct write-trace observation with an independent state-commitment mechanism.",
+      "freshness_delta": "The observation mechanism is signed pre/post state commitments plus key inclusion proofs; the constituting D2 suite used direct cross-boundary write traces instead.",
+      "comparison_shape": "PAIR",
+      "required_equalities": [
+        "Phi_local(a)=Phi_local(b)",
+        "C_local(a)=C_local(b)"
+      ],
+      "worlds": [
+        {
+          "case_id": "HD-G2-A-COMMITMENT-STABLE",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "CROSS_BOUNDARY_EFFECT",
+            "observed_key": "J3.admissibility.mode",
+            "pre_value": "STANDARD",
+            "post_value": "STANDARD"
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "state_commitment_monitor",
+              "mechanism_family": "SIGNED_STATE_COMMITMENT",
+              "independence_basis": "read_only_state_commitment_service_not_derived_from_transition_write_trace_or_Phi_local",
+              "payload": {
+                "epoch": 7000,
+                "pre_root": "root:g2a:pre",
+                "post_root": "root:g2a:post",
+                "pre_key_proof": {
+                  "key": "J3.admissibility.mode",
+                  "value": "STANDARD",
+                  "included": true
+                },
+                "post_key_proof": {
+                  "key": "J3.admissibility.mode",
+                  "value": "STANDARD",
+                  "included": true
+                }
+              },
+              "coverage": "COMPLETE"
+            }
+          ]
+        },
+        {
+          "case_id": "HD-G2-B-COMMITMENT-CHANGED",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "CROSS_BOUNDARY_EFFECT",
+            "observed_key": "J3.admissibility.mode",
+            "pre_value": "STANDARD",
+            "post_value": "RESTRICTED"
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "state_commitment_monitor",
+              "mechanism_family": "SIGNED_STATE_COMMITMENT",
+              "independence_basis": "read_only_state_commitment_service_not_derived_from_transition_write_trace_or_Phi_local",
+              "payload": {
+                "epoch": 7000,
+                "pre_root": "root:g2b:pre",
+                "post_root": "root:g2b:post",
+                "pre_key_proof": {
+                  "key": "J3.admissibility.mode",
+                  "value": "STANDARD",
+                  "included": true
+                },
+                "post_key_proof": {
+                  "key": "J3.admissibility.mode",
+                  "value": "RESTRICTED",
+                  "included": true
+                }
+              },
+              "coverage": "COMPLETE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "G3_COVERAGE_DEGRADATION",
+      "purpose": "Hold the same latent higher-order change fixed while degrading observation coverage from complete to one-sided to missing.",
+      "freshness_delta": "The first positive D2 suite did not include partial or missing independent-channel coverage.",
+      "comparison_shape": "TRIO",
+      "required_equalities": [
+        "Phi_local(full)=Phi_local(partial)=Phi_local(missing)",
+        "C_local(full)=C_local(partial)=C_local(missing)",
+        "latent_world(full)=latent_world(partial)=latent_world(missing)"
+      ],
+      "worlds": [
+        {
+          "case_id": "HD-G3-A-COMPLETE",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "CROSS_BOUNDARY_EFFECT",
+            "observed_key": "J3.admissibility.lease_epoch",
+            "pre_value": 17,
+            "post_value": 18
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "state_commitment_monitor",
+              "mechanism_family": "SIGNED_STATE_COMMITMENT",
+              "independence_basis": "read_only_state_commitment_service_not_derived_from_Phi_local",
+              "payload": {
+                "epoch": 7100,
+                "pre_key_proof": {
+                  "key": "J3.admissibility.lease_epoch",
+                  "value": 17,
+                  "included": true
+                },
+                "post_key_proof": {
+                  "key": "J3.admissibility.lease_epoch",
+                  "value": 18,
+                  "included": true
+                }
+              },
+              "coverage": "COMPLETE"
+            }
+          ]
+        },
+        {
+          "case_id": "HD-G3-B-PRE-ONLY",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "CROSS_BOUNDARY_EFFECT",
+            "observed_key": "J3.admissibility.lease_epoch",
+            "pre_value": 17,
+            "post_value": 18
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "state_commitment_monitor",
+              "mechanism_family": "SIGNED_STATE_COMMITMENT",
+              "independence_basis": "read_only_state_commitment_service_not_derived_from_Phi_local",
+              "payload": {
+                "epoch": 7100,
+                "pre_key_proof": {
+                  "key": "J3.admissibility.lease_epoch",
+                  "value": 17,
+                  "included": true
+                },
+                "post_key_proof": null,
+                "post_missing_reason": "monitor_partition_after_transition_12"
+              },
+              "coverage": "PARTIAL_PRE_ONLY"
+            }
+          ]
+        },
+        {
+          "case_id": "HD-G3-C-UNOBSERVED",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "CROSS_BOUNDARY_EFFECT",
+            "observed_key": "J3.admissibility.lease_epoch",
+            "pre_value": 17,
+            "post_value": 18
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "state_commitment_monitor",
+              "mechanism_family": "SIGNED_STATE_COMMITMENT",
+              "independence_basis": "read_only_state_commitment_service_not_derived_from_Phi_local",
+              "payload": {
+                "epoch": 7100,
+                "pre_key_proof": null,
+                "post_key_proof": null,
+                "missing_reason": "monitor_unavailable_for_entire_composed_interval"
+              },
+              "coverage": "UNOBSERVED"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "G4_FAILURE_STRUCTURE_NOVELTY",
+      "purpose": "Introduce a recovery-path coupling absent from the constituting detector suite while keeping local certificates identical.",
+      "freshness_delta": "The failure concerns composed recoverability/rollback capacity rather than aliasing, transition order, direct J3 writes, or ordinary composed precondition validity.",
+      "comparison_shape": "PAIR",
+      "required_equalities": [
+        "Phi_local(a)=Phi_local(b)",
+        "C_local(a)=C_local(b)"
+      ],
+      "worlds": [
+        {
+          "case_id": "HD-G4-A-ROLLBACK-CAPACITY-TWO",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "ROLLBACK_PATH_INTERFERENCE",
+            "compensation_slots_total": 2,
+            "slots_held_by_transition_12_at_transition_23": 1,
+            "slots_required_if_transition_23_fails": 1,
+            "transition_23_failure_injected": true
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "recovery_precondition_probe",
+              "mechanism_family": "COMPOSED_PRECONDITION_STYLE_RAW_OBSERVATION",
+              "independence_basis": "recovery_manager_slot_ledger_not_derived_from_Phi_local",
+              "payload": {
+                "slots_total": 2,
+                "slots_held_before_23": 1,
+                "slots_required_on_23_failure": 1,
+                "failure_point": "transition_23_after_effect_before_commit"
+              },
+              "coverage": "COMPLETE"
+            }
+          ]
+        },
+        {
+          "case_id": "HD-G4-B-ROLLBACK-CAPACITY-ONE",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "ROLLBACK_PATH_INTERFERENCE",
+            "compensation_slots_total": 1,
+            "slots_held_by_transition_12_at_transition_23": 1,
+            "slots_required_if_transition_23_fails": 1,
+            "transition_23_failure_injected": true
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "recovery_precondition_probe",
+              "mechanism_family": "COMPOSED_PRECONDITION_STYLE_RAW_OBSERVATION",
+              "independence_basis": "recovery_manager_slot_ledger_not_derived_from_Phi_local",
+              "payload": {
+                "slots_total": 1,
+                "slots_held_before_23": 1,
+                "slots_required_on_23_failure": 1,
+                "failure_point": "transition_23_after_effect_before_commit"
+              },
+              "coverage": "COMPLETE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "axis": "G5_INDEPENDENT_CHANNEL_CONTRADICTION",
+      "purpose": "Create mirrored same-scope conflicts between two independently constituted channels without supplying an earned reconciliation basis.",
+      "freshness_delta": "The first detector suite contained no independently constituted mutually incompatible channels.",
+      "comparison_shape": "MIRRORED_CONFLICT_PAIR",
+      "required_equalities": [
+        "Phi_local(a)=Phi_local(b)",
+        "C_local(a)=C_local(b)"
+      ],
+      "channel_independence_contract": {
+        "observer_alpha": "signed_hypervisor_page_table_snapshot; read path independent of observer_beta and Phi_local",
+        "observer_beta": "hardware_bus_snoop_with_physical_address_decode; measurement path independent of observer_alpha and Phi_local",
+        "shared_claim_scope": "epoch-scoped physical alias relation between phase_12.buffer and phase_23.buffer",
+        "reconciliation_basis_constituted_at_case_freeze": false
+      },
+      "worlds": [
+        {
+          "case_id": "HD-G5-A-ALPHA-DISJOINT-BETA-ALIASED",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "CHANNEL_CONFLICT_OBJECT",
+            "adjudicated_physical_alias_truth": null,
+            "reason_truth_not_constituted": "case_freeze_intentionally_contains_no_reconciliation_oracle"
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "observer_alpha",
+              "mechanism_family": "SIGNED_PAGE_TABLE_SNAPSHOT",
+              "independence_basis": "hypervisor_snapshot_read_path",
+              "payload": {
+                "epoch": 7200,
+                "phase_12_buffer_physical_page": "P7",
+                "phase_23_buffer_physical_page": "P8"
+              },
+              "coverage": "COMPLETE"
+            },
+            {
+              "surface_name": "observer_beta",
+              "mechanism_family": "HARDWARE_BUS_SNOOP",
+              "independence_basis": "bus_snoop_physical_decode_path",
+              "payload": {
+                "epoch": 7200,
+                "phase_12_buffer_observed_physical_page": "P7",
+                "phase_23_buffer_observed_physical_page": "P7"
+              },
+              "coverage": "COMPLETE"
+            }
+          ]
+        },
+        {
+          "case_id": "HD-G5-B-ALPHA-ALIASED-BETA-DISJOINT",
+          "local_ref": "canonical_local_quotient",
+          "latent_world": {
+            "interaction_family": "CHANNEL_CONFLICT_OBJECT",
+            "adjudicated_physical_alias_truth": null,
+            "reason_truth_not_constituted": "case_freeze_intentionally_contains_no_reconciliation_oracle"
+          },
+          "raw_observation_surfaces": [
+            {
+              "surface_name": "observer_alpha",
+              "mechanism_family": "SIGNED_PAGE_TABLE_SNAPSHOT",
+              "independence_basis": "hypervisor_snapshot_read_path",
+              "payload": {
+                "epoch": 7200,
+                "phase_12_buffer_physical_page": "P9",
+                "phase_23_buffer_physical_page": "P9"
+              },
+              "coverage": "COMPLETE"
+            },
+            {
+              "surface_name": "observer_beta",
+              "mechanism_family": "HARDWARE_BUS_SNOOP",
+              "independence_basis": "bus_snoop_physical_decode_path",
+              "payload": {
+                "epoch": 7200,
+                "phase_12_buffer_observed_physical_page": "P9",
+                "phase_23_buffer_observed_physical_page": "P10"
+              },
+              "coverage": "COMPLETE"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "detector_visibility_contract": {
+    "default_visibility": "HIDDEN_UNTIL_BINDINGS",
+    "never_detector_visible": [
+      "case_id",
+      "axis",
+      "purpose",
+      "freshness_delta",
+      "required_equalities",
+      "latent_world",
+      "expected_detector_output",
+      "descriptive_oracle",
+      "transition_status"
+    ],
+    "bindings_may_expose_only": [
+      "prospectively selected raw_observation_surfaces payload fields",
+      "prospectively selected coverage metadata required by the channel contract"
+    ],
+    "bindings_may_not_rewrite_cases": true
+  },
+  "summary": {
+    "stress_axes": 5,
+    "heldout_worlds": 11,
+    "pair_or_group_counts": {
+      "G1": 2,
+      "G2": 2,
+      "G3": 3,
+      "G4": 2,
+      "G5": 2
+    },
+    "detector_bindings": "NOT_CONSTITUTED",
+    "descriptive_oracle": "NOT_CONSTITUTED",
+    "expected_detector_results": "NOT_CONSTITUTED",
+    "witness_sufficiency": "NOT_OPENED",
+    "entitlement": "NOT_OPENED",
+    "composition": "NOT_OPENED"
+  }
+}

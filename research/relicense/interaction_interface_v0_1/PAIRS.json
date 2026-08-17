@@ -1,0 +1,300 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_INTERFACE_V0.1/PAIRS",
+  "status": "PROSPECTIVE_PAIRED_IDENTIFIABILITY_FREEZE",
+  "parent_pr53_head": "8753a936ff39efb35d2f37f2ef81efb1ee39e957",
+  "spec_commit": "d52ff9d5885d360cbe86f61eb01bdd951b305b83",
+  "evaluation_target": "higher_order_identifiability_only",
+  "hard_constraints": {
+    "local_certificate_mutations_allowed": 0,
+    "oracle_label_may_enter_candidate_interface": false,
+    "identifier_only_separation_counts_as_success": false,
+    "witness_sufficiency_tested": false,
+    "composition_rule_tested": false
+  },
+  "canonical_local_interface": {
+    "W_tr_12": {
+      "record": "LOCAL12_CANONICAL",
+      "status": "PRESERVED",
+      "source": "J1",
+      "target": "J2",
+      "scope": "certified_local_scope_12"
+    },
+    "W_tr_23": {
+      "record": "LOCAL23_CANONICAL",
+      "status": "PRESERVED",
+      "source": "J2",
+      "target": "J3",
+      "scope": "certified_local_scope_23"
+    }
+  },
+  "pairs": [
+    {
+      "pair_id": "II-I1-SHARED-STATE-ALIAS",
+      "family": "SHARED_STATE_ALIAS",
+      "required_local_relation": "Phi_local(a) == Phi_local(b)",
+      "required_oracle_relation": "E_123(a) != E_123(b)",
+      "a": {
+        "case_id": "II-I1-A-DISJOINT",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [
+            {
+              "relation_type": "SHARED_STATE_ALIAS",
+              "participants": ["phase_12.quota_slot", "phase_23.quota_slot"],
+              "activation_condition": "composed_execution",
+              "observed_relation": "DISJOINT",
+              "affected_scope": "composed_boundary:J1->J3",
+              "provenance_basis": "independent_alias_map"
+            }
+          ],
+          "observation_coverage": "OBSERVED",
+          "provenance": {"basis": "independent_alias_map", "object_id": "prov-i1-a"},
+          "challenge_record": {"basis": "alias_map_recheck", "object_id": "challenge-i1-a"}
+        },
+        "higher_order_oracle": "NO_ACTIVE_DEFEATER_IN_FROZEN_INTERACTION_MODEL"
+      },
+      "b": {
+        "case_id": "II-I1-B-ALIASED",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [
+            {
+              "relation_type": "SHARED_STATE_ALIAS",
+              "participants": ["phase_12.quota_slot", "phase_23.quota_slot"],
+              "activation_condition": "composed_execution",
+              "observed_relation": "ALIASED_WITH_AUTHORITY_SENSITIVE_COLLISION",
+              "affected_scope": "composed_boundary:J1->J3",
+              "provenance_basis": "independent_alias_map"
+            }
+          ],
+          "observation_coverage": "OBSERVED",
+          "provenance": {"basis": "independent_alias_map", "object_id": "prov-i1-b"},
+          "challenge_record": {"basis": "alias_map_recheck", "object_id": "challenge-i1-b"}
+        },
+        "higher_order_oracle": "ACTIVE_DEFEATER_IN_FROZEN_INTERACTION_MODEL"
+      },
+      "expected_interface_status": "PAIR_IDENTIFYING"
+    },
+    {
+      "pair_id": "II-I2-ORDER-DEPENDENCE",
+      "family": "ORDER_DEPENDENCE",
+      "required_local_relation": "Phi_local(a) == Phi_local(b)",
+      "required_oracle_relation": "E_123(a) != E_123(b)",
+      "a": {
+        "case_id": "II-I2-A-COMMUTING",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [
+            {
+              "relation_type": "ORDER_DEPENDENCE",
+              "participants": ["transition_12", "transition_23"],
+              "activation_condition": "execute_12_then_23",
+              "observed_relation": "COMMUTES_ON_AUTHORITY_RELEVANT_STATE",
+              "affected_scope": "composed_boundary:J1->J3",
+              "provenance_basis": "independent_order_probe"
+            }
+          ],
+          "observation_coverage": "OBSERVED",
+          "provenance": {"basis": "independent_order_probe", "object_id": "prov-i2-a"},
+          "challenge_record": {"basis": "reverse_order_probe", "object_id": "challenge-i2-a"}
+        },
+        "higher_order_oracle": "NO_ACTIVE_DEFEATER_IN_FROZEN_INTERACTION_MODEL"
+      },
+      "b": {
+        "case_id": "II-I2-B-GUARD-FLIP",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [
+            {
+              "relation_type": "ORDER_DEPENDENCE",
+              "participants": ["transition_12", "transition_23"],
+              "activation_condition": "execute_12_then_23",
+              "observed_relation": "NONCOMMUTATIVE_AUTHORITY_GUARD_FLIP",
+              "affected_scope": "composed_boundary:J1->J3",
+              "provenance_basis": "independent_order_probe"
+            }
+          ],
+          "observation_coverage": "OBSERVED",
+          "provenance": {"basis": "independent_order_probe", "object_id": "prov-i2-b"},
+          "challenge_record": {"basis": "reverse_order_probe", "object_id": "challenge-i2-b"}
+        },
+        "higher_order_oracle": "ACTIVE_DEFEATER_IN_FROZEN_INTERACTION_MODEL"
+      },
+      "expected_interface_status": "PAIR_IDENTIFYING"
+    },
+    {
+      "pair_id": "II-I3-CROSS-BOUNDARY-EFFECT",
+      "family": "CROSS_BOUNDARY_EFFECT",
+      "required_local_relation": "Phi_local(a) == Phi_local(b)",
+      "required_oracle_relation": "E_123(a) != E_123(b)",
+      "a": {
+        "case_id": "II-I3-A-SCOPED",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [
+            {
+              "relation_type": "CROSS_BOUNDARY_EFFECT",
+              "participants": ["transition_12.effect", "J3.admissibility_state"],
+              "activation_condition": "composed_execution",
+              "observed_relation": "NO_WRITE_TO_J3_ADMISSIBILITY_STATE",
+              "affected_scope": "composed_boundary:J1->J3",
+              "provenance_basis": "independent_cross_boundary_effect_trace"
+            }
+          ],
+          "observation_coverage": "OBSERVED",
+          "provenance": {"basis": "independent_cross_boundary_effect_trace", "object_id": "prov-i3-a"},
+          "challenge_record": {"basis": "effect_trace_replay", "object_id": "challenge-i3-a"}
+        },
+        "higher_order_oracle": "NO_ACTIVE_DEFEATER_IN_FROZEN_INTERACTION_MODEL"
+      },
+      "b": {
+        "case_id": "II-I3-B-ADMISSIBILITY-WRITE",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [
+            {
+              "relation_type": "CROSS_BOUNDARY_EFFECT",
+              "participants": ["transition_12.effect", "J3.admissibility_state"],
+              "activation_condition": "composed_execution",
+              "observed_relation": "WRITE_ALTERS_J3_ADMISSIBILITY_STATE",
+              "affected_scope": "composed_boundary:J1->J3",
+              "provenance_basis": "independent_cross_boundary_effect_trace"
+            }
+          ],
+          "observation_coverage": "OBSERVED",
+          "provenance": {"basis": "independent_cross_boundary_effect_trace", "object_id": "prov-i3-b"},
+          "challenge_record": {"basis": "effect_trace_replay", "object_id": "challenge-i3-b"}
+        },
+        "higher_order_oracle": "ACTIVE_DEFEATER_IN_FROZEN_INTERACTION_MODEL"
+      },
+      "expected_interface_status": "PAIR_IDENTIFYING"
+    },
+    {
+      "pair_id": "II-I4-NEGATIVE-CONTROL-ID-LEAKAGE",
+      "family": "NEGATIVE_CONTROL_NO_SEMANTIC_DIFFERENCE",
+      "required_local_relation": "Phi_local(a) == Phi_local(b)",
+      "required_oracle_relation": "E_123(a) == E_123(b)",
+      "a": {
+        "case_id": "II-I4-A",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [
+            {
+              "relation_type": "SHARED_STATE_ALIAS",
+              "participants": ["phase_12.quota_slot", "phase_23.quota_slot"],
+              "activation_condition": "composed_execution",
+              "observed_relation": "DISJOINT",
+              "affected_scope": "composed_boundary:J1->J3",
+              "provenance_basis": "independent_alias_map"
+            }
+          ],
+          "observation_coverage": "OBSERVED",
+          "provenance": {"basis": "independent_alias_map", "object_id": "prov-negative-a"},
+          "challenge_record": {"basis": "alias_map_recheck", "object_id": "challenge-negative-a"}
+        },
+        "higher_order_oracle": "NO_ACTIVE_DEFEATER_IN_FROZEN_INTERACTION_MODEL"
+      },
+      "b": {
+        "case_id": "II-I4-B",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [
+            {
+              "relation_type": "SHARED_STATE_ALIAS",
+              "participants": ["phase_12.quota_slot", "phase_23.quota_slot"],
+              "activation_condition": "composed_execution",
+              "observed_relation": "DISJOINT",
+              "affected_scope": "composed_boundary:J1->J3",
+              "provenance_basis": "independent_alias_map"
+            }
+          ],
+          "observation_coverage": "OBSERVED",
+          "provenance": {"basis": "independent_alias_map", "object_id": "prov-negative-b"},
+          "challenge_record": {"basis": "alias_map_recheck", "object_id": "challenge-negative-b"}
+        },
+        "higher_order_oracle": "NO_ACTIVE_DEFEATER_IN_FROZEN_INTERACTION_MODEL"
+      },
+      "expected_interface_status": "SEMANTICALLY_NOT_SEPARATED"
+    },
+    {
+      "pair_id": "II-I5-UNKNOWN-VS-POSITIVE-DEFEATER",
+      "family": "EPISTEMIC_COVERAGE_CONTROL",
+      "required_local_relation": "Phi_local(a) == Phi_local(b)",
+      "required_oracle_relation": "oracle(a) unresolved; oracle(b) positive defeater",
+      "a": {
+        "case_id": "II-I5-A-UNKNOWN",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [],
+          "observation_coverage": "UNKNOWN",
+          "provenance": {"basis": "coverage_record", "object_id": "prov-i5-a"},
+          "challenge_record": {"basis": "coverage_completion_required", "object_id": "challenge-i5-a"}
+        },
+        "higher_order_oracle": "NO_ORACLE_JUDGMENT__INTERACTION_UNOBSERVED"
+      },
+      "b": {
+        "case_id": "II-I5-B-POSITIVE",
+        "local_interface_ref": "canonical_local_interface",
+        "candidate_interaction_interface": {
+          "boundary_path": ["J1", "J2", "J3"],
+          "local_certificate_refs": ["LOCAL12_CANONICAL", "LOCAL23_CANONICAL"],
+          "interaction_scope": "composed_boundary:J1->J3",
+          "interaction_facts": [
+            {
+              "relation_type": "EMERGENT_CONSTRAINT",
+              "participants": ["transition_12.poststate", "transition_23.precondition"],
+              "activation_condition": "composed_execution",
+              "observed_relation": "COMPOSED_PRECONDITION_VIOLATION",
+              "affected_scope": "composed_boundary:J1->J3",
+              "provenance_basis": "independent_composed_precondition_check"
+            }
+          ],
+          "observation_coverage": "OBSERVED",
+          "provenance": {"basis": "independent_composed_precondition_check", "object_id": "prov-i5-b"},
+          "challenge_record": {"basis": "precondition_recheck", "object_id": "challenge-i5-b"}
+        },
+        "higher_order_oracle": "ACTIVE_DEFEATER_IN_FROZEN_INTERACTION_MODEL"
+      },
+      "expected_interface_status": "PAIR_IDENTIFYING_WITHOUT_TREATING_UNKNOWN_AS_NEGATIVE"
+    }
+  ],
+  "authority_ceiling": {
+    "identifiability_only": true,
+    "detectability_tested": false,
+    "witness_sufficiency_tested": false,
+    "transition_entitlement_derived": false,
+    "W_int_sufficient": false,
+    "W_comp_defined": false,
+    "composition_rule_admitted": false,
+    "ssi_calc_kernel_delta": 0,
+    "jepa": "PARKED",
+    "behavioral_experiment_authority": "NONE"
+  }
+}

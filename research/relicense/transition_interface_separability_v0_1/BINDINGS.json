@@ -1,0 +1,177 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_V0.1",
+  "stage": "BINDINGS",
+  "status": "BINDINGS_FROZEN__NO_ORACLE_NO_PROTOCOL_NO_EVALUATOR_NO_RESULT",
+  "parent_cases_commit": "571f447b50a4d18b12442f752d7feb3ba64fb0ac",
+  "candidate": "PHI_K_FACTORED_SEMANTIC_BINDING_V0_1",
+  "scientific_scope": "INTERFACE_SEPARABILITY_ONLY",
+  "input_contract": {
+    "accepted_snapshot_surfaces": [
+      "bridge_visible",
+      "before_bridge_visible",
+      "after_bridge_visible"
+    ],
+    "consumed_fields_within_snapshot": [
+      "S",
+      "L_probe_surface",
+      "V_basis",
+      "Lambda_basis",
+      "coverage"
+    ],
+    "forbidden_inputs": [
+      "world_id",
+      "control_id",
+      "construction_only",
+      "bits",
+      "edge_identity",
+      "hamming_distance",
+      "expected_projection",
+      "expected_diagnosis",
+      "oracle",
+      "repair_action",
+      "hidden_truth",
+      "opaque_id_inequality"
+    ]
+  },
+  "candidate_interface": {
+    "Phi_K": {
+      "input": "ONE_FROZEN_BRIDGE_VISIBLE_SNAPSHOT",
+      "output": {
+        "state_projection": "q_S_input",
+        "law_projection": "q_L_input",
+        "validity_projection": "q_V_input",
+        "authority_projection": "q_LAMBDA_input"
+      },
+      "additional_coordinates": "NONE"
+    },
+    "q_S": {
+      "source": [
+        "S",
+        "coverage.S"
+      ],
+      "projection": {
+        "semantic_state": "CANONICALIZE(S)",
+        "evidence_status": "PRESERVE(coverage.S)"
+      },
+      "rules": [
+        "PRESERVE_EXPLICIT_UNRESOLVED_VALUES",
+        "DO_NOT_INFER_LAW_FROM_STATE",
+        "DO_NOT_INFER_VALIDITY_FROM_STATE",
+        "DO_NOT_INFER_AUTHORITY_FROM_STATE"
+      ]
+    },
+    "q_L": {
+      "source": [
+        "L_probe_surface",
+        "coverage.L"
+      ],
+      "projection": {
+        "probe_input": "PRESERVE(L_probe_surface.input)",
+        "observed_response_surface": "CANONICALIZE_PROBE_SURFACE(L_probe_surface.surface)",
+        "probe_coverage": "PRESERVE(L_probe_surface.probe_coverage)",
+        "evidence_status": "LAW_EVIDENCE_STATUS(L_probe_surface.probe_coverage, coverage.L)"
+      },
+      "law_evidence_status": {
+        "if_probe_coverage_is_COMPLETE_-1_0_1_and_coordinate_coverage_is_COMPLETE": "COUNTERFACTUAL_RESPONSE_SURFACE_AVAILABLE",
+        "otherwise": "INSUFFICIENT_FOR_LAW_IDENTITY"
+      },
+      "rules": [
+        "CURRENT_OUTPUT_ALONE_DOES_NOT_CONSTITUTE_LAW_IDENTITY",
+        "DO_NOT_MAP_RESPONSE_SURFACE_TO_LAW_0_OR_LAW_1_LABEL",
+        "DO_NOT_INFER_STATE_FROM_LAW_SURFACE",
+        "DO_NOT_INFER_VALIDITY_FROM_LAW_SURFACE",
+        "DO_NOT_INFER_AUTHORITY_FROM_LAW_SURFACE"
+      ]
+    },
+    "q_V": {
+      "source": [
+        "V_basis",
+        "coverage.V"
+      ],
+      "projection": {
+        "context": "CANONICALIZE(V_basis.context)",
+        "envelope": "CANONICALIZE_OR_PRESERVE_NULL(V_basis.envelope)",
+        "basis_coverage": "PRESERVE(V_basis.basis_coverage)",
+        "evidence_status": "PRESERVE(coverage.V)"
+      },
+      "rules": [
+        "DO_NOT_COLLAPSE_TO_DENIED",
+        "DO_NOT_EMIT_APPLICABLE_OR_INAPPLICABLE_VERDICT",
+        "DO_NOT_INFER_AUTHORITY_FROM_VALIDITY_BASIS",
+        "PRESERVE_PARTIAL_OR_UNAVAILABLE_BASIS_WITHOUT_FORCED_LOCALIZATION"
+      ]
+    },
+    "q_LAMBDA": {
+      "source": [
+        "Lambda_basis",
+        "coverage.Lambda"
+      ],
+      "projection": {
+        "context": "CANONICALIZE(Lambda_basis.context)",
+        "envelope": "CANONICALIZE_OR_PRESERVE_NULL(Lambda_basis.envelope)",
+        "basis_coverage": "PRESERVE(Lambda_basis.basis_coverage)",
+        "evidence_status": "PRESERVE(coverage.Lambda)"
+      },
+      "rules": [
+        "DO_NOT_COLLAPSE_TO_DENIED",
+        "DO_NOT_EMIT_AUTHORIZED_OR_UNAUTHORIZED_VERDICT",
+        "DO_NOT_INFER_VALIDITY_FROM_AUTHORITY_BASIS",
+        "PRESERVE_PARTIAL_OR_UNAVAILABLE_BASIS_WITHOUT_FORCED_LOCALIZATION"
+      ]
+    }
+  },
+  "canonicalization": {
+    "purpose": "REMOVE_REPRESENTATION_ORDER_ONLY__PRESERVE_SEMANTIC_CONTENT",
+    "map_keys": "SORT_LEXICOGRAPHICALLY",
+    "set_like_string_lists": "SORT_LEXICOGRAPHICALLY_WITHOUT_DEDUPLICATING_UNLESS_EXACT_DUPLICATES",
+    "probe_surface_keys": "ORDER_NUMERICALLY_BY_PROBE_VALUE",
+    "null": "PRESERVE",
+    "unknown_or_unresolved_symbol": "PRESERVE",
+    "coverage_values": "PRESERVE",
+    "forbidden_normalizations": [
+      "NO_GENERIC_DENIED",
+      "NO_LAW_VARIANT_LABEL",
+      "NO_WORLD_CLASS_LABEL",
+      "NO_BOUNDARY_CLASS_LABEL",
+      "NO_REPAIR_ACTION",
+      "NO_EFFECT_WARRANT_COMPUTATION"
+    ]
+  },
+  "uncertainty_policy": {
+    "principle": "MISSING_OR_PARTIAL_COORDINATE_EVIDENCE_MUST_REMAIN_MISSING_OR_PARTIAL_IN_ITS_OWN_PROJECTION",
+    "infer_no_change_from_missingness": false,
+    "infer_single_coordinate_from_missingness": false,
+    "cross_coordinate_imputation": false,
+    "before_after_diagnosis": "NOT_PERFORMED_BY_BINDING",
+    "boundary_classification": "NOT_PERFORMED_BY_BINDING"
+  },
+  "non_rules": [
+    "FOUR_OUTPUT_FIELDS != FOUR_COORDINATE_SEPARABILITY",
+    "SAME_CURRENT_OUTPUT != SAME_RESPONSE_LAW",
+    "INAPPLICABLE != UNAUTHORIZED",
+    "COORDINATE_DETECTABLE != COORDINATE_ACTIONABLE",
+    "SEPARABILITY != BOUNDARY_SEMANTICS",
+    "BOUNDARY_SEMANTICS != BOUNDARY_RESPONSE",
+    "BOUNDARY_RESPONSE != REPAIR_AUTHORITY"
+  ],
+  "authority_ceiling": {
+    "four_coordinate_completeness": "NOT_ESTABLISHED",
+    "real_world_boundary_generalization": "NOT_ESTABLISHED",
+    "boundary_detection_generalization": "NOT_ESTABLISHED",
+    "boundary_localization_generalization": "NOT_ESTABLISHED",
+    "boundary_repair_sufficiency": "NOT_OPENED",
+    "repair_composability": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "BINDINGS": "FROZEN",
+    "DESCRIPTIVE_ORACLE": "NOT_CONSTITUTED",
+    "PROTOCOL": "NOT_CONSTITUTED",
+    "EVALUATOR": "NOT_CONSTITUTED",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}

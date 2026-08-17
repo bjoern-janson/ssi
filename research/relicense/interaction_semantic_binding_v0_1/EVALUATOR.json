@@ -1,0 +1,227 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_SEMANTIC_BINDING_V0.1/EVALUATOR",
+  "status": "PROSPECTIVE_SEMANTIC_BINDING_EVALUATOR_FROZEN__NO_RESULT_NO_DETECTOR_EXECUTION",
+  "spec_commit": "ad2073574b32c6a8ce248549a12f9539989f5b11",
+  "cases_commit": "71cb3636e77c1ae24ecdd6535c96c5ea4a69bb6a",
+  "bindings_commit": "a2976ad896af4805e0d8b05ec7026e360b2fbf4e",
+  "descriptive_oracle_commit": "28bc8088ad8002c9a4654ae1fa8bbc9c3dfd1609",
+  "protocol_commit": "4904e90db97b12dc8ac7f2839058e6790a978a3f",
+  "target_predicate": "P_WRITE=EXACT_J3_ADMISSIBILITY_WRITE_PRESENCE",
+  "next_permitted_stage": "RESULT",
+  "evaluator_question_only": "What kind of predicate-relative semantic relation does the frozen DELTA_SEM comparison establish between Sem_C(o) and Sem_E_P(beta(o))?",
+  "hard_stage_firewall": {
+    "delta_spec": 0,
+    "delta_cases": 0,
+    "delta_bindings": 0,
+    "delta_descriptive_oracle": 0,
+    "delta_protocol": 0,
+    "result_constituted": false,
+    "detector_execution_permitted": false,
+    "D2_correctness_permitted_as_input": false,
+    "hidden_world_truth_permitted_as_input": false,
+    "construction_world_facts_permitted_as_input": false,
+    "case_id_permitted_as_semantic_input": false,
+    "case_class_permitted_as_semantic_input": false,
+    "witness_sufficiency_permitted": false,
+    "entitlement_permitted": false,
+    "W_int_permitted": false,
+    "W_comp_permitted": false,
+    "composition_permitted": false,
+    "new_status_vocabulary_permitted": false
+  },
+  "authorized_status_vocabulary": [
+    "SEMANTICS_PRESERVING",
+    "SEMANTICS_EXTENSION_REQUIRED",
+    "UNPROVEN",
+    "INVALID_SEMANTIC_LAUNDERING"
+  ],
+  "governing_separations": [
+    "comparison record != world truth",
+    "comparison record != downstream detector correctness",
+    "semantic-binding verdict != witness sufficiency",
+    "UNKNOWN != automatic UNPROVEN",
+    "VALUE_DIFFERENCE != automatic INVALID_SEMANTIC_LAUNDERING",
+    "correct-by-luck != semantic equivalence",
+    "predictive usefulness != semantic admissibility",
+    "coherent new semantic object != invalid laundering",
+    "failure to certify equivalence != proof of semantic invalidity"
+  ],
+  "input_contract": {
+    "sole_scientific_input": "canonical DELTA_SEM record produced exactly by frozen PROTOCOL.json from frozen DESCRIPTIVE_ORACLE.json",
+    "permitted_context": [
+      "P_WRITE predicate relevance profile frozen in PROTOCOL.json",
+      "frozen source/output provenance kinds already represented in DELTA_SEM",
+      "frozen source/output completeness and uncertainty states already represented in DELTA_SEM"
+    ],
+    "forbidden_context": [
+      "construction_world_facts_separate_from_source_semantics",
+      "case_id as semantic evidence",
+      "case_class as semantic evidence",
+      "purpose text as semantic evidence",
+      "hidden current-world event truth",
+      "D2 output or correctness",
+      "downstream usefulness",
+      "desired experiment outcome"
+    ],
+    "immutability_rule": "Evaluator consumes DELTA_SEM as frozen; it may not rewrite, fill, normalize, or repair any comparison dimension."
+  },
+  "status_semantics": {
+    "SEMANTICS_PRESERVING": {
+      "meaning": "The source observation, under its frozen scope and provenance, constitutes the same P_WRITE-relevant evidence relation asserted by beta, with no predicate-relevant semantic addition, deletion, or uncertainty erasure.",
+      "required_conditions": [
+        "source relation is directly P_WRITE-relevant or independently provenance-linked to the same P_WRITE relation",
+        "all P_WRITE-required dimensions are EXACT_MATCH or BOTH_NOT_APPLICABLE where the frozen relevance profile permits non-applicability",
+        "no P_WRITE-required dimension is SOURCE_UNKNOWN, OUTPUT_UNKNOWN, BOTH_UNKNOWN, SOURCE_ABSENT, OUTPUT_ABSENT, VALUE_DIFFERENCE, or APPLICABILITY_DIFFERENCE",
+        "source provenance directly supports the observation/completeness claim represented by the output relation",
+        "source uncertainty relevant to P_WRITE is not erased by beta",
+        "beta does not invent actor or other optional source-preserved facts"
+      ],
+      "does_not_imply": [
+        "detector correctness",
+        "witness sufficiency",
+        "entitlement",
+        "W_int",
+        "W_comp",
+        "composition"
+      ]
+    },
+    "SEMANTICS_EXTENSION_REQUIRED": {
+      "meaning": "The source constitutes a coherent current-world semantic object that is informative for the task but is genuinely different from the P_WRITE evidence relation beta asserts; using that information requires a new or extended detector semantic relation rather than translation into existing P_WRITE evidence.",
+      "required_conditions": [
+        "source relation is directly constituted and current-world specific",
+        "source relation is not merely a probabilistic or historical proxy",
+        "DELTA_SEM exposes one or more P_WRITE-required semantic differences or unknowns showing that event identity/operation/observation semantics are not constituted",
+        "beta output asserts a more specific P_WRITE event relation than the source constitutes",
+        "the source relation remains independently meaningful without pretending to be P_WRITE evidence"
+      ],
+      "canonical_pattern": "directly constituted non-event relation -> asserted P_WRITE event relation",
+      "does_not_mean": "The source observation is useless or false; it means the existing predicate language is too narrow to consume it without semantic extension."
+    },
+    "UNPROVEN": {
+      "meaning": "Predicate-relative semantic equivalence cannot be established from the frozen comparison record, but the record does not positively establish either a distinct semantic type requiring extension or a laundering operation that manufactures P_WRITE evidence semantics.",
+      "required_conditions": [
+        "SEMANTICS_PRESERVING conditions are not established",
+        "SEMANTICS_EXTENSION_REQUIRED conditions are not positively established",
+        "INVALID_SEMANTIC_LAUNDERING conditions are not positively established",
+        "remaining uncertainty, absence, provenance incompleteness, or applicability ambiguity prevents classification"
+      ],
+      "important_rule": "UNKNOWN alone does not mechanically imply UNPROVEN; UNPROVEN is the residual status only after the other three status conditions are evaluated in order."
+    },
+    "INVALID_SEMANTIC_LAUNDERING": {
+      "meaning": "The bridge converts a source relation that does not constitute the required current P_WRITE event evidence into an output that asserts such evidence by adding predicate-relevant semantics from prediction, correlation, inference, or another unsupported relation.",
+      "required_conditions": [
+        "beta output asserts a P_WRITE-required observed-event or complete-absence relation",
+        "source provenance explicitly lacks the current direct event observation or complete event-scope basis needed for that output claim",
+        "source relation is a proxy, historical association, predictive score, causal correlate, or other non-identical evidential relation rather than the same predicate-relative event relation",
+        "the bridge upgrades that non-identical relation into KNOWN P_WRITE event semantics such as WRITE/OBSERVED or complete scoped absence",
+        "the upgrade is not independently established by a bridge-visible provenance chain that directly constitutes the required relation"
+      ],
+      "canonical_pattern": "proxy/correlation/inference relation -> asserted P_WRITE evidence",
+      "important_rule": "A VALUE_DIFFERENCE is not sufficient by itself; laundering requires positive evidence that beta manufactured predicate-relevant semantics not constituted by the source."
+    }
+  },
+  "decision_order": [
+    "1. Validate provenance hashes and confirm DELTA_SEM is unchanged from frozen protocol output; otherwise abort evaluation rather than repair inputs.",
+    "2. Evaluate SEMANTICS_PRESERVING positive conditions first. Preservation must be positively established, never inferred from absence of a detected defect.",
+    "3. If preservation is not established, evaluate INVALID_SEMANTIC_LAUNDERING positive conditions. This requires an affirmative semantic upgrade from a non-identical proxy/correlation/inference relation into P_WRITE evidence.",
+    "4. If laundering is not established, evaluate SEMANTICS_EXTENSION_REQUIRED positive conditions. This requires a directly constituted coherent current-world semantic object that differs from P_WRITE and would need new detector semantics rather than translation.",
+    "5. If none of the three positive classifications is established, emit UNPROVEN.",
+    "6. Emit exactly one authorized semantic-binding status per evaluated bridge/case comparison record.",
+    "7. Do not aggregate case statuses into witness sufficiency, entitlement, or composition claims."
+  ],
+  "predicate_relative_rules": {
+    "presence_relation": {
+      "required_semantics": [
+        "relation identifies observed target WRITE event",
+        "operation=WRITE",
+        "target=J3.admissibility.mode",
+        "temporal_scope=EPOCH_42",
+        "observation_status=OBSERVED",
+        "provenance supports direct or independently witnessed event observation",
+        "sigma=J3.admissibility.mode@EPOCH_42"
+      ],
+      "actor_rule": "Actor is optional for P_WRITE classification but may not be invented; when source constitutes actor and output changes it, preservation fails."
+    },
+    "absence_relation": {
+      "required_semantics": [
+        "relation identifies complete declared event scope with zero matching target WRITEs",
+        "operation=NO_MATCHING_WRITE_IN_COMPLETE_SCOPE",
+        "target=J3.admissibility.mode",
+        "temporal_scope=EPOCH_42",
+        "completeness is event-scope completeness, not completeness of another observation domain",
+        "provenance supports complete event-scope coverage",
+        "sigma=J3.admissibility.mode@EPOCH_42"
+      ]
+    },
+    "cross_domain_completeness_rule": "COMPLETE_FOR_PRE_POST_STATE_VALUE_OBSERVATION and COMPLETE_FOR_PROXY_OBSERVATION_AND_DECLARED_CALIBRATION_STATISTIC do not satisfy event-history completeness requirements.",
+    "observation_status_rule": "UNKNOWN_FOR_WRITE_EVENT or UNKNOWN_FOR_CURRENT_WRITE_EVENT may not be upgraded to OBSERVED by semantic translation alone."
+  },
+  "relation_family_rules": {
+    "OBSERVED_TARGET_WRITE_EVENT": {
+      "family": "DIRECT_P_WRITE_RELATION",
+      "eligible_for_preservation": true
+    },
+    "INDEPENDENTLY_WITNESSED_OBSERVED_TARGET_WRITE_EVENT": {
+      "family": "PROVENANCE_BACKED_P_WRITE_RELATION",
+      "eligible_for_preservation": true,
+      "normalization_note": "Independent witness provenance may establish the same predicate-relative event relation despite representation differences."
+    },
+    "COMPLETE_SCOPE_ZERO_MATCHING_TARGET_WRITE_EVENTS": {
+      "family": "DIRECT_P_WRITE_ABSENCE_RELATION",
+      "eligible_for_preservation": true
+    },
+    "INDEPENDENT_COMPLETE_SCOPE_ZERO_MATCHING_TARGET_WRITE_EVENTS": {
+      "family": "PROVENANCE_BACKED_P_WRITE_ABSENCE_RELATION",
+      "eligible_for_preservation": true,
+      "normalization_note": "Independent complete-segment witness may establish the same predicate-relative scoped-absence relation despite representation differences."
+    },
+    "AUTHENTICATED_PRE_POST_STATE_CHANGE": {
+      "family": "DISTINCT_CURRENT_WORLD_SEMANTIC_RELATION",
+      "default_positive_route_if_beta_asserts_P_WRITE": "SEMANTICS_EXTENSION_REQUIRED",
+      "reason": "State-value change is directly constituted but does not identify WRITE operation, event observation status, actor, or event provenance."
+    },
+    "CURRENT_PROXY_HIGH_WITH_HISTORICAL_WRITE_ASSOCIATION": {
+      "family": "PREDICTIVE_PROXY_RELATION",
+      "default_positive_route_if_beta_asserts_OBSERVED_P_WRITE": "INVALID_SEMANTIC_LAUNDERING",
+      "reason": "Historical predictive association does not constitute the current-case observed WRITE event."
+    }
+  },
+  "anti_shortcut_rules": [
+    "Do not use B1/B2/B3/B4 labels to select a status.",
+    "Do not use whether the hidden world happened to contain a WRITE.",
+    "Do not use whether D2(beta(o)) would be correct.",
+    "Do not classify a proxy as preserving because its calibration accuracy is high.",
+    "Do not classify a direct current-world state relation as laundering merely because it differs from P_WRITE; distinguish semantic extension from proxy-to-event fabrication.",
+    "Do not classify unknown/absent fields as preserving because they are optional unless the frozen P_WRITE relevance profile marks them irrelevant to the specific relation.",
+    "Do not let output certainty overwrite source uncertainty.",
+    "Do not let independent provenance be ignored merely because its representation differs from native E_P_WRITE encoding."
+  ],
+  "result_contract": {
+    "per_record_output_fields": [
+      "comparison_record_ref",
+      "semantic_binding_status",
+      "rule_path",
+      "predicate_relevant_supporting_dimensions",
+      "predicate_relevant_blocking_dimensions",
+      "preserved_uncertainties"
+    ],
+    "forbidden_result_fields": [
+      "D2 correctness",
+      "witness sufficiency",
+      "entitlement",
+      "W_int",
+      "W_comp",
+      "composition authorization"
+    ],
+    "suite_claim_ceiling": "At most SEMANTIC_BINDING_COMPATIBILITY_SUPPORTED_ON_FROZEN_SUITE if the frozen positive/negative controls are classified exactly under this evaluator. No claim about semantic-binding generalization beyond the frozen suite is earned by V0.1."
+  },
+  "authority_ceiling": {
+    "SEMANTIC_BINDING_COMPATIBILITY": "OPEN__EVALUATOR_FROZEN_RESULT_NOT_RUN",
+    "SEMANTIC_BINDING_GENERALIZATION": "OPEN",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "SSI_CALC_KERNEL_DELTA": 0
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_SEMANTIC_TRANSPORT_V0.1",
+  "stage": "PROTOCOL",
+  "status": "PROTOCOL_FROZEN__NO_EVALUATOR_NO_RESULT",
+  "authoritative_inputs": {
+    "SPEC": "36f3411da55cb713585a66a4417071698ac32a69",
+    "CASES": "7c2984c0bb74d088864c1b6a861197339077c23e",
+    "BINDINGS": "ba11b47e3f1f9e563b79f19c8847819196535c72",
+    "SEMANTIC_ORACLE": "8fd01850cd16c73d454076eb26d3f3e15a0565e9"
+  },
+  "scope": "DESCRIPTIVE_COMPARISON_ONLY",
+  "purpose": "EXECUTE_THE_FROZEN_TRANSPORT_CANDIDATE_AND_COMPARE_ITS_OUTPUTS_TO_THE_INDEPENDENT_SEMANTIC_TYPE_ORACLE_WITHOUT_ASSIGNING_FAILURE_CLASSES_OR_SUPPORT_VERDICTS",
+  "dependency_firewall": [
+    "DO_NOT_MODIFY_SPEC_CASES_BINDINGS_OR_SEMANTIC_ORACLE",
+    "DO_NOT_REDEFINE_SOURCE_SEMANTICS_OR_TARGET_TYPE_REQUIREMENTS",
+    "DO_NOT_REPAIR_OR_REINTERPRET_CANDIDATE_OUTPUTS",
+    "DO_NOT_ASSIGN_EVALUATOR_FAILURE_CLASSES",
+    "DO_NOT_EMIT_SUPPORTED_NOT_SUPPORTED_PASS_OR_FAIL",
+    "DO_NOT_OPEN_BOUNDARY_SEMANTICS_RESPONSE_REPAIR_OR_CALC"
+  ],
+  "candidate_execution": {
+    "input": "case.source_visible only",
+    "binding": "T_TYPED_SEMANTIC_TRANSPORT_GATE_V0_1",
+    "forbidden_inputs": ["case_id", "construction_only", "family", "pair_group", "coordinate_under_construction", "tempted_wrong_role", "oracle labels", "expected verdict", "evaluator", "result"],
+    "output_fields": ["resolved_role", "target_evidence_type", "semantic_projection", "structural_type_gate", "provenance_gate", "candidate_admission", "provenance_projection", "emitted_transition_coordinates", "auxiliary_source_content"]
+  },
+  "normalization": {
+    "principle": "REMOVE_REPRESENTATION_ORDER_ONLY",
+    "map_keys": "SORT_LEXICOGRAPHICALLY",
+    "explicit_sets": "SORT_LEXICOGRAPHICALLY",
+    "probe_domain": [-1, 0, 1],
+    "conflict_alternatives": "PRESERVE_ALL_AND_CANONICALIZE_ORDER_ONLY",
+    "partial_unresolved_values": "PRESERVE",
+    "forbidden": ["NO_CONSTITUTION_REWRITE", "NO_ROLE_REWRITE", "NO_PREDICTION_PROMOTION", "NO_CONFLICT_RESOLUTION", "NO_PARTIAL_COMPLETION"]
+  },
+  "oracle_admission_normalization": {
+    "TARGET_TYPE_REQUIREMENTS_SATISFIED": "ADMIT",
+    "TARGET_TYPE_REQUIREMENTS_NOT_SATISFIED": "REJECT",
+    "SOURCE_SEMANTICS_INSUFFICIENT_FOR_COMPLETE_TARGET_TYPE": "UNRESOLVED"
+  },
+  "candidate_admission_normalization": {
+    "ADMITTED": "ADMIT",
+    "REJECTED_EVIDENCE_TYPE_OR_PROVENANCE": "REJECT",
+    "UNRESOLVED_SOURCE": "UNRESOLVED"
+  },
+  "per_case_record": {
+    "join_key": "case_id",
+    "delta_m": {
+      "candidate": ["resolved_role", "semantic_projection.status", "semantic_projection.value", "emitted_transition_coordinates"],
+      "oracle": ["constituted role or role subject", "semantic_status", "semantic_identity when complete", "residual when partial/conflicted"],
+      "relation_vocabulary": [
+        "COMPLETE_SEMANTIC_IDENTITY_EQUIVALENT",
+        "COMPLETE_SEMANTIC_IDENTITY_NON_EQUIVALENT",
+        "ORACLE_HAS_NO_COMPLETE_TARGET_IDENTITY",
+        "CANDIDATE_HAS_NO_COMPLETE_TARGET_IDENTITY",
+        "BOTH_NONCOMPLETE_WITH_SAME_EPISTEMIC_CLASS",
+        "BOTH_NONCOMPLETE_WITH_DIFFERENT_EPISTEMIC_CLASS"
+      ],
+      "rule": "ONLY_COMPARE_COMPLETE_IDENTITIES_FOR_EQUIVALENCE_WHEN_THE_ORACLE_CONSTITUTES_A_COMPLETE_TARGET_IDENTITY; OTHERWISE_PRESERVE_NONCOMPLETE_STATUS_AND_CONTENT_DESCRIPTIVELY"
+    },
+    "delta_tau": {
+      "candidate_raw": "candidate_admission",
+      "candidate_normalized": "ADMIT | REJECT | UNRESOLVED",
+      "oracle_raw": "target type status",
+      "oracle_normalized": "ADMIT | REJECT | UNRESOLVED",
+      "relation": "SAME_NORMALIZED_ADMISSION_STATE | DIFFERENT_NORMALIZED_ADMISSION_STATE",
+      "rule": "PRESERVE_BOTH_RAW_STATES_AND_DIRECTION_OF_ANY_DIFFERENCE; DO_NOT_NAME_OVER_ADMISSION_UNDER_ADMISSION_OR_LAUNDERING_HERE"
+    },
+    "delta_pi": {
+      "candidate_identity": "canonical candidate.provenance_projection",
+      "source_reference_identity": "canonical(case.source_visible.carrier + case.source_visible.provenance)",
+      "identity_relation": "EQUIVALENT | NON_EQUIVALENT",
+      "candidate_gate": "candidate.provenance_gate.status",
+      "oracle_authenticity": "case.source_visible.provenance.authenticity as used by frozen oracle/type contract",
+      "status_relation": "SAME_PROVENANCE_STATUS | DIFFERENT_PROVENANCE_STATUS",
+      "rule": "PROVENANCE_COMPARISON_MUST_NOT_BE_FOLDED_INTO_SEMANTIC_IDENTITY"
+    },
+    "epistemic_structure": {
+      "candidate_status": "semantic_projection.status",
+      "oracle_status": "semantic_status",
+      "candidate_complete_singleton": "boolean",
+      "oracle_complete_singleton": "boolean",
+      "residual_content": "preserve candidate and oracle partial/conflict structures",
+      "relation": "SAME_EPISTEMIC_CLASS | DIFFERENT_EPISTEMIC_CLASS",
+      "rule": "PARTIAL_OR_CONFLICTED_OR_PROXY_OR_UNCONSTITUTED_SOURCE_MUST_NOT_BE_COERCED_TO_COMPLETE_FOR_COMPARISON"
+    },
+    "role_structure": {
+      "candidate_resolved_role": "resolved_role",
+      "candidate_emitted_coordinates": "emitted_transition_coordinates",
+      "oracle_constituted_role": "oracle role/role_subject/constituted_role",
+      "oracle_orthogonal_nonconstitution": "when present",
+      "relation": "SAME_ROLE_SET | DIFFERENT_ROLE_SET | ORACLE_TARGET_ROLE_NOT_CONSTITUTED",
+      "rule": "AUXILIARY_TARGET_LOOKING_FIELDS_DO_NOT_COUNT_AS_ORTHOGONAL_ROLE_CONSTITUTION"
+    }
+  },
+  "pairwise_semantic_geometry": {
+    "C1": {
+      "pairs": "four frozen same-semantics/different-carrier pairs",
+      "oracle_relation": "SAME_SEMANTIC_IDENTITY",
+      "candidate_relation": "same iff normalized complete candidate semantic identities are equivalent",
+      "output": ["oracle_same_bit", "candidate_same_bit", "SAME_DELTA_BIT | DIFFERENT_DELTA_BIT"]
+    },
+    "C2": {
+      "pairs": "each C2 case versus its frozen C1 primary contrast",
+      "oracle_relation": "DIFFERENT_SEMANTIC_IDENTITY",
+      "candidate_relation": "different iff normalized complete candidate semantic identities are non-equivalent",
+      "output": ["oracle_difference_bit", "candidate_difference_bit", "SAME_DELTA_BIT | DIFFERENT_DELTA_BIT"]
+    },
+    "C5": {
+      "triplets": "primary / independent / unverified-relay within each role",
+      "oracle_semantic_relation": "SAME_SEMANTIC_IDENTITY_ACROSS_TRIPLET",
+      "candidate_semantic_relation": "compare normalized candidate semantic identities across triplet",
+      "provenance_relation": "preserve pairwise provenance identity differences",
+      "admission_relation": "preserve raw and normalized admission state per member",
+      "rule": "SEMANTIC_EQUIVALENCE_AND_ADMISSION_EQUIVALENCE_ARE_REPORTED_SEPARATELY"
+    }
+  },
+  "family_outputs": {
+    "C3_C4": "report semantic-status relation plus raw candidate/oracle admission states; do not reward target-like content by semantic identity matching when oracle says target identity is not constituted",
+    "C6": "report partial/conflict preservation, unresolved admission state pairing, and residual content without truth selection or completion",
+    "C7": "report exact candidate emitted role set against oracle constituted role and preserve oracle orthogonal nonconstitution statements"
+  },
+  "required_protocol_output": {
+    "case_records": 44,
+    "pair_records": {
+      "C1": 4,
+      "C2": 4,
+      "C5_semantic_pairs": 12
+    },
+    "summary_counts_may_include": [
+      "semantic relation counts",
+      "admission state-pair counts",
+      "provenance identity relation counts",
+      "epistemic-class relation counts",
+      "role-set relation counts"
+    ],
+    "forbidden_summary": ["scalar score", "pass rate", "support status", "failure count by evaluator class"]
+  },
+  "descriptive_non_rules": [
+    "SEMANTIC_MATCH != EVIDENCE_ADMISSION_MATCH",
+    "EVIDENCE_ADMISSION_MATCH != PROVENANCE_MATCH",
+    "PROVENANCE_DIFFERENCE != SEMANTIC_DIFFERENCE",
+    "TARGET_LIKE_CONTENT != COMPLETE_TARGET_SEMANTIC_IDENTITY",
+    "SAME_NORMALIZED_ADMISSION_STATE != SCIENTIFIC_SUPPORT",
+    "DIFFERENT_NORMALIZED_ADMISSION_STATE != NAMED_FAILURE_CLASS_UNTIL_EVALUATOR",
+    "PAIRWISE_SEMANTIC_GEOMETRY != UNIVERSAL_CARRIER_EQUIVALENCE",
+    "PROTOCOL_OUTPUT != EVALUATOR_JUDGMENT"
+  ],
+  "authority_ceiling": {
+    "transition_semantic_transport": "NOT_YET_EVALUATED",
+    "universal_carrier_equivalence": "NOT_ESTABLISHED",
+    "arbitrary_real_world_semantic_transport": "NOT_ESTABLISHED",
+    "boundary_semantics": "NOT_OPENED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "BINDINGS": "FROZEN",
+    "SEMANTIC_ORACLE": "FROZEN",
+    "PROTOCOL": "FROZEN",
+    "EVALUATOR": "NOT_CONSTITUTED",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}

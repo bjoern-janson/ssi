@@ -1,0 +1,244 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_V0.1",
+  "stage": "DESCRIPTIVE_ORACLE",
+  "status": "DESCRIPTIVE_ORACLE_FROZEN__NO_PROTOCOL_NO_EVALUATOR_NO_RESULT",
+  "parent_bindings_commit": "4199cb0c9fd7607ee15fabdcca63f7ea05e9c356",
+  "oracle_constitution": {
+    "authoritative_inputs": [
+      "SPEC.md@0178c84388e6bb6e7f866f9af79846c62a63b78c",
+      "CASES.json@571f447b50a4d18b12442f752d7feb3ba64fb0ac"
+    ],
+    "explicitly_non_authoritative_for_oracle_semantics": [
+      "BINDINGS.json",
+      "candidate_projection_values",
+      "candidate_score",
+      "protocol",
+      "evaluator",
+      "result"
+    ],
+    "principle": "DESCRIBE_FROZEN_SOURCE_SEMANTICS_AND_GEOMETRY_WITHOUT_JUDGING_CANDIDATE_INTERFACE"
+  },
+  "scope": {
+    "sigma": "TRANSITION_INTERFACE_SEPARABILITY_V0_1",
+    "predicate": "P_EFFECT_TRANSITION",
+    "target": "J3.control.assist_mode",
+    "claim_ceiling": "DESCRIPTIVE_COORDINATE_SEMANTICS_AND_FROZEN_GEOMETRY_ONLY"
+  },
+  "coordinate_semantics": {
+    "S": {
+      "question": "WHAT_IS_THE_CURRENT_CONFIGURATION",
+      "constituted_from": "bridge_visible.S with bridge_visible.coverage.S",
+      "identity_rule": "semantic identity is the explicit tuple (load, buffer, mode) when state coverage is complete; explicit UNKNOWN or UNRESOLVED values remain epistemic content rather than being imputed",
+      "frozen_complete_variants": {
+        "STATE_NOMINAL": {
+          "load": "NOMINAL",
+          "buffer": "STABLE",
+          "mode": "ACTIVE"
+        },
+        "STATE_ELEVATED": {
+          "load": "ELEVATED",
+          "buffer": "STABLE",
+          "mode": "ACTIVE"
+        }
+      },
+      "non_rules": [
+        "STATE_DIFFERENCE != LAW_DIFFERENCE",
+        "STATE_DIFFERENCE != VALIDITY_DIFFERENCE",
+        "STATE_DIFFERENCE != AUTHORITY_DIFFERENCE"
+      ]
+    },
+    "L": {
+      "question": "WHAT_RESPONSE_RELATION_IS_CONSTITUTED_OVER_THE_FROZEN_PROBES",
+      "constituted_from": "bridge_visible.L_probe_surface with bridge_visible.coverage.L",
+      "identity_rule": "law identity in this suite is the complete response relation over frozen demand_delta probes {-1,0,+1}; one current output is insufficient for law identity",
+      "frozen_probe_domain": [-1, 0, 1],
+      "frozen_complete_variants": {
+        "LAW_FORWARD_RESPONSE": {
+          "-1": ["SET_ASSIST_LIMITED"],
+          "0": ["SET_ASSIST_STEADY"],
+          "1": ["SET_ASSIST_BOOST"]
+        },
+        "LAW_REVERSED_RESPONSE": {
+          "-1": ["SET_ASSIST_BOOST"],
+          "0": ["SET_ASSIST_STEADY"],
+          "1": ["SET_ASSIST_LIMITED"]
+        }
+      },
+      "counterfactual_fact": "the two complete law variants agree at demand_delta=0 and differ at demand_delta=-1 and +1",
+      "insufficient_identity_condition": "probe coverage other than COMPLETE_-1_0_1 does not constitute a unique law identity in this suite",
+      "non_rules": [
+        "SAME_CURRENT_OUTPUT != SAME_RESPONSE_LAW",
+        "CURRENT_ONLY_RESPONSE != UNIQUE_LAW_IDENTITY"
+      ]
+    },
+    "V": {
+      "question": "IS_THE_FROZEN_CONTEXT_WITHIN_THE_CONSTITUTED_APPLICABILITY_ENVELOPE",
+      "constituted_from": "bridge_visible.V_basis with bridge_visible.coverage.V",
+      "identity_rule": "validity semantics are determined by the explicit context/envelope relation when the basis is complete; missing or partial envelope evidence does not constitute an applicability verdict",
+      "frozen_context": {
+        "zone": "FIELD",
+        "sensor": "CALIBRATED",
+        "epoch": "CURRENT",
+        "coverage": "COMPLETE"
+      },
+      "frozen_complete_variants": {
+        "VALIDITY_CONTEXT_WITHIN_ENVELOPE": {
+          "zone_in": ["FIELD", "LAB"],
+          "sensor": "CALIBRATED",
+          "epoch": "CURRENT",
+          "coverage": "COMPLETE",
+          "relation": "CONTEXT_SATISFIES_ENVELOPE"
+        },
+        "VALIDITY_CONTEXT_OUTSIDE_ENVELOPE": {
+          "zone_in": ["LAB"],
+          "sensor": "CALIBRATED",
+          "epoch": "CURRENT",
+          "coverage": "COMPLETE",
+          "relation": "CONTEXT_DOES_NOT_SATISFY_ENVELOPE"
+        }
+      },
+      "non_rules": [
+        "VALIDITY_FAILURE != AUTHORITY_RESTRICTION",
+        "MISSING_VALIDITY_BASIS != INAPPLICABLE"
+      ]
+    },
+    "Lambda": {
+      "question": "WHAT_EFFECT_ENVELOPE_IS_CONSTITUTED_AS_AUTHORIZED_FOR_THE_FROZEN_AUTHORITY_CONTEXT",
+      "constituted_from": "bridge_visible.Lambda_basis with bridge_visible.coverage.Lambda",
+      "identity_rule": "authority semantics are determined by the explicit authority context and allowed-effect envelope when the basis is complete; missing authority evidence does not constitute an authorization verdict",
+      "frozen_context": {
+        "source": "CONTROL_LOOP",
+        "epoch": "CURRENT"
+      },
+      "frozen_complete_variants": {
+        "AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED": {
+          "allowed": [
+            "SET_ASSIST_LIMITED",
+            "SET_ASSIST_STEADY",
+            "SET_ASSIST_BOOST"
+          ]
+        },
+        "AUTHORITY_LIMITED_ONLY": {
+          "allowed": ["SET_ASSIST_LIMITED"]
+        }
+      },
+      "current_response_relation": {
+        "fact": "both complete law variants realize SET_ASSIST_STEADY at demand_delta=0",
+        "under_AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED": "SET_ASSIST_STEADY_IS_WITHIN_AUTHORITY_ENVELOPE",
+        "under_AUTHORITY_LIMITED_ONLY": "SET_ASSIST_STEADY_IS_OUTSIDE_AUTHORITY_ENVELOPE"
+      },
+      "non_rules": [
+        "AUTHORITY_RESTRICTION != VALIDITY_FAILURE",
+        "MISSING_AUTHORITY_BASIS != UNAUTHORIZED"
+      ]
+    }
+  },
+  "cross_coordinate_noncollapse": [
+    "S != L",
+    "L != V",
+    "V != Lambda",
+    "INAPPLICABLE != UNAUTHORIZED",
+    "same current response != same law",
+    "coordinate semantics do not inherit from neighboring coordinate semantics"
+  ],
+  "world_semantics": [
+    {"world_id":"w_0000","S":"STATE_NOMINAL","L":"LAW_FORWARD_RESPONSE","V":"VALIDITY_CONTEXT_WITHIN_ENVELOPE","Lambda":"AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_0001","S":"STATE_NOMINAL","L":"LAW_FORWARD_RESPONSE","V":"VALIDITY_CONTEXT_WITHIN_ENVELOPE","Lambda":"AUTHORITY_LIMITED_ONLY","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_0010","S":"STATE_NOMINAL","L":"LAW_FORWARD_RESPONSE","V":"VALIDITY_CONTEXT_OUTSIDE_ENVELOPE","Lambda":"AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_0011","S":"STATE_NOMINAL","L":"LAW_FORWARD_RESPONSE","V":"VALIDITY_CONTEXT_OUTSIDE_ENVELOPE","Lambda":"AUTHORITY_LIMITED_ONLY","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_0100","S":"STATE_NOMINAL","L":"LAW_REVERSED_RESPONSE","V":"VALIDITY_CONTEXT_WITHIN_ENVELOPE","Lambda":"AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_0101","S":"STATE_NOMINAL","L":"LAW_REVERSED_RESPONSE","V":"VALIDITY_CONTEXT_WITHIN_ENVELOPE","Lambda":"AUTHORITY_LIMITED_ONLY","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_0110","S":"STATE_NOMINAL","L":"LAW_REVERSED_RESPONSE","V":"VALIDITY_CONTEXT_OUTSIDE_ENVELOPE","Lambda":"AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_0111","S":"STATE_NOMINAL","L":"LAW_REVERSED_RESPONSE","V":"VALIDITY_CONTEXT_OUTSIDE_ENVELOPE","Lambda":"AUTHORITY_LIMITED_ONLY","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_1000","S":"STATE_ELEVATED","L":"LAW_FORWARD_RESPONSE","V":"VALIDITY_CONTEXT_WITHIN_ENVELOPE","Lambda":"AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_1001","S":"STATE_ELEVATED","L":"LAW_FORWARD_RESPONSE","V":"VALIDITY_CONTEXT_WITHIN_ENVELOPE","Lambda":"AUTHORITY_LIMITED_ONLY","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_1010","S":"STATE_ELEVATED","L":"LAW_FORWARD_RESPONSE","V":"VALIDITY_CONTEXT_OUTSIDE_ENVELOPE","Lambda":"AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_1011","S":"STATE_ELEVATED","L":"LAW_FORWARD_RESPONSE","V":"VALIDITY_CONTEXT_OUTSIDE_ENVELOPE","Lambda":"AUTHORITY_LIMITED_ONLY","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_1100","S":"STATE_ELEVATED","L":"LAW_REVERSED_RESPONSE","V":"VALIDITY_CONTEXT_WITHIN_ENVELOPE","Lambda":"AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_1101","S":"STATE_ELEVATED","L":"LAW_REVERSED_RESPONSE","V":"VALIDITY_CONTEXT_WITHIN_ENVELOPE","Lambda":"AUTHORITY_LIMITED_ONLY","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_1110","S":"STATE_ELEVATED","L":"LAW_REVERSED_RESPONSE","V":"VALIDITY_CONTEXT_OUTSIDE_ENVELOPE","Lambda":"AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED","coverage":"ALL_FOUR_COMPLETE"},
+    {"world_id":"w_1111","S":"STATE_ELEVATED","L":"LAW_REVERSED_RESPONSE","V":"VALIDITY_CONTEXT_OUTSIDE_ENVELOPE","Lambda":"AUTHORITY_LIMITED_ONLY","coverage":"ALL_FOUR_COMPLETE"}
+  ],
+  "hypercube_geometry": {
+    "worlds": 16,
+    "pure_edges": 32,
+    "axis_edge_counts": {"S":8,"L":8,"V":8,"Lambda":8},
+    "pure_edge_rule": "each pure edge changes exactly one of the four oracle coordinate identities and preserves the other three",
+    "multi_coordinate_pairs": "descriptive geometry exists by Cartesian construction; no repair-composition semantics are constituted"
+  },
+  "uncertainty_controls": [
+    {
+      "control_id": "u_001",
+      "before": "ALL_FOUR_COORDINATES_COMPLETELY_CONSTITUTED",
+      "after_constituted_facts": {
+        "S": "STATE_NOMINAL_WITH_COMPLETE_COVERAGE",
+        "L": "CURRENT_ONLY_RESPONSE_SURFACE__INSUFFICIENT_FOR_UNIQUE_LAW_IDENTITY",
+        "V": "PARTIAL_BASIS_WITH_NULL_ENVELOPE__NO_APPLICABILITY_VERDICT_CONSTITUTED",
+        "Lambda": "AUTHORITY_ALL_FROZEN_EFFECTS_ALLOWED_WITH_COMPLETE_COVERAGE"
+      },
+      "localization_status": "UNRESOLVED_WITHIN_BOUNDED_CANDIDATE_SET",
+      "supported_candidate_coordinates": ["L","V"],
+      "excluded_by_complete_unchanged_evidence": ["S","Lambda"],
+      "non_rule": "{L,V} != L != V"
+    },
+    {
+      "control_id": "u_002",
+      "before": "ALL_FOUR_COORDINATES_COMPLETELY_CONSTITUTED",
+      "after_constituted_facts": {
+        "S": "STATE_NOMINAL_WITH_COMPLETE_COVERAGE",
+        "L": "LAW_FORWARD_RESPONSE_WITH_COMPLETE_COUNTERFACTUAL_COVERAGE",
+        "V": "BASIS_UNAVAILABLE__NO_APPLICABILITY_VERDICT_CONSTITUTED",
+        "Lambda": "BASIS_UNAVAILABLE__NO_AUTHORIZATION_VERDICT_CONSTITUTED"
+      },
+      "localization_status": "UNRESOLVED_WITHIN_BOUNDED_CANDIDATE_SET",
+      "supported_candidate_coordinates": ["V","Lambda"],
+      "excluded_by_complete_unchanged_evidence": ["S","L"],
+      "non_rule": "{V,Lambda} != V != Lambda"
+    },
+    {
+      "control_id": "u_003",
+      "before": "ALL_FOUR_COORDINATES_COMPLETELY_CONSTITUTED",
+      "after_constituted_facts": {
+        "S": "PARTIAL_STATE_WITH_EXPLICIT_UNRESOLVED_LOAD",
+        "L": "CURRENT_ONLY_RESPONSE_SURFACE__INSUFFICIENT_FOR_UNIQUE_LAW_IDENTITY",
+        "V": "BASIS_UNAVAILABLE__NO_APPLICABILITY_VERDICT_CONSTITUTED",
+        "Lambda": "BASIS_UNAVAILABLE__NO_AUTHORIZATION_VERDICT_CONSTITUTED"
+      },
+      "localization_status": "UNRESOLVED",
+      "supported_candidate_coordinates": ["S","L","V","Lambda"],
+      "excluded_by_complete_unchanged_evidence": [],
+      "non_rule": "INSUFFICIENT_LOCALIZATION != NO_CHANGE"
+    }
+  ],
+  "oracle_non_rules": [
+    "DESCRIPTIVE_ORACLE != CANDIDATE_SCORE",
+    "WORLD_SEMANTICS != PROJECTION_SEMANTICS",
+    "SOURCE_COORDINATE_IDENTITY != CANDIDATE_RECOVERABILITY",
+    "UNRESOLVED != NO_CHANGE",
+    "BOUNDARY_LOCALIZATION != BOUNDARY_RESPONSE",
+    "SEPARABILITY != BOUNDARY_SEMANTICS",
+    "BOUNDARY_SEMANTICS != REPAIR_AUTHORITY"
+  ],
+  "authority_ceiling": {
+    "four_coordinate_interface_separability": "NOT_YET_EVALUATED",
+    "relevant_separation": "NOT_YET_EVALUATED",
+    "orthogonal_invariance": "NOT_YET_EVALUATED",
+    "coordinate_recoverability": "NOT_YET_EVALUATED",
+    "uncertainty_preservation": "NOT_YET_EVALUATED",
+    "boundary_semantics": "NOT_CONSTITUTED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "BINDINGS": "FROZEN",
+    "DESCRIPTIVE_ORACLE": "FROZEN",
+    "PROTOCOL": "NOT_CONSTITUTED",
+    "EVALUATOR": "NOT_CONSTITUTED",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}

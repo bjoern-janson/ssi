@@ -1,0 +1,71 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_DETECTION_V0.1/DETECTORS",
+  "status": "PROSPECTIVE_DETECTOR_FREEZE__BEFORE_ORACLE_FILE",
+  "spec_commit": "cec1368839b0711cca35dce0e7572774cc1a135b",
+  "worlds_commit": "4b051bc96400eb99c3205082afd924726709200a",
+  "detectors": {
+    "D0": {
+      "name": "LOCAL_QUOTIENT_CONTROL",
+      "allowed_inputs": ["canonical_local_interface"],
+      "algorithm": "canonicalize the two local transport records and emit only the resulting local summary",
+      "dependency_class": "g(Phi_local)",
+      "scientific_classification": "CHALLENGE_DEPENDENCE",
+      "pair_separation_expected_on_primary": false
+    },
+    "D1": {
+      "name": "ELABORATED_LOCAL_DERIVATIVE_CONTROL",
+      "allowed_inputs": ["canonical_local_interface", "canonical_local_derived_closure"],
+      "algorithm": "emit the full frozen deterministic local-derived feature tuple together with the canonical local summary",
+      "dependency_class": "g(Phi_local, f_1(Phi_local), ..., f_n(Phi_local))",
+      "scientific_classification": "CHALLENGE_DEPENDENCE",
+      "pair_separation_expected_on_primary": false,
+      "separation_if_observed": "PAIR_LEAKAGE"
+    },
+    "D2": {
+      "name": "INDEPENDENT_RAW_INTERACTION_PROBE",
+      "allowed_inputs": ["probe"],
+      "forbidden_inputs": ["world_id", "pair_id", "family", "higher_order_oracle", "transition_status", "expected_result", "local_certificate_status_as_interaction_label"],
+      "algorithm": {
+        "UNKNOWN": "if coverage == UNKNOWN emit state UNKNOWN and fact null",
+        "ALIAS_TOKEN_PROBE": "compare phase12_token with phase23_token; equal => INTERACTION_PRESENT/ALIASED_WITH_AUTHORITY_SENSITIVE_COLLISION, unequal => INTERACTION_ABSENT/DISJOINT",
+        "ORDER_REVERSAL_PROBE": "compare forward_authority_state with reverse_authority_state; unequal => INTERACTION_PRESENT/NONCOMMUTATIVE_AUTHORITY_GUARD_FLIP, equal => INTERACTION_ABSENT/COMMUTES_ON_AUTHORITY_RELEVANT_STATE",
+        "EFFECT_TRACE_PROBE": "scan writes for exact target J3.admissibility_state; present => INTERACTION_PRESENT/WRITE_ALTERS_J3_ADMISSIBILITY_STATE, absent => INTERACTION_ABSENT/NO_WRITE_TO_J3_ADMISSIBILITY_STATE",
+        "COMPOSED_PRECONDITION_PROBE": "compare j2_post_quota with j3_required_quota_min; lower => INTERACTION_PRESENT/COMPOSED_PRECONDITION_VIOLATION, otherwise => INTERACTION_ABSENT/COMPOSED_PRECONDITION_SATISFIED"
+      },
+      "candidate_scientific_classification": "DETECTION_SUPPORTED_IF_CONTROLS_PASS",
+      "entitlement_output_allowed": false
+    },
+    "D3": {
+      "name": "CORRESPONDENCE_DESTROYED_PROBE_CONTROL",
+      "base_algorithm": "identical to D2",
+      "input_multiset": "exact eight primary raw probes from WORLDS.json",
+      "permutation_scope": "primary worlds only",
+      "recipient_to_source_world": {
+        "ID-I1-A": "ID-I1-A",
+        "ID-I1-B": "ID-I2-A",
+        "ID-I2-A": "ID-I3-A",
+        "ID-I2-B": "ID-I4-A",
+        "ID-I3-A": "ID-I1-B",
+        "ID-I3-B": "ID-I2-B",
+        "ID-I4-A": "ID-I3-B",
+        "ID-I4-B": "ID-I4-B"
+      },
+      "preservation_claims_to_verify_at_execution": [
+        "probe_record_count unchanged",
+        "probe_type histogram unchanged",
+        "D2-derived INTERACTION_PRESENT/INTERACTION_ABSENT marginal count unchanged"
+      ],
+      "destruction_target": "pair-level probe/world correspondence",
+      "primary_pair_separation_expected": 0
+    }
+  },
+  "hard_firewalls": {
+    "different_code_counts_as_independence": false,
+    "different_input_field_counts_as_independence": false,
+    "detector_may_emit_entitlement": false,
+    "DETECTION_SUPPORTED_implies_WITNESS_SUFFICIENT": false,
+    "W_int_opened": false,
+    "W_comp_opened": false,
+    "composition_rule_opened": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "D0_classification": "CHALLENGE_DEPENDENCE",
+  "D1_classification": "CHALLENGE_DEPENDENCE",
+  "D2_classification": "DETECTION_SUPPORTED",
+  "D3_control": {
+    "destroyed_probe_type_histogram": {
+      "ALIAS_TOKEN_PROBE": 2,
+      "COMPOSED_PRECONDITION_PROBE": 2,
+      "EFFECT_TRACE_PROBE": 2,
+      "ORDER_REVERSAL_PROBE": 2
+    },
+    "destroyed_state_histogram": {
+      "INTERACTION_ABSENT": 4,
+      "INTERACTION_PRESENT": 4
+    },
+    "original_probe_type_histogram": {
+      "ALIAS_TOKEN_PROBE": 2,
+      "COMPOSED_PRECONDITION_PROBE": 2,
+      "EFFECT_TRACE_PROBE": 2,
+      "ORDER_REVERSAL_PROBE": 2
+    },
+    "original_state_histogram": {
+      "INTERACTION_ABSENT": 4,
+      "INTERACTION_PRESENT": 4
+    }
+  },
+  "authority_ceiling": {
+    "W_comp_defined": false,
+    "W_int_sufficient": false,
+    "composition_rule_admitted": false,
+    "empirical_real_world_detection_claimed": false,
+    "formal_soundness_established": false,
+    "jepa": "PARKED",
+    "ssi_calc_kernel_delta": 0,
+    "transition_entitlement_derived": false,
+    "witness_sufficiency_tested": false
+  },
+  "bounded_claim": "INDEPENDENT_HIGHER_ORDER_DETECTION_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+  "identifier_control": {
+    "a": {"fact": "DISJOINT", "state": "INTERACTION_ABSENT"},
+    "b": {"fact": "DISJOINT", "state": "INTERACTION_ABSENT"}
+  },
+  "metrics": {
+    "D0_PAIR_SEPARATION": "0/4",
+    "D1_PAIR_SEPARATION": "0/4",
+    "D2_FACT_EXACT": "8/8",
+    "D2_PAIR_SEPARATION": "4/4",
+    "D2_STATE_EXACT": "8/8",
+    "D3_PAIR_SEPARATION": "0/4",
+    "D3_PROBE_COUNT_PRESERVED": true,
+    "D3_PROBE_TYPE_HISTOGRAM_PRESERVED": true,
+    "D3_STATE_MARGINAL_PRESERVED": true,
+    "IDENTIFIER_ONLY_SEPARATIONS": 0,
+    "LOCAL_CERTIFICATE_MUTATIONS": 0,
+    "ORACLE_ENTITLEMENT_LABEL_LEAKAGE": 0,
+    "PRIMARY_PAIRS": 4,
+    "PRIMARY_WORLDS": 8,
+    "UNKNOWN_AS_NEGATIVE_COLLAPSES": 0
+  },
+  "object": "SSI_RELICENSE_INTERACTION_DETECTION_V0.1/EXECUTION",
+  "pair_results": [
+    {
+      "D0_separated": false,
+      "D1_separated": false,
+      "D2_a": {"fact": "DISJOINT", "state": "INTERACTION_ABSENT"},
+      "D2_b": {"fact": "ALIASED_WITH_AUTHORITY_SENSITIVE_COLLISION", "state": "INTERACTION_PRESENT"},
+      "D2_separated": true,
+      "D3_a": {"fact": "DISJOINT", "state": "INTERACTION_ABSENT"},
+      "D3_b": {"fact": "COMMUTES_ON_AUTHORITY_RELEVANT_STATE", "state": "INTERACTION_ABSENT"},
+      "D3_separated": false,
+      "pair_id": "ID-I1-ALIAS"
+    },
+    {
+      "D0_separated": false,
+      "D1_separated": false,
+      "D2_a": {"fact": "COMMUTES_ON_AUTHORITY_RELEVANT_STATE", "state": "INTERACTION_ABSENT"},
+      "D2_b": {"fact": "NONCOMMUTATIVE_AUTHORITY_GUARD_FLIP", "state": "INTERACTION_PRESENT"},
+      "D2_separated": true,
+      "D3_a": {"fact": "NO_WRITE_TO_J3_ADMISSIBILITY_STATE", "state": "INTERACTION_ABSENT"},
+      "D3_b": {"fact": "COMPOSED_PRECONDITION_SATISFIED", "state": "INTERACTION_ABSENT"},
+      "D3_separated": false,
+      "pair_id": "ID-I2-ORDER"
+    },
+    {
+      "D0_separated": false,
+      "D1_separated": false,
+      "D2_a": {"fact": "NO_WRITE_TO_J3_ADMISSIBILITY_STATE", "state": "INTERACTION_ABSENT"},
+      "D2_b": {"fact": "WRITE_ALTERS_J3_ADMISSIBILITY_STATE", "state": "INTERACTION_PRESENT"},
+      "D2_separated": true,
+      "D3_a": {"fact": "ALIASED_WITH_AUTHORITY_SENSITIVE_COLLISION", "state": "INTERACTION_PRESENT"},
+      "D3_b": {"fact": "NONCOMMUTATIVE_AUTHORITY_GUARD_FLIP", "state": "INTERACTION_PRESENT"},
+      "D3_separated": false,
+      "pair_id": "ID-I3-EFFECT"
+    },
+    {
+      "D0_separated": false,
+      "D1_separated": false,
+      "D2_a": {"fact": "COMPOSED_PRECONDITION_SATISFIED", "state": "INTERACTION_ABSENT"},
+      "D2_b": {"fact": "COMPOSED_PRECONDITION_VIOLATION", "state": "INTERACTION_PRESENT"},
+      "D2_separated": true,
+      "D3_a": {"fact": "WRITE_ALTERS_J3_ADMISSIBILITY_STATE", "state": "INTERACTION_PRESENT"},
+      "D3_b": {"fact": "COMPOSED_PRECONDITION_VIOLATION", "state": "INTERACTION_PRESENT"},
+      "D3_separated": false,
+      "pair_id": "ID-I4-CONSTRAINT"
+    }
+  ],
+  "scientific_status": "DETECTION_SUPPORTED",
+  "unknown_control": {
+    "a": {"fact": null, "state": "UNKNOWN"},
+    "b": {"fact": "COMPOSED_PRECONDITION_VIOLATION", "state": "INTERACTION_PRESENT"}
+  }
+}

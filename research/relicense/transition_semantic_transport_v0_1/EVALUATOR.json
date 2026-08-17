@@ -1,0 +1,243 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_SEMANTIC_TRANSPORT_V0.1",
+  "stage": "EVALUATOR",
+  "status": "EVALUATOR_FROZEN__NOT_RUN__NO_RESULT",
+  "authoritative_inputs": {
+    "SPEC": "36f3411da55cb713585a66a4417071698ac32a69",
+    "CASES": "7c2984c0bb74d088864c1b6a861197339077c23e",
+    "BINDINGS": "ba11b47e3f1f9e563b79f19c8847819196535c72",
+    "SEMANTIC_ORACLE": "8fd01850cd16c73d454076eb26d3f3e15a0565e9",
+    "PROTOCOL": "a6d5a6cb0168fc5e121e158eed7dfb80cd437fb0"
+  },
+  "scope": "CLASSIFY_FROZEN_PROTOCOL_OUTPUTS_ONLY",
+  "execution_status": "NOT_RUN",
+  "purpose": "MAP_THE_PRODUCT_TYPED_DESCRIPTIVE_PROTOCOL_OUTPUT_INTO_TRANSPORT_FAILURE_CLASSES_AND_ST_A1_THROUGH_ST_A5_JUDGMENTS_WITHOUT_MODIFYING_ANY_UPSTREAM_ARTIFACT_OR_EMITTING_RESULT",
+  "dependency_firewall": [
+    "DO_NOT_MODIFY_SPEC_CASES_BINDINGS_SEMANTIC_ORACLE_OR_PROTOCOL",
+    "DO_NOT_REINTERPRET_OR_REPAIR_CANDIDATE_OUTPUTS",
+    "DO_NOT_REDEFINE_SOURCE_SEMANTICS_TARGET_TYPES_OR_PROVENANCE_REQUIREMENTS",
+    "DO_NOT_CREATE_NEW_CASES_OR_NEW_TRANSPORT_RULES",
+    "DO_NOT_SCALARIZE_ACROSS_OBLIGATIONS",
+    "DO_NOT_EMIT_RESULT_BEFORE_FIRST_FROZEN_EXECUTION",
+    "DO_NOT_OPEN_BOUNDARY_SEMANTICS_RESPONSE_REPAIR_OR_CALC"
+  ],
+  "input_record": {
+    "per_case": ["delta_m", "delta_tau", "delta_pi", "epistemic_structure", "role_structure"],
+    "pairwise": ["C1 same-semantics/different-carrier pairs", "C2 different-semantics/same-carrier contrasts", "C5 provenance triplets"],
+    "rule": "EVALUATOR_MAY_CLASSIFY_ONLY_RELATIONS_AND_RAW_STATES_ALREADY_EXPOSED_BY_THE_FROZEN_PROTOCOL"
+  },
+  "authorized_failure_classes": {
+    "SEMANTIC_UNDER_RESOLUTION": {
+      "spec_parent": "SEMANTIC_UNDER_RESOLUTION",
+      "trigger": "oracle requires semantic difference for a legitimately comparable C2 contrast AND candidate collapses the compared complete semantic identities",
+      "non_trigger": "candidate rejection or unresolved admission alone does not constitute semantic under-resolution"
+    },
+    "SEMANTIC_CONTAMINATION": {
+      "spec_parent": "SEMANTIC_CONTAMINATION",
+      "trigger": "oracle holds coordinate semantic identity invariant across a C1 carrier change or C5 provenance change AND candidate complete semantic identity changes",
+      "non_trigger": "provenance difference by itself is not semantic contamination"
+    },
+    "EVIDENCE_TYPE_LAUNDERING": {
+      "spec_parent": "EVIDENCE_TYPE_LAUNDERING",
+      "trigger": "oracle normalized admission is REJECT or UNRESOLVED AND candidate normalized admission is ADMIT",
+      "interpretation": "candidate granted target evidence status without the independently frozen evidence-type basis"
+    },
+    "EVIDENCE_TYPE_UNDER_ADMISSION": {
+      "spec_parent": "ST_A3_EVIDENCE_TYPE_LEGITIMACY_NEGATIVE_SUBTYPE",
+      "trigger": "oracle normalized admission is ADMIT AND candidate normalized admission is REJECT or UNRESOLVED",
+      "interpretation": "legitimately constituted target evidence failed to receive target admission",
+      "nonrule": "UNDER_ADMISSION != EVIDENCE_TYPE_LAUNDERING"
+    },
+    "PROVENANCE_CONFLATION": {
+      "spec_parent": "PROVENANCE_CONFLATION",
+      "trigger_any": [
+        "oracle semantics invariant across C5 provenance variation AND candidate semantic identity varies with provenance",
+        "candidate provenance identity is NON_EQUIVALENT to canonical source carrier+provenance identity",
+        "candidate provenance status differs from the oracle/source authenticity status used by the frozen contract"
+      ],
+      "interpretation": "provenance either contaminated semantic identity or failed to remain separately recoverable"
+    },
+    "UNCERTAINTY_LAUNDERING": {
+      "spec_parent": "UNCERTAINTY_LAUNDERING",
+      "trigger_any": [
+        "oracle has PARTIAL_TARGET_SEMANTICS AND candidate emits a complete singleton target semantic identity",
+        "oracle has CONFLICTED_TARGET_SEMANTICS AND candidate selects or emits one complete singleton as resolved truth",
+        "oracle has TARGET_LIKE_CONTENT_WITHOUT_TARGET_CONSTITUTION or PREDICTIVE_PROXY_ONLY AND candidate upgrades it to a complete constituted target semantic identity",
+        "partial empty Lambda fragment is emitted as a complete empty allowed-effect envelope"
+      ],
+      "nonrule": "correct rejection or unresolved admission does not by itself prove uncertainty preservation; residual epistemic structure must also be preserved where representable"
+    },
+    "ROLE_CROSSING": {
+      "spec_parent": "ROLE_PRESERVATION_FIREWALL",
+      "trigger": "candidate emitted transition-coordinate set differs from the oracle constituted role set in C7 or auxiliary target-looking content is emitted as an orthogonal coordinate",
+      "interpretation": "generic information or schema resemblance was transported across coordinate roles without source constitution"
+    }
+  },
+  "non_failure_relations": {
+    "CORRECT_SEMANTIC_TRANSPORT_AND_CORRECT_ADMISSION": "complete oracle semantic identity equivalent to candidate complete semantic identity AND same normalized admission state ADMIT",
+    "CORRECT_SEMANTIC_TRANSPORT_AND_CORRECT_REJECTION": "where semantic content is descriptively available but target type is not satisfied, candidate does not manufacture a complete constituted target identity and normalized admission matches REJECT",
+    "CORRECT_UNRESOLVED_PRESERVATION": "oracle normalized admission UNRESOLVED AND candidate normalized admission UNRESOLVED AND candidate preserves the relevant partial/conflict residual structure without completion or truth selection",
+    "PROVENANCE_DIFFERENCE_WITH_SEMANTIC_INVARIANCE": "provenance identities differ as constituted while candidate semantics remain invariant and provenance remains recoverable",
+    "rule": "A_DESCRIPTIVE_DIFFERENCE_IS_NOT_A_FAILURE_UNLESS_IT_MATCHES_AN_AUTHORIZED_TRIGGER"
+  },
+  "obligations": {
+    "ST_A1_SEMANTIC_IDENTITY_PRESERVATION": {
+      "support_scope": "FROZEN_CONSTRUCTED_SUITE",
+      "required": [
+        "all four C1 same-semantics/different-carrier pairs have candidate semantic same-bit equal oracle same-bit",
+        "no SEMANTIC_CONTAMINATION witness on any C1 pair",
+        "no carrier-family-dependent role change for those legitimately transportable observations"
+      ],
+      "negative": "any legitimate C1 contamination witness",
+      "not_evaluable": "a required C1 semantic comparison cannot be formed under the frozen protocol without inventing a complete target identity"
+    },
+    "ST_A2_SEMANTIC_SEPARATION": {
+      "support_scope": "FROZEN_CONSTRUCTED_SUITE",
+      "required": [
+        "all four C2 different-semantics/same-carrier contrasts have candidate difference-bit equal oracle difference-bit",
+        "no SEMANTIC_UNDER_RESOLUTION witness"
+      ],
+      "negative": "any legitimate C2 semantic-collapse witness",
+      "not_evaluable": "a required C2 semantic comparison cannot be formed under the frozen protocol without inventing a complete target identity"
+    },
+    "ST_A3_EVIDENCE_TYPE_LEGITIMACY": {
+      "support_scope": "FROZEN_CONSTRUCTED_SUITE",
+      "required": [
+        "normalized candidate admission equals normalized oracle admission on all 44 frozen cases",
+        "zero EVIDENCE_TYPE_LAUNDERING witnesses",
+        "zero EVIDENCE_TYPE_UNDER_ADMISSION witnesses"
+      ],
+      "negative": "any legitimate normalized admission mismatch",
+      "not_evaluable": "oracle target-type status or candidate admission cannot be normalized under the frozen protocol for a required case"
+    },
+    "ST_A4_PROVENANCE_FACTOR_SEPARATION_AND_RECOVERABILITY": {
+      "support_scope": "FROZEN_CONSTRUCTED_SUITE",
+      "required": [
+        "within every C5 triplet candidate semantic identity remains invariant where oracle semantic identity is invariant",
+        "candidate provenance projection is equivalent to canonical source carrier+provenance identity on every case",
+        "candidate provenance status matches frozen source/oracle authenticity status",
+        "C5 verified versus unverified admission differences do not redefine semantic identity"
+      ],
+      "negative": "any PROVENANCE_CONFLATION witness",
+      "not_evaluable": "a required provenance identity/status comparison is unavailable under the frozen protocol"
+    },
+    "ST_A5_UNCERTAINTY_PRESERVATION": {
+      "support_scope": "FROZEN_CONSTRUCTED_CONTROLS",
+      "required": [
+        "all C6 partial cases remain partial/unresolved without semantic completion",
+        "all C6 conflict cases preserve incompatible alternatives without singleton truth selection",
+        "C3/C4 nonconstituted or predictive sources are not upgraded to complete constituted target semantic identities",
+        "partial empty Lambda fragment remains a fragment rather than a complete empty envelope",
+        "zero UNCERTAINTY_LAUNDERING witnesses"
+      ],
+      "negative": "any UNCERTAINTY_LAUNDERING witness",
+      "not_evaluable": "required residual epistemic structure cannot be compared under the frozen protocol"
+    },
+    "ROLE_PRESERVATION_FIREWALL": {
+      "status_type": "HARD_GLOBAL_GATE_NOT_A_SIXTH_ST_A_OBLIGATION",
+      "required": [
+        "all four C7 cases emit exactly the oracle-constituted role and no orthogonal role",
+        "zero ROLE_CROSSING witnesses"
+      ],
+      "negative": "any ROLE_CROSSING witness",
+      "not_evaluable": "required role-set comparison unavailable under the frozen protocol"
+    }
+  },
+  "obligation_status_vocabulary": [
+    "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "SUPPORTED_ON_FROZEN_CONSTRUCTED_CONTROLS",
+    "NOT_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "NOT_SUPPORTED_ON_FROZEN_CONSTRUCTED_CONTROLS",
+    "NOT_EVALUABLE_UNDER_FROZEN_TRANSPORT_CONTRACT"
+  ],
+  "obligation_classification_order": [
+    "IF any authorized legitimate counterexample for the obligation exists THEN NOT_SUPPORTED",
+    "ELSE IF any required comparison for the obligation is not evaluable under the frozen protocol THEN NOT_EVALUABLE_UNDER_FROZEN_TRANSPORT_CONTRACT",
+    "ELSE IF every required comparison satisfies the frozen obligation THEN SUPPORTED",
+    "ELSE classification is invalid because evaluator inputs are incomplete"
+  ],
+  "overall_result_rule": {
+    "ordered_precedence": [
+      "IF any ST_A1..ST_A5 obligation or ROLE_PRESERVATION_FIREWALL is NOT_SUPPORTED THEN SEMANTIC_TRANSPORT_NOT_SUPPORTED_ON_FROZEN_SUITE",
+      "ELSE IF any ST_A1..ST_A5 obligation or ROLE_PRESERVATION_FIREWALL is NOT_EVALUABLE_UNDER_FROZEN_TRANSPORT_CONTRACT THEN NOT_EVALUABLE_UNDER_FROZEN_TRANSPORT_CONTRACT",
+      "ELSE IF ST_A1..ST_A5 are all SUPPORTED and ROLE_PRESERVATION_FIREWALL is satisfied THEN SEMANTIC_TRANSPORT_SUPPORTED_ON_FROZEN_SUITE"
+    ],
+    "maximum_positive_promotion": "TRANSITION_SEMANTIC_TRANSPORT = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE",
+    "rule": "NO_SCALAR_COMPENSATION_NO_MAJORITY_VOTE_NO_SUCCESS_RATE"
+  },
+  "failure_localization_rules": [
+    "DELTA_M_MISMATCH_WITH_LEGITIMATE_COMPLETE_COMPARISON_LOCALIZES_TO_SEMANTIC_TRANSPORT",
+    "DELTA_TAU_MISMATCH_WITH_DELTA_M_EQUIVALENT_DOES_NOT_CREATE_SEMANTIC_FAILURE; LOCALIZE_TO_EVIDENCE_TYPE_LEGITIMACY",
+    "DELTA_PI_DIFFERENCE_THAT_IS_CORRECTLY_PRESERVED_DOES_NOT_CREATE_SEMANTIC_FAILURE",
+    "PROVENANCE_VARIATION_THAT_CHANGES_CANDIDATE_SEMANTIC_IDENTITY_LOCALIZES_TO_PROVENANCE_CONFLATION_OR_SEMANTIC_CONTAMINATION_AS_APPLICABLE",
+    "NONCOMPLETE_ORACLE_SEMANTICS_PROMOTED_TO_COMPLETE_CANDIDATE_IDENTITY_LOCALIZES_TO_UNCERTAINTY_LAUNDERING",
+    "ROLE_SET_MISMATCH_LOCALIZES_TO_ROLE_PRESERVATION_FIREWALL",
+    "MULTIPLE_FAILURE_CLASSES_MAY_BE_RECORDED_FOR_ONE_CASE_WHEN_INDEPENDENT_TRIGGERS_ARE_SATISFIED"
+  ],
+  "family_specific_expectations_are_not_results": {
+    "C1": "tests ST-A1 carrier invariance while preserving provenance differences",
+    "C2": "tests ST-A2 semantic separation under same carrier family",
+    "C3_C4": "test ST-A3 rejection of wrong constitution/proxy and ST-A5 non-promotion of nonconstituted content",
+    "C5": "tests ST-A4 semantic invariance plus provenance recoverability and provenance-sensitive admission",
+    "C6": "tests ST-A5 partial/conflict preservation and ST-A3 unresolved admission",
+    "C7": "tests role-preservation firewall against schema/field-shape crossing"
+  },
+  "result_output_requirements_for_later_execution": {
+    "must_include": [
+      "all 44 per-case protocol records",
+      "all frozen pair/triplet comparisons",
+      "ST-A1 through ST-A5 typed statuses",
+      "ROLE_PRESERVATION_FIREWALL status",
+      "named failure witnesses with case or pair identifiers",
+      "overall result status",
+      "strongest earned claim",
+      "authority ceiling"
+    ],
+    "forbidden": [
+      "scalar score",
+      "weighted average",
+      "majority vote",
+      "silent repair",
+      "upstream reinterpretation",
+      "new evidence-type rule",
+      "new transport adapter",
+      "boundary semantics",
+      "repair authorization",
+      "SSI-CALC kernel promotion"
+    ]
+  },
+  "non_rules": [
+    "SEMANTIC_MATCH != EVIDENCE_ADMISSION_MATCH",
+    "EVIDENCE_ADMISSION_MATCH != PROVENANCE_MATCH",
+    "CORRECT_SEMANTIC_EXTRACTION != LEGITIMATE_EVIDENCE_ADMISSION",
+    "CORRECT_REJECTION != SEMANTIC_FAILURE",
+    "UNVERIFIED_PROVENANCE != SEMANTIC_DIFFERENCE",
+    "EVIDENCE_TYPE_UNDER_ADMISSION != EVIDENCE_TYPE_LAUNDERING",
+    "UNCERTAINTY_PRESERVATION != TARGET_TYPE_ADMISSION",
+    "ROLE_PRESERVATION != UNIVERSAL_CHANNEL_EQUIVALENCE",
+    "SEMANTIC_TRANSPORT_SUPPORT != BOUNDARY_SEMANTICS",
+    "SEMANTIC_TRANSPORT_SUPPORT != REPAIR_AUTHORITY",
+    "SEMANTIC_TRANSPORT_SUPPORT != FORMAL_TRANSITION_CALCULUS",
+    "PR61_RESULT != RETROACTIVE_REINTERPRETATION_OF_PR59_OR_PR60"
+  ],
+  "authority_ceiling": {
+    "transition_semantic_transport": "NOT_YET_EVALUATED",
+    "universal_carrier_equivalence": "NOT_ESTABLISHED",
+    "arbitrary_real_world_semantic_transport": "NOT_ESTABLISHED",
+    "boundary_semantics": "NOT_OPENED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "BINDINGS": "FROZEN",
+    "SEMANTIC_ORACLE": "FROZEN",
+    "PROTOCOL": "FROZEN",
+    "EVALUATOR": "FROZEN",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}

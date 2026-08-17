@@ -1,0 +1,283 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_SEMANTIC_BINDING_V0.1/RESULT",
+  "status": "FIRST_FROZEN_SEMANTIC_BINDING_RESULT__POSITIVE_CONTROL_BLOCKED__SUITE_CLAIM_NOT_EARNED",
+  "run_type": "DETERMINISTIC_APPLICATION_OF_FROZEN_PROTOCOL_AND_EVALUATOR__NO_D2_EXECUTION",
+  "frozen_lineage": {
+    "spec_commit": "ad2073574b32c6a8ce248549a12f9539989f5b11",
+    "cases_commit": "71cb3636e77c1ae24ecdd6535c96c5ea4a69bb6a",
+    "bindings_commit": "a2976ad896af4805e0d8b05ec7026e360b2fbf4e",
+    "descriptive_oracle_commit": "28bc8088ad8002c9a4654ae1fa8bbc9c3dfd1609",
+    "protocol_commit": "4904e90db97b12dc8ac7f2839058e6790a978a3f",
+    "evaluator_commit": "2a9308ae77b3d389dd240be731ca521ec111c6b8"
+  },
+  "preflight": {
+    "upstream_artifacts_mutated_before_result": false,
+    "delta_sem_repaired_or_rewritten": false,
+    "hidden_world_truth_used_as_evaluator_input": false,
+    "case_class_used_as_semantic_input": false,
+    "D2_correctness_used_as_input": false,
+    "new_semantic_status_invented": false,
+    "witness_sufficiency_opened": false,
+    "preflight_status": "PASS"
+  },
+  "authorized_status_vocabulary_used": [
+    "SEMANTICS_PRESERVING",
+    "SEMANTICS_EXTENSION_REQUIRED",
+    "UNPROVEN",
+    "INVALID_SEMANTIC_LAUNDERING"
+  ],
+  "per_case_results": {
+    "SB-B1-A-TUPLE-WRITE-PRESENT": {
+      "comparison_record_ref": "DELTA_SEM/SB-B1-A-TUPLE-WRITE-PRESENT",
+      "semantic_binding_status": "SEMANTICS_PRESERVING",
+      "rule_path": [
+        "PRESERVATION_POSITIVE_CONDITIONS",
+        "DIRECT_P_WRITE_RELATION",
+        "REPRESENTATION_DIFFERENCE_ONLY"
+      ],
+      "predicate_relevant_supporting_dimensions": [
+        "relation=EXACT_MATCH",
+        "operation=EXACT_MATCH:WRITE",
+        "target=EXACT_MATCH:J3.admissibility.mode",
+        "temporal_scope=EXACT_MATCH:EPOCH_42",
+        "observation_status=EXACT_MATCH:OBSERVED",
+        "sigma=EXACT_MATCH:J3.admissibility.mode@EPOCH_42",
+        "provenance=DIRECT_SIGNED_EVENT_TRACE supports observed event claim",
+        "uncertainty=no predicate-relevant source uncertainty erased"
+      ],
+      "predicate_relevant_blocking_dimensions": [],
+      "preserved_uncertainties": [],
+      "detector_correctness": "NOT_EVALUATED"
+    },
+    "SB-B1-B-TUPLE-NO-WRITE": {
+      "comparison_record_ref": "DELTA_SEM/SB-B1-B-TUPLE-NO-WRITE",
+      "semantic_binding_status": "SEMANTICS_PRESERVING",
+      "rule_path": [
+        "PRESERVATION_POSITIVE_CONDITIONS",
+        "DIRECT_P_WRITE_ABSENCE_RELATION",
+        "REPRESENTATION_DIFFERENCE_ONLY"
+      ],
+      "predicate_relevant_supporting_dimensions": [
+        "relation=EXACT_MATCH",
+        "operation=EXACT_MATCH:NO_MATCHING_WRITE_IN_COMPLETE_SCOPE",
+        "target=EXACT_MATCH:J3.admissibility.mode",
+        "temporal_scope=EXACT_MATCH:EPOCH_42",
+        "completeness=event-scope complete on source and output",
+        "sigma=EXACT_MATCH:J3.admissibility.mode@EPOCH_42",
+        "provenance=DIRECT_SIGNED_EVENT_TRACE supports complete scoped absence"
+      ],
+      "predicate_relevant_blocking_dimensions": [],
+      "preserved_uncertainties": [],
+      "detector_correctness": "NOT_EVALUATED"
+    },
+    "SB-B2-A-STATE-CHANGE-WITH-WRITE-HISTORY": {
+      "comparison_record_ref": "DELTA_SEM/SB-B2-A-STATE-CHANGE-WITH-WRITE-HISTORY",
+      "semantic_binding_status": "SEMANTICS_EXTENSION_REQUIRED",
+      "rule_path": [
+        "PRESERVATION_NOT_ESTABLISHED",
+        "LAUNDERING_NOT_ESTABLISHED__SOURCE_IS_DIRECT_CURRENT_WORLD_RELATION_NOT_PROXY",
+        "SEMANTIC_EXTENSION_POSITIVE_CONDITIONS",
+        "DISTINCT_CURRENT_WORLD_SEMANTIC_RELATION"
+      ],
+      "predicate_relevant_supporting_dimensions": [
+        "source_relation=AUTHENTICATED_PRE_POST_STATE_CHANGE is directly constituted",
+        "source provenance=SIGNED_STATE_COMMITMENTS_NO_EVENT_TRACE",
+        "source relation remains independently meaningful without P_WRITE translation"
+      ],
+      "predicate_relevant_blocking_dimensions": [
+        "relation=VALUE_DIFFERENCE versus OBSERVED_TARGET_WRITE_EVENT",
+        "operation=SOURCE_UNKNOWN versus output WRITE",
+        "observation_status=SOURCE_UNKNOWN_FOR_WRITE_EVENT versus output OBSERVED",
+        "provenance does not constitute current WRITE-event observation",
+        "complete state-value observation != complete event history"
+      ],
+      "preserved_uncertainties": [
+        "event identity not constituted by source",
+        "actor not constituted by source",
+        "WRITE-event provenance not constituted by source"
+      ],
+      "hidden_world_write_truth": "EXCLUDED_FROM_EVALUATOR_INPUT",
+      "detector_correctness": "NOT_EVALUATED"
+    },
+    "SB-B2-B-STATE-CHANGE-WITHOUT-WRITE-HISTORY": {
+      "comparison_record_ref": "DELTA_SEM/SB-B2-B-STATE-CHANGE-WITHOUT-WRITE-HISTORY",
+      "semantic_binding_status": "SEMANTICS_EXTENSION_REQUIRED",
+      "rule_path": [
+        "PRESERVATION_NOT_ESTABLISHED",
+        "LAUNDERING_NOT_ESTABLISHED__SOURCE_IS_DIRECT_CURRENT_WORLD_RELATION_NOT_PROXY",
+        "SEMANTIC_EXTENSION_POSITIVE_CONDITIONS",
+        "DISTINCT_CURRENT_WORLD_SEMANTIC_RELATION"
+      ],
+      "predicate_relevant_supporting_dimensions": [
+        "source_relation=AUTHENTICATED_PRE_POST_STATE_CHANGE is directly constituted",
+        "source provenance=SIGNED_STATE_COMMITMENTS_NO_EVENT_TRACE",
+        "source relation remains independently meaningful without P_WRITE translation"
+      ],
+      "predicate_relevant_blocking_dimensions": [
+        "relation=VALUE_DIFFERENCE versus OBSERVED_TARGET_WRITE_EVENT",
+        "operation=SOURCE_UNKNOWN versus output WRITE",
+        "observation_status=SOURCE_UNKNOWN_FOR_WRITE_EVENT versus output OBSERVED",
+        "provenance does not constitute current WRITE-event observation",
+        "complete state-value observation != complete event history"
+      ],
+      "preserved_uncertainties": [
+        "event identity not constituted by source",
+        "actor not constituted by source",
+        "WRITE-event provenance not constituted by source"
+      ],
+      "hidden_world_write_truth": "EXCLUDED_FROM_EVALUATOR_INPUT",
+      "detector_correctness": "NOT_EVALUATED"
+    },
+    "SB-B3-A-PROXY-HIGH-COMMON-WRITE": {
+      "comparison_record_ref": "DELTA_SEM/SB-B3-A-PROXY-HIGH-COMMON-WRITE",
+      "semantic_binding_status": "INVALID_SEMANTIC_LAUNDERING",
+      "rule_path": [
+        "PRESERVATION_NOT_ESTABLISHED",
+        "INVALID_SEMANTIC_LAUNDERING_POSITIVE_CONDITIONS",
+        "PREDICTIVE_PROXY_RELATION_TO_ASSERTED_OBSERVED_P_WRITE"
+      ],
+      "predicate_relevant_supporting_dimensions": [
+        "source_relation=CURRENT_PROXY_HIGH_WITH_HISTORICAL_WRITE_ASSOCIATION",
+        "source provenance=PREDICTIVE_PROXY_PLUS_HISTORICAL_CALIBRATION_NO_CURRENT_EVENT_TRACE",
+        "output asserts WRITE/OBSERVED current-event semantics",
+        "bridge upgrades historical predictive association into current observed-event evidence without independent event provenance"
+      ],
+      "predicate_relevant_blocking_dimensions": [
+        "relation=VALUE_DIFFERENCE versus OBSERVED_TARGET_WRITE_EVENT",
+        "operation=SOURCE_UNKNOWN versus output WRITE",
+        "observation_status=SOURCE_UNKNOWN_FOR_CURRENT_WRITE_EVENT versus output OBSERVED",
+        "current direct event provenance absent from source"
+      ],
+      "preserved_uncertainties": [
+        "current-case WRITE occurrence not constituted by proxy",
+        "current event identity not constituted by proxy",
+        "actor not constituted by proxy"
+      ],
+      "calibration_accuracy_authority": "NONE_FOR_SEMANTIC_IDENTITY",
+      "hidden_world_write_truth": "EXCLUDED_FROM_EVALUATOR_INPUT",
+      "detector_correctness": "NOT_EVALUATED"
+    },
+    "SB-B3-B-PROXY-HIGH-RARE-NONWRITE": {
+      "comparison_record_ref": "DELTA_SEM/SB-B3-B-PROXY-HIGH-RARE-NONWRITE",
+      "semantic_binding_status": "INVALID_SEMANTIC_LAUNDERING",
+      "rule_path": [
+        "PRESERVATION_NOT_ESTABLISHED",
+        "INVALID_SEMANTIC_LAUNDERING_POSITIVE_CONDITIONS",
+        "PREDICTIVE_PROXY_RELATION_TO_ASSERTED_OBSERVED_P_WRITE"
+      ],
+      "predicate_relevant_supporting_dimensions": [
+        "source_relation=CURRENT_PROXY_HIGH_WITH_HISTORICAL_WRITE_ASSOCIATION",
+        "source provenance=PREDICTIVE_PROXY_PLUS_HISTORICAL_CALIBRATION_NO_CURRENT_EVENT_TRACE",
+        "output asserts WRITE/OBSERVED current-event semantics",
+        "bridge upgrades historical predictive association into current observed-event evidence without independent event provenance"
+      ],
+      "predicate_relevant_blocking_dimensions": [
+        "relation=VALUE_DIFFERENCE versus OBSERVED_TARGET_WRITE_EVENT",
+        "operation=SOURCE_UNKNOWN versus output WRITE",
+        "observation_status=SOURCE_UNKNOWN_FOR_CURRENT_WRITE_EVENT versus output OBSERVED",
+        "current direct event provenance absent from source"
+      ],
+      "preserved_uncertainties": [
+        "current-case WRITE occurrence not constituted by proxy",
+        "current event identity not constituted by proxy",
+        "actor not constituted by proxy"
+      ],
+      "calibration_accuracy_authority": "NONE_FOR_SEMANTIC_IDENTITY",
+      "hidden_world_write_truth": "EXCLUDED_FROM_EVALUATOR_INPUT",
+      "detector_correctness": "NOT_EVALUATED"
+    },
+    "SB-B4-A-PROVENANCE-BACKED-WRITE-PRESENT": {
+      "comparison_record_ref": "DELTA_SEM/SB-B4-A-PROVENANCE-BACKED-WRITE-PRESENT",
+      "semantic_binding_status": "UNPROVEN",
+      "rule_path": [
+        "PRESERVATION_BLOCKED_BY_FROZEN_EXACT_MATCH_GATE",
+        "LAUNDERING_NOT_ESTABLISHED__INDEPENDENT_EVENT_PROVENANCE_PRESENT",
+        "SEMANTIC_EXTENSION_NOT_ESTABLISHED__SOURCE_CONSTITUTES_P_WRITE_EVENT_SEMANTICS",
+        "RESIDUAL_UNPROVEN"
+      ],
+      "predicate_relevant_supporting_dimensions": [
+        "operation=EXACT_MATCH:WRITE",
+        "target=EXACT_MATCH:J3.admissibility.mode",
+        "temporal_scope=EXACT_MATCH:EPOCH_42",
+        "observation_status=EXACT_MATCH:OBSERVED",
+        "sigma=EXACT_MATCH:J3.admissibility.mode@EPOCH_42",
+        "source provenance independently constitutes observed target WRITE",
+        "evaluator relation-family rule marks INDEPENDENTLY_WITNESSED_OBSERVED_TARGET_WRITE_EVENT eligible for preservation"
+      ],
+      "predicate_relevant_blocking_dimensions": [
+        "relation=VALUE_DIFFERENCE because protocol canonicalizes source as INDEPENDENTLY_WITNESSED_OBSERVED_TARGET_WRITE_EVENT while output is OBSERVED_TARGET_WRITE_EVENT",
+        "frozen SEMANTICS_PRESERVING rule requires every P_WRITE-required dimension including relation to be EXACT_MATCH"
+      ],
+      "preserved_uncertainties": [],
+      "frozen_rule_tension": "Evaluator simultaneously marks the provenance-backed relation family eligible for preservation but its exact-match preservation gate cannot accept the protocol-preserved relation label difference.",
+      "detector_correctness": "NOT_EVALUATED"
+    },
+    "SB-B4-B-PROVENANCE-BACKED-NO-WRITE": {
+      "comparison_record_ref": "DELTA_SEM/SB-B4-B-PROVENANCE-BACKED-NO-WRITE",
+      "semantic_binding_status": "UNPROVEN",
+      "rule_path": [
+        "PRESERVATION_BLOCKED_BY_FROZEN_EXACT_MATCH_GATE",
+        "LAUNDERING_NOT_ESTABLISHED__INDEPENDENT_COMPLETE_SEGMENT_PROVENANCE_PRESENT",
+        "SEMANTIC_EXTENSION_NOT_ESTABLISHED__SOURCE_CONSTITUTES_P_WRITE_ABSENCE_SEMANTICS",
+        "RESIDUAL_UNPROVEN"
+      ],
+      "predicate_relevant_supporting_dimensions": [
+        "operation=EXACT_MATCH:NO_MATCHING_WRITE_IN_COMPLETE_SCOPE",
+        "target=EXACT_MATCH:J3.admissibility.mode",
+        "temporal_scope=EXACT_MATCH:EPOCH_42",
+        "completeness=complete event-scope coverage",
+        "sigma=EXACT_MATCH:J3.admissibility.mode@EPOCH_42",
+        "source provenance independently constitutes complete scoped zero-WRITE relation",
+        "evaluator relation-family rule marks INDEPENDENT_COMPLETE_SCOPE_ZERO_MATCHING_TARGET_WRITE_EVENTS eligible for preservation"
+      ],
+      "predicate_relevant_blocking_dimensions": [
+        "relation=VALUE_DIFFERENCE because protocol canonicalizes source as INDEPENDENT_COMPLETE_SCOPE_ZERO_MATCHING_TARGET_WRITE_EVENTS while output is COMPLETE_SCOPE_ZERO_MATCHING_TARGET_WRITE_EVENTS",
+        "frozen SEMANTICS_PRESERVING rule requires every P_WRITE-required dimension including relation to be EXACT_MATCH"
+      ],
+      "preserved_uncertainties": [],
+      "frozen_rule_tension": "Evaluator simultaneously marks the provenance-backed absence relation family eligible for preservation but its exact-match preservation gate cannot accept the protocol-preserved relation label difference.",
+      "detector_correctness": "NOT_EVALUATED"
+    }
+  },
+  "aggregate": {
+    "cases": 8,
+    "SEMANTICS_PRESERVING": 2,
+    "SEMANTICS_EXTENSION_REQUIRED": 2,
+    "INVALID_SEMANTIC_LAUNDERING": 2,
+    "UNPROVEN": 2,
+    "B1_representation_preserving_transport": "2/2 SEMANTICS_PRESERVING",
+    "B2_semantic_type_confusion": "2/2 SEMANTICS_EXTENSION_REQUIRED",
+    "B3_predictive_laundering": "2/2 INVALID_SEMANTIC_LAUNDERING",
+    "B4_justified_acceptance_positive_control": "0/2 SEMANTICS_PRESERVING; 2/2 UNPROVEN due frozen protocol/evaluator relation-label exact-match tension",
+    "universal_refusal": false,
+    "predictive_proxy_accepted_as_semantic_identity": false,
+    "state_change_collapsed_into_write_event_identity": false,
+    "hidden_world_truth_rescued_bridge": false,
+    "D2_correctness_rescued_bridge": false
+  },
+  "suite_claim": {
+    "SEMANTIC_BINDING_COMPATIBILITY_SUPPORTED_ON_FROZEN_SUITE": "NOT_EARNED",
+    "reason": "The frozen evaluator correctly separates B1, B2, and B3, but the B4 positive control cannot satisfy its own preservation exact-match gate because PROTOCOL preserves independent-provenance relation labels as distinct canonical values. The positive acceptance control is therefore UNPROVEN under the frozen rules.",
+    "strongest_supported_statement": "FROZEN_SUITE_SUPPORTS_REPRESENTATION_PRESERVATION__SEMANTIC_EXTENSION__AND_PREDICTIVE_LAUNDERING_SEPARATION__BUT_POSITIVE_PROVENANCE_BACKED_EQUIVALENCE_IS_BLOCKED_BY_A_PROTOCOL_EVALUATOR_REPRESENTATION_MISMATCH",
+    "semantic_binding_generalization": "OPEN",
+    "semantic_binding_compatibility_full_suite": "NOT_ESTABLISHED"
+  },
+  "failure_localization": {
+    "shallowest_locus": "REPRESENTATION_INTERFACE",
+    "diagnosis": "PROVENANCE_BACKED_P_WRITE_RELATION_EQUIVALENCE_NOT_REPRESENTABLE_UNDER_FROZEN_EXACT_MATCH_GATE",
+    "why_not_semantic_bridge_failure": "The frozen oracle states that B4 independently constitutes the target event/absence relation; the blockage arises because protocol canonicalization retains provenance-backed relation labels while evaluator preservation demands exact relation-label equality.",
+    "why_not_detector_failure": "D2 is outside this experiment and was never executed.",
+    "repair_permitted_in_v0_1": false,
+    "required_next_action_if_repaired_later": "Create a separately versioned semantic-binding object that explicitly defines predicate-relative relation-family equivalence or canonicalizes provenance as provenance rather than relation identity, then regress all B1-B4 cases. Preserve this first negative result unchanged."
+  },
+  "authority_ceiling": {
+    "SEMANTIC_BINDING_COMPATIBILITY": "PARTIAL_TYPED_SUPPORT__FULL_FROZEN_SUITE_CLAIM_NOT_EARNED",
+    "SEMANTIC_BINDING_GENERALIZATION": "OPEN",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "SSI_CALC_KERNEL_DELTA": 0
+  },
+  "governing_observation": "The first frozen result distinguishes representation transport, genuine semantic extension, and predictive semantic laundering, but also reveals that predicate-relative equivalence itself needs a representation that does not confuse provenance-bearing relation labels with predicate relation identity."
+}

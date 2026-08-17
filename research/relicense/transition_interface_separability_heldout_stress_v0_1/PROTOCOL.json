@@ -1,0 +1,297 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_HELDOUT_STRESS_V0.1",
+  "stage": "PROTOCOL",
+  "status": "PROTOCOL_FROZEN__NO_EVALUATOR_NO_RESULT",
+  "frozen_dependencies": {
+    "SPEC": "19e60eb255f754925f7d7ece0d60c25285266dde",
+    "CASES": "690b760cf739bc8d6e2ddb1807d3e14d84c84863",
+    "STRESS_ORACLE": "e252222b0526e28f7ae11732da7bcea1a4151875",
+    "INHERITED_BINDING": "4199cb0c9fd7607ee15fabdcca63f7ea05e9c356"
+  },
+  "scientific_scope": "DESCRIPTIVE_CONTRACT_AND_COMPARISON_PROTOCOL_ONLY",
+  "purpose": "DEFINE_WHAT_THE_INHERITED_FROZEN_CANDIDATE_MAY_LEGITIMATELY_CONSUME_AND_COMPARE_ON_EACH_HELDOUT_STRESS_FAMILY_WITHOUT_ASSIGNING_AXIS_SUPPORT_FAILURE_OR_NOT_EVALUABLE_VERDICTS",
+  "dependency_firewall": {
+    "stress_oracle_semantics_may_not_be_redefined": true,
+    "inherited_binding_may_not_be_modified_or_extended": true,
+    "stress_cases_may_not_be_reformatted_to_CREATE_candidate_evaluability": true,
+    "novel_channel_visible_may_not_be_translated_into_bridge_visible": true,
+    "candidate_outputs_may_not_define_oracle_semantics": true,
+    "evaluator_verdicts_available_to_protocol": false,
+    "result_available_to_protocol": false
+  },
+  "core_noncollapse": [
+    "CANDIDATE_EXECUTABLE_ON_LEGACY_SNAPSHOT != TARGET_SEMANTICS_COMPARABLE_UNDER_FROZEN_INPUT_CONTRACT",
+    "SEMANTIC_INFORMATION_AVAILABLE != ADMISSIBLE_CANDIDATE_EVIDENCE",
+    "ADMISSIBLE_CANDIDATE_EVIDENCE != COMPLETE_SEMANTIC_IDENTITY",
+    "OUT_OF_CONTRACT_SEMANTIC_CARRIER != COORDINATE_NONSEPARABILITY",
+    "PARTIAL_OR_CONFLICTED_IDENTITY != NO_CHANGE",
+    "CONFLICT_PRESERVED != CONFLICT_RESOLVED"
+  ],
+  "frozen_input_contract": {
+    "accepted_snapshot_surfaces": [
+      "bridge_visible",
+      "before_bridge_visible",
+      "after_bridge_visible"
+    ],
+    "consumed_fields": [
+      "S",
+      "L_probe_surface",
+      "V_basis",
+      "Lambda_basis",
+      "coverage"
+    ],
+    "explicitly_outside_contract": [
+      "novel_channel_visible",
+      "construction_only",
+      "stress_axis_label",
+      "oracle identities",
+      "expected status",
+      "evaluator class",
+      "result"
+    ],
+    "rule": "NO_SOURCE_OUTSIDE_THE_FROZEN_INPUT_CONTRACT_MAY_BE_SEMANTICALLY_TRANSLATED_INTO_AN_ACCEPTED_SNAPSHOT_FOR_THIS_V0_1_STRESS_OBJECT"
+  },
+  "descriptive_contract_relations": [
+    "IN_CONTRACT_COMPLETE_SEMANTIC_COMPARISON",
+    "IN_CONTRACT_PARTIAL_OR_UNRESOLVED_COMPARISON",
+    "IN_CONTRACT_CONFLICT_PRESERVATION_COMPARISON",
+    "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+  ],
+  "candidate_execution": {
+    "rule": "APPLY_PHIK_FACTORED_SEMANTIC_BINDING_V0_1_ONLY_TO_ACCEPTED_FROZEN_SNAPSHOT_SURFACES",
+    "outputs": ["q_S", "q_L", "q_V", "q_LAMBDA"],
+    "forbidden_runtime_inputs": [
+      "novel_channel_visible",
+      "construction_only",
+      "case_id_as_semantic_feature",
+      "control_id_as_semantic_feature",
+      "stress_axis_label",
+      "stress_oracle_identity",
+      "stress_oracle_supported_candidate_set",
+      "evaluator",
+      "result"
+    ]
+  },
+  "normalization": {
+    "principle": "NORMALIZE_REPRESENTATION_ORDER_ONLY__PRESERVE_SEMANTIC_CONTENT_COVERAGE_AND_CONFLICT_STRUCTURE",
+    "map_keys": "SORT_LEXICOGRAPHICALLY",
+    "set_like_string_lists": "SORT_LEXICOGRAPHICALLY",
+    "probe_keys": "ORDER_NUMERICALLY",
+    "null": "PRESERVE",
+    "unavailable_partial_unresolved": "PRESERVE",
+    "conflict_structures": "PRESERVE_WITHOUT_ADJUDICATION",
+    "coverage": "PRESERVE"
+  },
+  "coordinate_decoders": {
+    "S": {
+      "candidate_source": "q_S.semantic_state + q_S.evidence_status",
+      "complete_identity_condition": "evidence_status == COMPLETE AND no state component is UNAVAILABLE or UNRESOLVED",
+      "complete_payload": "canonical tuple (load,buffer,mode)",
+      "incomplete_identity": "UNRESOLVED_STATE_IDENTITY",
+      "conflict_identity": "UNRESOLVED_STATE_CONFLICT if a preserved state conflict is present",
+      "comparison_relations": ["EQUIVALENT", "NON_EQUIVALENT", "UNRESOLVED_DUE_TO_COVERAGE", "UNRESOLVED_DUE_TO_CONFLICT"]
+    },
+    "L": {
+      "candidate_source": "q_L.observed_response_surface + q_L.probe_coverage + q_L.evidence_status",
+      "complete_identity_condition": "probe_coverage == COMPLETE_-1_0_1 AND evidence_status == COUNTERFACTUAL_RESPONSE_SURFACE_AVAILABLE",
+      "complete_payload": "canonical response relation over {-1,0,+1}",
+      "incomplete_identity": "UNRESOLVED_LAW_IDENTITY",
+      "conflict_identity": "UNRESOLVED_LAW_CONFLICT if a preserved law conflict is present",
+      "comparison_relations": ["EQUIVALENT", "NON_EQUIVALENT", "UNRESOLVED_DUE_TO_COVERAGE", "UNRESOLVED_DUE_TO_CONFLICT"],
+      "non_rule": "CURRENT_OUTPUT_OR_PARTIAL_PROBE_SURFACE_DOES_NOT_DEFINE_COMPLETE_LAW_IDENTITY"
+    },
+    "V": {
+      "candidate_source": "q_V.context + q_V.envelope + q_V.basis_coverage + q_V.evidence_status",
+      "complete_identity_condition": "basis_coverage == COMPLETE AND evidence_status == COMPLETE AND envelope != null AND no preserved context conflict is present",
+      "complete_payload": "canonical pair (validity_context, applicability_envelope)",
+      "incomplete_identity": "UNRESOLVED_VALIDITY_IDENTITY",
+      "conflict_identity": "UNRESOLVED_VALIDITY_CONFLICT when the frozen projection preserves incompatible observations",
+      "comparison_relations": ["EQUIVALENT", "NON_EQUIVALENT", "UNRESOLVED_DUE_TO_COVERAGE", "UNRESOLVED_DUE_TO_CONFLICT"],
+      "non_rules": [
+        "MISSING_VALIDITY_BASIS != INAPPLICABLE",
+        "CONFLICTING_VALIDITY_OBSERVATIONS != SINGLE_VALIDITY_VALUE"
+      ]
+    },
+    "Lambda": {
+      "candidate_source": "q_LAMBDA.context + q_LAMBDA.envelope + q_LAMBDA.basis_coverage + q_LAMBDA.evidence_status",
+      "complete_identity_condition": "basis_coverage == COMPLETE AND evidence_status == COMPLETE AND envelope != null AND no preserved envelope conflict is present",
+      "complete_payload": "canonical pair (authority_context, allowed_effect_envelope)",
+      "incomplete_identity": "UNRESOLVED_AUTHORITY_IDENTITY",
+      "conflict_identity": "UNRESOLVED_AUTHORITY_CONFLICT when the frozen projection preserves incompatible authority envelopes",
+      "comparison_relations": ["EQUIVALENT", "NON_EQUIVALENT", "UNRESOLVED_DUE_TO_COVERAGE", "UNRESOLVED_DUE_TO_CONFLICT"],
+      "non_rules": [
+        "MISSING_AUTHORITY_BASIS != UNAUTHORIZED",
+        "PARTIAL_OBSERVED_EMPTY_ALLOWED_SET != COMPLETE_EMPTY_AUTHORITY_ENVELOPE",
+        "CONFLICTING_AUTHORITY_ENVELOPES != SINGLE_AUTHORITY_ENVELOPE"
+      ]
+    }
+  },
+  "G1_G4_NOVEL_COMPLETE_CUBE_PROTOCOL": {
+    "contract_relation": "IN_CONTRACT_COMPLETE_SEMANTIC_COMPARISON",
+    "domain": "16 novel_complete_cube worlds",
+    "world_coordinate_comparison": "compare each decoded q_i to the independently frozen stress-oracle coordinate semantics",
+    "pair_domain": "all 120 unordered pairs of the 16 held-out complete worlds",
+    "oracle_delta_vector": "Delta_K[i] = 1 iff stress-oracle coordinate identity i differs",
+    "candidate_delta_vector": "Delta_q[i] = 1 iff canonical frozen candidate projection i differs",
+    "descriptive_pair_output": "oracle_delta_vector + candidate_delta_vector + SAME_DELTA_BIT|DIFFERENT_DELTA_BIT per coordinate",
+    "pure_edge_subset": "32 pairs with oracle Hamming weight 1",
+    "multi_coordinate_subset": "88 pairs with oracle Hamming weight > 1",
+    "recoverability_output": "per-world [relation_S,relation_L,relation_V,relation_Lambda]",
+    "forbidden_judgments": ["SUPPORTED", "NOT_SUPPORTED", "UNDER_RESOLUTION", "COORDINATE_CONTAMINATION", "GENERALIZES"]
+  },
+  "G2_CHANNEL_TRANSPORT_PROTOCOL": {
+    "scientific_question_at_protocol_layer": "DOES_THE_SEMANTIC_CARRIER_FOR_THE_STRESSED_ROLE_INTERSECT_THE_FROZEN_CANDIDATE_INPUT_CONTRACT_IN_A_WAY_THAT_PERMITS_DIRECT_SEMANTIC_COMPARISON",
+    "target_role_rule": {
+      "if complete oracle semantics for the stressed role are carried on an accepted frozen snapshot surface": "IN_CONTRACT_COMPLETE_SEMANTIC_COMPARISON",
+      "if oracle semantics are only partial on accepted surfaces": "IN_CONTRACT_PARTIAL_OR_UNRESOLVED_COMPARISON",
+      "if complete oracle semantics for the stressed role are carried on novel_channel_visible while accepted legacy surfaces are unavailable or incomplete": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+    },
+    "case_contract_records": [
+      {
+        "case_id": "g2_state_signed_snapshot",
+        "target_role": "S",
+        "legacy_candidate_surface": "bridge_visible.S + coverage.S",
+        "legacy_surface_status": "UNAVAILABLE",
+        "complete_semantic_carrier": "novel_channel_visible.SIGNED_STATE_SNAPSHOT_V2",
+        "carrier_in_frozen_input_contract": false,
+        "descriptive_contract_relation": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+      },
+      {
+        "case_id": "g2_law_event_stream",
+        "target_role": "L",
+        "legacy_candidate_surface": "bridge_visible.L_probe_surface + coverage.L",
+        "legacy_surface_status": "CURRENT_ONLY_PARTIAL",
+        "complete_semantic_carrier": "novel_channel_visible.SIGNED_COUNTERFACTUAL_EVENT_BUNDLE_V2",
+        "carrier_in_frozen_input_contract": false,
+        "descriptive_contract_relation": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+      },
+      {
+        "case_id": "g2_validity_attestation",
+        "target_role": "V",
+        "legacy_candidate_surface": "bridge_visible.V_basis + coverage.V",
+        "legacy_surface_status": "UNAVAILABLE_ENVELOPE",
+        "complete_semantic_carrier": "novel_channel_visible.APPLICABILITY_ATTESTATION_V2",
+        "carrier_in_frozen_input_contract": false,
+        "descriptive_contract_relation": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+      },
+      {
+        "case_id": "g2_authority_receipt",
+        "target_role": "Lambda",
+        "legacy_candidate_surface": "bridge_visible.Lambda_basis + coverage.Lambda",
+        "legacy_surface_status": "UNAVAILABLE_ENVELOPE",
+        "complete_semantic_carrier": "novel_channel_visible.AUTHORITY_RECEIPT_BUNDLE_V2",
+        "carrier_in_frozen_input_contract": false,
+        "descriptive_contract_relation": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+      }
+    ],
+    "comparison_rule_for_out_of_contract_target": "DO_NOT_COMPARE_THE_TARGET_ROLE_CANDIDATE_PROJECTION_TO_NOVEL_CHANNEL_ORACLE_SEMANTICS_BECAUSE_SUCH_A_COMPARISON_WOULD_REQUIRE_AN_UNFROZEN_SEMANTIC_TRANSLATION",
+    "non_target_coordinates": "may be descriptively compared where their oracle semantics are carried on accepted frozen snapshot surfaces",
+    "forbidden_outputs": ["SUPPORTED", "NOT_SUPPORTED", "NOT_EVALUABLE_UNDER_FROZEN_BINDING", "FAIL", "PASS"]
+  },
+  "G3_COVERAGE_TRANSPORT_PROTOCOL": {
+    "contract_relation": "IN_CONTRACT_PARTIAL_OR_UNRESOLVED_COMPARISON",
+    "domain": "4 frozen coverage_degradation_controls",
+    "before_after_projection_delta": "for each coordinate record whether canonical q_i(before) differs from canonical q_i(after)",
+    "after_identity_status": "record RESOLVED or UNRESOLVED_DUE_TO_COVERAGE under the frozen coordinate decoder",
+    "candidate_set": "union(candidate_changed_projection_coordinates,candidate_unresolved_identity_coordinates)",
+    "oracle_set": "STRESS_ORACLE.coverage_degradation_semantics[].oracle_supported_candidate_coordinates",
+    "set_relation": ["EQUAL", "PROPER_SUBSET", "PROPER_SUPERSET", "PARTIAL_OVERLAP", "DISJOINT"],
+    "oracle_sets": {
+      "g3_u_s_l": ["S", "L"],
+      "g3_u_l_v_lambda": ["L", "V", "Lambda"],
+      "g3_u_s_v": ["S", "V"],
+      "g3_u_lambda_only": ["Lambda"]
+    },
+    "non_rules": [
+      "UNRESOLVED_IDENTITY != NO_CHANGE",
+      "SINGLE_ROLE_CANDIDATE_SET != RESOLVED_COORDINATE_IDENTITY",
+      "PARTIAL_EMPTY_OBSERVATION != COMPLETE_EMPTY_AUTHORITY_ENVELOPE"
+    ],
+    "forbidden_outputs": ["SUPPORTED", "NOT_SUPPORTED", "PASS", "FAIL", "CORRECT_LOCALIZATION", "FALSE_LOCALIZATION"]
+  },
+  "G5_CONFLICT_TRANSPORT_PROTOCOL": {
+    "contract_relation": "IN_CONTRACT_CONFLICT_PRESERVATION_COMPARISON",
+    "domain": "3 frozen conflicting_channel_controls",
+    "candidate_conflict_rule": "a coordinate conflict is descriptively preserved iff the frozen candidate projection retains the incompatible observations or envelopes plus unresolved/conflicting coverage without selecting one incompatible branch as the unique semantic identity",
+    "candidate_definite_change_rule": "a complete non-conflicted coordinate may simultaneously be recorded as definitely changed under ordinary projection delta comparison",
+    "descriptive_outputs": {
+      "definite_changed_projection_coordinates": "SET",
+      "candidate_conflicted_coordinates": "SET",
+      "candidate_unresolved_coordinates": "SET",
+      "oracle_definite_coordinate_changes": "SET",
+      "oracle_conflicted_coordinates": "SET",
+      "definite_change_set_relation": "EQUAL|PROPER_SUBSET|PROPER_SUPERSET|PARTIAL_OVERLAP|DISJOINT",
+      "conflict_set_relation": "EQUAL|PROPER_SUBSET|PROPER_SUPERSET|PARTIAL_OVERLAP|DISJOINT"
+    },
+    "oracle_reference": {
+      "g5_validity_sensor_conflict": {"definite": [], "conflicted": ["V"]},
+      "g5_authority_envelope_conflict": {"definite": [], "conflicted": ["Lambda"]},
+      "g5_law_validity_competing_pressure": {"definite": ["L"], "conflicted": ["V"]}
+    },
+    "non_rules": [
+      "CONFLICT_SET_MATCH != TRUTH_ADJUDICATION",
+      "CONFLICT_PRESERVATION != BOUNDARY_RESPONSE",
+      "DEFINITE_CHANGE_ON_ONE_COORDINATE != RESOLUTION_OF_AN_ORTHOGONAL_CONFLICT"
+    ],
+    "forbidden_outputs": ["SUPPORTED", "NOT_SUPPORTED", "PASS", "FAIL", "TRUE_CHANNEL", "FALSE_CHANNEL", "BOUNDARY_ACTION"]
+  },
+  "G4_ADDITIONAL_FAILURE_STRUCTURE_PROTOCOL": {
+    "note": "G4 draws descriptive evidence from both the novel complete cube and g5_law_validity_competing_pressure because CASES froze both as G4-bearing constructions",
+    "novel_cube_component": "use G1_G4_NOVEL_COMPLETE_CUBE_PROTOCOL",
+    "mixed_component": "record whether complete novel L change remains separately represented while V remains a preserved unresolved conflict",
+    "forbidden_interpretation": "DO_NOT_TREAT_G4_AXIS_OVERLAP_AS_AN_ADDITIONAL_TRANSITION_COORDINATE"
+  },
+  "axis_evidence_bundles_for_later_evaluator": {
+    "G1_WORLD_NOVELTY": ["novel cube world-coordinate relations", "novel cube pairwise delta records", "novel cube recoverability vectors"],
+    "G2_OBSERVATION_CHANNEL_NOVELTY": ["four target-role descriptive contract relations", "non-target ordinary comparisons where applicable"],
+    "G3_COVERAGE_DEGRADATION": ["four uncertainty-set relations", "after-coordinate identity-status records"],
+    "G4_FAILURE_STRUCTURE_NOVELTY": ["novel cube comparison products", "mixed L-change plus V-conflict descriptive record"],
+    "G5_COORDINATE_CONTRADICTION_OR_CONFLICTING_CHANNELS": ["three conflict-set relations", "three definite-change-set relations"]
+  },
+  "protocol_output_schema": {
+    "contract_relation_records": "DESCRIPTIVE_ONLY",
+    "world_coordinate_relations": "DESCRIPTIVE_ONLY",
+    "pairwise_delta_records": "DESCRIPTIVE_ONLY",
+    "recoverability_vectors": "DESCRIPTIVE_ONLY",
+    "coverage_uncertainty_set_relations": "DESCRIPTIVE_ONLY",
+    "conflict_preservation_relations": "DESCRIPTIVE_ONLY",
+    "aggregate_score": "NOT_PRODUCED",
+    "axis_support_status": "NOT_PRODUCED",
+    "binding_evaluability_verdict": "NOT_PRODUCED",
+    "scientific_result": "NOT_PRODUCED"
+  },
+  "forbidden_protocol_judgments": [
+    "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "NOT_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "NOT_EVALUABLE_UNDER_FROZEN_BINDING",
+    "FOUR_COORDINATE_SEPARABILITY_GENERALIZATION_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_SUITE",
+    "UNDER_RESOLUTION",
+    "COORDINATE_CONTAMINATION",
+    "PASS",
+    "FAIL",
+    "BOUNDARY_SEMANTICS",
+    "BOUNDARY_RESPONSE",
+    "REPAIR_ACTION",
+    "AUTHORITY_PROMOTION"
+  ],
+  "authority_ceiling": {
+    "four_coordinate_separability_generalization": "NOT_YET_EVALUATED",
+    "four_coordinate_completeness": "NOT_ESTABLISHED",
+    "arbitrary_real_world_generalization": "NOT_ESTABLISHED",
+    "boundary_semantics": "NOT_OPENED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "repair_composability": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "STRESS_ORACLE": "FROZEN",
+    "PROTOCOL": "FROZEN",
+    "EVALUATOR": "NOT_CONSTITUTED",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}

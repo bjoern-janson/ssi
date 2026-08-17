@@ -1,0 +1,208 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_DETECTION_STRESS_V0.1/RESULT",
+  "status": "FIRST_HELDOUT_STRESS_RESULT__MIXED_TYPED_VECTOR__NO_FULL_ROBUSTNESS_CLAIM",
+  "execution_commit": "e0ffbceb31914bc5ddc8a7ad04ce645e79a287bd",
+  "evaluator_commit": "61470f69610319b32e1d26f860db623561941f8e",
+  "provenance_status": "PASS",
+  "execution_reproducibility_status": "PASS",
+  "D0_control_status": "PASS__BYTE_IDENTICAL_ACROSS_11_WORLDS",
+  "D1_control_status": "PASS__BYTE_IDENTICAL_ACROSS_11_WORLDS",
+  "representation_gate": {
+    "status": "PASS_ON_FROZEN_11_WORLD_SUITE",
+    "representable_worlds": 11,
+    "representation_failures": 0
+  },
+  "per_world_results": {
+    "HD-G1-A-WINDOW-SEPARATED": {
+      "diagnosis": "DETECTION_SUPPORTED",
+      "oracle_relation": "AVAILABLE_GE_REQUIRED",
+      "actual_D2_state": "INTERACTION_ABSENT",
+      "actual_D2_fact": "COMPOSED_PRECONDITION_SATISFIED",
+      "match": true
+    },
+    "HD-G1-B-WINDOW-OVERLAP": {
+      "diagnosis": "DETECTION_SUPPORTED",
+      "oracle_relation": "AVAILABLE_LT_REQUIRED",
+      "actual_D2_state": "INTERACTION_PRESENT",
+      "actual_D2_fact": "COMPOSED_PRECONDITION_VIOLATION",
+      "match": true
+    },
+    "HD-G2-A-COMMITMENT-STABLE": {
+      "diagnosis": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS",
+      "binding_compatibility": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS",
+      "D2_invoked": false,
+      "detection_correctness": "NOT_SCORED"
+    },
+    "HD-G2-B-COMMITMENT-CHANGED": {
+      "diagnosis": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS",
+      "binding_compatibility": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS",
+      "D2_invoked": false,
+      "detection_correctness": "NOT_SCORED"
+    },
+    "HD-G3-A-COMPLETE": {
+      "diagnosis": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS",
+      "coverage": "COMPLETE",
+      "D2_invoked": false,
+      "detection_correctness": "NOT_SCORED"
+    },
+    "HD-G3-B-PRE-ONLY": {
+      "diagnosis": "COVERAGE_LIMIT",
+      "typed_outcome": "CORRECT_COVERAGE_LIMIT",
+      "severity": 0,
+      "D2_invoked": false,
+      "harness_state": "COVERAGE_LIMIT"
+    },
+    "HD-G3-C-UNOBSERVED": {
+      "diagnosis": "COVERAGE_LIMIT",
+      "typed_outcome": "CORRECT_COVERAGE_LIMIT",
+      "severity": 0,
+      "D2_invoked": false,
+      "harness_state": "COVERAGE_LIMIT"
+    },
+    "HD-G4-A-ROLLBACK-CAPACITY-TWO": {
+      "diagnosis": "DETECTION_SUPPORTED",
+      "oracle_relation": "AVAILABLE_GE_REQUIRED",
+      "actual_D2_state": "INTERACTION_ABSENT",
+      "actual_D2_fact": "COMPOSED_PRECONDITION_SATISFIED",
+      "match": true
+    },
+    "HD-G4-B-ROLLBACK-CAPACITY-ONE": {
+      "diagnosis": "DETECTION_SUPPORTED",
+      "oracle_relation": "AVAILABLE_LT_REQUIRED",
+      "actual_D2_state": "INTERACTION_PRESENT",
+      "actual_D2_fact": "COMPOSED_PRECONDITION_VIOLATION",
+      "match": true
+    },
+    "HD-G5-A-ALPHA-DISJOINT-BETA-ALIASED": {
+      "diagnosis": "DETECTION_CONFLICT",
+      "typed_outcome": "CORRECT_DETECTION_CONFLICT",
+      "severity": 0,
+      "observer_alpha_report_preserved": true,
+      "observer_beta_report_preserved": true,
+      "harness_state": "DETECTION_CONFLICT",
+      "observer_priority": "NONE",
+      "reconciliation": "NOT_PERFORMED",
+      "physical_truth_adjudicated": false
+    },
+    "HD-G5-B-ALPHA-ALIASED-BETA-DISJOINT": {
+      "diagnosis": "DETECTION_CONFLICT",
+      "typed_outcome": "CORRECT_DETECTION_CONFLICT",
+      "severity": 0,
+      "observer_alpha_report_preserved": true,
+      "observer_beta_report_preserved": true,
+      "harness_state": "DETECTION_CONFLICT",
+      "observer_priority": "NONE",
+      "reconciliation": "NOT_PERFORMED",
+      "physical_truth_adjudicated": false
+    }
+  },
+  "per_axis_results": {
+    "G1_WORLD_NOVELTY": {
+      "axis_result": "DETECTION_SUPPORTED",
+      "cases_correct": "2/2",
+      "interpretation": "world-novelty detection supported under frozen semantics-preserving composed-resource binding"
+    },
+    "G2_CHANNEL_NOVELTY": {
+      "axis_result": "SEMANTIC_BINDING_BOUNDARY_PRESERVED",
+      "detection_generalization": "NOT_EVALUABLE_UNDER_FROZEN_D2",
+      "cases_preserving_unbound_status": "2/2",
+      "interpretation": "new signed state-commitment surface is informative but not semantically bindable to frozen D2 without changing detector semantics"
+    },
+    "G3_COVERAGE_DEGRADATION": {
+      "coverage_handling": "SUPPORTED",
+      "coverage_cases_correct": "2/2",
+      "complete_semantic_detection": "NOT_EVALUABLE_UNDER_FROZEN_D2__SEMANTIC_BINDING_BOUNDARY",
+      "interpretation": "coverage semantics generalized while complete interaction semantics remained unbound"
+    },
+    "G4_FAILURE_STRUCTURE_NOVELTY": {
+      "axis_result": "DETECTION_SUPPORTED",
+      "cases_correct": "2/2",
+      "interpretation": "failure-structure novelty supported under frozen semantics-preserving composed-resource binding"
+    },
+    "G5_INDEPENDENT_CHANNEL_CONTRADICTION": {
+      "axis_result": "SUPPORTED_AS_CONFLICT_PRESERVATION",
+      "conflict_cases_correct": "2/2",
+      "channel_report_preservation": "4/4",
+      "physical_truth_adjudication": "NOT_CONSTITUTED_AND_NOT_ATTEMPTED",
+      "interpretation": "independent disagreement preserved without observer priority or reconciliation"
+    }
+  },
+  "typed_error_counts_by_class": {
+    "FALSE_POSITIVE_CONFIDENT_DETECTION": 0,
+    "FALSE_NEGATIVE_CONFIDENT_DETECTION": 0,
+    "FABRICATED_ABSENCE_FROM_PARTIAL_OR_MISSING_COVERAGE": 0,
+    "FABRICATED_RESOLUTION_UNDER_CHANNEL_CONFLICT": 0,
+    "PAIR_LEAKAGE": 0,
+    "REPRESENTATION_FAILURE": 0,
+    "EXECUTION_PROVENANCE_DEFECT": 0,
+    "EXECUTION_PROTOCOL_OR_IMPLEMENTATION_DEFECT": 0
+  },
+  "typed_outcome_counts_by_class": {
+    "CORRECT_UNKNOWN": 0,
+    "CORRECT_COVERAGE_LIMIT": 2,
+    "CORRECT_DETECTION_CONFLICT": 2,
+    "DETECTION_SUPPORTED_BOUND_BINARY_CASES": 4,
+    "UNBOUND_SEMANTIC_CASES_NOT_SCORED": 3
+  },
+  "severity_annotations_by_error_class": {
+    "FALSE_POSITIVE_CONFIDENT_DETECTION": 5,
+    "FALSE_NEGATIVE_CONFIDENT_DETECTION": 4,
+    "FABRICATED_ABSENCE_FROM_PARTIAL_OR_MISSING_COVERAGE": 6,
+    "FABRICATED_RESOLUTION_UNDER_CHANNEL_CONFLICT": 6,
+    "aggregation": "NO_COMPENSATORY_SCALAR"
+  },
+  "binding_boundaries": {
+    "G2": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS__2_OF_2",
+    "G3_COMPLETE": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS__1_OF_1",
+    "channel_fragility": "NOT_ESTABLISHED__NO_SEMANTICS_PRESERVING_ALTERNATIVE_BINDING_EXISTED_FOR_G2",
+    "detection_blindness_on_G2_G3_complete": "NOT_ESTABLISHED__DETECTION_NOT_SCORED"
+  },
+  "coverage_preservation_status": "SUPPORTED__2_OF_2_DEGRADED_COVERAGE_CASES_PRESERVED_COVERAGE_LIMIT",
+  "conflict_preservation_status": "SUPPORTED__2_OF_2_CONFLICT_CASES_PRESERVED_DETECTION_CONFLICT",
+  "full_robustness_claim_available": false,
+  "full_robustness_claim_blocker": "G2_AND_G3_COMPLETE_REQUIRE_NEW_DETECTOR_SEMANTICS_FOR_STATE_COMMITMENT_CHANNEL",
+  "bounded_interpretation": {
+    "world_novelty_detection": "SUPPORTED_ON_FROZEN_HELDOUT_G1",
+    "failure_novelty_detection": "SUPPORTED_ON_FROZEN_HELDOUT_G4",
+    "coverage_robustness": "SUPPORTED_ON_FROZEN_HELDOUT_G3_DEGRADED_COVERAGE_CASES",
+    "contradictory_channel_handling": "SUPPORTED_AS_CONFLICT_PRESERVATION_ON_FROZEN_HELDOUT_G5",
+    "channel_novelty_detection": "NOT_EVALUABLE_UNDER_FROZEN_D2__SEMANTIC_BINDING_BOUNDARY",
+    "detection_localization": "SUPPORTED_ON_FROZEN_HELDOUT_SUITE_AT_TYPED_DIAGNOSTIC_LEVEL",
+    "overall": "PARTIAL_HELDOUT_SUPPORT_WITH_EXPLICIT_SEMANTIC_BINDING_BOUNDARY"
+  },
+  "strongest_claim": "BOUND_AXES_AND_UNCERTAINTY_CONFLICT_PRESERVATION_SUPPORTED_ON_FROZEN_HELDOUT_SUITE__FULL_DETECTION_ROBUSTNESS_NOT_ESTABLISHED",
+  "not_established": [
+    "full five-axis independent detection robustness",
+    "channel-novelty detection generalization under G2",
+    "complete semantic detection under G3 state-commitment channel",
+    "channel fragility",
+    "detection completeness",
+    "interaction ontology completeness",
+    "causal independence in general",
+    "real-world empirical observability",
+    "witness sufficiency",
+    "PRESERVED sufficiency",
+    "REVOKED sufficiency",
+    "W_int sufficiency",
+    "W_comp",
+    "composition rule",
+    "formal soundness"
+  ],
+  "authority_ceiling": {
+    "REPRESENTATION": "SUPPORTED_ON_FROZEN_CONSTRUCTED_AND_HELDOUT_DESCRIPTIVE_SUITE",
+    "IDENTIFIABILITY": "SUPPORTED_ON_PRIOR_FROZEN_CONSTRUCTED_SUITE",
+    "INDEPENDENT_DETECTION": "SUPPORTED_ON_PRIOR_FROZEN_CONSTRUCTED_SUITE",
+    "DETECTION_GENERALIZATION": "PARTIAL_TYPED_SUPPORT__FULL_SUITE_NOT_ESTABLISHED",
+    "DETECTION_LOCALIZATION": "SUPPORTED_ON_FROZEN_HELDOUT_SUITE_AT_TYPED_DIAGNOSTIC_LEVEL",
+    "CONTRADICTORY_CHANNEL_HANDLING": "SUPPORTED_AS_CONFLICT_PRESERVATION_ON_FROZEN_HELDOUT_G5",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "FORMAL_SOUNDNESS": "UNESTABLISHED",
+    "EMPIRICAL_REAL_WORLD_DETECTION": "NOT_CLAIMED",
+    "SSI_CALC_KERNEL_DELTA": 0,
+    "JEPA": "PARKED",
+    "BEHAVIORAL_EXPERIMENT_AUTHORITY": "NONE"
+  }
+}

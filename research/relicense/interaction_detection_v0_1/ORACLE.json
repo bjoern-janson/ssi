@@ -1,0 +1,40 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_DETECTION_V0.1/ORACLE",
+  "status": "MECHANICAL_INTERACTION_ORACLE_REVEAL__POST_DETECTOR_FREEZE",
+  "spec_commit": "cec1368839b0711cca35dce0e7572774cc1a135b",
+  "worlds_commit": "4b051bc96400eb99c3205082afd924726709200a",
+  "detectors_commit": "f0a048b8802e85001012121a384495751aa378e9",
+  "oracle_semantics": "descriptive interaction state only; no entitlement or transition status",
+  "primary": {
+    "ID-I1-ALIAS": {
+      "a": {"state": "INTERACTION_ABSENT", "fact": "DISJOINT"},
+      "b": {"state": "INTERACTION_PRESENT", "fact": "ALIASED_WITH_AUTHORITY_SENSITIVE_COLLISION"}
+    },
+    "ID-I2-ORDER": {
+      "a": {"state": "INTERACTION_ABSENT", "fact": "COMMUTES_ON_AUTHORITY_RELEVANT_STATE"},
+      "b": {"state": "INTERACTION_PRESENT", "fact": "NONCOMMUTATIVE_AUTHORITY_GUARD_FLIP"}
+    },
+    "ID-I3-EFFECT": {
+      "a": {"state": "INTERACTION_ABSENT", "fact": "NO_WRITE_TO_J3_ADMISSIBILITY_STATE"},
+      "b": {"state": "INTERACTION_PRESENT", "fact": "WRITE_ALTERS_J3_ADMISSIBILITY_STATE"}
+    },
+    "ID-I4-CONSTRAINT": {
+      "a": {"state": "INTERACTION_ABSENT", "fact": "COMPOSED_PRECONDITION_SATISFIED"},
+      "b": {"state": "INTERACTION_PRESENT", "fact": "COMPOSED_PRECONDITION_VIOLATION"}
+    },
+    "ID-C1-ID-LEAK": {
+      "a": {"state": "INTERACTION_ABSENT", "fact": "DISJOINT"},
+      "b": {"state": "INTERACTION_ABSENT", "fact": "DISJOINT"}
+    },
+    "ID-C2-UNKNOWN": {
+      "a": {"state": "UNKNOWN", "fact": null},
+      "b": {"state": "INTERACTION_PRESENT", "fact": "COMPOSED_PRECONDITION_VIOLATION"}
+    }
+  },
+  "forbidden_claims": {
+    "interaction_present_implies_revoked": false,
+    "interaction_absent_implies_preserved": false,
+    "oracle_contains_witness_sufficiency": false,
+    "oracle_contains_composition_validity": false
+  }
+}

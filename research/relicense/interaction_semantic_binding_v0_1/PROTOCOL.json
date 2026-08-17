@@ -1,0 +1,347 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_SEMANTIC_BINDING_V0.1/PROTOCOL",
+  "status": "PROSPECTIVE_SEMANTIC_COMPARISON_PROTOCOL_FROZEN__NO_EVALUATOR_NO_ADJUDICATION",
+  "spec_commit": "ad2073574b32c6a8ce248549a12f9539989f5b11",
+  "cases_commit": "71cb3636e77c1ae24ecdd6535c96c5ea4a69bb6a",
+  "bindings_commit": "a2976ad896af4805e0d8b05ec7026e360b2fbf4e",
+  "descriptive_oracle_commit": "28bc8088ad8002c9a4654ae1fa8bbc9c3dfd1609",
+  "target_predicate": "P_WRITE=EXACT_J3_ADMISSIBILITY_WRITE_PRESENCE",
+  "next_permitted_stage": "EVALUATOR",
+  "scientific_question_reserved_for_evaluator": "Does the source observation constitute the same predicate-relative evidence relation that beta claims it constitutes?",
+  "protocol_question_only": "Given the two frozen semantic descriptions, how are they compared reproducibly without adjudicating equivalence?",
+  "hard_stage_firewall": {
+    "delta_spec": 0,
+    "delta_cases": 0,
+    "delta_bindings": 0,
+    "delta_descriptive_oracle": 0,
+    "evaluator_constituted": false,
+    "result_constituted": false,
+    "detector_execution_permitted": false,
+    "semantic_binding_classification_permitted": false,
+    "semantic_verdict_field_permitted": false,
+    "hidden_world_truth_permitted_as_comparison_input": false,
+    "case_id_permitted_as_semantic_input": false,
+    "case_class_permitted_as_semantic_input": false,
+    "D2_correctness_permitted_as_comparison_input": false
+  },
+  "governing_separations": [
+    "description != comparison",
+    "comparison != adjudication",
+    "semantic difference detected != semantic invalidity established",
+    "correct-by-luck != semantic equivalence",
+    "hidden world truth != source constitution",
+    "UNKNOWN != EQUAL",
+    "ABSENT != UNKNOWN",
+    "INCOMPLETE != COMPLETE",
+    "not predicate-required != semantically equal"
+  ],
+  "comparison_object": {
+    "name": "DELTA_SEM",
+    "formal_form": "Diff(Canon(Sem_C(o)), Canon(Sem_E_P(beta(o))); P_WRITE, sigma)",
+    "authority": "DESCRIPTIVE_DIFFERENCE_STRUCTURE_ONLY",
+    "must_not_contain": [
+      "SEMANTICS_PRESERVING",
+      "SEMANTICS_EXTENSION_REQUIRED",
+      "UNPROVEN",
+      "INVALID_SEMANTIC_LAUNDERING",
+      "bridge pass/fail",
+      "semantic equivalence true/false",
+      "detector correctness",
+      "witness sufficiency",
+      "transition status",
+      "entitlement",
+      "W_int",
+      "W_comp",
+      "composition authorization"
+    ]
+  },
+  "canonical_semantic_dimensions": [
+    "relation",
+    "operation",
+    "actor",
+    "target",
+    "temporal_scope",
+    "observation_status",
+    "provenance",
+    "completeness",
+    "uncertainty",
+    "sigma"
+  ],
+  "predicate_relevance_profile": {
+    "relation": {
+      "P_WRITE_role": "REQUIRED",
+      "note": "Presence relation and complete scoped absence relation are distinct predicate-relevant semantic objects."
+    },
+    "operation": {
+      "P_WRITE_role": "REQUIRED",
+      "required_value_for_presence": "WRITE",
+      "required_value_for_absence": "NO_MATCHING_WRITE_IN_COMPLETE_SCOPE"
+    },
+    "actor": {
+      "P_WRITE_role": "OPTIONAL_SOURCE_PRESERVATION",
+      "note": "Actor is not required by the frozen predicate to decide matching WRITE presence, but a bridge may not invent an actor and should preserve one when source semantics constitute it."
+    },
+    "target": {
+      "P_WRITE_role": "REQUIRED",
+      "required_value": "J3.admissibility.mode"
+    },
+    "temporal_scope": {
+      "P_WRITE_role": "REQUIRED",
+      "required_epoch": "EPOCH_42"
+    },
+    "observation_status": {
+      "P_WRITE_role": "REQUIRED_FOR_PRESENCE",
+      "required_value_for_presence": "OBSERVED",
+      "note": "Prediction, inference, or state change may not be normalized to OBSERVED."
+    },
+    "provenance": {
+      "P_WRITE_role": "REQUIRED_TO_SUPPORT_OBSERVATION_AND_COMPLETENESS_CLAIMS",
+      "note": "Protocol records provenance kind and directly constituted basis; it does not decide sufficiency."
+    },
+    "completeness": {
+      "P_WRITE_role": "REQUIRED_FOR_SCOPED_ABSENCE",
+      "note": "Zero matching events without complete declared scope cannot be normalized to scoped absence."
+    },
+    "uncertainty": {
+      "P_WRITE_role": "REQUIRED_PRESERVATION",
+      "note": "Source uncertainty concerning event identity, observation status, or completeness must remain visible and cannot be erased by canonicalization."
+    },
+    "sigma": {
+      "P_WRITE_role": "REQUIRED",
+      "required_value": "J3.admissibility.mode@EPOCH_42"
+    }
+  },
+  "canonical_value_states": [
+    "KNOWN",
+    "UNKNOWN",
+    "ABSENT",
+    "NOT_APPLICABLE"
+  ],
+  "canonicalization_rules": {
+    "general": [
+      "Canonicalization may rename or structurally normalize a frozen semantic description but may not infer a missing predicate-relevant fact.",
+      "No field may be populated from construction_world_facts_separate_from_source_semantics.",
+      "No field may be populated from case_id, case_class, purpose, expected status, detector output, or later evaluator knowledge.",
+      "If the frozen semantic description explicitly states that a fact is not constituted by the source, represent that dimension as UNKNOWN or ABSENT according to the frozen description; do not infer the hidden world value.",
+      "If a dimension is not applicable to the semantic relation itself, use NOT_APPLICABLE rather than ABSENT or UNKNOWN.",
+      "All strings are compared after exact frozen normalization rules only; no synonym expansion or ontology repair is permitted at protocol time."
+    ],
+    "source_side": {
+      "input": "DESCRIPTIVE_ORACLE.per_case_oracle[case].source_semantics plus frozen scope",
+      "forbidden": "construction_world_facts_separate_from_source_semantics",
+      "relation_mapping": {
+        "DIRECT_SCOPED_TRACE_OBSERVATION_OF_WRITE_EVENT_TO_DECLARED_TARGET": {
+          "relation": "OBSERVED_TARGET_WRITE_EVENT",
+          "operation": "WRITE",
+          "observation_status": "OBSERVED"
+        },
+        "COMPLETE_SCOPED_TRACE_WITH_ZERO_MATCHING_WRITE_EVENTS_TO_DECLARED_TARGET": {
+          "relation": "COMPLETE_SCOPE_ZERO_MATCHING_TARGET_WRITE_EVENTS",
+          "operation": "NO_MATCHING_WRITE_IN_COMPLETE_SCOPE",
+          "observation_status": "NOT_APPLICABLE"
+        },
+        "AUTHENTICATED_STATE_VALUE_CHANGED_BETWEEN_PRE_AND_POST_COMMITMENTS": {
+          "relation": "AUTHENTICATED_PRE_POST_STATE_CHANGE",
+          "operation": "UNKNOWN",
+          "observation_status": "UNKNOWN_FOR_WRITE_EVENT"
+        },
+        "CURRENT_PROXY_HIGH_SCORE_WITH_FROZEN_HISTORICAL_ASSOCIATION": {
+          "relation": "CURRENT_PROXY_HIGH_WITH_HISTORICAL_WRITE_ASSOCIATION",
+          "operation": "UNKNOWN",
+          "observation_status": "UNKNOWN_FOR_CURRENT_WRITE_EVENT"
+        },
+        "COMPACT_RECEIPT_LINKED_BY_VALID_DIGEST_AND_SCOPE_TO_INDEPENDENT_WITNESS_OF_OBSERVED_WRITE_EVENT": {
+          "relation": "INDEPENDENTLY_WITNESSED_OBSERVED_TARGET_WRITE_EVENT",
+          "operation": "WRITE",
+          "observation_status": "OBSERVED"
+        },
+        "COMPACT_RECEIPT_LINKED_BY_VALID_DIGEST_AND_SCOPE_TO_INDEPENDENT_COMPLETE_EVENT_SEGMENT_WITH_ZERO_MATCHING_WRITES": {
+          "relation": "INDEPENDENT_COMPLETE_SCOPE_ZERO_MATCHING_TARGET_WRITE_EVENTS",
+          "operation": "NO_MATCHING_WRITE_IN_COMPLETE_SCOPE",
+          "observation_status": "NOT_APPLICABLE"
+        }
+      }
+    },
+    "output_side": {
+      "input": "DESCRIPTIVE_ORACLE.per_case_oracle[case].beta_output plus frozen scope",
+      "relation_mapping": {
+        "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED": {
+          "relation": "OBSERVED_TARGET_WRITE_EVENT",
+          "operation": "WRITE",
+          "observation_status": "OBSERVED"
+        },
+        "NO_SUCH_WRITE_EVENT_OBSERVED_WITHIN_DECLARED_OBSERVATION_SCOPE": {
+          "relation": "COMPLETE_SCOPE_ZERO_MATCHING_TARGET_WRITE_EVENTS",
+          "operation": "NO_MATCHING_WRITE_IN_COMPLETE_SCOPE",
+          "observation_status": "NOT_APPLICABLE"
+        }
+      },
+      "provenance_rule": "Record the provenance basis inherited or asserted by beta from BINDINGS; do not manufacture direct-event provenance merely because the emitted relation says OBSERVED."
+    }
+  },
+  "dimension_comparison_states": [
+    "EXACT_MATCH",
+    "VALUE_DIFFERENCE",
+    "SOURCE_UNKNOWN",
+    "OUTPUT_UNKNOWN",
+    "BOTH_UNKNOWN",
+    "SOURCE_ABSENT",
+    "OUTPUT_ABSENT",
+    "BOTH_ABSENT",
+    "SOURCE_NOT_APPLICABLE",
+    "OUTPUT_NOT_APPLICABLE",
+    "BOTH_NOT_APPLICABLE",
+    "APPLICABILITY_DIFFERENCE"
+  ],
+  "dimension_comparison_algorithm": [
+    "1. Determine the frozen P_WRITE relevance role for the dimension without inspecting the case class or hidden world facts.",
+    "2. Canonicalize source and output values independently using only the permitted frozen semantic descriptions.",
+    "3. Preserve KNOWN, UNKNOWN, ABSENT, and NOT_APPLICABLE as distinct value states.",
+    "4. If both sides are KNOWN and canonically equal, emit EXACT_MATCH.",
+    "5. If both sides are KNOWN and differ, emit VALUE_DIFFERENCE.",
+    "6. If either side is UNKNOWN, emit the corresponding UNKNOWN comparison state; UNKNOWN never becomes EXACT_MATCH merely because the other side has a value.",
+    "7. If either side is ABSENT, emit the corresponding ABSENT comparison state; ABSENT never becomes EXACT_MATCH merely because the dimension is optional.",
+    "8. If applicability differs, emit APPLICABILITY_DIFFERENCE.",
+    "9. If both are NOT_APPLICABLE, emit BOTH_NOT_APPLICABLE.",
+    "10. Do not aggregate per-dimension states into an equivalence verdict."
+  ],
+  "provenance_normalization": {
+    "source_provenance_kinds": [
+      "DIRECT_SIGNED_EVENT_TRACE",
+      "SIGNED_STATE_COMMITMENTS_NO_EVENT_TRACE",
+      "PREDICTIVE_PROXY_PLUS_HISTORICAL_CALIBRATION_NO_CURRENT_EVENT_TRACE",
+      "COMPACT_RECEIPT_PLUS_INDEPENDENT_EVENT_WITNESS",
+      "COMPACT_RECEIPT_PLUS_INDEPENDENT_COMPLETE_SEGMENT_WITNESS"
+    ],
+    "rules": [
+      "Direct event-trace provenance remains distinct from signed state commitments.",
+      "Historical calibration provenance remains distinct from current direct event observation.",
+      "Independent witness provenance remains explicit and may not be collapsed into receipt identity alone.",
+      "NO_CURRENT_EVENT_TRACE remains a first-class provenance fact when frozen by the source semantics.",
+      "Provenance difference is recorded descriptively; the protocol does not label it sufficient or insufficient."
+    ]
+  },
+  "completeness_normalization": {
+    "states": [
+      "COMPLETE_FOR_DECLARED_EVENT_TRACE_SCOPE",
+      "COMPLETE_FOR_PRE_POST_STATE_VALUE_OBSERVATION",
+      "COMPLETE_FOR_PROXY_OBSERVATION_AND_DECLARED_CALIBRATION_STATISTIC",
+      "DIRECT_EVENT_WITNESS_FOR_PRESENCE_WITHIN_DECLARED_SCOPE",
+      "COMPLETE_FOR_DECLARED_EVENT_SEGMENT_AND_MATCHING_WRITE_COUNT",
+      "INCOMPLETE",
+      "UNKNOWN"
+    ],
+    "rules": [
+      "Completeness is typed to what the source channel actually observes; completeness for state values is not renamed completeness for event history.",
+      "Completeness for a proxy/calibration record is not renamed completeness for current event observation.",
+      "Only a source description explicitly constituted as complete for the declared event scope may populate event-scope completeness as KNOWN_COMPLETE.",
+      "Incomplete or unknown event coverage cannot be converted to zero-event absence."
+    ]
+  },
+  "uncertainty_propagation": {
+    "rules": [
+      "Every source uncertainty string in the frozen oracle is preserved in canonical source semantics.",
+      "If source uncertainty explicitly withholds event identity, actor, event provenance, write history, or current event occurrence, corresponding dimensions remain UNKNOWN even if beta emits concrete values.",
+      "Beta output certainty is recorded as an output-side claim only; it may not overwrite source-side uncertainty.",
+      "World facts may not resolve source uncertainty at comparison time.",
+      "UNKNOWN != EQUAL unless the dimension is independently frozen as NOT_APPLICABLE to the relation; optional predicate relevance does not itself make UNKNOWN equal."
+    ]
+  },
+  "sigma_rules": {
+    "declared_scope": "J3.admissibility.mode@EPOCH_42",
+    "requirements": [
+      "Source and output sigma are extracted independently.",
+      "Target and epoch are never filled from the hidden construction world.",
+      "Scope equality is recorded as one comparison dimension and does not imply relation equality."
+    ]
+  },
+  "deterministic_run_order": [
+    "SB-B1-A-TUPLE-WRITE-PRESENT",
+    "SB-B1-B-TUPLE-NO-WRITE",
+    "SB-B2-A-STATE-CHANGE-WITH-WRITE-HISTORY",
+    "SB-B2-B-STATE-CHANGE-WITHOUT-WRITE-HISTORY",
+    "SB-B3-A-PROXY-HIGH-COMMON-WRITE",
+    "SB-B3-B-PROXY-HIGH-RARE-NONWRITE",
+    "SB-B4-A-PROVENANCE-BACKED-WRITE-PRESENT",
+    "SB-B4-B-PROVENANCE-BACKED-NO-WRITE"
+  ],
+  "comparison_record_schema": {
+    "case_ref": "orchestration identifier only; excluded from semantic comparison logic",
+    "bridge_ref": "frozen bridge identifier only; excluded from verdict logic",
+    "predicate": "P_WRITE",
+    "sigma": {
+      "source": "canonical value/state",
+      "output": "canonical value/state",
+      "comparison": "dimension comparison state"
+    },
+    "dimensions": {
+      "relation": {"source": "canonical value/state", "output": "canonical value/state", "P_WRITE_role": "frozen relevance role", "comparison": "dimension comparison state"},
+      "operation": {"source": "canonical value/state", "output": "canonical value/state", "P_WRITE_role": "frozen relevance role", "comparison": "dimension comparison state"},
+      "actor": {"source": "canonical value/state", "output": "canonical value/state", "P_WRITE_role": "frozen relevance role", "comparison": "dimension comparison state"},
+      "target": {"source": "canonical value/state", "output": "canonical value/state", "P_WRITE_role": "frozen relevance role", "comparison": "dimension comparison state"},
+      "temporal_scope": {"source": "canonical value/state", "output": "canonical value/state", "P_WRITE_role": "frozen relevance role", "comparison": "dimension comparison state"},
+      "observation_status": {"source": "canonical value/state", "output": "canonical value/state", "P_WRITE_role": "frozen relevance role", "comparison": "dimension comparison state"},
+      "provenance": {"source": "canonical value/state", "output": "canonical value/state", "P_WRITE_role": "frozen relevance role", "comparison": "dimension comparison state"},
+      "completeness": {"source": "canonical value/state", "output": "canonical value/state", "P_WRITE_role": "frozen relevance role", "comparison": "dimension comparison state"},
+      "uncertainty": {"source": "canonical value/state", "output": "canonical value/state", "P_WRITE_role": "frozen relevance role", "comparison": "dimension comparison state"}
+    },
+    "delta_sem": {
+      "predicate_relevant_exact_matches": "ordered dimension-name list",
+      "predicate_relevant_differences": "ordered dimension-name list",
+      "predicate_relevant_unknowns": "ordered dimension-name list",
+      "predicate_relevant_absences": "ordered dimension-name list",
+      "optional_dimension_records": "ordered records",
+      "note": "These lists are descriptive indexes only and must not contain an aggregate verdict."
+    },
+    "semantic_verdict": "FORBIDDEN_FIELD"
+  },
+  "anti_leakage_checks": {
+    "before_each_comparison": [
+      "Verify SPEC commit equals frozen hash.",
+      "Verify CASES commit equals frozen hash.",
+      "Verify BINDINGS commit equals frozen hash.",
+      "Verify DESCRIPTIVE_ORACLE commit equals frozen hash.",
+      "Reject any input containing evaluator status, result status, D2 output, hidden construction facts in source canonicalization, or case-class-conditioned comparison rules."
+    ],
+    "on_failure": "ABORT_COMPARISON_RUN",
+    "runtime_repair_permitted": false
+  },
+  "reproducibility": {
+    "deterministic": true,
+    "adaptive_learning": false,
+    "case_order_mutation": false,
+    "cross_case_state": "NONE",
+    "canonical_serialization": "UTF-8 JSON; object keys lexicographically sorted for hashing; arrays preserve frozen protocol order",
+    "same_frozen_inputs_must_produce_byte_identical_comparison_record": true
+  },
+  "explicit_non_rules": [
+    "EXACT_MATCH on some dimensions != semantic equivalence",
+    "VALUE_DIFFERENCE on any dimension != semantic invalidity",
+    "predicate-relevant difference != INVALID_SEMANTIC_LAUNDERING",
+    "predicate-relevant unknown != UNPROVEN status",
+    "matching hidden world truth != source/output semantic equality",
+    "correct beta output in a given world != legitimate bridge",
+    "all predicate-relevant dimensions exact-match != SEMANTICS_PRESERVING until evaluator applies the frozen semantic criterion",
+    "comparison record != detector evidence",
+    "comparison record != witness"
+  ],
+  "forbidden_output_tokens": [
+    "SEMANTICS_PRESERVING",
+    "SEMANTICS_EXTENSION_REQUIRED",
+    "INVALID_SEMANTIC_LAUNDERING",
+    "WITNESS_SUFFICIENT",
+    "ENTITLED",
+    "REVOKED",
+    "PRESERVED"
+  ],
+  "note_on_UNPROVEN_token": "The scientific status token UNPROVEN is forbidden as an adjudicative output. Descriptive comparison fields may use UNKNOWN only. This avoids collision with entitlement-layer UNPROVEN and future semantic-binding classification.",
+  "authority_ceiling": {
+    "SEMANTIC_BINDING_COMPATIBILITY": "OPEN__PROTOCOL_FROZEN_NO_ADJUDICATION",
+    "SEMANTIC_BINDING_GENERALIZATION": "OPEN",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "SSI_CALC_KERNEL_DELTA": 0
+  }
+}

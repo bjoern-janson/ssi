@@ -1,0 +1,224 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_HELDOUT_STRESS_V0.1",
+  "stage": "RESULT",
+  "status": "FIRST_HELDOUT_STRESS_RESULT_FROZEN__MIXED_TYPED_VECTOR__NO_FULL_GENERALIZATION_CLAIM",
+  "frozen_dependencies": {
+    "SPEC": "19e60eb255f754925f7d7ece0d60c25285266dde",
+    "CASES": "690b760cf739bc8d6e2ddb1807d3e14d84c84863",
+    "STRESS_ORACLE": "e252222b0526e28f7ae11732da7bcea1a4151875",
+    "PROTOCOL": "c067de1b1a019bed77adbb7faefeb84d659769d4",
+    "EVALUATOR": "7f6e72f0b25be497c82c2b53ec976930cde613e3",
+    "INHERITED_BINDING": "4199cb0c9fd7607ee15fabdcca63f7ea05e9c356",
+    "PARENT_PR59_RESULT": "1195f9f6c5a1d84025405018725b5f2f27e27ad0"
+  },
+  "execution_principle": "APPLY_THE_FROZEN_BINDING_PROTOCOL_AND_EVALUATOR_WITHOUT_UPSTREAM_REPAIR_TRANSLATION_OR_SCALAR_COMPENSATION",
+  "axis_result_vector": {
+    "G1_WORLD_NOVELTY": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "G2_OBSERVATION_CHANNEL_NOVELTY": "NOT_EVALUABLE_UNDER_FROZEN_BINDING",
+    "G3_COVERAGE_DEGRADATION": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "G4_FAILURE_STRUCTURE_NOVELTY": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "G5_COORDINATE_CONTRADICTION_OR_CONFLICTING_CHANNELS": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS"
+  },
+  "G1_WORLD_NOVELTY": {
+    "status": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "complete_worlds": 16,
+    "world_coordinate_relations": {
+      "total": 64,
+      "equivalent": 64,
+      "non_equivalent": 0,
+      "unresolved_due_to_coverage": 0,
+      "unresolved_due_to_conflict": 0
+    },
+    "pairwise_geometry": {
+      "unordered_pairs": 120,
+      "exact_delta_vector_matches": 120,
+      "pure_edges": 32,
+      "pure_edge_exact_matches": 32,
+      "multi_coordinate_pairs": 88,
+      "multi_coordinate_exact_matches": 88,
+      "under_resolution_witnesses": 0,
+      "coordinate_contamination_witnesses": 0
+    },
+    "adequacy": {
+      "A1_RELEVANT_SEPARATION": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+      "A2_ORTHOGONAL_INVARIANCE": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+      "A3_COORDINATE_RECOVERABILITY": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+      "JOINT_VARIATION": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS"
+    },
+    "interpretation": "THE_FROZEN_FOUR_COORDINATE_FACTORISATION_PRESERVED_THE_HELDOUT_COMPLETE_WORLD_GEOMETRY_WITH_NOVEL_SEMANTIC_REALIZATIONS"
+  },
+  "G2_OBSERVATION_CHANNEL_NOVELTY": {
+    "status": "NOT_EVALUABLE_UNDER_FROZEN_BINDING",
+    "required_target_role_cases": 4,
+    "out_of_contract_target_role_cases": 4,
+    "in_contract_target_role_counterexamples": 0,
+    "not_evaluable_witnesses": [
+      {
+        "case_id": "g2_state_signed_snapshot",
+        "target_role": "S",
+        "complete_semantic_carrier": "SIGNED_STATE_SNAPSHOT_V2",
+        "protocol_relation": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+      },
+      {
+        "case_id": "g2_law_event_stream",
+        "target_role": "L",
+        "complete_semantic_carrier": "SIGNED_COUNTERFACTUAL_EVENT_BUNDLE_V2",
+        "protocol_relation": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+      },
+      {
+        "case_id": "g2_validity_attestation",
+        "target_role": "V",
+        "complete_semantic_carrier": "APPLICABILITY_ATTESTATION_V2",
+        "protocol_relation": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+      },
+      {
+        "case_id": "g2_authority_receipt",
+        "target_role": "Lambda",
+        "complete_semantic_carrier": "AUTHORITY_RECEIPT_BUNDLE_V2",
+        "protocol_relation": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT"
+      }
+    ],
+    "negative_separability_witnesses": 0,
+    "interpretation": "COMPLETE_HELDOUT_ROLE_SEMANTICS_EXIST_BUT_THE_FROZEN_CANDIDATE_HAS_NO_ADMISSIBLE_INPUT_PATH_TO_THEM__THIS_IS_A_TRANSPORT_EVALUABILITY_BOUNDARY_NOT_A_COORDINATE_NONSEPARABILITY_RESULT"
+  },
+  "G3_COVERAGE_DEGRADATION": {
+    "status": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "controls": 4,
+    "exact_set_relations": 4,
+    "under_localization_witnesses": 0,
+    "over_localization_witnesses": 0,
+    "partial_overlap_witnesses": 0,
+    "disjoint_witnesses": 0,
+    "controls_detail": [
+      {
+        "control_id": "g3_u_s_l",
+        "oracle_set": ["S", "L"],
+        "candidate_set": ["S", "L"],
+        "candidate_unresolved_identity_coordinates": ["S", "L"],
+        "set_relation": "EQUAL"
+      },
+      {
+        "control_id": "g3_u_l_v_lambda",
+        "oracle_set": ["L", "V", "Lambda"],
+        "candidate_set": ["L", "V", "Lambda"],
+        "candidate_unresolved_identity_coordinates": ["L", "V", "Lambda"],
+        "set_relation": "EQUAL"
+      },
+      {
+        "control_id": "g3_u_s_v",
+        "oracle_set": ["S", "V"],
+        "candidate_set": ["S", "V"],
+        "candidate_unresolved_identity_coordinates": ["S", "V"],
+        "set_relation": "EQUAL"
+      },
+      {
+        "control_id": "g3_u_lambda_only",
+        "oracle_set": ["Lambda"],
+        "candidate_set": ["Lambda"],
+        "candidate_unresolved_identity_coordinates": ["Lambda"],
+        "set_relation": "EQUAL",
+        "preserved_noncollapse": "PARTIAL_OBSERVED_EMPTY_ALLOWED_SET != COMPLETE_EMPTY_AUTHORITY_ENVELOPE"
+      }
+    ],
+    "interpretation": "UNCERTAINTY_PRESERVATION_TRANSPORTED_ACROSS_ALL_FOUR_HELDOUT_COVERAGE_PATTERNS"
+  },
+  "G4_FAILURE_STRUCTURE_NOVELTY": {
+    "status": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "novel_complete_cube_component": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "mixed_component": {
+      "control_id": "g5_law_validity_competing_pressure",
+      "oracle_definite_changes": ["L"],
+      "candidate_definite_changes": ["L"],
+      "definite_change_set_relation": "EQUAL",
+      "oracle_conflicted_coordinates": ["V"],
+      "candidate_conflicted_coordinates": ["V"],
+      "conflict_set_relation": "EQUAL",
+      "conflicted_coordinate_coerced_to_unique_identity": false
+    },
+    "interpretation": "THE_FACTORISATION_PRESERVED_BOTH_NOVEL_COMPLETE_GEOMETRY_AND_A_MIXED_DEFINITE_L_CHANGE_PLUS_UNRESOLVED_V_CONFLICT_STRUCTURE"
+  },
+  "G5_COORDINATE_CONTRADICTION_OR_CONFLICTING_CHANNELS": {
+    "status": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "controls": 3,
+    "exact_definite_change_set_relations": 3,
+    "exact_conflict_set_relations": 3,
+    "truth_adjudications_performed": 0,
+    "controls_detail": [
+      {
+        "control_id": "g5_validity_sensor_conflict",
+        "oracle_definite_changes": [],
+        "candidate_definite_changes": [],
+        "oracle_conflicted_coordinates": ["V"],
+        "candidate_conflicted_coordinates": ["V"],
+        "definite_change_set_relation": "EQUAL",
+        "conflict_set_relation": "EQUAL"
+      },
+      {
+        "control_id": "g5_authority_envelope_conflict",
+        "oracle_definite_changes": [],
+        "candidate_definite_changes": [],
+        "oracle_conflicted_coordinates": ["Lambda"],
+        "candidate_conflicted_coordinates": ["Lambda"],
+        "definite_change_set_relation": "EQUAL",
+        "conflict_set_relation": "EQUAL"
+      },
+      {
+        "control_id": "g5_law_validity_competing_pressure",
+        "oracle_definite_changes": ["L"],
+        "candidate_definite_changes": ["L"],
+        "oracle_conflicted_coordinates": ["V"],
+        "candidate_conflicted_coordinates": ["V"],
+        "definite_change_set_relation": "EQUAL",
+        "conflict_set_relation": "EQUAL"
+      }
+    ],
+    "interpretation": "THE_FROZEN_INTERFACE_PRESERVED_PRODUCT_TYPED_PARTIALLY_RESOLVED_STRUCTURE_WITHOUT_TRUTH_ADJUDICATION"
+  },
+  "failure_witnesses": {
+    "evaluable_axis_counterexamples": 0,
+    "under_resolution": 0,
+    "coordinate_contamination": 0,
+    "recoverability": 0,
+    "coverage_uncertainty": 0,
+    "conflict_preservation": 0
+  },
+  "not_evaluable_witnesses": {
+    "axis": "G2_OBSERVATION_CHANNEL_NOVELTY",
+    "count": 4,
+    "reason": "COMPLETE_TARGET_ROLE_SEMANTIC_CARRIERS_ARE_OUTSIDE_THE_FROZEN_CANDIDATE_INPUT_CONTRACT"
+  },
+  "FOUR_COORDINATE_SEPARABILITY_GENERALIZATION": "FULL_FOUR_COORDINATE_SEPARABILITY_GENERALIZATION_NOT_ESTABLISHED",
+  "strongest_supported_statement": "FOUR_COORDINATE_SEPARABILITY_TRANSPORT_SUPPORTED_ON_TESTED_WORLD_COVERAGE_FAILURE_STRUCTURE_AND_CONFLICT_AXES__OBSERVATION_CHANNEL_TRANSPORT_NOT_EVALUABLE_UNDER_FROZEN_BINDING",
+  "parent_result_preservation": "PR59_FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE_REMAINS_UNCHANGED",
+  "non_rules": [
+    "G2_NOT_EVALUABLE_UNDER_FROZEN_BINDING != G2_NOT_SUPPORTED",
+    "OUT_OF_CONTRACT_SEMANTIC_CARRIER != COORDINATE_NONSEPARABILITY",
+    "FOUR_SUPPORTED_STRESS_AXES_PLUS_ONE_NOT_EVALUABLE_AXIS != FULL_GENERALIZATION_SUPPORTED",
+    "HELDOUT_STRESS_SUPPORT != FOUR_COORDINATE_COMPLETENESS",
+    "HELDOUT_STRESS_SUPPORT != ARBITRARY_REAL_WORLD_GENERALIZATION",
+    "HELDOUT_STRESS_SUPPORT != BOUNDARY_SEMANTICS",
+    "HELDOUT_STRESS_SUPPORT != BOUNDARY_RESPONSE",
+    "HELDOUT_STRESS_SUPPORT != REPAIR_AUTHORITY",
+    "PR60_RESULT != RETROACTIVE_INVALIDATION_OF_PR59"
+  ],
+  "authority_ceiling": {
+    "four_coordinate_separability_generalization": "NOT_ESTABLISHED",
+    "four_coordinate_completeness": "NOT_ESTABLISHED",
+    "arbitrary_real_world_generalization": "NOT_ESTABLISHED",
+    "boundary_semantics": "NOT_OPENED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "repair_composability": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "STRESS_ORACLE": "FROZEN",
+    "PROTOCOL": "FROZEN",
+    "EVALUATOR": "FROZEN",
+    "RESULT": "FROZEN"
+  }
+}

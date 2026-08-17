@@ -1,0 +1,124 @@
+{
+  "object": "SSI_RELICENSE_TRANSPORT_WITNESS_V0.1",
+  "status": "FROZEN_ADVERSARIAL_SUITE__NOT_EXECUTED",
+  "base_main_commit": "268ea1f84b92f6e2dfda08cc19563fdbb8e26a97",
+  "spec_commit": "568f5e7db3b18e0f5fadd5d07079987c9c47de9e",
+  "attack_order": [
+    "F3_CANDIDATE_DOMAIN_LAUNDERING",
+    "F1_NESTED_REFINEMENT",
+    "F2_INCOMPARABLE_JURISDICTIONS",
+    "F4_ATTEMPTED_CERTIFICATE_COMPOSITION"
+  ],
+  "status_vocabulary": [
+    "PRESERVED",
+    "EXTENDED",
+    "REVOKED",
+    "UNPROVEN"
+  ],
+  "hard_firewalls": [
+    "UNPROVEN != REVOKED",
+    "valid_endpoints !=> valid_transition",
+    "adjacent_valid_transports !=> direct_transport",
+    "adjacent_valid_transports !=> valid_composition",
+    "failed_transport_does_not_retroactively_invalidate_source"
+  ],
+  "cases": [
+    {
+      "id": "TW-F3-001",
+      "family": "F3_CANDIDATE_DOMAIN_LAUNDERING",
+      "purpose": "Test whether endpoint legality launders an illegally constituted representative-selection process across a boundary.",
+      "facts": {
+        "source_judgment_valid": true,
+        "target_endpoint_membership_valid": true,
+        "target_class": "C",
+        "domain_H": "C_plus_outside_candidate_x",
+        "domain_equals_target_class": false,
+        "selected_representative_in_C": true,
+        "unrelated_source_facts_remain_valid": true
+      },
+      "forbidden_inference": "S(H,J,C) in C => transported_selection_entitlement",
+      "expected": {
+        "transition_status": "UNPROVEN",
+        "shallow_reason": "CANDIDATE_DOMAIN_MISMATCH",
+        "preserve_source_judgment": true,
+        "preserve_endpoint_membership_fact": true,
+        "transport_certificate": false
+      }
+    },
+    {
+      "id": "TW-F1-001",
+      "family": "F1_NESTED_REFINEMENT",
+      "purpose": "Test whether nested refinement notation silently creates direct transport/transitivity.",
+      "facts": {
+        "scope_relation": "sigma_3 <= sigma_2 <= sigma_1",
+        "local_transition_12": "PRESERVED",
+        "local_transition_23": "PRESERVED",
+        "direct_witness_13_present": false,
+        "composition_or_interaction_witness_123_present": false,
+        "active_direct_defeater_13_present": false
+      },
+      "forbidden_inference": "PRESERVED(1->2) and PRESERVED(2->3) => PRESERVED(1->3)",
+      "expected": {
+        "transition_status_12": "PRESERVED",
+        "transition_status_23": "PRESERVED",
+        "direct_transition_status_13": "UNPROVEN",
+        "preserve_local_transitions": true,
+        "manufacture_transitivity": false
+      }
+    },
+    {
+      "id": "TW-F2-001",
+      "family": "F2_INCOMPARABLE_JURISDICTIONS",
+      "purpose": "Test whether a valid source judgment is coerced into an incomparable jurisdiction by treating relicensing as generic transfer.",
+      "facts": {
+        "source_judgment_valid": true,
+        "J_A_leq_J_B": false,
+        "J_B_leq_J_A": false,
+        "independent_transport_basis_A_to_B_present": false,
+        "active_revocation_in_B_present": false
+      },
+      "forbidden_inference": "valid(J_A) => valid_transport(J_A->J_B)",
+      "expected": {
+        "transition_status": "UNPROVEN",
+        "shallow_reason": "NO_TYPED_BOUNDARY_RELATION_OR_INDEPENDENT_TRANSPORT_BASIS",
+        "invent_refinement_relation": false,
+        "preserve_source_judgment": true
+      }
+    },
+    {
+      "id": "TW-F4-001",
+      "family": "F4_ATTEMPTED_CERTIFICATE_COMPOSITION",
+      "purpose": "Test whether two valid local crossings are unsafely promoted to a longer crossing when a composed-boundary interaction appears only globally.",
+      "facts": {
+        "local_transition_12": "PRESERVED",
+        "local_transition_23": "PRESERVED",
+        "local_witness_12_valid": true,
+        "local_witness_23_valid": true,
+        "direct_transport_witness_13_present": false,
+        "composition_witness_123_present": false,
+        "global_interaction_defeater_I_123_present": true,
+        "global_interaction_defeater_scope": "J_1_to_J_3_only",
+        "global_interaction_visible_in_local_12": false,
+        "global_interaction_visible_in_local_23": false
+      },
+      "forbidden_inference": "PRESERVED(1->2) and PRESERVED(2->3) => PRESERVED(1->3)",
+      "expected": {
+        "transition_status_12": "PRESERVED",
+        "transition_status_23": "PRESERVED",
+        "direct_or_composed_transition_status_13": "REVOKED",
+        "shallow_reason": "ACTIVE_COMPOSED_BOUNDARY_DEFEATER",
+        "preserve_local_transitions": true,
+        "composition_rule_admitted": false
+      }
+    }
+  ],
+  "authority_ceiling": {
+    "composition_rule": "NOT_ADMITTED",
+    "W_comp": "FUTURE_TARGET_ONLY",
+    "formal_soundness": "UNESTABLISHED",
+    "empirical_validity": "NOT_CLAIMED",
+    "ssi_calc_kernel_delta": 0,
+    "jepa": "PARKED",
+    "behavioral_experiment_authority": "NONE"
+  }
+}

@@ -1,0 +1,486 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_SEMANTIC_BINDING_V0.1/CASES",
+  "status": "PROSPECTIVE_SEMANTIC_BINDING_CASES_FROZEN__NO_BINDINGS_NO_ORACLE",
+  "spec_commit": "ad2073574b32c6a8ce248549a12f9539989f5b11",
+  "target_predicate": "P_WRITE=EXACT_J3_ADMISSIBILITY_WRITE_PRESENCE",
+  "next_permitted_stage": "BINDINGS",
+  "case_count": 8,
+  "case_class_counts": {
+    "B1": 2,
+    "B2": 2,
+    "B3": 2,
+    "B4": 2
+  },
+  "hard_stage_firewall": {
+    "bindings_constituted": false,
+    "descriptive_oracle_constituted": false,
+    "protocol_constituted": false,
+    "evaluator_constituted": false,
+    "detector_execution_permitted": false,
+    "semantic_binding_status_fields_present": false,
+    "expected_classification_fields_present": false,
+    "transition_or_witness_fields_present": false
+  },
+  "visibility_contract": {
+    "binding_stage_may_consume": [
+      "case.scope",
+      "case.source_channel_schema",
+      "case.bridge_visible_source_observation",
+      "case.bridge_visible_provenance_basis",
+      "global_calibration_families explicitly marked bridge_visible"
+    ],
+    "binding_stage_must_not_consume": [
+      "case.oracle_only_construction_facts",
+      "case.case_class as semantic evidence",
+      "case.case_id as semantic evidence",
+      "case.purpose as semantic evidence"
+    ],
+    "rule": "instance_identity_and_case_class_are_orchestration_metadata_only"
+  },
+  "declared_scope_template": {
+    "jurisdiction": "J3",
+    "target": "J3.admissibility.mode",
+    "observation_epoch": "EPOCH_42",
+    "predicate_scope": "events_observed_within_EPOCH_42_for_declared_J3_admissibility_target"
+  },
+  "source_channel_schemas": {
+    "CHANNEL_B1_TUPLE_TRACE_V1": {
+      "role": "novel serialization of direct scoped event-trace evidence",
+      "event_tuple_schema": [
+        "record_kind",
+        "event_type",
+        "target",
+        "actor",
+        "epoch",
+        "observation_status"
+      ],
+      "absence_tuple_schema": [
+        "record_kind",
+        "target",
+        "epoch",
+        "scope_complete",
+        "matching_event_count"
+      ],
+      "notes": "Field ordering and names differ from the parent E_P_WRITE representation; no semantic status is asserted here."
+    },
+    "CHANNEL_B2_SIGNED_STATE_COMMITMENT_V1": {
+      "role": "signed pre/post state-value observation",
+      "fields": [
+        "target",
+        "epoch",
+        "pre_value",
+        "post_value",
+        "pre_signature_valid",
+        "post_signature_valid",
+        "coverage"
+      ],
+      "notes": "The channel observes state values, not event history."
+    },
+    "CHANNEL_B3_PROXY_SCORE_V1": {
+      "role": "highly predictive proxy channel",
+      "fields": [
+        "target",
+        "epoch",
+        "proxy_signal",
+        "proxy_score",
+        "model_version",
+        "coverage"
+      ],
+      "notes": "The proxy output is not a direct event-log observation."
+    },
+    "CHANNEL_B4_PROVENANCE_RECEIPT_V1": {
+      "role": "novel compact observation plus independent provenance witness",
+      "fields": [
+        "receipt_kind",
+        "scope",
+        "event_or_segment_digest",
+        "receipt_signature_valid"
+      ],
+      "independent_provenance_fields": [
+        "witness_channel",
+        "witness_scope",
+        "witness_payload",
+        "digest_match",
+        "witness_signature_valid"
+      ],
+      "notes": "The provenance witness is constituted independently of the compact receipt and is bridge-visible by design."
+    }
+  },
+  "global_calibration_families": {
+    "B3_CALIBRATION_0P999": {
+      "bridge_visible": true,
+      "family_role": "freeze predictive strength without granting semantic identity",
+      "population_definition": {
+        "member_ids": "CAL-B3-0001 through CAL-B3-1000",
+        "all_members": {
+          "proxy_signal": "HIGH",
+          "proxy_score": 0.999,
+          "target": "J3.admissibility.mode",
+          "coverage": "COMPLETE"
+        },
+        "independently_recorded_historical_write_event_label": {
+          "CAL-B3-0001_through_CAL-B3-0999": true,
+          "CAL-B3-1000": false
+        }
+      },
+      "frozen_statistics": {
+        "proxy_high_count": 1000,
+        "write_event_label_true_given_proxy_high": 999,
+        "write_event_label_false_given_proxy_high": 1,
+        "conditional_frequency_write_given_proxy_high": 0.999
+      },
+      "anti_shortcut_note": "These are historical calibration labels. They are not direct current-case write-event observations."
+    }
+  },
+  "cases": [
+    {
+      "case_id": "SB-B1-A-TUPLE-WRITE-PRESENT",
+      "case_class": "B1",
+      "purpose": "different encoding of a directly observed write-event relation",
+      "scope": {
+        "jurisdiction": "J3",
+        "target": "J3.admissibility.mode",
+        "observation_epoch": "EPOCH_42",
+        "coverage": "COMPLETE"
+      },
+      "source_channel_schema": "CHANNEL_B1_TUPLE_TRACE_V1",
+      "bridge_visible_source_observation": {
+        "tuple": [
+          "TRACE_EVENT",
+          "WRITE",
+          "J3.admissibility.mode",
+          "scheduler-A",
+          "EPOCH_42",
+          "OBSERVED"
+        ],
+        "schema_version": "CHANNEL_B1_TUPLE_TRACE_V1",
+        "schema_definition_visible": true
+      },
+      "bridge_visible_provenance_basis": {
+        "source_log_scope_complete": true,
+        "source_log_signature_valid": true
+      },
+      "oracle_only_construction_facts": {
+        "event_history_in_scope": [
+          {
+            "event_type": "WRITE",
+            "target": "J3.admissibility.mode",
+            "actor": "scheduler-A",
+            "epoch": "EPOCH_42",
+            "observed": true
+          }
+        ],
+        "construction_note": "Reserved for later descriptive oracle; not bridge-visible."
+      }
+    },
+    {
+      "case_id": "SB-B1-B-TUPLE-NO-WRITE",
+      "case_class": "B1",
+      "purpose": "different encoding of scoped absence of a matching observed write event",
+      "scope": {
+        "jurisdiction": "J3",
+        "target": "J3.admissibility.mode",
+        "observation_epoch": "EPOCH_42",
+        "coverage": "COMPLETE"
+      },
+      "source_channel_schema": "CHANNEL_B1_TUPLE_TRACE_V1",
+      "bridge_visible_source_observation": {
+        "tuple": [
+          "TRACE_SCOPE_SUMMARY",
+          "J3.admissibility.mode",
+          "EPOCH_42",
+          true,
+          0
+        ],
+        "schema_version": "CHANNEL_B1_TUPLE_TRACE_V1",
+        "schema_definition_visible": true
+      },
+      "bridge_visible_provenance_basis": {
+        "source_log_scope_complete": true,
+        "source_log_signature_valid": true
+      },
+      "oracle_only_construction_facts": {
+        "event_history_in_scope": [
+          {
+            "event_type": "AUDIT_READ",
+            "target": "J3.admissibility.mode",
+            "actor": "auditor-B",
+            "epoch": "EPOCH_42",
+            "observed": true
+          }
+        ],
+        "construction_note": "No matching target write event is placed in the frozen scope."
+      }
+    },
+    {
+      "case_id": "SB-B2-A-STATE-CHANGE-WITH-WRITE-HISTORY",
+      "case_class": "B2",
+      "purpose": "state-value relation held as the source semantic object while event history is not directly observed by the source channel",
+      "scope": {
+        "jurisdiction": "J3",
+        "target": "J3.admissibility.mode",
+        "observation_epoch": "EPOCH_42",
+        "coverage": "COMPLETE"
+      },
+      "source_channel_schema": "CHANNEL_B2_SIGNED_STATE_COMMITMENT_V1",
+      "bridge_visible_source_observation": {
+        "target": "J3.admissibility.mode",
+        "epoch": "EPOCH_42",
+        "pre_value": "RESTRICTED",
+        "post_value": "OPEN",
+        "pre_signature_valid": true,
+        "post_signature_valid": true,
+        "coverage": "COMPLETE"
+      },
+      "bridge_visible_provenance_basis": {
+        "commitment_issuer": "state-ledger-1",
+        "pre_and_post_commitments_authentic": true,
+        "event_trace_included": false
+      },
+      "oracle_only_construction_facts": {
+        "event_history_in_scope": [
+          {
+            "event_type": "WRITE",
+            "target": "J3.admissibility.mode",
+            "actor": "scheduler-C",
+            "epoch": "EPOCH_42",
+            "observed_by_event_trace": true
+          }
+        ],
+        "state_change_mechanism": "DIRECT_WRITE_IN_SCOPE"
+      }
+    },
+    {
+      "case_id": "SB-B2-B-STATE-CHANGE-WITHOUT-WRITE-HISTORY",
+      "case_class": "B2",
+      "purpose": "same bridge-visible state-value relation with a different event history",
+      "scope": {
+        "jurisdiction": "J3",
+        "target": "J3.admissibility.mode",
+        "observation_epoch": "EPOCH_42",
+        "coverage": "COMPLETE"
+      },
+      "source_channel_schema": "CHANNEL_B2_SIGNED_STATE_COMMITMENT_V1",
+      "bridge_visible_source_observation": {
+        "target": "J3.admissibility.mode",
+        "epoch": "EPOCH_42",
+        "pre_value": "RESTRICTED",
+        "post_value": "OPEN",
+        "pre_signature_valid": true,
+        "post_signature_valid": true,
+        "coverage": "COMPLETE"
+      },
+      "bridge_visible_provenance_basis": {
+        "commitment_issuer": "state-ledger-1",
+        "pre_and_post_commitments_authentic": true,
+        "event_trace_included": false
+      },
+      "oracle_only_construction_facts": {
+        "event_history_in_scope": [
+          {
+            "event_type": "SNAPSHOT_REPLACEMENT",
+            "target": "J3.state_image",
+            "actor": "recovery-controller-D",
+            "epoch": "EPOCH_42",
+            "observed_by_event_trace": true
+          }
+        ],
+        "state_change_mechanism": "STATE_IMAGE_REPLACEMENT_WITHOUT_DECLARED_TARGET_WRITE_EVENT",
+        "declared_target_write_event_in_scope": false
+      }
+    },
+    {
+      "case_id": "SB-B3-A-PROXY-HIGH-COMMON-WRITE",
+      "case_class": "B3",
+      "purpose": "highly predictive proxy on a common calibration-consistent world",
+      "scope": {
+        "jurisdiction": "J3",
+        "target": "J3.admissibility.mode",
+        "observation_epoch": "EPOCH_42",
+        "coverage": "COMPLETE"
+      },
+      "source_channel_schema": "CHANNEL_B3_PROXY_SCORE_V1",
+      "bridge_visible_source_observation": {
+        "target": "J3.admissibility.mode",
+        "epoch": "EPOCH_42",
+        "proxy_signal": "HIGH",
+        "proxy_score": 0.999,
+        "model_version": "proxy-v1-frozen",
+        "coverage": "COMPLETE"
+      },
+      "bridge_visible_provenance_basis": {
+        "calibration_family_ref": "B3_CALIBRATION_0P999",
+        "current_event_trace_included": false
+      },
+      "oracle_only_construction_facts": {
+        "event_history_in_scope": [
+          {
+            "event_type": "WRITE",
+            "target": "J3.admissibility.mode",
+            "actor": "scheduler-E",
+            "epoch": "EPOCH_42",
+            "observed_by_independent_trace": true
+          }
+        ],
+        "calibration_regime_membership": "COMMON_ASSOCIATION_MEMBER"
+      }
+    },
+    {
+      "case_id": "SB-B3-B-PROXY-HIGH-RARE-NONWRITE",
+      "case_class": "B3",
+      "purpose": "rare counterexample with the same bridge-visible proxy semantics",
+      "scope": {
+        "jurisdiction": "J3",
+        "target": "J3.admissibility.mode",
+        "observation_epoch": "EPOCH_42",
+        "coverage": "COMPLETE"
+      },
+      "source_channel_schema": "CHANNEL_B3_PROXY_SCORE_V1",
+      "bridge_visible_source_observation": {
+        "target": "J3.admissibility.mode",
+        "epoch": "EPOCH_42",
+        "proxy_signal": "HIGH",
+        "proxy_score": 0.999,
+        "model_version": "proxy-v1-frozen",
+        "coverage": "COMPLETE"
+      },
+      "bridge_visible_provenance_basis": {
+        "calibration_family_ref": "B3_CALIBRATION_0P999",
+        "current_event_trace_included": false
+      },
+      "oracle_only_construction_facts": {
+        "event_history_in_scope": [
+          {
+            "event_type": "READ_AND_RECOMPUTE",
+            "target": "J3.admissibility.mode",
+            "actor": "diagnostic-F",
+            "epoch": "EPOCH_42",
+            "observed_by_independent_trace": true
+          }
+        ],
+        "declared_target_write_event_in_scope": false,
+        "calibration_regime_membership": "RARE_COUNTEREXAMPLE_MEMBER"
+      }
+    },
+    {
+      "case_id": "SB-B4-A-PROVENANCE-BACKED-WRITE-PRESENT",
+      "case_class": "B4",
+      "purpose": "novel compact receipt with independent provenance resolving to the predicate-relevant event relation",
+      "scope": {
+        "jurisdiction": "J3",
+        "target": "J3.admissibility.mode",
+        "observation_epoch": "EPOCH_42",
+        "coverage": "COMPLETE"
+      },
+      "source_channel_schema": "CHANNEL_B4_PROVENANCE_RECEIPT_V1",
+      "bridge_visible_source_observation": {
+        "receipt_kind": "EVENT_DIGEST_RECEIPT",
+        "scope": "J3.admissibility.mode@EPOCH_42",
+        "event_or_segment_digest": "sha256:7c9b9e4b6d0d930f5f4614c8f4838bd7c9cc4c9a302fbc2a4a9c90dff4d91b41",
+        "receipt_signature_valid": true
+      },
+      "bridge_visible_provenance_basis": {
+        "witness_channel": "independent-event-ledger-Q",
+        "witness_scope": "J3.admissibility.mode@EPOCH_42",
+        "witness_payload": {
+          "event_type": "WRITE",
+          "target": "J3.admissibility.mode",
+          "actor": "scheduler-G",
+          "epoch": "EPOCH_42",
+          "observation_status": "OBSERVED"
+        },
+        "digest_match": true,
+        "witness_signature_valid": true,
+        "independence_declaration": "receipt issuer and witness ledger are separately constituted channels"
+      },
+      "oracle_only_construction_facts": {
+        "receipt_payload_digest_matches_witness_payload": true,
+        "witness_channel_constituted_independently": true,
+        "construction_note": "Later descriptive oracle may restate these facts without assigning a semantic-binding status."
+      }
+    },
+    {
+      "case_id": "SB-B4-B-PROVENANCE-BACKED-NO-WRITE",
+      "case_class": "B4",
+      "purpose": "novel compact scope receipt with independent provenance establishing a complete scoped event segment",
+      "scope": {
+        "jurisdiction": "J3",
+        "target": "J3.admissibility.mode",
+        "observation_epoch": "EPOCH_42",
+        "coverage": "COMPLETE"
+      },
+      "source_channel_schema": "CHANNEL_B4_PROVENANCE_RECEIPT_V1",
+      "bridge_visible_source_observation": {
+        "receipt_kind": "COMPLETE_SEGMENT_DIGEST_RECEIPT",
+        "scope": "J3.admissibility.mode@EPOCH_42",
+        "event_or_segment_digest": "sha256:0ac3829962728265d4fd1a262f5eaf1dd90a67e5e5982a8f6c32a2c7f9c3d62a",
+        "receipt_signature_valid": true
+      },
+      "bridge_visible_provenance_basis": {
+        "witness_channel": "independent-event-ledger-R",
+        "witness_scope": "J3.admissibility.mode@EPOCH_42",
+        "witness_payload": {
+          "segment_complete": true,
+          "events": [
+            {
+              "event_type": "AUDIT_READ",
+              "target": "J3.admissibility.mode",
+              "actor": "auditor-H",
+              "epoch": "EPOCH_42",
+              "observation_status": "OBSERVED"
+            }
+          ]
+        },
+        "digest_match": true,
+        "witness_signature_valid": true,
+        "independence_declaration": "receipt issuer and witness ledger are separately constituted channels"
+      },
+      "oracle_only_construction_facts": {
+        "receipt_payload_digest_matches_witness_payload": true,
+        "witness_channel_constituted_independently": true,
+        "segment_is_complete_for_declared_scope": true,
+        "construction_note": "No target write event is inserted into the complete frozen segment."
+      }
+    }
+  ],
+  "pairwise_adversarial_invariants": {
+    "B1": {
+      "novel_encoding_used": true,
+      "both_presence_and_scoped_absence_instantiated": true
+    },
+    "B2": {
+      "bridge_visible_source_observations_identical_between_pair": true,
+      "bridge_visible_provenance_basis_identical_between_pair": true,
+      "construction_event_histories_differ": true
+    },
+    "B3": {
+      "bridge_visible_source_observations_identical_between_pair": true,
+      "bridge_visible_provenance_basis_identical_between_pair": true,
+      "frozen_predictive_association": 0.999,
+      "rare_counterexample_instantiated": true,
+      "construction_event_histories_differ": true
+    },
+    "B4": {
+      "independent_provenance_visible_to_future_binding": true,
+      "both_presence_and_scoped_absence_instantiated": true
+    }
+  },
+  "anti_leakage_assertions": {
+    "no_semantic_binding_status_in_case_payload": true,
+    "no_expected_classification_in_case_payload": true,
+    "no_D2_expected_output_in_case_payload": true,
+    "no_transition_status_in_case_payload": true,
+    "no_witness_or_entitlement_status_in_case_payload": true,
+    "oracle_only_construction_facts_forbidden_to_future_bridge": true,
+    "case_id_and_case_class_forbidden_as_semantic_evidence": true
+  },
+  "authority_ceiling": {
+    "SEMANTIC_BINDING_COMPATIBILITY": "OPEN__CASES_FROZEN",
+    "SEMANTIC_BINDING_GENERALIZATION": "OPEN",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "SSI_CALC_KERNEL_DELTA": 0
+  }
+}

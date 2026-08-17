@@ -1,0 +1,291 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_DETECTION_STRESS_V0.1/DESCRIPTIVE_ORACLE",
+  "status": "PROSPECTIVE_DESCRIPTIVE_ORACLE_FROZEN__NO_PROTOCOL_NO_EXECUTION",
+  "spec_commit": "a35b68779994026427dcc759ddc1188b8e604406",
+  "heldout_cases_commit": "714cd34fbbf260b25fa2bdf8c25009443b531899",
+  "bindings_commit": "44a92a88d61b87f43a719662ac463862357fccdf",
+  "freeze_stage": "DESCRIPTIVE_ORACLE",
+  "next_permitted_stage": "EXECUTION_PROTOCOL",
+  "hard_constraints": {
+    "delta_spec": 0,
+    "delta_heldout_cases": 0,
+    "delta_bindings": 0,
+    "delta_parent_detector_algorithms": 0,
+    "expected_detector_outputs_present": false,
+    "transition_statuses_present": false,
+    "witness_language_present": false,
+    "entitlement_semantics_present": false,
+    "composition_semantics_present": false,
+    "reconciliation_rule_present": false,
+    "observer_priority_present": false,
+    "protocol_present": false,
+    "execution_started": false
+  },
+  "oracle_contract": {
+    "purpose": "Record detector-independent descriptive facts of the frozen held-out worlds and observation availability without scoring detector correctness or granting authority.",
+    "allowed": [
+      "deterministic descriptive relations already fixed by HELDOUT_CASES latent_world fields",
+      "which raw observations are physically present in the frozen case record",
+      "coverage state exactly as frozen",
+      "whether two channel reports are descriptively incompatible on the same declared scope",
+      "explicit preservation that a factual truth was intentionally not constituted by the held-out case"
+    ],
+    "forbidden": [
+      "expected detector output",
+      "detector pass/fail",
+      "binding compatibility scoring",
+      "REVOKED",
+      "PRESERVED as a higher-order transition judgment",
+      "UNPROVEN as an entitlement-layer status",
+      "ENTITLED",
+      "W_int",
+      "W_comp",
+      "composition authorization",
+      "channel priority",
+      "reconciliation by source identity or historical accuracy"
+    ],
+    "firewalls": [
+      "descriptive world fact != detector output",
+      "binding compatibility != detector correctness",
+      "state-value change != write-event observation",
+      "detected != reconciled != authoritative",
+      "unobserved != observed absent",
+      "oracle knowledge of latent world != detector-visible evidence"
+    ]
+  },
+  "world_oracle": {
+    "HD-G1-A-WINDOW-SEPARATED": {
+      "axis": "G1_WORLD_NOVELTY",
+      "descriptive_world_facts": {
+        "interaction_family": "TEMPORAL_AGGREGATE_WINDOW",
+        "window_seconds": 60,
+        "aggregate_limit": 8,
+        "phase12_event": {"t": 0, "amount": 4},
+        "phase23_event": {"t": 61, "amount": 5},
+        "phase12_usage_in_active_window_at_phase23": 0,
+        "available_aggregate_capacity_at_phase23": 8,
+        "phase23_required_capacity": 5,
+        "capacity_relation": "AVAILABLE_GE_REQUIRED"
+      },
+      "observation_facts": {
+        "surface": "composed_window_probe",
+        "coverage": "COMPLETE"
+      }
+    },
+    "HD-G1-B-WINDOW-OVERLAP": {
+      "axis": "G1_WORLD_NOVELTY",
+      "descriptive_world_facts": {
+        "interaction_family": "TEMPORAL_AGGREGATE_WINDOW",
+        "window_seconds": 60,
+        "aggregate_limit": 8,
+        "phase12_event": {"t": 0, "amount": 4},
+        "phase23_event": {"t": 45, "amount": 5},
+        "phase12_usage_in_active_window_at_phase23": 4,
+        "available_aggregate_capacity_at_phase23": 4,
+        "phase23_required_capacity": 5,
+        "capacity_relation": "AVAILABLE_LT_REQUIRED"
+      },
+      "observation_facts": {
+        "surface": "composed_window_probe",
+        "coverage": "COMPLETE"
+      }
+    },
+    "HD-G2-A-COMMITMENT-STABLE": {
+      "axis": "G2_CHANNEL_NOVELTY",
+      "descriptive_world_facts": {
+        "interaction_family": "CROSS_BOUNDARY_EFFECT",
+        "observed_key": "J3.admissibility.mode",
+        "pre_value": "STANDARD",
+        "post_value": "STANDARD",
+        "state_value_relation": "UNCHANGED",
+        "write_event_truth": "NOT_CONSTITUTED_BY_THIS_ORACLE"
+      },
+      "observation_facts": {
+        "surface": "state_commitment_monitor",
+        "mechanism_family": "SIGNED_STATE_COMMITMENT",
+        "coverage": "COMPLETE",
+        "pre_key_proof_present": true,
+        "post_key_proof_present": true
+      }
+    },
+    "HD-G2-B-COMMITMENT-CHANGED": {
+      "axis": "G2_CHANNEL_NOVELTY",
+      "descriptive_world_facts": {
+        "interaction_family": "CROSS_BOUNDARY_EFFECT",
+        "observed_key": "J3.admissibility.mode",
+        "pre_value": "STANDARD",
+        "post_value": "RESTRICTED",
+        "state_value_relation": "CHANGED",
+        "write_event_truth": "NOT_CONSTITUTED_BY_THIS_ORACLE"
+      },
+      "observation_facts": {
+        "surface": "state_commitment_monitor",
+        "mechanism_family": "SIGNED_STATE_COMMITMENT",
+        "coverage": "COMPLETE",
+        "pre_key_proof_present": true,
+        "post_key_proof_present": true
+      }
+    },
+    "HD-G3-A-COMPLETE": {
+      "axis": "G3_COVERAGE_DEGRADATION",
+      "descriptive_world_facts": {
+        "interaction_family": "CROSS_BOUNDARY_EFFECT",
+        "observed_key": "J3.admissibility.lease_epoch",
+        "pre_value": 17,
+        "post_value": 18,
+        "latent_state_value_relation": "CHANGED"
+      },
+      "observation_facts": {
+        "surface": "state_commitment_monitor",
+        "coverage": "COMPLETE",
+        "pre_key_proof_present": true,
+        "post_key_proof_present": true
+      }
+    },
+    "HD-G3-B-PRE-ONLY": {
+      "axis": "G3_COVERAGE_DEGRADATION",
+      "descriptive_world_facts": {
+        "interaction_family": "CROSS_BOUNDARY_EFFECT",
+        "observed_key": "J3.admissibility.lease_epoch",
+        "pre_value": 17,
+        "post_value": 18,
+        "latent_state_value_relation": "CHANGED"
+      },
+      "observation_facts": {
+        "surface": "state_commitment_monitor",
+        "coverage": "PARTIAL_PRE_ONLY",
+        "pre_key_proof_present": true,
+        "post_key_proof_present": false,
+        "missingness_is_negative_evidence": false
+      }
+    },
+    "HD-G3-C-UNOBSERVED": {
+      "axis": "G3_COVERAGE_DEGRADATION",
+      "descriptive_world_facts": {
+        "interaction_family": "CROSS_BOUNDARY_EFFECT",
+        "observed_key": "J3.admissibility.lease_epoch",
+        "pre_value": 17,
+        "post_value": 18,
+        "latent_state_value_relation": "CHANGED"
+      },
+      "observation_facts": {
+        "surface": "state_commitment_monitor",
+        "coverage": "UNOBSERVED",
+        "pre_key_proof_present": false,
+        "post_key_proof_present": false,
+        "missingness_is_negative_evidence": false
+      }
+    },
+    "HD-G4-A-ROLLBACK-CAPACITY-TWO": {
+      "axis": "G4_FAILURE_STRUCTURE_NOVELTY",
+      "descriptive_world_facts": {
+        "interaction_family": "ROLLBACK_PATH_INTERFERENCE",
+        "compensation_slots_total": 2,
+        "slots_held_before_transition23": 1,
+        "slots_available_if_transition23_fails": 1,
+        "slots_required_if_transition23_fails": 1,
+        "recovery_capacity_relation": "AVAILABLE_GE_REQUIRED",
+        "transition23_failure_injected": true
+      },
+      "observation_facts": {
+        "surface": "recovery_precondition_probe",
+        "coverage": "COMPLETE"
+      }
+    },
+    "HD-G4-B-ROLLBACK-CAPACITY-ONE": {
+      "axis": "G4_FAILURE_STRUCTURE_NOVELTY",
+      "descriptive_world_facts": {
+        "interaction_family": "ROLLBACK_PATH_INTERFERENCE",
+        "compensation_slots_total": 1,
+        "slots_held_before_transition23": 1,
+        "slots_available_if_transition23_fails": 0,
+        "slots_required_if_transition23_fails": 1,
+        "recovery_capacity_relation": "AVAILABLE_LT_REQUIRED",
+        "transition23_failure_injected": true
+      },
+      "observation_facts": {
+        "surface": "recovery_precondition_probe",
+        "coverage": "COMPLETE"
+      }
+    },
+    "HD-G5-A-ALPHA-DISJOINT-BETA-ALIASED": {
+      "axis": "G5_INDEPENDENT_CHANNEL_CONTRADICTION",
+      "descriptive_world_facts": {
+        "interaction_family": "CHANNEL_CONFLICT_OBJECT",
+        "shared_claim_scope": "epoch-scoped physical alias relation between phase_12.buffer and phase_23.buffer",
+        "epoch": 7200,
+        "adjudicated_physical_alias_truth": "NOT_CONSTITUTED",
+        "reason": "HELDOUT_CASES intentionally froze no reconciliation oracle for physical alias truth"
+      },
+      "observation_facts": {
+        "observer_alpha": {
+          "mechanism_family": "SIGNED_PAGE_TABLE_SNAPSHOT",
+          "phase12_page": "P7",
+          "phase23_page": "P8",
+          "reported_relation": "DISJOINT",
+          "coverage": "COMPLETE"
+        },
+        "observer_beta": {
+          "mechanism_family": "HARDWARE_BUS_SNOOP",
+          "phase12_page": "P7",
+          "phase23_page": "P7",
+          "reported_relation": "ALIASED",
+          "coverage": "COMPLETE"
+        },
+        "same_scope_channel_reports_incompatible": true,
+        "reconciled_relation": "NOT_CONSTITUTED",
+        "preferred_observer": "NONE"
+      }
+    },
+    "HD-G5-B-ALPHA-ALIASED-BETA-DISJOINT": {
+      "axis": "G5_INDEPENDENT_CHANNEL_CONTRADICTION",
+      "descriptive_world_facts": {
+        "interaction_family": "CHANNEL_CONFLICT_OBJECT",
+        "shared_claim_scope": "epoch-scoped physical alias relation between phase_12.buffer and phase_23.buffer",
+        "epoch": 7200,
+        "adjudicated_physical_alias_truth": "NOT_CONSTITUTED",
+        "reason": "HELDOUT_CASES intentionally froze no reconciliation oracle for physical alias truth"
+      },
+      "observation_facts": {
+        "observer_alpha": {
+          "mechanism_family": "SIGNED_PAGE_TABLE_SNAPSHOT",
+          "phase12_page": "P9",
+          "phase23_page": "P9",
+          "reported_relation": "ALIASED",
+          "coverage": "COMPLETE"
+        },
+        "observer_beta": {
+          "mechanism_family": "HARDWARE_BUS_SNOOP",
+          "phase12_page": "P9",
+          "phase23_page": "P10",
+          "reported_relation": "DISJOINT",
+          "coverage": "COMPLETE"
+        },
+        "same_scope_channel_reports_incompatible": true,
+        "reconciled_relation": "NOT_CONSTITUTED",
+        "preferred_observer": "NONE"
+      }
+    }
+  },
+  "axis_oracle_summary": {
+    "G1": "Descriptive aggregate-window capacity relation is constituted for both worlds.",
+    "G2": "Descriptive pre/post state-value relation is constituted; write-event truth is deliberately not inferred.",
+    "G3": "Latent state change is held fixed while actual observation coverage degrades from COMPLETE to PARTIAL_PRE_ONLY to UNOBSERVED.",
+    "G4": "Descriptive rollback-resource sufficiency relation is constituted for both worlds.",
+    "G5": "Each independent observer report and the existence of same-scope disagreement are constituted; underlying physical alias truth and reconciliation remain unconstituted."
+  },
+  "authority_ceiling": {
+    "DETECTION_GENERALIZATION": "OPEN",
+    "DETECTION_LOCALIZATION": "OPEN",
+    "CONTRADICTORY_CHANNEL_HANDLING": "OPEN",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "FORMAL_SOUNDNESS": "UNESTABLISHED",
+    "EMPIRICAL_REAL_WORLD_DETECTION": "NOT_CLAIMED",
+    "SSI_CALC_KERNEL_DELTA": 0,
+    "JEPA": "PARKED",
+    "BEHAVIORAL_EXPERIMENT_AUTHORITY": "NONE"
+  }
+}

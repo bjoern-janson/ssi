@@ -1,0 +1,444 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_FACTORED_EVIDENCE_INTERFACE_V0.1/CASES",
+  "status": "PROSPECTIVE_FACTORED_EVIDENCE_CASES_FROZEN__NO_BINDINGS_NO_ORACLE_NO_RESULT",
+  "spec_commit": "72796b428f1c5d71bc225ecab623ef38f83470c4",
+  "parent_result_commit": "4020e3a3cc627d2d0ebc5911b363258372045dfb",
+  "next_permitted_stage": "BINDINGS",
+  "candidate_interface_constituted": false,
+  "candidate_relation_projection_constituted": false,
+  "candidate_provenance_projection_constituted": false,
+  "descriptive_oracle_constituted": false,
+  "protocol_constituted": false,
+  "evaluator_constituted": false,
+  "result_constituted": false,
+  "scientific_scope": {
+    "target_predicate_neighborhood": "P_WRITE=EXACT_J3_ADMISSIBILITY_WRITE_PRESENCE",
+    "target": "J3.admissibility.mode",
+    "epoch": "EPOCH_42",
+    "coverage_domain": "EVENT_SCOPE",
+    "coverage_status": "COMPLETE",
+    "certainty": "OBSERVED_OR_EXHAUSTIVELY_COVERED",
+    "representation_experiment_only": true,
+    "semantic_binding_regression_permitted": false,
+    "witness_sufficiency_permitted": false,
+    "W_int_permitted": false,
+    "W_comp_permitted": false,
+    "composition_permitted": false
+  },
+  "case_design": {
+    "shape": "FOUR_WORLD_CARTESIAN_SQUARE_WITH_F1_F4_PAIRINGS",
+    "governing_rule": "vary one coordinate while freezing the other where the frozen family requires it",
+    "world_count": 4,
+    "pair_count": 4,
+    "relation_axis_source_facts": [
+      "complete event scope contains one matching WRITE to J3.admissibility.mode",
+      "complete event scope contains zero matching WRITEs to J3.admissibility.mode"
+    ],
+    "provenance_axis_source_routes": [
+      "DIRECT_SIGNED_EVENT_TRACE",
+      "INDEPENDENT_AUDIT_WITNESS_BUNDLE"
+    ],
+    "important_nonclaim": "The case artifact freezes evidence worlds and bridge-visible source surfaces; it does not itself assign r_P, pi_r, Delta_r, Delta_pi, adequacy verdicts, or projection outputs."
+  },
+  "common_semantic_controls": {
+    "scope": {
+      "target": "J3.admissibility.mode",
+      "epoch": "EPOCH_42",
+      "window_start": "T0",
+      "window_end": "T1"
+    },
+    "coverage": {
+      "domain": "EVENT_SCOPE",
+      "status": "COMPLETE",
+      "ordered_segment": true
+    },
+    "matching_write_definition": {
+      "operation": "WRITE",
+      "target": "J3.admissibility.mode",
+      "scope_must_match": true
+    },
+    "write_event_payload": {
+      "event_seq": 17,
+      "operation": "WRITE",
+      "actor": "allocator-alpha",
+      "target": "J3.admissibility.mode",
+      "before": "RESTRICTED",
+      "after": "OPEN",
+      "epoch": "EPOCH_42"
+    },
+    "nonmatching_control_event": {
+      "event_seq": 11,
+      "operation": "READ",
+      "actor": "observer-zeta",
+      "target": "J3.admissibility.mode",
+      "epoch": "EPOCH_42"
+    }
+  },
+  "provenance_route_definitions": {
+    "DIRECT_SIGNED_EVENT_TRACE": {
+      "semantic_attributes": {
+        "observation_origin": "J3_RUNTIME_EVENT_LOGGER",
+        "recording_mode": "DIRECT_EVENT_RECORDING",
+        "signing_authority_role": "J3_EVENT_LOGGER",
+        "coverage_attestation": "COMPLETE_EVENT_SCOPE_T0_T1",
+        "derivation_from_other_suite_route": false
+      },
+      "representation_family": "direct_trace_packet_v1"
+    },
+    "INDEPENDENT_AUDIT_WITNESS_BUNDLE": {
+      "semantic_attributes": {
+        "observation_origin": "INDEPENDENT_AUDIT_TAP",
+        "recording_mode": "INDEPENDENT_EVENT_WITNESSING",
+        "signing_authority_role": "AUDIT_WITNESS",
+        "coverage_attestation": "COMPLETE_EVENT_SCOPE_T0_T1",
+        "derived_from_J3_runtime_event_logger": false,
+        "shared_signing_authority_with_J3_runtime_event_logger": false,
+        "independent_observation_channel": true
+      },
+      "representation_family": "audit_witness_bundle_v1",
+      "bundle_structure": [
+        "scope-bound receipt",
+        "independently signed complete event segment",
+        "digest link between receipt and witnessed segment"
+      ]
+    }
+  },
+  "bridge_visibility_contract": {
+    "candidate_mapping_may_consume_only": "worlds[*].bridge_visible",
+    "candidate_mapping_must_not_consume": [
+      "world_id",
+      "pair_id",
+      "pair_family",
+      "scientific_role",
+      "pair_manifest",
+      "oracle_only_construction_facts",
+      "case_design labels",
+      "expected adequacy condition",
+      "expected Delta_r or Delta_pi",
+      "parent B4 semantic-binding status",
+      "downstream detector output",
+      "witness sufficiency",
+      "entitlement"
+    ],
+    "identifier_rule": "Opaque packet IDs, receipt IDs, witness IDs, digests, signatures, and serialization order may not by themselves establish semantic relation or provenance distinctions. Later recoverability must depend on declared semantic provenance attributes, not identifier inequality.",
+    "determinism_rule": "Semantically identical bridge-visible source representations must receive identical candidate mapping outputs regardless of world or pair membership."
+  },
+  "worlds": [
+    {
+      "world_id": "FEI-W-A-DIRECT-WRITE",
+      "bridge_visible": {
+        "source_schema": "direct_trace_packet_v1",
+        "trace_packet": {
+          "scope": {
+            "target": "J3.admissibility.mode",
+            "epoch": "EPOCH_42",
+            "window_start": "T0",
+            "window_end": "T1"
+          },
+          "coverage": {
+            "domain": "EVENT_SCOPE",
+            "status": "COMPLETE",
+            "ordered_segment": true
+          },
+          "records": [
+            {
+              "event_seq": 11,
+              "operation": "READ",
+              "actor": "observer-zeta",
+              "target": "J3.admissibility.mode",
+              "epoch": "EPOCH_42"
+            },
+            {
+              "event_seq": 17,
+              "operation": "WRITE",
+              "actor": "allocator-alpha",
+              "target": "J3.admissibility.mode",
+              "before": "RESTRICTED",
+              "after": "OPEN",
+              "epoch": "EPOCH_42"
+            }
+          ],
+          "attestation": {
+            "observation_origin": "J3_RUNTIME_EVENT_LOGGER",
+            "recording_mode": "DIRECT_EVENT_RECORDING",
+            "signing_authority_role": "J3_EVENT_LOGGER",
+            "coverage_attestation": "COMPLETE_EVENT_SCOPE_T0_T1",
+            "signature_status": "VALID"
+          }
+        }
+      },
+      "oracle_only_construction_facts": {
+        "matching_target_write_count_in_complete_scope": 1,
+        "source_route_semantic_type": "DIRECT_SIGNED_EVENT_TRACE",
+        "source_route_derived_from_independent_audit_route": false
+      }
+    },
+    {
+      "world_id": "FEI-W-B-DIRECT-NO-WRITE",
+      "bridge_visible": {
+        "source_schema": "direct_trace_packet_v1",
+        "trace_packet": {
+          "scope": {
+            "target": "J3.admissibility.mode",
+            "epoch": "EPOCH_42",
+            "window_start": "T0",
+            "window_end": "T1"
+          },
+          "coverage": {
+            "domain": "EVENT_SCOPE",
+            "status": "COMPLETE",
+            "ordered_segment": true
+          },
+          "records": [
+            {
+              "event_seq": 11,
+              "operation": "READ",
+              "actor": "observer-zeta",
+              "target": "J3.admissibility.mode",
+              "epoch": "EPOCH_42"
+            }
+          ],
+          "attestation": {
+            "observation_origin": "J3_RUNTIME_EVENT_LOGGER",
+            "recording_mode": "DIRECT_EVENT_RECORDING",
+            "signing_authority_role": "J3_EVENT_LOGGER",
+            "coverage_attestation": "COMPLETE_EVENT_SCOPE_T0_T1",
+            "signature_status": "VALID"
+          }
+        }
+      },
+      "oracle_only_construction_facts": {
+        "matching_target_write_count_in_complete_scope": 0,
+        "source_route_semantic_type": "DIRECT_SIGNED_EVENT_TRACE",
+        "source_route_derived_from_independent_audit_route": false
+      }
+    },
+    {
+      "world_id": "FEI-W-C-WITNESS-WRITE",
+      "bridge_visible": {
+        "source_schema": "audit_witness_bundle_v1",
+        "audit_bundle": {
+          "scope_receipt": {
+            "target": "J3.admissibility.mode",
+            "epoch": "EPOCH_42",
+            "window_start": "T0",
+            "window_end": "T1",
+            "segment_digest": "digest-witness-write-segment",
+            "receipt_signature_status": "VALID",
+            "receipt_signing_role": "J3_SCOPE_RECEIPT_EMITTER"
+          },
+          "witness_segment": {
+            "scope": {
+              "target": "J3.admissibility.mode",
+              "epoch": "EPOCH_42",
+              "window_start": "T0",
+              "window_end": "T1"
+            },
+            "coverage": {
+              "domain": "EVENT_SCOPE",
+              "status": "COMPLETE",
+              "ordered_segment": true
+            },
+            "records": [
+              {
+                "event_seq": 11,
+                "operation": "READ",
+                "actor": "observer-zeta",
+                "target": "J3.admissibility.mode",
+                "epoch": "EPOCH_42"
+              },
+              {
+                "event_seq": 17,
+                "operation": "WRITE",
+                "actor": "allocator-alpha",
+                "target": "J3.admissibility.mode",
+                "before": "RESTRICTED",
+                "after": "OPEN",
+                "epoch": "EPOCH_42"
+              }
+            ],
+            "segment_digest": "digest-witness-write-segment",
+            "witness_attestation": {
+              "observation_origin": "INDEPENDENT_AUDIT_TAP",
+              "recording_mode": "INDEPENDENT_EVENT_WITNESSING",
+              "signing_authority_role": "AUDIT_WITNESS",
+              "coverage_attestation": "COMPLETE_EVENT_SCOPE_T0_T1",
+              "signature_status": "VALID",
+              "derived_from_J3_runtime_event_logger": false,
+              "shared_signing_authority_with_J3_runtime_event_logger": false,
+              "independent_observation_channel": true
+            }
+          },
+          "linkage": {
+            "receipt_digest_matches_witness_segment": true,
+            "receipt_scope_matches_witness_scope": true
+          }
+        }
+      },
+      "oracle_only_construction_facts": {
+        "matching_target_write_count_in_complete_scope": 1,
+        "source_route_semantic_type": "INDEPENDENT_AUDIT_WITNESS_BUNDLE",
+        "witness_route_derived_from_direct_trace": false
+      }
+    },
+    {
+      "world_id": "FEI-W-D-WITNESS-NO-WRITE",
+      "bridge_visible": {
+        "source_schema": "audit_witness_bundle_v1",
+        "audit_bundle": {
+          "scope_receipt": {
+            "target": "J3.admissibility.mode",
+            "epoch": "EPOCH_42",
+            "window_start": "T0",
+            "window_end": "T1",
+            "segment_digest": "digest-witness-no-write-segment",
+            "receipt_signature_status": "VALID",
+            "receipt_signing_role": "J3_SCOPE_RECEIPT_EMITTER"
+          },
+          "witness_segment": {
+            "scope": {
+              "target": "J3.admissibility.mode",
+              "epoch": "EPOCH_42",
+              "window_start": "T0",
+              "window_end": "T1"
+            },
+            "coverage": {
+              "domain": "EVENT_SCOPE",
+              "status": "COMPLETE",
+              "ordered_segment": true
+            },
+            "records": [
+              {
+                "event_seq": 11,
+                "operation": "READ",
+                "actor": "observer-zeta",
+                "target": "J3.admissibility.mode",
+                "epoch": "EPOCH_42"
+              }
+            ],
+            "segment_digest": "digest-witness-no-write-segment",
+            "witness_attestation": {
+              "observation_origin": "INDEPENDENT_AUDIT_TAP",
+              "recording_mode": "INDEPENDENT_EVENT_WITNESSING",
+              "signing_authority_role": "AUDIT_WITNESS",
+              "coverage_attestation": "COMPLETE_EVENT_SCOPE_T0_T1",
+              "signature_status": "VALID",
+              "derived_from_J3_runtime_event_logger": false,
+              "shared_signing_authority_with_J3_runtime_event_logger": false,
+              "independent_observation_channel": true
+            }
+          },
+          "linkage": {
+            "receipt_digest_matches_witness_segment": true,
+            "receipt_scope_matches_witness_scope": true
+          }
+        }
+      },
+      "oracle_only_construction_facts": {
+        "matching_target_write_count_in_complete_scope": 0,
+        "source_route_semantic_type": "INDEPENDENT_AUDIT_WITNESS_BUNDLE",
+        "witness_route_derived_from_direct_trace": false
+      }
+    }
+  ],
+  "pair_manifest": [
+    {
+      "pair_id": "F1_RELEVANT_SEPARATION",
+      "pair_family": "F1",
+      "world_a": "FEI-W-A-DIRECT-WRITE",
+      "world_b": "FEI-W-B-DIRECT-NO-WRITE",
+      "scientific_role": "Attack relevant-relation separation while holding the semantically constituted provenance route fixed.",
+      "frozen_controls": [
+        "same source schema: direct_trace_packet_v1",
+        "same direct observation origin",
+        "same signing-authority role",
+        "same complete event-scope coverage",
+        "same target and epoch",
+        "same nonmatching control event",
+        "only matching target-WRITE content differs"
+      ]
+    },
+    {
+      "pair_id": "F2_ORTHOGONAL_INVARIANCE",
+      "pair_family": "F2",
+      "world_a": "FEI-W-A-DIRECT-WRITE",
+      "world_b": "FEI-W-C-WITNESS-WRITE",
+      "scientific_role": "Attack relation-coordinate invariance under genuinely different provenance routes that contain the same matching target-WRITE event content.",
+      "frozen_controls": [
+        "same target and epoch",
+        "same complete event-scope coverage",
+        "same matching WRITE event payload",
+        "same nonmatching control event",
+        "provenance route changes from direct runtime trace to independent audit witness bundle",
+        "independent audit witness is not derived from the direct runtime logger and does not share its signing authority"
+      ]
+    },
+    {
+      "pair_id": "F3_ORTHOGONAL_RECOVERABILITY",
+      "pair_family": "F3",
+      "world_a": "FEI-W-B-DIRECT-NO-WRITE",
+      "world_b": "FEI-W-D-WITNESS-NO-WRITE",
+      "scientific_role": "Attack provenance recoverability under different provenance routes while holding the complete zero-matching-WRITE evidence content fixed.",
+      "frozen_controls": [
+        "same target and epoch",
+        "same complete event-scope coverage",
+        "same zero matching target-WRITE content",
+        "same nonmatching control event",
+        "provenance route changes from direct runtime trace to independent audit witness bundle",
+        "provenance difference is semantically constituted by observation origin, recording mode, signing-authority role, and independence attributes rather than opaque IDs"
+      ]
+    },
+    {
+      "pair_id": "F4_JOINT_SEPARABILITY",
+      "pair_family": "F4",
+      "world_a": "FEI-W-A-DIRECT-WRITE",
+      "world_b": "FEI-W-D-WITNESS-NO-WRITE",
+      "scientific_role": "Attack joint separability when both predicate-relevant event content and provenance route differ.",
+      "frozen_controls": [
+        "same target and epoch",
+        "same complete event-scope coverage",
+        "world_a contains one matching target WRITE under direct runtime provenance",
+        "world_b contains zero matching target WRITEs under independent audit provenance",
+        "neither relation content nor provenance route may substitute for the other in later projections"
+      ]
+    }
+  ],
+  "cross_pair_integrity": {
+    "same_worlds_reused_across_pair_roles": true,
+    "reason": "Reusing the four Cartesian cells prevents later candidate mappings from exploiting family-specific source-surface quirks.",
+    "direct_write_world_reused_in": ["F1", "F2", "F4"],
+    "direct_no_write_world_reused_in": ["F1", "F3"],
+    "witness_write_world_reused_in": ["F2"],
+    "witness_no_write_world_reused_in": ["F3", "F4"],
+    "pair_membership_is_not_bridge_visible": true
+  },
+  "anti_cheating_checks_frozen_at_case_stage": {
+    "candidate_Phi_defined": false,
+    "q_r_defined": false,
+    "q_pi_defined": false,
+    "expected_projection_outputs_present": false,
+    "adequacy_status_labels_present_in_bridge_visible_surfaces": false,
+    "semantic_binding_status_present_in_bridge_visible_surfaces": false,
+    "witness_sufficiency_labels_present": false,
+    "opaque_identifier_only_provenance_difference": false,
+    "provenance_difference_has_semantic_attributes": true,
+    "parent_B4_relation_labels_reused_as_bridge_visible_answer_tokens": false
+  },
+  "authority_ceiling": {
+    "INTERFACE_NONIDENTIFIABILITY_VIA_COORDINATE_CONFLATION": "DIAGNOSED_IN_PARENT_V0_1_B4",
+    "RELATION_PROVENANCE_COLLAPSE": "DIAGNOSED_IN_PARENT_V0_1_B4",
+    "RELATION_PROVENANCE_SEPARATION": "PROSPECTIVE_REPAIR_HYPOTHESIS",
+    "FACTORIZED_EVIDENCE_INTERFACE": "PROSPECTIVE_CASES_FROZEN__NOT_VALIDATED",
+    "RELEVANT_SEPARATION": "NOT_TESTED",
+    "ORTHOGONAL_INVARIANCE": "NOT_TESTED",
+    "ORTHOGONAL_RECOVERABILITY": "NOT_TESTED",
+    "JOINT_SEPARABILITY": "NOT_TESTED",
+    "SEMANTIC_BINDING_COMPATIBILITY": "PARTIAL_TYPED_SUPPORT__PARENT_FULL_SUITE_NOT_EARNED",
+    "SEMANTIC_BINDING_GENERALIZATION": "OPEN",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "SSI_CALC_KERNEL_DELTA": 0
+  }
+}
