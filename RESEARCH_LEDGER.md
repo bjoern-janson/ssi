@@ -1,32 +1,191 @@
 # SSI Research Ledger
 
-Current durable research index: **2026-08-17**.
+**Current navigation snapshot:** 2026-08-17, post-PR61.  
+**Authority rule:** frozen scientific artifacts > research ledgers > reader-facing summaries.
 
-This file is a navigation layer, not an executable scientific artifact. The detailed current ledger is:
+This root ledger is deliberately compact. It points to the current earned frontier without attempting to replace the detailed historical ledgers or frozen experiment objects.
 
-- [`research/ledger/CURRENT.md`](research/ledger/CURRENT.md)
-- [`research/ledger/STATUS.json`](research/ledger/STATUS.json)
-- [`research/ledger/SNAPSHOT_2026-08-16.md`](research/ledger/SNAPSHOT_2026-08-16.md)
+## Current routes
 
-The preserved 2026-08-16 snapshot is historical provenance and must not be treated as the current frontier.
+- [`RESEARCH_MAP.md`](RESEARCH_MAP.md) — annotated topology of the major research tracks.
+- [`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md) — current administrative status and authority ceilings.
+- [`research/ledger/CURRENT.md`](research/ledger/CURRENT.md) — durable earlier research ledger and conceptual floor.
+- [`research/ledger/STATUS.json`](research/ledger/STATUS.json) — machine-readable ledger state from that lineage.
+- [`research/ledger/SNAPSHOT_2026-08-16.md`](research/ledger/SNAPSHOT_2026-08-16.md) — preserved historical snapshot.
+- [`research/relicense/README.md`](research/relicense/README.md) — human index of the interaction / transition / transport sequence.
 
-## Provenance order
+If any navigation layer conflicts with frozen scientific bytes, the frozen object governs.
 
-For claims backed by frozen external experiments or formal artifacts:
+---
+
+## Current earned transition ladder
 
 ```text
-frozen/content-addressed scientific object
-    > current durable research ledger
-    > derived summaries / older navigation snapshots
+PR59  ROLE_SEPARATION
+    = SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE
+
+PR60  TESTED_STRUCTURAL_TRANSPORT
+    = SUPPORTED_ON_EVALUABLE_FROZEN_HELDOUT_AXES
+
+PR61  TRANSITION_SEMANTIC_TRANSPORT
+    = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE
+
+POST_PR61_FRONTIER
+    = UNCONSTITUTED
 ```
 
-Here `>` means **more current for that claim**, not globally more authoritative in every respect.
+The current ladder is therefore:
 
-If a navigation ledger conflicts with frozen scientific bytes, the frozen object governs.
+```text
+representation
+-> separation
+-> held-out structural transport
+-> semantic / evidential transport
+-> ?
+```
 
-## Current conceptual floor
+The `?` is intentional structured ignorance.
 
-Two orthogonal non-collapses now organize the program.
+---
+
+## PR59 — role separation
+
+Frozen RESULT head:
+
+```text
+1195f9f6c5a1d84025405018725b5f2f27e27ad0
+```
+
+Object:
+
+```text
+SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_V0.1
+```
+
+Strongest earned claim:
+
+```text
+FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY
+    = SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE
+```
+
+Target tuple:
+
+```text
+K = (S, L, V, Lambda)
+```
+
+No claim of four-coordinate completeness or transition governance is implied.
+
+---
+
+## PR60 — held-out structural transport
+
+Frozen RESULT head:
+
+```text
+21753d9e3e2264c5954ba035ed5db0455cae4f5c
+```
+
+Typed result:
+
+```text
+G1 WORLD_NOVELTY                                  = SUPPORTED
+G2 OBSERVATION_CHANNEL_NOVELTY                    = NOT_EVALUABLE_UNDER_FROZEN_BINDING
+G3 COVERAGE_DEGRADATION                           = SUPPORTED
+G4 FAILURE_STRUCTURE_NOVELTY                      = SUPPORTED
+G5 COORDINATE_CONTRADICTION_OR_CONFLICTING_CHANNELS = SUPPORTED
+```
+
+Overall:
+
+```text
+FULL_FOUR_COORDINATE_SEPARABILITY_GENERALIZATION
+    = NOT_ESTABLISHED
+```
+
+The key boundary is:
+
+```text
+complete novel semantics
+AND outside frozen evidence contract
+!= coordinate-separation failure
+```
+
+---
+
+## PR61 — semantic / evidential transport
+
+Frozen RESULT head:
+
+```text
+76816b6d77319ac98639d173cd0e896d569db7d3
+```
+
+Strongest earned claim:
+
+```text
+TRANSITION_SEMANTIC_TRANSPORT
+    = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE
+```
+
+The experiment independently preserves:
+
+```text
+semantic identity
+!= evidence admission
+!= provenance
+!= uncertainty
+!= role identity
+```
+
+Admission matched the frozen oracle on all 44 cases:
+
+```text
+ADMIT       24 / 24
+REJECT      12 / 12
+UNRESOLVED   8 /  8
+TOTAL       44 / 44
+```
+
+No frozen witness fired for semantic under-resolution, semantic contamination, evidence-type laundering, evidence-type under-admission, provenance conflation, uncertainty laundering, or role crossing.
+
+PR61 does not retroactively alter PR60 G2; it constitutes and validates a new bridge under a new frozen transport contract.
+
+---
+
+## Current structured ignorance
+
+The strongest current higher-order non-rule is:
+
+```text
+Legit(T1) AND Legit(T2) !=> Legit(T2 ∘ T1)
+```
+
+More generally:
+
+```text
+local preservation != path preservation
+```
+
+But this is a constraint on the unknown frontier, not identification of the frontier.
+
+```text
+LOCAL_PRESERVATION_TO_PATH_PRESERVATION = NOT_ESTABLISHED
+TRANSFORMATION_COMPOSITION              = NOT_OPENED
+CERTIFICATE_COMPOSITION                 = NOT_OPENED
+AUTHORITY_COMPOSITION                   = NOT_OPENED
+CHALLENGE_PATH_PRESERVATION             = NOT_OPENED
+MUTABILITY                              = NOT_OPENED
+```
+
+The blank remains blank.
+
+---
+
+## Continuing conceptual floor
+
+Two durable non-collapses remain useful across the repository:
 
 Causal discipline:
 
@@ -40,106 +199,39 @@ Transition discipline:
 validity != transportability != composability
 ```
 
-The current theoretical candidate is **scope-indexed entitlement**:
+The current theoretical candidate remains scope-indexed entitlement:
 
 ```text
 Gamma |- (distinction ->[operation] effect) @ scope
 ```
 
-Information does not carry intrinsic permission. Entitlement is an evidence-supported judgment that a specified distinction may produce a specified effect under a specified scope.
-
-The current methodological candidate is **transition-boundary discipline**:
+The current methodological candidate remains transition-boundary discipline:
 
 ```text
 Gamma |- X ==[W_12 ; scope_1 -> scope_2]=> Y
 ```
 
-A boundary witness is scope-relative. Valid endpoints do not certify the crossing between them, and valid local crossings do not automatically certify composition.
+These are conceptual/formal candidates, not automatically SSI-CALC rules.
 
-Governing rule:
+---
 
-> **Do not coerce across a boundary. Certify the boundary.**
-
-## Causal envelope
+## SSI-CALC firewall
 
 ```text
-R = RealizableEffects / Can
-C = EntitledEffects / May
-W = R intersect C = warranted executable envelope
-Q = required warranted envelope
-A = ActualEffects / Did
-```
-
-Candidate execution contract:
-
-```text
-Q subseteq W
-A subseteq W
-```
-
-Compact operational law:
-
-> **Improve Can. Justify May. Constrain Did.**
-
-These remain conceptual/formal candidates, not promoted SSI-CALC rules.
-
-## Current research frontier
-
-```text
-GOAL_AUTHORITY_ADVISORY_SELECTION_V0.1
-    = SUPPORTED_FINITE_ON_FROZEN_IMPLEMENTATION_PANEL
-
-GOAL_AUTHORITY_LICENSE_TRANSFER_V0.1
-    = SUPPORTED_FINITE_WITH_RELICENSING
-
-WHOLESALE_SOURCE_REPRESENTATIVE_TRANSFER
-    = NOT_SUPPORTED__JURISDICTION_LEAKAGE_IDENTIFIED
-
-LICENSE_SCOPE
-    = JURISDICTION_RELATIVE_SUPPORTED_FINITE
-
-SSI_RELICENSE_CERTIFICATE_CALCULUS_V0.1
-    = FORMAL_CANDIDATE_NOT_YET_EMPIRICALLY_VALIDATED
-
-INTERNAL_CONSISTENCY
-    = SUPPORTED_BY_19_CHECK_AUDIT
-
-FORMAL_SOUNDNESS
-    = UNESTABLISHED
-
-F5_EFFECT_TRACE_LAUNDERING
-    = FORMAL_COUNTERMODEL_SUPPORTED
-
-C_AUTH_VALID_IMPLIES_TRACE_VALIDITY
-    = NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5
-
-ENDPOINT_VALIDITY_IMPLIES_TRACE_VALIDITY
-    = NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5
-
-F4_CERTIFICATE_COMPOSITION
-    = OPEN_NOT_RUN
-
-TRANSPORT_WITNESS
-    = CONCEPTUAL_PLACEHOLDER_ONLY
-
-COMPOSITION_WITNESS
-    = CONCEPTUAL_PLACEHOLDER_ONLY
-
-TRACE_INTERFACE = OPEN
-TRACE_ENTITLEMENT = OPEN
-TRACE_COMPLETENESS = OPEN
-TRACE_CHALLENGEABILITY = OPEN
-
-JEPA = PARKED
+|K| = 11
 SSI_CALC_KERNEL_DELTA = 0
+R12 = NOT_EARNED
+R13 = NOT_EARNED
+NICHE_ADVANTAGE = NOT_ESTABLISHED
+FORMAL_SOUNDNESS = UNESTABLISHED
 ```
 
-F5 does **not** invalidate CA-R1 relative to its narrow role-scoped conclusion. It establishes a sharper non-collapse:
+No PR59–61 result changes the kernel.
 
-> **A licensed function does not imply a licensed execution.**
+---
 
-The transition frontier adds another:
+## Research reading rule
 
-> **A justified state does not imply a justified change. A justified change does not imply a justified composition.**
+> **Do not infer authority from recency. Infer it from provenance, frozen dependency order, and exact claim scope.**
 
-No downstream result or conceptual synthesis in this ledger creates or modifies an SSI-CALC kernel rule.
+A summary can become stale. A frozen result remains what was actually tested.
