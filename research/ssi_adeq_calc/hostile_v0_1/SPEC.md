@@ -1,22 +1,20 @@
-# SSI ADEQ Governor Hostile V0.1
+# SSI Adequacy Governor Hostile Suite V0.1
 
-Status: **SPEC + CASES FROZEN; FIRST RESULT FROZEN**.
+Status: **prospective hostile suite; specification and cases frozen before first governor execution**.
 
-This suite is stacked directly on the exact frozen PR #63 head:
-
-```text
-00812d117bc083de78408a1f0d78fb54fb806228
-```
-
-Frozen calculator Git blob:
+Base governor:
 
 ```text
-ab991327d3b3aac298abda9d612d2a9565263498
+PR = #63
+HEAD = 00812d117bc083de78408a1f0d78fb54fb806228
+calculator git blob = ab991327d3b3aac298abda9d612d2a9565263498
 ```
 
-It does **not** modify the adequacy governor. Its purpose is to try to make the frozen governor wrong before any repair is permitted.
+This artifact does **not** modify PR #63. It is stacked from the exact frozen head and exists only to try to make the governor wrong.
 
-## Attack surface
+## Question
+
+Can the frozen adequacy governor preserve its narrow authority under adversarial external constitution?
 
 The suite attacks four failure families:
 
@@ -27,96 +25,98 @@ FALSE_ADEQUACY
 SCOPE_LEAKAGE
 ```
 
-The frozen hostile vectors are:
+The primary safety emphasis is asymmetric:
 
-1. `H1_GENUINE_CONSEQUENTIAL_COLLISION`
-   - genuine admissible collision
-   - expected: `INADEQUATE + LOCAL`
+> A calculator whose only positive authority is to license reopening should be attacked primarily on whether it knows when it is **not** entitled to license reopening.
 
-2. `H2_UNPROVEN_CONSEQUENCE_COLLISION_SHAPE`
-   - same-signature / different-label shape, but one consequence is inadmissible
-   - hostile expected: `UNKNOWN + NONE`
-   - deliberate tension: frozen PR63 currently maps any inadmissible consequence to `NOT_EVALUABLE`
-
-3. `H3_MISSING_FROZEN_SIGNATURE`
-   - expected: `NOT_EVALUABLE + NONE`
-
-4. `H4_SSI_DERIVED_EXTERNAL_CONSEQUENCE`
-   - consequence is not independently constituted
-   - expected: `NOT_EVALUABLE + NONE`
-
-5. `H5_REPRESENTATION_CHANGED_AFTER_CASE_SELECTION`
-   - freeze violation
-   - expected: `NOT_EVALUABLE + NONE`
-
-6. `H6_INSUFFICIENT_POSITIVE_COVERAGE`
-   - no collision, no positive coverage constitution
-   - expected: `UNKNOWN + NONE`
-
-7. `H7_BOUNDED_POSITIVE_TESTED_COVERAGE`
-   - positive tested-scope coverage explicitly asserted and consequence classes present
-   - expected: `SUPPORTED_ADEQUATE_ON_TESTED_SCOPE + NONE`
-
-8. `H8_LOCAL_COLLISION_SCOPE_BINDING`
-   - genuine collision in a local `(P, sigma)`
-   - expected: `INADEQUATE + LOCAL` with unchanged local scope/property
-
-9. `H9_SELF_ASSERTED_COVERAGE_PROVENANCE`
-   - consequence provenance is independent, but coverage itself is only self-asserted through `coverage.constituted=true`
-   - external oracle marks coverage as *not independently constituted*
-   - hostile expected: `UNKNOWN + NONE`
-   - deliberate tension: PR63 currently has no coverage-provenance input
-
-10. `H10_NO_COLLISION_NO_COVERAGE_CONTROL`
-    - same signature, same consequence, no positive coverage constitution
-    - expected: `UNKNOWN + NONE`
-
-## Oracle discipline
-
-The hostile oracle is frozen before the first governor execution.
-
-A mismatch is not automatically a governor defect. It is a first-result diagnostic candidate whose failure locus must be discriminated before repair:
+## Frozen outputs under test
 
 ```text
-HOSTILE_ORACLE_DEFECT
-vs
-GOVERNOR_SPECIFICATION_DEFECT
-vs
-GOVERNOR_IMPLEMENTATION_DEFECT
-vs
-INTERFACE_EXPRESSIVE_GAP
+SUPPORTED_ADEQUATE_ON_TESTED_SCOPE
+UNKNOWN
+INADEQUATE
+NOT_EVALUABLE
 ```
 
-No result permits silent repair.
+Only:
+
+```text
+INADEQUATE -> search_license = LOCAL
+```
+
+No hostile-suite result grants repair authority, validates a new representation, establishes SSI inadequacy outside the implicated property/scope, or changes SSI-CALC.
+
+## Frozen hostile matrix
+
+| Case | Attack | Frozen-suite expectation |
+| --- | --- | --- |
+| H1 | genuine consequential collision | `INADEQUATE + LOCAL` with exact witness |
+| H2 | same signature, asserted consequence difference, one discriminator unproven | `UNKNOWN + NONE` |
+| H3 | missing frozen signature | `NOT_EVALUABLE + NONE` |
+| H4 | SSI-derived "external" consequence | `NOT_EVALUABLE + NONE` |
+| H5 | representation changed after case selection | `NOT_EVALUABLE + NONE` |
+| H6 | no collision, positive coverage not constituted | `UNKNOWN + NONE` |
+| H7 | bounded positive tested coverage | `SUPPORTED_ADEQUATE_ON_TESTED_SCOPE + NONE` |
+| H8 | local consequential collision | `INADEQUATE + LOCAL`, exact `(P, sigma)` preserved |
+| H9 | self-asserted positive coverage without independent coverage provenance | `UNKNOWN + NONE` |
+| H10 | no collision / no coverage control | `UNKNOWN + NONE` |
+
+## Two deliberate specification attacks
+
+H2 and H9 are not silent repairs of PR #63. They deliberately challenge its frozen protocol boundary.
+
+### H2 — scientific UNKNOWN vs protocol NOT_EVALUABLE
+
+PR #63 currently treats any inadmissible consequence as `NOT_EVALUABLE`.
+The hostile oracle asks whether an otherwise legitimate external comparison with an unproven discriminator should instead remain scientifically `UNKNOWN`.
+
+A mismatch is a result, not permission to edit the governor.
+
+### H9 — coverage provenance
+
+PR #63 gives external consequences explicit provenance `pi_Y`, but positive coverage is represented by a bare:
+
+```text
+coverage.constituted = true
+```
+
+H9 asks whether this permits a caller to manufacture bounded positive adequacy by asserting constitution that the external oracle has not independently established.
+
+Again, a mismatch is a result, not permission to add `pi_coverage`.
 
 ## First-result firewall
 
-The first result is frozen in:
-
-```text
-FIRST_RESULT.json
-```
-
-Observed first execution:
-
-```text
-TOTAL = 10
-PASS = 8
-FAIL = 2
-
-H2: expected UNKNOWN; observed NOT_EVALUABLE
-H9: expected UNKNOWN; observed SUPPORTED_ADEQUATE_ON_TESTED_SCOPE
-```
-
-No repair is permitted by this result.
-
-## Freeze firewall
+Before first execution:
 
 ```text
 PR63 = FROZEN
 HOSTILE_SPEC = FROZEN
 HOSTILE_CASES = FROZEN
-FIRST_RESULT = FROZEN
 REPAIR = PROHIBITED
+```
+
+After first execution, preserve the complete observed ledger before diagnosing:
+
+```text
+unexpected result
+!= implementation bug
+!= specification defect
+!= hostile-oracle defect
+!= governor-interface defect
+```
+
+The shallowest supported failure locus should be chosen only after the first result is frozen.
+
+## Authority ceiling
+
+```text
+HOSTILE_SUITE
+    != SSI_CALC
+    != REPAIR_CALCULUS
+    != LEVEL_3_INTERFACE_INVENTION
+
+FIRST_RESULT
+    != REPAIR_LICENSE
+
 SSI_CALC_KERNEL_DELTA = 0
 ```
