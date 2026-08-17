@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "CUHKX-P1-PRESERVED-EVIDENCE-1",
+  "authorization_id": "CUHKX-P1-EXECUTION-AUTHORIZATION-2",
+  "issued_at_utc": "2026-08-15T21:13:41Z",
+  "authorization_state": "EXECUTION_AUTHORIZED_ONE_SHOT",
+  "authorized_object": {
+    "specification_freeze_commit_sha": "2cedfd8821a8116288e48f909e8f69fded0ec48b",
+    "specification_head_sha": "78d81a8727dc59b99a00f7706ad8cdcb01616fcc",
+    "specification_git_blob_sha1": "44689bb8e045636b80d46fb0a85d48ef644a0e0d",
+    "specification_manifest_git_blob_sha1": "709853966ebe2b3ca3cef726e54872c21168ec6d",
+    "constitution_head_sha": "c6f259807127acfdf579dad0e5384f02a4aadbff",
+    "constitution_tree_sha": "d46efa377db9a90a7ea5e1e67977a957bdb36aa9",
+    "constitution_status_git_blob_sha1": "976ade4edb8262e3481bd3ae98c2b23ad1a3ecc0",
+    "constitution_status_sha256": "3fcc7b7704d1c694aeb3272ca69d9e1c99cba9016e42f5b1f4ee426f02ae9af6",
+    "constitution_manifest_git_blob_sha1": "798439faf9286ea0d7fad2a1375de8c0342e16ce",
+    "constitution_manifest_sha256": "a1b8183f235b70eb3189b6999b70073fbb53d0d5f2643e93c794238f797e7290",
+    "harness_git_blob_sha1": "fb0f707b03fa468f0a16ae26d18acc951520a89d",
+    "harness_sha256": "aaadc5f232dff14ea52caa179cfdba31f720e085097d5e02ceb81967247c55b1",
+    "shared_encoded_sha256": "146cd131634889be7a856be8c280276a4564d1b5e0b696fd57f85962ad9bda38",
+    "early_z_sha256": "b5307a8f337cec7a5722e3a86b8a07e9daee3f1dc06c2b57c621fc78a7511994",
+    "preserved_z_sha256": "066588dadea0b683647f50d111de010aac237a28e78032f2bdada26d01ae13b1",
+    "reasoner_source_sha256": "3d70eefebbe85e8988e75812e8911719023527c51e085d08feb01c22c16e58be",
+    "preserved_prediction_digest_unscored": "3d6376d15c855c8b8b2b3fdd088f50e5b31b99d4ab407ed54bf573bfc56db80e"
+  },
+  "authorized_baseline": {
+    "state": "PASS",
+    "n_multi": 809,
+    "n_candidates": 3236,
+    "exact_set_accuracy": 0.3695920889987639,
+    "candidate_accuracy": 0.7580346106304079,
+    "candidate_balanced_accuracy": 0.7577211493846145,
+    "exact_stream_sha256": "60bb4240da39e55f064a7eed7805f11d61e76f5539b0f9fe90251e2dbc3b7a9a",
+    "candidate_stream_sha256": "15a0b6501aa2f3ff34bafa69dc8144922ec57c97337282ffdad2af22925e5f18"
+  },
+  "constitution_predicates": {
+    "I1": "PASS",
+    "I2": "PASS",
+    "I3": "PASS",
+    "I4": "PASS",
+    "G": "PASS"
+  },
+  "authorized_inputs": {
+    "s1_script_sha256": "38152a54acde3e5241a15ab03d364e8f08164b7ae81ece86738ae45ebe2e594f",
+    "v7_results_sha256": "af7687fad3c7a4d140707c09dd84edea79288abdd81f91e9755d21cb63aad088",
+    "v7_script_member_sha256": "473d83342c680836badc0aa5232f32df5aecb7ae7d5755ec7986798eac13b544",
+    "canonical_fold_sha256": "0ae2bd6a594152dd1af444566416410043ac11f153d20c8a517bb2a6d5052b73"
+  },
+  "authorized_execution": {
+    "runner_path": "competitions/cuhk_x/p1/P1_EXECUTION_RUNNER_V2.py",
+    "runner_git_blob_sha1": "02cb83778f837ccf9344f9e56bc3dd0631e26c65",
+    "runner_sha256": "4f7bd1f717eb0e626858f277a9de36f7b8557f7246e4d06fcb0da829f7108113",
+    "adjudicator_path": "competitions/cuhk_x/p1/P1_ADJUDICATOR.py",
+    "adjudicator_git_blob_sha1": "8843085d4b0aef6ce94b835e558a2b05b4f928b0",
+    "adjudicator_sha256": "311de8fd9d3f84e24430682c2a5358b3cc087b51b6c6aec53c3a1989efb27fcf",
+    "max_scoring_runs": 1,
+    "required_order": [
+      "identity_gate",
+      "raw_prediction_execution",
+      "truth_label_attachment",
+      "raw_result_freeze",
+      "metric_freeze",
+      "adjudication"
+    ],
+    "human_contingent_intermediate_decision": "PROHIBITED",
+    "thresholds_present_in_runner": false,
+    "thresholds_applied_only_by_adjudicator": true,
+    "loaded_implementation_rule": "sha256(loaded_harness) == authorized_object.harness_sha256",
+    "loaded_runner_rule": "sha256(loaded_runner) == authorized_execution.runner_sha256",
+    "loaded_adjudicator_rule": "sha256(loaded_adjudicator) == authorized_execution.adjudicator_sha256"
+  },
+  "claim_jurisdiction": {
+    "P1_A": "AUTHORIZED_FOR_ONE_SHOT",
+    "P1_B": "FAIL_CLOSED_IF_IDENTICAL_TREATMENT_BRANCH_NOT_CONSTITUTED",
+    "P1_C": "FAIL_CLOSED_IF_FROZEN_NESTED_INNER_OOF_COMPARATOR_UNAVAILABLE",
+    "leaderboard_submission": "NOT_AUTHORIZED",
+    "ssi_packet7": "NO_AUTHORITY_TRANSFER"
+  },
+  "post_run_rule": {
+    "repeat_scoring": "PROHIBITED",
+    "implementation_change_before_adjudication": "PROHIBITED",
+    "threshold_change": "PROHIBITED",
+    "subset_selection": "PROHIBITED",
+    "P2_rescue_if_P1_A_not_supported": "PROHIBITED",
+    "result_must_be_preserved": true
+  },
+  "prior_execution_attempt": {
+    "authorization_id": "CUHKX-P1-EXECUTION-AUTHORIZATION-1",
+    "authorization_certificate_sha256": "67edc5664d69990a6bb5f39d69ede51f90feb876ca2e9495caa3c5effee7aee5",
+    "failure_record_git_blob_sha1": "c5f054bd2f978876dbbd91577ac330248398ec1a",
+    "failure_record_sha256": "2cbc098961b984d13076a8adb03af23b4cafa7400e03bd2d08a59296fa777c84",
+    "state": "PRE_SCORE_EXECUTION_ALIGNMENT_FAILURE",
+    "scientific_outcome_observed": false,
+    "repair_scope": "evaluator row alignment only: physical CSV order -> exact (qa_id, option, action) key alignment"
+  },
+  "authorization_basis_note": "Authorization 2 is permitted only because attempt 1 stopped before truth/label attachment and before any P1 metric or adjudication. Scientific specification, treatment, constituted predictions, thresholds, and implementation remain unchanged."
+}

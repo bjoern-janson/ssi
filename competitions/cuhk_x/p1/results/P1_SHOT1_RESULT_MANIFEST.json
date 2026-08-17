@@ -1,0 +1,42 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "CUHKX-P1-PRESERVED-EVIDENCE-1",
+  "run_id": "CUHKX-P1-SHOT-1",
+  "state": "SHOT_EXECUTED_AND_ADJUDICATED",
+  "authorization_id": "CUHKX-P1-EXECUTION-AUTHORIZATION-2",
+  "authorization_certificate_sha256": "1dd3d7d1c429a34d2db82b11e609cc45ece2f3fbcf5e79e472b0cc1b22d4f907",
+  "execution_runner_sha256": "4f7bd1f717eb0e626858f277a9de36f7b8557f7246e4d06fcb0da829f7108113",
+  "adjudicator_sha256": "311de8fd9d3f84e24430682c2a5358b3cc087b51b6c6aec53c3a1989efb27fcf",
+  "constitution_harness_sha256": "aaadc5f232dff14ea52caa179cfdba31f720e085097d5e02ceb81967247c55b1",
+  "result_artifacts": {
+    "raw_result_uncompressed_sha256": "b3429ee3d9737a98cd4ded5865ffd1d519c812c03b77563c172c98cb2c64e248",
+    "raw_result_gzip_sha256": "cb74c407c596111c4d68b6eaa690110fdf25fc5a35ffb34cdc0be305e6df3322",
+    "metrics_sha256": "f432d854c0973647071db771638191259623ad8a8a9ddff31fb25b3c29680488",
+    "execution_record_sha256": "61b4fbc10aa4525209aa9834336690293b206dd58f9f2c5d6d1cccc97c8f27aa",
+    "adjudication_sha256": "8ec6ed31248bfc8024504f0784bcbe480438bd00b85f29086931e59545b58b55"
+  },
+  "P1_A": "NOT_SUPPORTED_PRESERVED_COMPOSITION",
+  "P1_B": {
+    "HAU_sequence": "NOT_IDENTIFIED_UNCONSTITUTED_BRANCH",
+    "HAU_combination": "NOT_IDENTIFIED_UNCONSTITUTED_BRANCH",
+    "HAU_emotion": "NOT_IDENTIFIED_UNCONSTITUTED_BRANCH"
+  },
+  "P1_C": "NOT_IDENTIFIED_UNCONSTITUTED_TRANSFER_COMPARATOR",
+  "primary_gate": {
+    "delta_exact_set_accuracy": 0.014833127317676165,
+    "required_min_delta_exact_set_accuracy": 0.03,
+    "delta_candidate_balanced_accuracy": 0.009868349092321482,
+    "required_abs_max_delta_candidate_balanced_accuracy": 0.01,
+    "nonnegative_exact_set_folds": 4,
+    "required_nonnegative_exact_set_folds": 4
+  },
+  "authority": {
+    "leaderboard_submission": "NONE",
+    "ssi_packet7": "NONE",
+    "larger_preserved_evidence_architecture_as_P1_rescue": "PROHIBITED"
+  },
+  "prior_pre_score_failure": {
+    "state": "PRESERVED",
+    "record_sha256": "2cbc098961b984d13076a8adb03af23b4cafa7400e03bd2d08a59296fa777c84"
+  }
+}
