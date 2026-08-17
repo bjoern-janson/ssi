@@ -1,0 +1,22 @@
+{
+  "matrix_id": "CUHKX_ROUTER_MATRIX_V1",
+  "execution_scope": "ARCHIVED_CELL_ONLY_PRE_FULL_MATRIX",
+  "cell": "HAU_MULTI__PURE_V7_IR",
+  "s1_hybrid_exact": 0.3695920889987639,
+  "alternative_exact": 0.3522867737948084,
+  "delta_exact": -0.017305315203955507,
+  "fold_deltas": [
+    -0.02941176470588236,
+    0.02824858757062143,
+    -0.01470588235294118,
+    -0.08720930232558138,
+    0.010638297872340441
+  ],
+  "fold_nonnegative": 2,
+  "gate": {
+    "delta_exact_min": 0.01,
+    "fold_nonnegative_min": 4
+  },
+  "status": "CONSTITUTED_REJECTED",
+  "authority": "Rejects pure V7 as a branch-level replacement for S1 multi. Does not adjudicate any other matrix cell."
+}
