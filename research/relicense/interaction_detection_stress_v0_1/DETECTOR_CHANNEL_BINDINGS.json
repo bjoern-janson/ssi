@@ -1,0 +1,268 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_DETECTION_STRESS_V0.1/DETECTOR_CHANNEL_BINDINGS",
+  "status": "PROSPECTIVE_BINDINGS_FROZEN__NO_ORACLE_NO_EXECUTION",
+  "spec_commit": "a35b68779994026427dcc759ddc1188b8e604406",
+  "heldout_cases_commit": "714cd34fbbf260b25fa2bdf8c25009443b531899",
+  "parent_detector_commit": "f0a048b8802e85001012121a384495751aa378e9",
+  "parent_detector_file_sha": "80317b08efda619d3e8ea949386da2c5f1861b41",
+  "freeze_stage": "DETECTOR_CHANNEL_BINDINGS",
+  "next_permitted_stage": "DESCRIPTIVE_ORACLE",
+  "hard_constraints": {
+    "delta_spec": 0,
+    "delta_heldout_cases": 0,
+    "delta_parent_D0_D1_D2_D3_algorithms": 0,
+    "descriptive_oracle_present": false,
+    "expected_detector_outputs_present": false,
+    "transition_statuses_present": false,
+    "witness_language_present": false,
+    "entitlement_semantics_present": false,
+    "composition_semantics_present": false,
+    "case_ids_visible_to_detector": false,
+    "axis_tags_visible_to_detector": false,
+    "latent_world_visible_to_detector": false
+  },
+  "binding_principle": {
+    "statement": "Bindings may expose or normalize prospectively frozen raw observation surfaces only when the normalization preserves an interaction predicate already implemented by the frozen detector family.",
+    "forbidden": [
+      "invent a new interaction predicate",
+      "translate state-change evidence into a synthetic write event",
+      "use case_id, axis, latent_world, oracle, expected result, or transition status",
+      "assign authority to one independent channel because of source identity or historical accuracy"
+    ],
+    "unbound_policy": "If no semantics-preserving adapter exists, record UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS and do not patch D2 at the binding stage."
+  },
+  "parent_detector_family": {
+    "D0": {
+      "name": "LOCAL_QUOTIENT_CONTROL",
+      "dependency_class": "g(Phi_local)",
+      "binding_rule": "For every held-out world, expose only the canonical local interface referenced by local_ref."
+    },
+    "D1": {
+      "name": "ELABORATED_LOCAL_DERIVATIVE_CONTROL",
+      "dependency_class": "g(Phi_local, deterministic_local_closure)",
+      "binding_rule": "For every held-out world, expose only the canonical local interface and canonical deterministic local-derived closure."
+    },
+    "D2": {
+      "name": "INDEPENDENT_RAW_INTERACTION_PROBE",
+      "algorithm_change": false,
+      "supported_frozen_predicates": [
+        "ALIAS_TOKEN_EQUALITY",
+        "ORDER_REVERSAL_AUTHORITY_STATE_EQUALITY",
+        "EXACT_J3_ADMISSIBILITY_WRITE_PRESENCE",
+        "COMPOSED_AVAILABLE_RESOURCE_VS_REQUIRED_RESOURCE"
+      ]
+    },
+    "D3": {
+      "name": "CORRESPONDENCE_DESTROYED_PROBE_CONTROL",
+      "binding_status": "NOT_BOUND_IN_STRESS_V0_1",
+      "reason": "The frozen D3 permutation is defined over the original eight construction worlds. Inventing a new held-out permutation after HELDOUT_CASES freeze would constitute a new control not present in the frozen stress specification/cases."
+    }
+  },
+  "stress_harness_rules": {
+    "coverage_gate": {
+      "COMPLETE": "permit the bound semantic adapter to invoke D2",
+      "PARTIAL_PRE_ONLY": "do not infer interaction absence or presence; preserve COVERAGE_LIMIT at the stress harness layer",
+      "UNOBSERVED": "do not infer interaction absence or presence; preserve COVERAGE_LIMIT at the stress harness layer",
+      "UNKNOWN": "preserve UNKNOWN",
+      "firewall": "coverage metadata may control whether observation is adequate; it may not be converted into negative interaction evidence"
+    },
+    "conflict_preservation": {
+      "rule": "Run each independently bound channel separately. If their descriptive interaction states are incompatible on the same declared scope/epoch, preserve both channel outputs and emit DETECTION_CONFLICT at the stress harness layer.",
+      "no_reconciliation": true,
+      "no_channel_priority": true,
+      "entitlement_output_allowed": false
+    }
+  },
+  "adapters": {
+    "A_COMPOSED_RESOURCE_THRESHOLD": {
+      "target_frozen_D2_predicate": "COMPOSED_AVAILABLE_RESOURCE_VS_REQUIRED_RESOURCE",
+      "target_frozen_D2_probe_type": "COMPOSED_PRECONDITION_PROBE",
+      "semantic_invariant": "available_resource_after_phase12_context < resource_required_by_phase23 iff the frozen D2 composed-precondition comparison would classify the normalized probe as violated",
+      "output_fields_to_D2": [
+        "coverage",
+        "j2_post_quota",
+        "j3_required_quota_min"
+      ],
+      "allowed_uses": [
+        "G1_TEMPORAL_AGGREGATE_WINDOW",
+        "G4_ROLLBACK_PATH_INTERFERENCE"
+      ]
+    },
+    "A_ALIAS_PHYSICAL_PAGE_EQUALITY": {
+      "target_frozen_D2_predicate": "ALIAS_TOKEN_EQUALITY",
+      "target_frozen_D2_probe_type": "ALIAS_TOKEN_PROBE",
+      "semantic_invariant": "phase12 physical page identifier equals phase23 physical page identifier iff the bound observer reports physical aliasing under its own measurement path",
+      "output_fields_to_D2": [
+        "coverage",
+        "phase12_token",
+        "phase23_token"
+      ],
+      "allowed_uses": [
+        "G5_SIGNED_PAGE_TABLE_SNAPSHOT",
+        "G5_HARDWARE_BUS_SNOOP"
+      ]
+    }
+  },
+  "axis_bindings": {
+    "G1_WORLD_NOVELTY": {
+      "binding_status": "BOUND_SEMANTICS_PRESERVING",
+      "surface_name": "composed_window_probe",
+      "adapter": "A_COMPOSED_RESOURCE_THRESHOLD",
+      "allowed_raw_fields": [
+        "coverage",
+        "payload.window_seconds",
+        "payload.aggregate_limit",
+        "payload.events[].phase",
+        "payload.events[].t",
+        "payload.events[].amount"
+      ],
+      "normalization": {
+        "phase23_anchor": "take the phase=23 event timestamp t23",
+        "phase12_usage_in_active_window": "sum amounts from phase=12 events whose timestamps are within the frozen window_seconds interval relevant at t23",
+        "available_resource_after_phase12_context": "aggregate_limit - phase12_usage_in_active_window",
+        "resource_required_by_phase23": "sum amounts of phase=23 events at the anchor",
+        "D2.j2_post_quota": "available_resource_after_phase12_context",
+        "D2.j3_required_quota_min": "resource_required_by_phase23"
+      },
+      "ontology_change": false,
+      "justification": "The adapter preserves the already-frozen D2 relation available resource versus required resource; it changes world configuration, not the predicate consumed by D2."
+    },
+    "G2_CHANNEL_NOVELTY": {
+      "binding_status": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS",
+      "surface_name": "state_commitment_monitor",
+      "available_raw_fields": [
+        "coverage",
+        "payload.epoch",
+        "payload.pre_root",
+        "payload.post_root",
+        "payload.pre_key_proof.key",
+        "payload.pre_key_proof.value",
+        "payload.pre_key_proof.included",
+        "payload.post_key_proof.key",
+        "payload.post_key_proof.value",
+        "payload.post_key_proof.included"
+      ],
+      "reason": "Frozen D2 has no state-commitment or pre/post state-value comparison predicate. Mapping pre/post inequality to EFFECT_TRACE_PROBE would fabricate a write event and silently change what counts as evidence for CROSS_BOUNDARY_EFFECT.",
+      "permitted_binding_action": "NONE",
+      "detector_patch_allowed": false,
+      "scientific_note": "Channel novelty has exposed a detector-interface compatibility boundary before oracle exposure. This is not yet a detector evaluation result."
+    },
+    "G3_COVERAGE_DEGRADATION": {
+      "binding_status": "PARTIALLY_BOUND_COVERAGE_ONLY__SEMANTIC_CHANNEL_UNBOUND",
+      "surface_name": "state_commitment_monitor",
+      "coverage_metadata_bound": true,
+      "semantic_adapter_status": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS",
+      "reason": "The COMPLETE member requires the same unsupported state-commitment semantics as G2. PARTIAL_PRE_ONLY and UNOBSERVED can still be handled by the prospectively frozen coverage gate without inferring interaction state.",
+      "coverage_handling": {
+        "COMPLETE": "no D2 semantic invocation until a semantics-preserving state-commitment binding exists",
+        "PARTIAL_PRE_ONLY": "COVERAGE_LIMIT",
+        "UNOBSERVED": "COVERAGE_LIMIT"
+      },
+      "detector_patch_allowed": false,
+      "negative_evidence_from_missing_coverage_allowed": false
+    },
+    "G4_FAILURE_STRUCTURE_NOVELTY": {
+      "binding_status": "BOUND_SEMANTICS_PRESERVING",
+      "surface_name": "recovery_precondition_probe",
+      "adapter": "A_COMPOSED_RESOURCE_THRESHOLD",
+      "allowed_raw_fields": [
+        "coverage",
+        "payload.slots_total",
+        "payload.slots_held_before_23",
+        "payload.slots_required_on_23_failure",
+        "payload.failure_point"
+      ],
+      "normalization": {
+        "available_resource_after_phase12_context": "slots_total - slots_held_before_23",
+        "resource_required_by_phase23": "slots_required_on_23_failure",
+        "D2.j2_post_quota": "available_resource_after_phase12_context",
+        "D2.j3_required_quota_min": "resource_required_by_phase23"
+      },
+      "ontology_change": false,
+      "justification": "The held-out failure structure is new, but the detector consumes the same frozen composed resource-sufficiency relation: resource remaining after phase12 context versus resource required by phase23."
+    },
+    "G5_INDEPENDENT_CHANNEL_CONTRADICTION": {
+      "binding_status": "BOUND_TWO_INDEPENDENT_CHANNELS__NO_RECONCILIATION",
+      "channels": {
+        "observer_alpha": {
+          "surface_name": "observer_alpha",
+          "mechanism_family": "SIGNED_PAGE_TABLE_SNAPSHOT",
+          "adapter": "A_ALIAS_PHYSICAL_PAGE_EQUALITY",
+          "allowed_raw_fields": [
+            "coverage",
+            "payload.epoch",
+            "payload.phase_12_buffer_physical_page",
+            "payload.phase_23_buffer_physical_page"
+          ],
+          "normalization": {
+            "D2.phase12_token": "phase_12_buffer_physical_page",
+            "D2.phase23_token": "phase_23_buffer_physical_page"
+          }
+        },
+        "observer_beta": {
+          "surface_name": "observer_beta",
+          "mechanism_family": "HARDWARE_BUS_SNOOP",
+          "adapter": "A_ALIAS_PHYSICAL_PAGE_EQUALITY",
+          "allowed_raw_fields": [
+            "coverage",
+            "payload.epoch",
+            "payload.phase_12_buffer_observed_physical_page",
+            "payload.phase_23_buffer_observed_physical_page"
+          ],
+          "normalization": {
+            "D2.phase12_token": "phase_12_buffer_observed_physical_page",
+            "D2.phase23_token": "phase_23_buffer_observed_physical_page"
+          }
+        }
+      },
+      "aggregation": "conflict_preservation",
+      "observer_priority": "NONE",
+      "reconciliation_rule": "NOT_CONSTITUTED",
+      "transition_mapping": "FORBIDDEN"
+    }
+  },
+  "visibility_contract": {
+    "detector_visible": [
+      "only fields explicitly listed under the selected bound raw surface",
+      "normalized probe fields produced by a semantics-preserving adapter",
+      "coverage metadata required by the frozen stress harness"
+    ],
+    "never_detector_visible": [
+      "case_id",
+      "axis",
+      "purpose",
+      "freshness_delta",
+      "required_equalities",
+      "latent_world",
+      "independence_basis prose",
+      "descriptive_oracle",
+      "expected_detector_output",
+      "transition_status",
+      "witness status",
+      "entitlement status"
+    ]
+  },
+  "binding_summary": {
+    "G1": "BOUND_SEMANTICS_PRESERVING",
+    "G2": "UNBOUND_REQUIRES_NEW_DETECTOR_SEMANTICS",
+    "G3": "PARTIALLY_BOUND_COVERAGE_ONLY__SEMANTIC_CHANNEL_UNBOUND",
+    "G4": "BOUND_SEMANTICS_PRESERVING",
+    "G5": "BOUND_TWO_INDEPENDENT_CHANNELS__NO_RECONCILIATION",
+    "D0_D1": "BOUND_AS_LOCAL_CONTROLS_ON_ALL_WORLDS",
+    "D3": "NOT_BOUND_IN_STRESS_V0_1"
+  },
+  "authority_ceiling": {
+    "DETECTION_GENERALIZATION": "OPEN",
+    "DETECTION_LOCALIZATION": "OPEN",
+    "CONTRADICTORY_CHANNEL_HANDLING": "OPEN",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "FORMAL_SOUNDNESS": "UNESTABLISHED",
+    "EMPIRICAL_REAL_WORLD_DETECTION": "NOT_CLAIMED",
+    "SSI_CALC_KERNEL_DELTA": 0,
+    "JEPA": "PARKED",
+    "BEHAVIORAL_EXPERIMENT_AUTHORITY": "NONE"
+  }
+}
