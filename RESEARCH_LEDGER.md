@@ -24,39 +24,66 @@ Here `>` means **more current for that claim**, not globally more authoritative 
 
 If a navigation ledger conflicts with frozen scientific bytes, the frozen object governs.
 
-## Current compression
+## Current conceptual floor
+
+Two orthogonal non-collapses now organize the program.
+
+Causal discipline:
 
 ```text
-representation != authority != prediction != behavior
-observable != authorized != consequential
-information != license != selected representative
-access != causal influence != licensed effect
-role license != execution license
 Can != May != Did
 ```
 
-The current master candidate is **scope-indexed entitlement**: information does not carry intrinsic permission; permission is an evidence-supported entitlement to produce a specified effect under a specified scope.
-
-The current causal-envelope notation is:
+Transition discipline:
 
 ```text
-R = realizable effects / Can
-C = entitled effects / May
-W = R intersect C = warranted executable envelope
-Q = required warranted envelope
-A = actual effects / Did
+validity != transportability != composability
 ```
 
-with the candidate execution contract:
+The current theoretical candidate is **scope-indexed entitlement**:
+
+```text
+Gamma |- (distinction ->[operation] effect) @ scope
+```
+
+Information does not carry intrinsic permission. Entitlement is an evidence-supported judgment that a specified distinction may produce a specified effect under a specified scope.
+
+The current methodological candidate is **transition-boundary discipline**:
+
+```text
+Gamma |- X ==[W_12 ; scope_1 -> scope_2]=> Y
+```
+
+A boundary witness is scope-relative. Valid endpoints do not certify the crossing between them, and valid local crossings do not automatically certify composition.
+
+Governing rule:
+
+> **Do not coerce across a boundary. Certify the boundary.**
+
+## Causal envelope
+
+```text
+R = RealizableEffects / Can
+C = EntitledEffects / May
+W = R intersect C = warranted executable envelope
+Q = required warranted envelope
+A = ActualEffects / Did
+```
+
+Candidate execution contract:
 
 ```text
 Q subseteq W
 A subseteq W
 ```
 
-This remains a conceptual/formal candidate, not a promoted SSI-CALC rule.
+Compact operational law:
 
-## Current branch terminal state
+> **Improve Can. Justify May. Constrain Did.**
+
+These remain conceptual/formal candidates, not promoted SSI-CALC rules.
+
+## Current research frontier
 
 ```text
 GOAL_AUTHORITY_ADVISORY_SELECTION_V0.1
@@ -89,25 +116,30 @@ C_AUTH_VALID_IMPLIES_TRACE_VALIDITY
 ENDPOINT_VALIDITY_IMPLIES_TRACE_VALIDITY
     = NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5
 
-TRACE_INTERFACE
-    = OPEN
-TRACE_ENTITLEMENT
-    = OPEN
-TRACE_COMPLETENESS
-    = OPEN
-TRACE_CHALLENGEABILITY
-    = OPEN
+F4_CERTIFICATE_COMPOSITION
+    = OPEN_NOT_RUN
+
+TRANSPORT_WITNESS
+    = CONCEPTUAL_PLACEHOLDER_ONLY
+
+COMPOSITION_WITNESS
+    = CONCEPTUAL_PLACEHOLDER_ONLY
+
+TRACE_INTERFACE = OPEN
+TRACE_ENTITLEMENT = OPEN
+TRACE_COMPLETENESS = OPEN
+TRACE_CHALLENGEABILITY = OPEN
 
 JEPA = PARKED
 SSI_CALC_KERNEL_DELTA = 0
 ```
 
-F5 does **not** invalidate CA-R1 relative to its narrow role-scoped conclusion. It identifies a missing whole-execution/effect-footprint object:
+F5 does **not** invalidate CA-R1 relative to its narrow role-scoped conclusion. It establishes a sharper non-collapse:
 
 > **A licensed function does not imply a licensed execution.**
 
-The current compact research law is:
+The transition frontier adds another:
 
-> **Improve Can. Justify May. Constrain Did.**
+> **A justified state does not imply a justified change. A justified change does not imply a justified composition.**
 
-No downstream result in this ledger creates or modifies an SSI-CALC kernel rule.
+No downstream result or conceptual synthesis in this ledger creates or modifies an SSI-CALC kernel rule.
