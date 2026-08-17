@@ -1,0 +1,350 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_SEMANTIC_TRANSPORT_V0.1",
+  "stage": "BINDINGS",
+  "status": "BINDINGS_FROZEN__NO_SEMANTIC_ORACLE_NO_PROTOCOL_NO_EVALUATOR_NO_RESULT",
+  "parent_cases_commit": "7c2984c0bb74d088864c1b6a861197339077c23e",
+  "candidate": "T_TYPED_SEMANTIC_TRANSPORT_GATE_V0_1",
+  "scientific_scope": "TRANSITION_SEMANTIC_TRANSPORT_CANDIDATE_ONLY",
+  "input_contract": {
+    "accepted_runtime_surface": "source_visible",
+    "consumed_top_level_fields": [
+      "carrier",
+      "payload",
+      "constitution",
+      "coverage",
+      "provenance",
+      "derivation"
+    ],
+    "frozen_design_time_contract_source": "CASES.json@7c2984c0bb74d088864c1b6a861197339077c23e",
+    "frozen_target_evidence_types": [
+      "TAU_S_CURRENT_CONFIGURATION_V1",
+      "TAU_L_COUNTERFACTUAL_RESPONSE_RELATION_V1",
+      "TAU_V_APPLICABILITY_BASIS_V1",
+      "TAU_LAMBDA_ALLOWED_EFFECT_ENVELOPE_V1"
+    ],
+    "forbidden_runtime_inputs": [
+      "case_id",
+      "construction_only",
+      "family",
+      "pair_group",
+      "coordinate_under_construction",
+      "tempted_wrong_role",
+      "semantic_oracle",
+      "expected_transport_verdict",
+      "evaluator_label",
+      "result"
+    ],
+    "rule": "GLOBAL_FROZEN_TYPE_CONTRACTS_MAY_BE_COMPILED_INTO_THE_BINDING__PER_CASE_CONSTRUCTION_METADATA_MAY_NOT_BE_CONSUMED"
+  },
+  "candidate_pipeline": [
+    "READ_SOURCE_VISIBLE",
+    "RESOLVE_ROLE_FROM_CONSTITUTED_MEASUREMENT_SCOPE",
+    "NORMALIZE_ROLE_INDEXED_SOURCE_CONTENT",
+    "CLASSIFY_SOURCE_EPISTEMIC_STATUS",
+    "EVALUATE_FROZEN_STRUCTURAL_TYPE_GATE",
+    "EVALUATE_FROZEN_PROVENANCE_GATE",
+    "EMIT_TARGET_ADMISSION_STATE",
+    "PRESERVE_PROVENANCE_AND_AUXILIARY_CONTENT_SEPARATELY"
+  ],
+  "role_resolution": {
+    "source": "constitution.measurement_scope",
+    "mapping": {
+      "CURRENT_CONFIGURATION": "S",
+      "PROBE_RESPONSE_RELATION": "L",
+      "APPLICABILITY_CONTEXT_AND_ENVELOPE": "V",
+      "ALLOWED_EFFECT_ENVELOPE": "Lambda"
+    },
+    "otherwise": "UNMAPPED_SOURCE_ROLE",
+    "forbidden_role_heuristics": [
+      "DO_NOT_INFER_ROLE_FROM_CARRIER_FAMILY",
+      "DO_NOT_INFER_ROLE_FROM_ENCODING",
+      "DO_NOT_INFER_ROLE_FROM_FIELD_NAME_OVERLAP",
+      "DO_NOT_INFER_ROLE_FROM_EFFECT_NAMES",
+      "DO_NOT_INFER_ROLE_FROM_PREDICTED_TARGET_SHAPE"
+    ]
+  },
+  "target_type_selection": {
+    "S": "TAU_S_CURRENT_CONFIGURATION_V1",
+    "L": "TAU_L_COUNTERFACTUAL_RESPONSE_RELATION_V1",
+    "V": "TAU_V_APPLICABILITY_BASIS_V1",
+    "Lambda": "TAU_LAMBDA_ALLOWED_EFFECT_ENVELOPE_V1",
+    "UNMAPPED_SOURCE_ROLE": null,
+    "rule": "TARGET_TYPE_FOLLOWS_RESOLVED_SOURCE_ROLE__TARGET_TYPE_DOES_NOT_CAUSE_ROLE_RESOLUTION"
+  },
+  "semantic_normalizers": {
+    "S": {
+      "required_semantic_fields": ["load", "buffer", "mode"],
+      "complete_singleton": "CANONICALIZE(payload.{load,buffer,mode})",
+      "conflict_bundle": "PRESERVE_AND_CANONICALIZE(payload.observations)_WITHOUT_SELECTING_ONE",
+      "partial": "PRESERVE_PRESENT_FIELDS_AND_EXPLICIT_UNRESOLVED_VALUES",
+      "auxiliary_content": "PRESERVE_NON_SEMANTIC_PAYLOAD_FIELDS_SEPARATELY",
+      "rules": [
+        "diagnostic_context_is_not_validity_evidence",
+        "extra_payload_fields_do_not_create_another_coordinate"
+      ]
+    },
+    "L": {
+      "required_probe_domain": [-1, 0, 1],
+      "complete_singleton": "CANONICALIZE_RESPONSE_RELATION(payload.responses,[-1,0,1])",
+      "conflict_bundle": "PRESERVE_ALL_RESPONSE_ALTERNATIVES_PER_PROBE_WITHOUT_SELECTION",
+      "partial": "PRESERVE_OBSERVED_PROBES_AND_MISSING_PROBES",
+      "auxiliary_content": "PRESERVE_NON_RESPONSE_PAYLOAD_FIELDS_SEPARATELY",
+      "rules": [
+        "effect_names_do_not_constitute_allowed_effects",
+        "current_or_partial_probe_surface_does_not_constitute_complete_law"
+      ]
+    },
+    "V": {
+      "context_source_priority": ["payload.context"],
+      "envelope_source_priority": ["payload.applicability_envelope", "payload.envelope"],
+      "complete_singleton": "CANONICALIZE(context,applicability_envelope)",
+      "conflict_bundle": "PRESERVE_CONTEXT_OBSERVATIONS_AND_ENVELOPE_WITHOUT_TRUTH_SELECTION",
+      "partial": "PRESERVE_PRESENT_CONTEXT_AND_ENVELOPE_FIELDS_WITH_UNRESOLVED_VALUES",
+      "rules": [
+        "generic_context_envelope_syntax_is_role_indexed_by_measurement_scope",
+        "validity_envelope_does_not_constitute_authority_envelope"
+      ]
+    },
+    "Lambda": {
+      "context_source_priority": ["payload.authority_context", "payload.context"],
+      "allowed_source_priority": ["payload.allowed", "payload.envelope.allowed"],
+      "complete_singleton": "CANONICALIZE(authority_context,allowed_effect_set)",
+      "conflict_bundle": "PRESERVE_ALL_ALLOWED_ENVELOPES_WITHOUT_SELECTION",
+      "partial": "PRESERVE_OBSERVED_ALLOWED_FRAGMENT_AS_FRAGMENT__NOT_COMPLETE_ENVELOPE",
+      "rules": [
+        "observed_effects_do_not_constitute_permission",
+        "partial_empty_fragment_does_not_constitute_complete_empty_authority_envelope",
+        "authority_envelope_does_not_constitute_validity_envelope"
+      ]
+    },
+    "UNMAPPED_SOURCE_ROLE": {
+      "semantic_projection": "DO_NOT_PROJECT_INTO_S_L_V_OR_Lambda",
+      "source_content": "PRESERVE_AS_UNMAPPED_SOURCE_CONTENT",
+      "rules": [
+        "high_confidence_prediction_does_not_create_role_identity",
+        "target_like_payload_shape_does_not_create_role_identity"
+      ]
+    }
+  },
+  "source_epistemic_status": {
+    "precedence": [
+      "UNMAPPED_SOURCE_ROLE",
+      "DERIVED_OR_PROXY",
+      "CONFLICT",
+      "PARTIAL",
+      "COMPLETE_SINGLETON"
+    ],
+    "UNMAPPED_SOURCE_ROLE": "role_resolution == UNMAPPED_SOURCE_ROLE",
+    "DERIVED_OR_PROXY": "constitution.mode in {MODEL_PREDICTION,SIMULATED_RESPONSE,RISK_MODEL_DERIVATION,RECOMMENDATION} OR derivation.kind == MODEL_INFERENCE",
+    "CONFLICT": "constitution.conflict != NONE",
+    "PARTIAL": "coverage.status is not the resolved target type's frozen complete coverage requirement OR required semantic fields/probes are incomplete",
+    "COMPLETE_SINGLETON": "role_resolved AND not derived/proxy AND conflict == NONE AND frozen complete coverage requirement satisfied AND required semantic content present",
+    "rule": "SOURCE_EPISTEMIC_STATUS_DESCRIBES_CANDIDATE_INPUT_STATE__IT_IS_NOT_AN_ORACLE_VERDICT"
+  },
+  "frozen_structural_type_gates": {
+    "S": {
+      "target_type": "TAU_S_CURRENT_CONFIGURATION_V1",
+      "constitution_mode": "DIRECT_OBSERVATION",
+      "measurement_scope": "CURRENT_CONFIGURATION",
+      "coverage": "COMPLETE",
+      "conflict": "NONE",
+      "required_payload": ["load", "buffer", "mode"]
+    },
+    "L": {
+      "target_type": "TAU_L_COUNTERFACTUAL_RESPONSE_RELATION_V1",
+      "constitution_mode": "CONTROLLED_INTERVENTION_OBSERVATION",
+      "measurement_scope": "PROBE_RESPONSE_RELATION",
+      "coverage": "COMPLETE_-1_0_1",
+      "conflict": "NONE",
+      "required_payload": "responses for probes -1,0,+1"
+    },
+    "V": {
+      "target_type": "TAU_V_APPLICABILITY_BASIS_V1",
+      "constitution_mode": "DIRECT_OBSERVATION_PLUS_CONSTITUTED_ATTESTATION",
+      "measurement_scope": "APPLICABILITY_CONTEXT_AND_ENVELOPE",
+      "coverage": "COMPLETE",
+      "conflict": "NONE",
+      "required_payload": "context(zone,sensor,epoch) + applicability envelope(zone_in,sensor_in,epoch)"
+    },
+    "Lambda": {
+      "target_type": "TAU_LAMBDA_ALLOWED_EFFECT_ENVELOPE_V1",
+      "constitution_mode": "CONSTITUTED_AUTHORITY_REGISTRY_ASSERTION",
+      "measurement_scope": "ALLOWED_EFFECT_ENVELOPE",
+      "coverage": "COMPLETE",
+      "conflict": "NONE",
+      "required_payload": "authority context(source,epoch) + complete allowed effect envelope"
+    },
+    "rule": "CARRIER_NAME_ENCODING_CONFIDENCE_AND_PAYLOAD_ISOMORPHISM_HAVE_ZERO_STRUCTURAL_TYPE_AUTHORITY"
+  },
+  "provenance_gate": {
+    "frozen_requirement": "provenance.authenticity == VERIFIED",
+    "preserved_but_not_additional_admission_requirement": [
+      "route",
+      "issuer",
+      "independent_of_transport_candidate",
+      "scope",
+      "predicate",
+      "epoch"
+    ],
+    "rule": "PROVENANCE_GATE_IS_SEPARATE_FROM_SEMANTIC_NORMALIZATION__UNVERIFIED_PROVENANCE_MAY_PRESERVE_TARGET_SHAPED_SEMANTIC_CONTENT_BUT_MAY_NOT_BE_ADMITTED_AS_TARGET_EVIDENCE"
+  },
+  "candidate_admission": {
+    "output_states": [
+      "ADMITTED",
+      "REJECTED_EVIDENCE_TYPE_OR_PROVENANCE",
+      "UNRESOLVED_SOURCE"
+    ],
+    "decision_order": [
+      "IF role == UNMAPPED_SOURCE_ROLE THEN REJECTED_EVIDENCE_TYPE_OR_PROVENANCE",
+      "ELSE IF constitution.mode OR measurement_scope violates frozen target type THEN REJECTED_EVIDENCE_TYPE_OR_PROVENANCE",
+      "ELSE IF provenance.authenticity != VERIFIED THEN REJECTED_EVIDENCE_TYPE_OR_PROVENANCE",
+      "ELSE IF conflict != NONE OR frozen complete coverage/required semantic content is incomplete THEN UNRESOLVED_SOURCE",
+      "ELSE ADMITTED"
+    ],
+    "reasons": [
+      "UNMAPPED_SOURCE_ROLE",
+      "CONSTITUTION_MODE_MISMATCH",
+      "MEASUREMENT_SCOPE_MISMATCH",
+      "AUTHENTICITY_UNVERIFIED",
+      "SOURCE_CONFLICT",
+      "COVERAGE_INCOMPLETE",
+      "REQUIRED_SEMANTIC_CONTENT_INCOMPLETE"
+    ],
+    "rules": [
+      "ADMISSION_STATE_IS_CANDIDATE_BEHAVIOR_NOT_EVALUATOR_JUDGMENT",
+      "REJECTION_DOES_NOT_ASSERT_SOURCE_INFORMATION_IS_FALSE",
+      "UNRESOLVED_SOURCE_DOES_NOT_ASSERT_NEGATIVE_SEMANTICS"
+    ]
+  },
+  "candidate_output": {
+    "resolved_role": "S | L | V | Lambda | UNMAPPED_SOURCE_ROLE",
+    "target_evidence_type": "resolved frozen tau or null",
+    "semantic_projection": {
+      "status": "COMPLETE_SINGLETON | PARTIAL | CONFLICT | DERIVED_OR_PROXY | UNMAPPED_SOURCE_ROLE",
+      "value": "role-indexed normalized semantic content or preserved unresolved/alternative content",
+      "auxiliary_source_content": "non-role payload content preserved separately and never remapped"
+    },
+    "structural_type_gate": {
+      "status": "SATISFIED | NOT_SATISFIED | UNRESOLVED",
+      "reasons": "deterministic list"
+    },
+    "provenance_gate": {
+      "status": "SATISFIED | NOT_SATISFIED",
+      "reason": "VERIFIED | AUTHENTICITY_UNVERIFIED"
+    },
+    "candidate_admission": "ADMITTED | REJECTED_EVIDENCE_TYPE_OR_PROVENANCE | UNRESOLVED_SOURCE",
+    "provenance_projection": "CANONICALIZE_AND_PRESERVE(source_visible.provenance,source_visible.carrier)",
+    "emitted_transition_coordinates": "[] for unmapped source role; otherwise exactly [resolved_role]"
+  },
+  "canonicalization": {
+    "purpose": "REMOVE_REPRESENTATION_ORDER_ONLY__DO_NOT_CHANGE_CONSTITUTION_OR_ROLE",
+    "map_keys": "SORT_LEXICOGRAPHICALLY",
+    "set_like_effect_lists": "SORT_LEXICOGRAPHICALLY_WITH_EXACT_DUPLICATES_REMOVED_ONLY_WHERE_SET_SEMANTICS_ARE_EXPLICIT",
+    "probe_keys": "ORDER_NUMERICALLY_-1_0_1",
+    "conflict_alternatives": "PRESERVE_ALL_ALTERNATIVES_AND_CANONICALIZE_ORDER_ONLY",
+    "unknown_or_unresolved_symbol": "PRESERVE",
+    "partial_fragment": "PRESERVE_AS_FRAGMENT",
+    "forbidden_normalizations": [
+      "NO_PREDICTION_TO_OBSERVATION_PROMOTION",
+      "NO_SIMULATION_TO_INTERVENTION_OBSERVATION_PROMOTION",
+      "NO_RECOMMENDATION_TO_AUTHORITY_PROMOTION",
+      "NO_RISK_MODEL_TO_APPLICABILITY_ATTESTATION_PROMOTION",
+      "NO_PARTIAL_TO_COMPLETE_PROMOTION",
+      "NO_CONFLICT_RESOLUTION",
+      "NO_ROLE_CROSSING_BY_FIELD_SHAPE",
+      "NO_CARRIER_FAMILY_EQUIVALENCE_RULE"
+    ]
+  },
+  "provenance_factorization": {
+    "semantic_identity_input": "ROLE_INDEXED_PAYLOAD_CONTENT_ONLY_AFTER_ROLE_RESOLUTION",
+    "provenance_identity_input": "carrier + provenance",
+    "semantic_projection_may_not_embed": [
+      "carrier.family",
+      "carrier.encoding",
+      "provenance.route",
+      "provenance.issuer",
+      "provenance.authenticity"
+    ],
+    "provenance_projection_must_preserve": [
+      "carrier.family",
+      "carrier.encoding",
+      "route",
+      "issuer",
+      "authenticity",
+      "independent_of_transport_candidate",
+      "scope",
+      "predicate",
+      "epoch"
+    ],
+    "rule": "PROVENANCE_MAY_AFFECT_ADMISSION_WITHOUT_REDEFINING_SEMANTIC_IDENTITY"
+  },
+  "uncertainty_policy": {
+    "partial": "PRESERVE_PARTIAL_CONTENT_AND_MISSINGNESS__EMIT_UNRESOLVED_SOURCE",
+    "conflict": "PRESERVE_ALL_INCOMPATIBLE_ALTERNATIVES__EMIT_UNRESOLVED_SOURCE",
+    "partial_empty_authority_fragment": "PRESERVE_EMPTY_FRAGMENT_AS_FRAGMENT__DO_NOT_EMIT_COMPLETE_EMPTY_ALLOWED_ENVELOPE",
+    "derived_or_proxy": "DO_NOT_UPGRADE_TO_COMPLETE_CONSTITUTED_SOURCE_SEMANTICS",
+    "truth_adjudication": "NOT_PERFORMED_BY_BINDING"
+  },
+  "role_crossing_firewall": {
+    "emitted_coordinate_count": "AT_MOST_ONE",
+    "source_of_coordinate_identity": "constitution.measurement_scope",
+    "orthogonal_payload_fields": "PRESERVE_AS_AUXILIARY_SOURCE_CONTENT_ONLY",
+    "non_rules": [
+      "STATE_DIAGNOSTIC_CONTEXT != VALIDITY_BASIS",
+      "LAW_EFFECT_NAMES != AUTHORITY_ENVELOPE",
+      "GENERIC_CONTEXT_ENVELOPE_SHAPE != ROLE_IDENTITY",
+      "REALIZED_EFFECTS != ALLOWED_EFFECTS"
+    ]
+  },
+  "self_certification_firewall": {
+    "candidate_may_not_define": [
+      "source semantic oracle identity",
+      "target evidence-type obligations",
+      "semantic equivalence used for later certification",
+      "expected case verdict",
+      "evaluator failure class"
+    ],
+    "candidate_assertions_are_test_objects": [
+      "resolved_role",
+      "semantic_projection",
+      "structural_type_gate",
+      "provenance_gate",
+      "candidate_admission"
+    ],
+    "rule": "CANDIDATE_ADMISSION != ORACLE_ADMISSIBILITY != EVALUATOR_JUDGMENT"
+  },
+  "non_rules": [
+    "SAME_CARRIER != SAME_SEMANTICS",
+    "DIFFERENT_CARRIER != DIFFERENT_SEMANTICS",
+    "SAME_SEMANTIC_PAYLOAD != SAME_EVIDENCE_TYPE",
+    "SAME_PAYLOAD_SHAPE != SAME_CONSTITUTION",
+    "HIGH_CONFIDENCE_PROXY != CONSTITUTED_OBSERVATION",
+    "VERIFIED_PROVENANCE != SEMANTIC_EQUIVALENCE",
+    "SEMANTIC_EQUIVALENCE != EVIDENCE_TYPE_ADMISSION",
+    "EVIDENCE_TYPE_ADMISSION != AUTHORITY_TRANSPORT",
+    "ADAPTER_EXECUTION != ADAPTER_VALIDITY",
+    "TRANSPORT_SUCCESS != UNIVERSAL_CARRIER_EQUIVALENCE",
+    "TRANSPORT_SUCCESS != BOUNDARY_SEMANTICS",
+    "TRANSPORT_SUCCESS != REPAIR_AUTHORITY"
+  ],
+  "authority_ceiling": {
+    "transition_semantic_transport": "NOT_YET_EVALUATED",
+    "universal_carrier_equivalence": "NOT_ESTABLISHED",
+    "arbitrary_real_world_semantic_transport": "NOT_ESTABLISHED",
+    "boundary_semantics": "NOT_OPENED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "BINDINGS": "FROZEN",
+    "SEMANTIC_ORACLE": "NOT_CONSTITUTED",
+    "PROTOCOL": "NOT_CONSTITUTED",
+    "EVALUATOR": "NOT_CONSTITUTED",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}
