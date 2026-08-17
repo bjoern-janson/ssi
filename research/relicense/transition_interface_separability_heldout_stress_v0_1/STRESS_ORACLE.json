@@ -1,0 +1,281 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_HELDOUT_STRESS_V0.1",
+  "stage": "STRESS_ORACLE",
+  "status": "STRESS_ORACLE_FROZEN__NO_PROTOCOL_NO_EVALUATOR_NO_RESULT",
+  "parent_cases_commit": "690b760cf739bc8d6e2ddb1807d3e14d84c84863",
+  "oracle_constitution": {
+    "authoritative_inputs": [
+      "SPEC.md@19e60eb255f754925f7d7ece0d60c25285266dde",
+      "CASES.json@690b760cf739bc8d6e2ddb1807d3e14d84c84863"
+    ],
+    "explicitly_non_authoritative_for_oracle_semantics": [
+      "parent BINDINGS.json",
+      "candidate projection values",
+      "candidate score",
+      "protocol",
+      "evaluator",
+      "result"
+    ],
+    "principle": "DESCRIBE_FROZEN_HELDOUT_SOURCE_SEMANTICS_CHANNEL_LOCATION_COVERAGE_AND_CONFLICT_WITHOUT_JUDGING_THE_INHERITED_CANDIDATE"
+  },
+  "scope": {
+    "sigma": "TRANSITION_INTERFACE_SEPARABILITY_HELDOUT_STRESS_V0_1",
+    "predicate": "P_EFFECT_TRANSITION",
+    "target": "J3.control.assist_mode",
+    "claim_ceiling": "DESCRIPTIVE_HELDOUT_SEMANTICS_AND_EPISTEMIC_STRUCTURE_ONLY"
+  },
+  "coordinate_semantics": {
+    "S": "current configuration semantics",
+    "L": "response-law identity constituted by complete response relation over frozen probes {-1,0,+1}",
+    "V": "applicability semantics constituted by context/envelope relation",
+    "Lambda": "authority semantics constituted by authority context and allowed-effect envelope"
+  },
+  "novel_complete_cube": {
+    "worlds": 16,
+    "pure_edges": 32,
+    "semantic_variants": {
+      "S": {
+        "S_BUFFER_DRAINING": {"load":"NOMINAL","buffer":"DRAINING","mode":"ACTIVE"},
+        "S_BUFFER_RECOVERING": {"load":"NOMINAL","buffer":"RECOVERING","mode":"ACTIVE"},
+        "novelty_fact": "state variation is carried by buffer semantics rather than the parent cube load cut"
+      },
+      "L": {
+        "L_PLUS1_BOOST": {"-1":["SET_ASSIST_STEADY"],"0":["SET_ASSIST_STEADY"],"1":["SET_ASSIST_BOOST"]},
+        "L_PLUS1_LIMITED": {"-1":["SET_ASSIST_STEADY"],"0":["SET_ASSIST_STEADY"],"1":["SET_ASSIST_LIMITED"]},
+        "counterfactual_fact": "the two held-out law variants agree at -1 and the current input 0 and differ only at +1",
+        "non_rule": "same current output != same response law"
+      },
+      "V": {
+        "V_DRIFTED_SENSOR_ADMITTED": {
+          "context":{"zone":"FIELD","sensor":"DRIFTED","epoch":"NEXT"},
+          "envelope":{"zone_in":["FIELD","LAB"],"sensor_in":["CALIBRATED","DRIFTED"],"epoch":"NEXT"},
+          "relation":"CONTEXT_SATISFIES_ENVELOPE"
+        },
+        "V_DRIFTED_SENSOR_EXCLUDED": {
+          "context":{"zone":"FIELD","sensor":"DRIFTED","epoch":"NEXT"},
+          "envelope":{"zone_in":["FIELD","LAB"],"sensor_in":["CALIBRATED"],"epoch":"NEXT"},
+          "relation":"CONTEXT_DOES_NOT_SATISFY_ENVELOPE"
+        },
+        "novelty_fact": "validity variation is a sensor-admissibility cut at epoch NEXT rather than the parent zone cut"
+      },
+      "Lambda": {
+        "LAMBDA_LIMITED_PLUS_BOOST": {
+          "context":{"source":"RECOVERY_LOOP","epoch":"NEXT"},
+          "allowed":["SET_ASSIST_LIMITED","SET_ASSIST_BOOST"]
+        },
+        "LAMBDA_STEADY_ONLY": {
+          "context":{"source":"RECOVERY_LOOP","epoch":"NEXT"},
+          "allowed":["SET_ASSIST_STEADY"]
+        },
+        "novelty_fact": "the two held-out authority envelopes are non-nested and use RECOVERY_LOOP/NEXT"
+      }
+    },
+    "world_semantics": [
+      {"case_id":"g14_w_0000","S":"S_BUFFER_DRAINING","L":"L_PLUS1_BOOST","V":"V_DRIFTED_SENSOR_ADMITTED","Lambda":"LAMBDA_LIMITED_PLUS_BOOST"},
+      {"case_id":"g14_w_0001","S":"S_BUFFER_DRAINING","L":"L_PLUS1_BOOST","V":"V_DRIFTED_SENSOR_ADMITTED","Lambda":"LAMBDA_STEADY_ONLY"},
+      {"case_id":"g14_w_0010","S":"S_BUFFER_DRAINING","L":"L_PLUS1_BOOST","V":"V_DRIFTED_SENSOR_EXCLUDED","Lambda":"LAMBDA_LIMITED_PLUS_BOOST"},
+      {"case_id":"g14_w_0011","S":"S_BUFFER_DRAINING","L":"L_PLUS1_BOOST","V":"V_DRIFTED_SENSOR_EXCLUDED","Lambda":"LAMBDA_STEADY_ONLY"},
+      {"case_id":"g14_w_0100","S":"S_BUFFER_DRAINING","L":"L_PLUS1_LIMITED","V":"V_DRIFTED_SENSOR_ADMITTED","Lambda":"LAMBDA_LIMITED_PLUS_BOOST"},
+      {"case_id":"g14_w_0101","S":"S_BUFFER_DRAINING","L":"L_PLUS1_LIMITED","V":"V_DRIFTED_SENSOR_ADMITTED","Lambda":"LAMBDA_STEADY_ONLY"},
+      {"case_id":"g14_w_0110","S":"S_BUFFER_DRAINING","L":"L_PLUS1_LIMITED","V":"V_DRIFTED_SENSOR_EXCLUDED","Lambda":"LAMBDA_LIMITED_PLUS_BOOST"},
+      {"case_id":"g14_w_0111","S":"S_BUFFER_DRAINING","L":"L_PLUS1_LIMITED","V":"V_DRIFTED_SENSOR_EXCLUDED","Lambda":"LAMBDA_STEADY_ONLY"},
+      {"case_id":"g14_w_1000","S":"S_BUFFER_RECOVERING","L":"L_PLUS1_BOOST","V":"V_DRIFTED_SENSOR_ADMITTED","Lambda":"LAMBDA_LIMITED_PLUS_BOOST"},
+      {"case_id":"g14_w_1001","S":"S_BUFFER_RECOVERING","L":"L_PLUS1_BOOST","V":"V_DRIFTED_SENSOR_ADMITTED","Lambda":"LAMBDA_STEADY_ONLY"},
+      {"case_id":"g14_w_1010","S":"S_BUFFER_RECOVERING","L":"L_PLUS1_BOOST","V":"V_DRIFTED_SENSOR_EXCLUDED","Lambda":"LAMBDA_LIMITED_PLUS_BOOST"},
+      {"case_id":"g14_w_1011","S":"S_BUFFER_RECOVERING","L":"L_PLUS1_BOOST","V":"V_DRIFTED_SENSOR_EXCLUDED","Lambda":"LAMBDA_STEADY_ONLY"},
+      {"case_id":"g14_w_1100","S":"S_BUFFER_RECOVERING","L":"L_PLUS1_LIMITED","V":"V_DRIFTED_SENSOR_ADMITTED","Lambda":"LAMBDA_LIMITED_PLUS_BOOST"},
+      {"case_id":"g14_w_1101","S":"S_BUFFER_RECOVERING","L":"L_PLUS1_LIMITED","V":"V_DRIFTED_SENSOR_ADMITTED","Lambda":"LAMBDA_STEADY_ONLY"},
+      {"case_id":"g14_w_1110","S":"S_BUFFER_RECOVERING","L":"L_PLUS1_LIMITED","V":"V_DRIFTED_SENSOR_EXCLUDED","Lambda":"LAMBDA_LIMITED_PLUS_BOOST"},
+      {"case_id":"g14_w_1111","S":"S_BUFFER_RECOVERING","L":"L_PLUS1_LIMITED","V":"V_DRIFTED_SENSOR_EXCLUDED","Lambda":"LAMBDA_STEADY_ONLY"}
+    ],
+    "geometry": {
+      "axis_edge_counts":{"S":8,"L":8,"V":8,"Lambda":8},
+      "pure_edge_rule":"each pure edge changes exactly one oracle coordinate identity and preserves the other three",
+      "stress_meaning":"same four roles with held-out semantic realizations"
+    }
+  },
+  "novel_channel_semantics": [
+    {
+      "case_id":"g2_state_signed_snapshot",
+      "role":"S",
+      "legacy_role_surface":"UNAVAILABLE",
+      "novel_channel_type":"SIGNED_STATE_SNAPSHOT_V2",
+      "constituted_semantics":{"load":"BURST","buffer":"RECOVERING","mode":"ACTIVE"},
+      "novel_channel_coverage":"COMPLETE",
+      "provenance_status":"VERIFIED_INDEPENDENT_STATE_MONITOR",
+      "binding_evaluability":"NOT_ASSESSED_BY_STRESS_ORACLE"
+    },
+    {
+      "case_id":"g2_law_event_stream",
+      "role":"L",
+      "legacy_role_surface":"CURRENT_ONLY_PARTIAL",
+      "novel_channel_type":"SIGNED_COUNTERFACTUAL_EVENT_BUNDLE_V2",
+      "constituted_semantics":{"-1":["SET_ASSIST_BOOST"],"0":["SET_ASSIST_STEADY"],"1":["SET_ASSIST_BOOST"]},
+      "novel_channel_coverage":"COMPLETE_-1_0_1",
+      "provenance_status":"VERIFIED_INDEPENDENT_PROBE_RUNNER",
+      "binding_evaluability":"NOT_ASSESSED_BY_STRESS_ORACLE"
+    },
+    {
+      "case_id":"g2_validity_attestation",
+      "role":"V",
+      "legacy_role_surface":"UNAVAILABLE_ENVELOPE",
+      "novel_channel_type":"APPLICABILITY_ATTESTATION_V2",
+      "constituted_semantics":{
+        "context":{"zone":"FIELD","sensor":"DRIFTED","epoch":"NEXT"},
+        "admissible_contexts":{"zone_in":["FIELD"],"sensor_in":["DRIFTED"],"epoch":"NEXT"},
+        "relation":"CONTEXT_SATISFIES_ATTESTED_ENVELOPE"
+      },
+      "novel_channel_coverage":"COMPLETE",
+      "provenance_status":"VERIFIED_INDEPENDENT_VALIDITY_AUTHORITY",
+      "binding_evaluability":"NOT_ASSESSED_BY_STRESS_ORACLE"
+    },
+    {
+      "case_id":"g2_authority_receipt",
+      "role":"Lambda",
+      "legacy_role_surface":"UNAVAILABLE_ENVELOPE",
+      "novel_channel_type":"AUTHORITY_RECEIPT_BUNDLE_V2",
+      "constituted_semantics":{
+        "context":{"source":"RECOVERY_LOOP","epoch":"NEXT"},
+        "allowed":["SET_ASSIST_LIMITED","SET_ASSIST_STEADY"]
+      },
+      "novel_channel_coverage":"COMPLETE",
+      "provenance_status":"VERIFIED_INDEPENDENT_AUTHORITY_REGISTRY",
+      "binding_evaluability":"NOT_ASSESSED_BY_STRESS_ORACLE"
+    }
+  ],
+  "coverage_degradation_semantics": [
+    {
+      "control_id":"g3_u_s_l",
+      "after_constituted_facts":{
+        "S":"PARTIAL_WITH_UNRESOLVED_LOAD",
+        "L":"CURRENT_ONLY__UNIQUE_LAW_IDENTITY_NOT_CONSTITUTED",
+        "V":"COMPLETE_UNCHANGED",
+        "Lambda":"COMPLETE_UNCHANGED"
+      },
+      "localization_status":"UNRESOLVED_WITHIN_BOUNDED_CANDIDATE_SET",
+      "oracle_supported_candidate_coordinates":["S","L"],
+      "excluded_by_complete_unchanged_evidence":["V","Lambda"]
+    },
+    {
+      "control_id":"g3_u_l_v_lambda",
+      "after_constituted_facts":{
+        "S":"COMPLETE_UNCHANGED",
+        "L":"PARTIAL_-1_0__UNIQUE_LAW_IDENTITY_NOT_CONSTITUTED",
+        "V":"PARTIAL_WITH_NULL_ENVELOPE__APPLICABILITY_IDENTITY_NOT_CONSTITUTED",
+        "Lambda":"UNAVAILABLE__AUTHORITY_IDENTITY_NOT_CONSTITUTED"
+      },
+      "localization_status":"UNRESOLVED_WITHIN_BOUNDED_CANDIDATE_SET",
+      "oracle_supported_candidate_coordinates":["L","V","Lambda"],
+      "excluded_by_complete_unchanged_evidence":["S"]
+    },
+    {
+      "control_id":"g3_u_s_v",
+      "after_constituted_facts":{
+        "S":"PARTIAL_WITH_UNRESOLVED_BUFFER",
+        "L":"COMPLETE_UNCHANGED",
+        "V":"PARTIAL_WITH_UNRESOLVED_SENSOR",
+        "Lambda":"COMPLETE_UNCHANGED"
+      },
+      "localization_status":"UNRESOLVED_WITHIN_BOUNDED_CANDIDATE_SET",
+      "oracle_supported_candidate_coordinates":["S","V"],
+      "excluded_by_complete_unchanged_evidence":["L","Lambda"]
+    },
+    {
+      "control_id":"g3_u_lambda_only",
+      "after_constituted_facts":{
+        "S":"COMPLETE_UNCHANGED",
+        "L":"COMPLETE_UNCHANGED",
+        "V":"COMPLETE_UNCHANGED",
+        "Lambda":"PARTIAL_WITH_EXPLICIT_EMPTY_OBSERVED_ALLOWED_SET__COMPLETE_AUTHORITY_IDENTITY_NOT_CONSTITUTED"
+      },
+      "localization_status":"UNRESOLVED_WITHIN_SINGLE_ROLE_BUT_NOT_RESOLVED_AUTHORITY_IDENTITY",
+      "oracle_supported_candidate_coordinates":["Lambda"],
+      "excluded_by_complete_unchanged_evidence":["S","L","V"],
+      "non_rule":"partial observed empty set != complete empty authority envelope"
+    }
+  ],
+  "conflict_semantics": [
+    {
+      "control_id":"g5_validity_sensor_conflict",
+      "after_constituted_facts":{
+        "S":"COMPLETE_UNCHANGED",
+        "L":"COMPLETE_UNCHANGED",
+        "V":"TWO_COMPLETE_SENSOR_OBSERVATIONS_CONFLICT__CALIBRATED_VS_DRIFTED__NO_SINGLE_SENSOR_VALUE_CONSTITUTED",
+        "Lambda":"COMPLETE_UNCHANGED"
+      },
+      "definite_coordinate_changes":[],
+      "conflicted_coordinates":["V"],
+      "oracle_supported_candidate_coordinates":["V"],
+      "conflict_status":"UNRESOLVED_CONFLICT_PRESERVED",
+      "truth_adjudication":"NOT_PERFORMED"
+    },
+    {
+      "control_id":"g5_authority_envelope_conflict",
+      "after_constituted_facts":{
+        "S":"COMPLETE_UNCHANGED",
+        "L":"COMPLETE_UNCHANGED",
+        "V":"COMPLETE_UNCHANGED",
+        "Lambda":"TWO_COMPLETE_AUTHORITY_ENVELOPES_CONFLICT__NO_SINGLE_ALLOWED_EFFECT_ENVELOPE_CONSTITUTED"
+      },
+      "definite_coordinate_changes":[],
+      "conflicted_coordinates":["Lambda"],
+      "oracle_supported_candidate_coordinates":["Lambda"],
+      "conflict_status":"UNRESOLVED_CONFLICT_PRESERVED",
+      "truth_adjudication":"NOT_PERFORMED"
+    },
+    {
+      "control_id":"g5_law_validity_competing_pressure",
+      "after_constituted_facts":{
+        "S":"COMPLETE_UNCHANGED",
+        "L":"COMPLETE_NOVEL_LAW_CHANGE_CONSTITUTED",
+        "V":"TWO_COMPLETE_ZONE_OBSERVATIONS_CONFLICT__FIELD_VS_LAB__NO_SINGLE_ZONE_VALUE_CONSTITUTED",
+        "Lambda":"COMPLETE_UNCHANGED"
+      },
+      "definite_coordinate_changes":["L"],
+      "conflicted_coordinates":["V"],
+      "oracle_supported_candidate_coordinates":["L","V"],
+      "conflict_status":"DEFINITE_L_CHANGE_PLUS_UNRESOLVED_V_CONFLICT",
+      "truth_adjudication":"NOT_PERFORMED"
+    }
+  ],
+  "cross_axis_noncollapse": [
+    "WORLD_NOVELTY != OBSERVATION_CHANNEL_NOVELTY",
+    "OBSERVATION_CHANNEL_NOVELTY != COVERAGE_DEGRADATION",
+    "COVERAGE_DEGRADATION != COORDINATE_CONFLICT",
+    "STRESS_AXIS != TRANSITION_COORDINATE",
+    "NOVEL_CHANNEL_INFORMATION_AVAILABLE != BINDING_EVALUABILITY",
+    "CONFLICT_PRESERVED != CONFLICT_RESOLVED",
+    "CONFLICT_PRESERVED != TRUTH_ADJUDICATION",
+    "PARTIAL_EMPTY_OBSERVATION != COMPLETE_EMPTY_SEMANTIC_ENVELOPE"
+  ],
+  "oracle_non_rules": [
+    "STRESS_ORACLE != AXIS_SCORE",
+    "STRESS_ORACLE != BINDING_EVALUABILITY_DECISION",
+    "SOURCE_SEMANTICS != CANDIDATE_PROJECTION_SEMANTICS",
+    "NOVEL_CHANNEL_SEMANTICS != LEGACY_SURFACE_TRANSLATION",
+    "UNRESOLVED != NO_CHANGE",
+    "CONFLICT_DETECTED != CONFLICT_RESOLVED",
+    "HELDOUT_SEMANTICS != GENERALIZATION_SUPPORTED",
+    "SEPARABILITY_GENERALIZATION != BOUNDARY_SEMANTICS"
+  ],
+  "authority_ceiling": {
+    "four_coordinate_separability_generalization":"NOT_YET_EVALUATED",
+    "four_coordinate_completeness":"NOT_ESTABLISHED",
+    "arbitrary_real_world_generalization":"NOT_ESTABLISHED",
+    "boundary_semantics":"NOT_OPENED",
+    "boundary_response":"NOT_OPENED",
+    "boundary_repair":"NOT_OPENED",
+    "repair_composability":"NOT_OPENED",
+    "formal_transition_calculus":"NOT_CONSTITUTED",
+    "ssi_calc_instrumentation":"NOT_CHANGED",
+    "ssi_calc_kernel_delta":0
+  },
+  "stage_firewall": {
+    "SPEC":"FROZEN",
+    "CASES":"FROZEN",
+    "STRESS_ORACLE":"FROZEN",
+    "PROTOCOL":"NOT_CONSTITUTED",
+    "EVALUATOR":"NOT_CONSTITUTED",
+    "RESULT":"NOT_CONSTITUTED"
+  }
+}
