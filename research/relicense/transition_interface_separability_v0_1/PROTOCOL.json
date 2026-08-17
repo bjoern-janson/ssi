@@ -1,0 +1,220 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_V0.1",
+  "stage": "PROTOCOL",
+  "status": "PROTOCOL_FROZEN__NO_EVALUATOR_NO_RESULT",
+  "parent_oracle_commit": "93d3f4ca55102e77f08dfd4091cef92748ac768a",
+  "frozen_dependencies": {
+    "SPEC": "0178c84388e6bb6e7f866f9af79846c62a63b78c",
+    "CASES": "571f447b50a4d18b12442f752d7feb3ba64fb0ac",
+    "BINDINGS": "4199cb0c9fd7607ee15fabdcca63f7ea05e9c356",
+    "DESCRIPTIVE_ORACLE": "93d3f4ca55102e77f08dfd4091cef92748ac768a"
+  },
+  "scientific_scope": "DESCRIPTIVE_COMPARISON_ONLY",
+  "purpose": "DEFINE_HOW_FROZEN_ORACLE_COORDINATES_AND_FROZEN_CANDIDATE_PROJECTIONS_ARE_COMPARED_WITHOUT_SCORING_OR_JUDGMENT",
+  "dependency_firewall": {
+    "oracle_semantics_may_not_be_redefined_by_protocol": true,
+    "candidate_binding_may_not_be_modified_by_protocol": true,
+    "case_geometry_may_not_be_modified_by_protocol": true,
+    "protocol_may_define_representation_dependent_decoding": true,
+    "representation_dependent_decoding_may_not_change_oracle_coordinate_identity": true,
+    "evaluator_verdicts_available_to_protocol": false,
+    "result_available_to_protocol": false
+  },
+  "inputs": {
+    "cube_worlds": "CASES.worlds[].bridge_visible",
+    "uncertainty_controls": "CASES.uncertainty_controls.controls[].before_bridge_visible + after_bridge_visible",
+    "candidate_definition": "BINDINGS.candidate_interface",
+    "oracle_world_semantics": "DESCRIPTIVE_ORACLE.world_semantics",
+    "oracle_coordinate_semantics": "DESCRIPTIVE_ORACLE.coordinate_semantics",
+    "oracle_uncertainty_semantics": "DESCRIPTIVE_ORACLE.uncertainty_controls",
+    "oracle_geometry": "DESCRIPTIVE_ORACLE.hypercube_geometry"
+  },
+  "candidate_execution": {
+    "rule": "APPLY_THE_FROZEN_BINDING_DETERMINISTICALLY_TO_EACH_PERMITTED_BRIDGE_VISIBLE_SNAPSHOT",
+    "world_input": "bridge_visible",
+    "control_inputs": ["before_bridge_visible", "after_bridge_visible"],
+    "outputs": ["q_S", "q_L", "q_V", "q_LAMBDA"],
+    "forbidden_runtime_inputs": [
+      "world_id",
+      "control_id",
+      "construction_only",
+      "bits",
+      "edge_identity",
+      "hamming_distance",
+      "oracle_world_identity",
+      "oracle_expected_coordinate",
+      "oracle_uncertainty_set",
+      "evaluator",
+      "result"
+    ]
+  },
+  "normalization": {
+    "principle": "NORMALIZE_REPRESENTATION_ORDER_ONLY__DO_NOT_ERASE_SEMANTIC_CONTENT",
+    "map_keys": "SORT_LEXICOGRAPHICALLY",
+    "set_like_string_lists": "SORT_LEXICOGRAPHICALLY",
+    "probe_keys": "ORDER_NUMERICALLY",
+    "null": "PRESERVE",
+    "unknown_or_unresolved": "PRESERVE",
+    "coverage": "PRESERVE",
+    "opaque_identifiers": "IGNORE_UNLESS_SEMANTICALLY_CONSTITUTED_BY_UPSTREAM_ARTIFACTS"
+  },
+  "coordinate_decoders": {
+    "S": {
+      "candidate_source": "q_S.semantic_state + q_S.evidence_status",
+      "decoded_semantic_payload": "canonical tuple (load,buffer,mode)",
+      "complete_identity_condition": "evidence_status == COMPLETE",
+      "incomplete_identity": "UNRESOLVED_STATE_IDENTITY",
+      "oracle_comparison_target": "oracle S variant payload",
+      "comparison_relation": ["EQUIVALENT", "NON_EQUIVALENT", "UNRESOLVED_DUE_TO_COVERAGE"]
+    },
+    "L": {
+      "candidate_source": "q_L.observed_response_surface + q_L.probe_coverage + q_L.evidence_status",
+      "decoded_semantic_payload": "canonical response relation over frozen probes {-1,0,+1}",
+      "complete_identity_condition": "probe_coverage == COMPLETE_-1_0_1 AND evidence_status == COUNTERFACTUAL_RESPONSE_SURFACE_AVAILABLE",
+      "incomplete_identity": "UNRESOLVED_LAW_IDENTITY",
+      "oracle_comparison_target": "oracle L complete response-relation payload",
+      "comparison_relation": ["EQUIVALENT", "NON_EQUIVALENT", "UNRESOLVED_DUE_TO_COVERAGE"],
+      "non_rule": "CURRENT_ONLY_RESPONSE_DOES_NOT_DEFINE_LAW_IDENTITY"
+    },
+    "V": {
+      "candidate_source": "q_V.context + q_V.envelope + q_V.basis_coverage + q_V.evidence_status",
+      "decoded_semantic_payload": "canonical pair (validity_context, applicability_envelope)",
+      "complete_identity_condition": "basis_coverage == COMPLETE AND evidence_status == COMPLETE AND envelope != null",
+      "incomplete_identity": "UNRESOLVED_VALIDITY_IDENTITY",
+      "oracle_comparison_target": "oracle V context/envelope payload",
+      "comparison_relation": ["EQUIVALENT", "NON_EQUIVALENT", "UNRESOLVED_DUE_TO_COVERAGE"],
+      "non_rules": [
+        "PROTOCOL_DOES_NOT_COLLAPSE_VALIDITY_TO_DENIED",
+        "MISSING_VALIDITY_BASIS_DOES_NOT_DEFINE_INAPPLICABILITY"
+      ]
+    },
+    "Lambda": {
+      "candidate_source": "q_LAMBDA.context + q_LAMBDA.envelope + q_LAMBDA.basis_coverage + q_LAMBDA.evidence_status",
+      "decoded_semantic_payload": "canonical pair (authority_context, allowed_effect_envelope)",
+      "complete_identity_condition": "basis_coverage == COMPLETE AND evidence_status == COMPLETE AND envelope != null",
+      "incomplete_identity": "UNRESOLVED_AUTHORITY_IDENTITY",
+      "oracle_comparison_target": "oracle Lambda context/allowed-effect payload",
+      "comparison_relation": ["EQUIVALENT", "NON_EQUIVALENT", "UNRESOLVED_DUE_TO_COVERAGE"],
+      "non_rules": [
+        "PROTOCOL_DOES_NOT_COLLAPSE_AUTHORITY_TO_DENIED",
+        "MISSING_AUTHORITY_BASIS_DOES_NOT_DEFINE_UNAUTHORIZED"
+      ]
+    }
+  },
+  "world_coordinate_comparison": {
+    "for_each_world": "w",
+    "for_each_coordinate": ["S", "L", "V", "Lambda"],
+    "operation": "COMPARE_DECODED_CANDIDATE_COORDINATE_TO_FROZEN_ORACLE_COORDINATE_UNDER_COORDINATE_DECODER",
+    "output_shape": {
+      "world_id": "PROTOCOL_JOIN_KEY_ONLY__NOT_CANDIDATE_INPUT",
+      "coordinate": "S|L|V|Lambda",
+      "oracle_identity": "FROZEN_ORACLE_IDENTITY",
+      "candidate_decoded_identity": "DECODED_FROM_FROZEN_BINDING_OUTPUT",
+      "relation": "EQUIVALENT|NON_EQUIVALENT|UNRESOLVED_DUE_TO_COVERAGE"
+    },
+    "forbidden_outputs": ["PASS", "FAIL", "UNDER_RESOLUTION", "COORDINATE_CONTAMINATION", "SCORE"]
+  },
+  "projection_equivalence_for_pairwise_delta": {
+    "S": "canonical q_S structure equality including preserved evidence status",
+    "L": "canonical q_L structure equality including response surface and coverage/evidence status",
+    "V": "canonical q_V structure equality including context, envelope, basis coverage, evidence status",
+    "Lambda": "canonical q_LAMBDA structure equality including context, envelope, basis coverage, evidence status"
+  },
+  "pairwise_delta_protocol": {
+    "pair_domain": "ALL_UNORDERED_PAIRS_OF_THE_16_CUBE_WORLDS",
+    "oracle_delta_vector": {
+      "definition": "Delta_K[i] = 1 iff oracle coordinate identity i differs between the pair; else 0",
+      "coordinates": ["S", "L", "V", "Lambda"]
+    },
+    "candidate_delta_vector": {
+      "definition": "Delta_q[i] = 1 iff frozen candidate projection i is non-equivalent between the pair under projection_equivalence_for_pairwise_delta; else 0",
+      "coordinates": ["S", "L", "V", "Lambda"]
+    },
+    "descriptive_output": {
+      "pair": "WORLD_ID_JOIN_KEYS",
+      "oracle_delta_vector": "4_BIT_VECTOR",
+      "candidate_delta_vector": "4_BIT_VECTOR",
+      "coordinatewise_relation": "SAME_DELTA_BIT|DIFFERENT_DELTA_BIT"
+    },
+    "pure_edge_subset": "pairs for which oracle_delta_vector has Hamming weight 1",
+    "multi_coordinate_subset": "pairs for which oracle_delta_vector has Hamming weight greater than 1",
+    "forbidden_interpretation": "PROTOCOL_DOES_NOT_LABEL_ANY_DELTA_MISMATCH_AS_UNDER_RESOLUTION_OR_CONTAMINATION"
+  },
+  "recoverability_protocol": {
+    "domain": "ALL_16_COMPLETE_CUBE_WORLDS",
+    "operation": "RECORD_THE_FOUR_WORLD_COORDINATE_COMPARISON_RELATIONS_AS_A_RECOVERABILITY_VECTOR",
+    "output": "[relation_S, relation_L, relation_V, relation_Lambda]",
+    "no_aggregation": true,
+    "forbidden_outputs": ["RECOVERABLE", "NOT_RECOVERABLE", "PASS", "FAIL", "SCORE"]
+  },
+  "uncertainty_protocol": {
+    "domain": "THE_THREE_FROZEN_UNCERTAINTY_CONTROLS_ONLY",
+    "before_after_projection_delta": {
+      "definition": "for each coordinate i, record whether q_i(before) and q_i(after) are equivalent under projection_equivalence_for_pairwise_delta",
+      "output": "candidate_changed_projection_coordinates"
+    },
+    "after_identity_status": {
+      "definition": "apply coordinate decoder to after projection and record whether identity is resolved or UNRESOLVED_*_IDENTITY",
+      "output": "candidate_unresolved_identity_coordinates"
+    },
+    "oracle_reference": {
+      "source": "DESCRIPTIVE_ORACLE.uncertainty_controls[].supported_candidate_coordinates",
+      "output": "oracle_supported_candidate_coordinates"
+    },
+    "set_comparison": {
+      "candidate_set": "union(candidate_changed_projection_coordinates, candidate_unresolved_identity_coordinates)",
+      "oracle_set": "oracle_supported_candidate_coordinates",
+      "relation": ["EQUAL", "PROPER_SUBSET", "PROPER_SUPERSET", "PARTIAL_OVERLAP", "DISJOINT"]
+    },
+    "non_rules": [
+      "SET_COMPARISON != BOUNDARY_DIAGNOSIS",
+      "UNRESOLVED_IDENTITY != NO_CHANGE",
+      "BOUNDED_CANDIDATE_SET != SINGLETON_LOCALIZATION"
+    ],
+    "forbidden_outputs": ["PASS", "FAIL", "FALSE_LOCALIZATION", "CORRECT_LOCALIZATION", "BOUNDARY_CLASS"]
+  },
+  "protocol_output_schema": {
+    "world_coordinate_relations": "DESCRIPTIVE_ONLY",
+    "pairwise_delta_records": "DESCRIPTIVE_ONLY",
+    "recoverability_vectors": "DESCRIPTIVE_ONLY",
+    "uncertainty_set_relations": "DESCRIPTIVE_ONLY",
+    "aggregate_score": "NOT_PRODUCED",
+    "scientific_verdict": "NOT_PRODUCED"
+  },
+  "forbidden_protocol_judgments": [
+    "PASS",
+    "FAIL",
+    "SUPPORTED",
+    "NOT_SUPPORTED",
+    "UNDER_RESOLUTION",
+    "COORDINATE_CONTAMINATION",
+    "SEPARABLE",
+    "NOT_SEPARABLE",
+    "BOUNDARY_SEMANTICS",
+    "BOUNDARY_RESPONSE",
+    "REPAIR_ACTION",
+    "AUTHORITY_PROMOTION"
+  ],
+  "authority_ceiling": {
+    "four_coordinate_interface_separability": "NOT_YET_EVALUATED",
+    "relevant_separation": "NOT_YET_EVALUATED",
+    "orthogonal_invariance": "NOT_YET_EVALUATED",
+    "coordinate_recoverability": "NOT_YET_EVALUATED",
+    "uncertainty_preservation": "NOT_YET_EVALUATED",
+    "boundary_semantics": "NOT_CONSTITUTED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "BINDINGS": "FROZEN",
+    "DESCRIPTIVE_ORACLE": "FROZEN",
+    "PROTOCOL": "FROZEN",
+    "EVALUATOR": "NOT_CONSTITUTED",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}
