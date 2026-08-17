@@ -156,6 +156,12 @@ def _validate_constitution(request: AdequacyRequest) -> Optional[AdequacyResult]
                 f"case {case.case_id} was not mapped under the frozen representation",
             )
 
+        if case.frozen_signature is None:
+            return _not_evaluable(
+                request,
+                f"case {case.case_id} is missing a frozen representation signature",
+            )
+
         if case.consequence is None:
             return _not_evaluable(
                 request,
