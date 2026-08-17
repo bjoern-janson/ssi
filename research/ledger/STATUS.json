@@ -171,9 +171,9 @@
     "wm_semantic_error_allocation_v0_3b": "CONTRAST_NOT_IDENTIFIED"
   },
   "conceptual_frontier": {
-    "current_master_candidate": "SCOPE_INDEXED_ENTITLEMENT",
+    "master_theoretical_candidate": "SCOPE_INDEXED_ENTITLEMENT",
     "effect_judgment": "Gamma |- (d ->[operation] effect) @ scope",
-    "noncollapse": [
+    "causal_noncollapse": [
       "access != causal influence != licensed effect",
       "endpoint legality != role license != execution entitlement",
       "capability != entitlement != actual causal exercise",
@@ -193,14 +193,45 @@
     "compression": "Improve Can. Justify May. Constrain Did.",
     "master_formulation": "Safe self-improvement is warrant-bounded causal expansion"
   },
+  "transition_frontier": {
+    "master_methodological_candidate": "TRANSITION_BOUNDARY_DISCIPLINE",
+    "transition_judgment": "Gamma |- X ==[W_12 ; sigma_1 -> sigma_2]=> Y",
+    "transition_noncollapse": "validity != transportability != composability",
+    "structure": "PARTIAL_DIRECTED_GRAPH_OF_SCOPED_JUDGMENTS__NOT_A_CATEGORY",
+    "node": "J_i = scoped judgment",
+    "edge": "W_ij = scope-relative boundary witness",
+    "composition_witness": "W_ijk = conceptual interaction/composition witness; not an earned rule",
+    "nonrules": [
+      "valid endpoints !=> valid transition",
+      "valid transitions !=> valid composition",
+      "witness exists !=> witness sufficient",
+      "source entitlement !=> target entitlement",
+      "capability growth !=> entitlement growth"
+    ],
+    "transition_outcomes": [
+      "PRESERVED",
+      "EXTENDED",
+      "REVOKED",
+      "UNPROVEN"
+    ],
+    "status_firewall": "UNPROVEN != REVOKED",
+    "transportability": "CANDIDATE_RELATIONAL_RESEARCH_OBJECT_NOT_FORMAL_FIELD",
+    "diagnostic_triage": [
+      "missing argument: identify the scope that makes the judgment relational",
+      "missing witness: identify what licenses the boundary crossing",
+      "missing interaction structure: identify why individually valid crossings do not compose"
+    ],
+    "methodological_rule": "Do not coerce across a boundary. Certify the boundary.",
+    "deeper_rule": "A justified state does not imply a justified change. A justified change does not imply a justified composition."
+  },
   "current_terminal_state": {
-    "branch": "scope_indexed_entitlement_after_f5",
+    "branch": "transition_boundary_discipline_after_f5",
     "formal_soundness": "UNESTABLISHED",
     "internal_consistency": "SUPPORTED_BY_19_CHECK_AUDIT",
     "license_scope": "JURISDICTION_RELATIVE_SUPPORTED_FINITE",
     "license_transfer_mechanism": "SUPPORTED_FINITE_WITH_RELICENSING",
     "no_next_experiment_owed": true,
-    "status": "F5_FORMAL_COUNTERMODEL_SUPPORTED",
+    "status": "CONCEPTUAL_FLOOR_FROZEN_AFTER_F5",
     "wholesale_choice_transfer": "NOT_SUPPORTED__JURISDICTION_LEAKAGE_IDENTIFIED"
   },
   "formal_frontier": {
@@ -209,7 +240,7 @@
     "F1_nested_refinement": "OPEN_NOT_RUN",
     "F2_incomparable_jurisdictions": "OPEN_NOT_RUN",
     "F3_candidate_domain_laundering": "OPEN_NOT_RUN",
-    "F4_certificate_composition": "OPEN_NOT_RUN",
+    "F4_certificate_composition": "OPEN_NOT_RUN__TRANSPORT_AND_COMPOSITION_WITNESSES_CONCEPTUAL_ONLY",
     "F5_effect_trace_laundering": "FORMAL_COUNTERMODEL_SUPPORTED",
     "c_auth_valid_implies_trace_validity": "NOT_SUPPORTED__FORMAL_COUNTERMODEL_F5",
     "certificate_composition": "NONRULE_UNTIL_EARNED",
@@ -218,6 +249,8 @@
     "relicense_calculus": "FORMAL_CANDIDATE_NOT_YET_EMPIRICALLY_VALIDATED",
     "role_license": "EXISTING_CALCULUS_SEMANTICS",
     "effect_license": "NEWLY_EXPOSED_FORMAL_OBLIGATION",
+    "transport_witness": "CONCEPTUAL_PLACEHOLDER_ONLY",
+    "composition_witness": "CONCEPTUAL_PLACEHOLDER_ONLY",
     "trace_challengeability": "OPEN",
     "trace_completeness": "OPEN",
     "trace_entitlement": "OPEN",
@@ -235,6 +268,7 @@
   "open_hypotheses": {
     "H_nondominated_behavior": "OPEN_NOT_TESTED_OUTSIDE_CLOSED_CURRENT_WORLD",
     "neural_world_model_generalization": "UNTESTED",
+    "transportability": "CANDIDATE_RELATIONAL_RESEARCH_OBJECT_NOT_FORMALIZED",
     "trace_challengeability": "OPEN",
     "trace_completeness": "OPEN",
     "trace_entitlement": "OPEN",
@@ -247,8 +281,9 @@
     "frozen scientific objects outrank navigation summaries",
     "do not reopen old nondominated world",
     "do not reopen liveness absent genuinely new external evidence/question",
-    "do not scalarize representation, semantic error allocation, authority, freedom, or causal-envelope objects",
+    "do not scalarize representation, semantic error allocation, authority, freedom, transportability, or causal-envelope objects",
     "keep Can, May, and Did separate",
+    "keep validity, transportability, and composability separate",
     "keep access, causal influence, and licensed effect separate",
     "keep endpoint validity, candidate-domain validity, role license, and whole-execution effect entitlement separate",
     "advisory usefulness is evidence for utility, not jurisdiction",
@@ -256,13 +291,20 @@
     "evidence transport is not permission transport",
     "preserve U_fresh != U_inherited",
     "preserve INTERNAL_CONSISTENCY != FORMAL_SOUNDNESS != EMPIRICAL_VALIDITY",
+    "preserve UNPROVEN != REVOKED",
+    "do not infer transition validity from endpoint validity",
+    "do not infer composition from adjacent valid transitions",
+    "do not infer witness sufficiency from witness existence",
     "do not patch CA-R1 post hoc from F5; separately constitute any effect-level object",
     "do not infer trace completeness from trace validity",
+    "treat W_transport and W_composition as conceptual placeholders until separately constituted and attacked",
+    "treat external analogies as context, not SSI evidence or rule authority",
+    "use diagnostic order: missing argument -> missing witness -> missing interaction structure",
     "certificate composition remains a non-rule until earned",
     "keep JEPA parked until explicitly authorized",
     "keep SSI_CALC_KERNEL_DELTA=0 unless a source-specific frozen benchmark earns a rule"
   ],
-  "schema": "ssi-research-ledger/v0.4",
+  "schema": "ssi-research-ledger/v0.5",
   "snapshot_date": "2026-08-17",
   "supported_empirical_claims": {
     "H_advisory": "SUPPORTED_FINITE_ON_FROZEN_IMPLEMENTATION_PANEL",
