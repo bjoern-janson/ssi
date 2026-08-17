@@ -1,0 +1,61 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_DETECTION_V0.1/WORLDS",
+  "status": "PROSPECTIVE_WORLD_AND_CHANNEL_FREEZE__NO_ENTITLEMENT_LABELS",
+  "parent_pr54_head": "d80c6c4d60a15fda892c7b34c775358041c1daaa",
+  "spec_commit": "cec1368839b0711cca35dce0e7572774cc1a135b",
+  "canonical_local_interface": {
+    "W_tr_12": {"status": "PRESERVED", "source": "J1", "target": "J2", "scope": "certified_local_scope_12"},
+    "W_tr_23": {"status": "PRESERVED", "source": "J2", "target": "J3", "scope": "certified_local_scope_23"}
+  },
+  "canonical_local_derived_closure": {
+    "status_pair": ["PRESERVED", "PRESERVED"],
+    "path": ["J1", "J2", "J3"],
+    "local_transition_count": 2,
+    "scopes": ["certified_local_scope_12", "certified_local_scope_23"],
+    "both_local_preserved": true
+  },
+  "primary_pairs": [
+    {
+      "pair_id": "ID-I1-ALIAS",
+      "family": "SHARED_STATE_ALIAS",
+      "a": {"world_id": "ID-I1-A", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "ALIAS_TOKEN_PROBE", "coverage": "OBSERVED", "phase12_token": "slot-A", "phase23_token": "slot-B"}},
+      "b": {"world_id": "ID-I1-B", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "ALIAS_TOKEN_PROBE", "coverage": "OBSERVED", "phase12_token": "slot-A", "phase23_token": "slot-A"}}
+    },
+    {
+      "pair_id": "ID-I2-ORDER",
+      "family": "ORDER_DEPENDENCE",
+      "a": {"world_id": "ID-I2-A", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "ORDER_REVERSAL_PROBE", "coverage": "OBSERVED", "forward_authority_state": "guard-open", "reverse_authority_state": "guard-open"}},
+      "b": {"world_id": "ID-I2-B", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "ORDER_REVERSAL_PROBE", "coverage": "OBSERVED", "forward_authority_state": "guard-closed", "reverse_authority_state": "guard-open"}}
+    },
+    {
+      "pair_id": "ID-I3-EFFECT",
+      "family": "CROSS_BOUNDARY_EFFECT",
+      "a": {"world_id": "ID-I3-A", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "EFFECT_TRACE_PROBE", "coverage": "OBSERVED", "writes": [{"target": "J2.audit_log", "op": "append"}]}},
+      "b": {"world_id": "ID-I3-B", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "EFFECT_TRACE_PROBE", "coverage": "OBSERVED", "writes": [{"target": "J2.audit_log", "op": "append"}, {"target": "J3.admissibility_state", "op": "set"}]}}
+    },
+    {
+      "pair_id": "ID-I4-CONSTRAINT",
+      "family": "EMERGENT_CONSTRAINT",
+      "a": {"world_id": "ID-I4-A", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "COMPOSED_PRECONDITION_PROBE", "coverage": "OBSERVED", "j2_post_quota": 4, "j3_required_quota_min": 3}},
+      "b": {"world_id": "ID-I4-B", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "COMPOSED_PRECONDITION_PROBE", "coverage": "OBSERVED", "j2_post_quota": 2, "j3_required_quota_min": 3}}
+    }
+  ],
+  "controls": {
+    "identifier_leakage_pair": {
+      "pair_id": "ID-C1-ID-LEAK",
+      "a": {"world_id": "ID-C1-A-unique", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "ALIAS_TOKEN_PROBE", "coverage": "OBSERVED", "phase12_token": "slot-X", "phase23_token": "slot-Y"}},
+      "b": {"world_id": "ID-C1-B-different", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "ALIAS_TOKEN_PROBE", "coverage": "OBSERVED", "phase12_token": "slot-X", "phase23_token": "slot-Y"}}
+    },
+    "unknown_coverage_pair": {
+      "pair_id": "ID-C2-UNKNOWN",
+      "a": {"world_id": "ID-C2-A", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "COMPOSED_PRECONDITION_PROBE", "coverage": "UNKNOWN"}},
+      "b": {"world_id": "ID-C2-B", "local_interface_ref": "canonical_local_interface", "local_derived_closure_ref": "canonical_local_derived_closure", "probe": {"probe_type": "COMPOSED_PRECONDITION_PROBE", "coverage": "OBSERVED", "j2_post_quota": 2, "j3_required_quota_min": 3}}
+    }
+  },
+  "hard_constraints": {
+    "all_primary_worlds_share_identical_Phi_local": true,
+    "all_primary_worlds_share_identical_permitted_local_derived_closure": true,
+    "entitlement_labels_present": false,
+    "transition_status_oracle_present": false
+  }
+}
