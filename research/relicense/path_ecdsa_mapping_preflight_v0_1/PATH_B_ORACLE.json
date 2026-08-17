@@ -1,0 +1,12 @@
+{
+  "all_local_signatures_verify": true,
+  "path_id": "P_B_REPEATED_NONCE",
+  "path_property": "PRIVATE_KEY_RECOVERABLE_FROM_PUBLIC_TRANSCRIPT_BY_REPEATED_NONCE_RELATION",
+  "recovered_private_key": "1dce8d2ec6184cca8a3e7f9a6b1d7c3efab5a7d92b76f12c5dd89fa4b2c71359",
+  "recovered_private_key_matches_public_key": true,
+  "same_r_across_transitions": true,
+  "signature_verify": [
+    true,
+    true
+  ]
+}
