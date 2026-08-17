@@ -1,0 +1,57 @@
+{
+  "authority_ceiling": {
+    "certificate_projection_loss": "NOT_TESTED",
+    "composition_insufficiency": "NOT_ESTABLISHED",
+    "composition_theorem": "NOT_EARNED",
+    "new_coordinate": "NOT_EARNED",
+    "path_level_inadequacy": "NOT_ESTABLISHED",
+    "relational_composition_failure": "NOT_TESTED",
+    "repair": "NOT_EARNED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "decision": "MAPPING_BOUNDARY",
+  "mapper_sha256": "87e42ef32167d3ac45d8d2b31d1ad5fdcc1fbaed25c3ef5ba86bb08d1b82a800",
+  "object": "SSI_PATH_WITNESS_MAPPING_PREFLIGHT_FIRST_RESULT_V0.1",
+  "path_oracle_read_by_runner": false,
+  "record_count": 4,
+  "records": [
+    {
+      "local_input": null,
+      "mapping_reason": "unknown top-level field(s): ['message_hash_z', 'message_utf8', 'signature', 'transition_id']; B_UNKNOWN_FIELD_FAIL_CLOSED",
+      "mapping_status": "NOT_EVALUABLE",
+      "path_file": "PATH_A_EXTERNAL.json",
+      "transition_id": "T1",
+      "transition_index": 0
+    },
+    {
+      "local_input": null,
+      "mapping_reason": "unknown top-level field(s): ['message_hash_z', 'message_utf8', 'signature', 'transition_id']; B_UNKNOWN_FIELD_FAIL_CLOSED",
+      "mapping_status": "NOT_EVALUABLE",
+      "path_file": "PATH_A_EXTERNAL.json",
+      "transition_id": "T2",
+      "transition_index": 1
+    },
+    {
+      "local_input": null,
+      "mapping_reason": "unknown top-level field(s): ['message_hash_z', 'message_utf8', 'signature', 'transition_id']; B_UNKNOWN_FIELD_FAIL_CLOSED",
+      "mapping_status": "NOT_EVALUABLE",
+      "path_file": "PATH_B_EXTERNAL.json",
+      "transition_id": "T1",
+      "transition_index": 0
+    },
+    {
+      "local_input": null,
+      "mapping_reason": "unknown top-level field(s): ['message_hash_z', 'message_utf8', 'signature', 'transition_id']; B_UNKNOWN_FIELD_FAIL_CLOSED",
+      "mapping_status": "NOT_EVALUABLE",
+      "path_file": "PATH_B_EXTERNAL.json",
+      "transition_id": "T2",
+      "transition_index": 1
+    }
+  ],
+  "ssi_checker_executed": false,
+  "stage": "MAPPING_ONLY_FIRST_EXPOSURE",
+  "witness_sha256": {
+    "PATH_A_EXTERNAL.json": "d19411ffefb4ce9b8b81e6fd1a61ef0e4d4fbd7c700b4ab77804592172b574a5",
+    "PATH_B_EXTERNAL.json": "80a79ae43880ccb0db7f36e8ee5d3f8f3f4c4f91ff117fc6e9f1734aedc0310a"
+  }
+}
