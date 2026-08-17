@@ -1,0 +1,83 @@
+{
+  "object": "SSI_RELICENSE_TRANSPORT_WITNESS_V0.1/RESULT",
+  "status": "COMPOSED_BOUNDARY_DEFEATER_EXPRESSIVE_GAP_IDENTIFIED",
+  "lineage": {
+    "base_main_commit": "268ea1f84b92f6e2dfda08cc19563fdbb8e26a97",
+    "spec_commit": "568f5e7db3b18e0f5fadd5d07079987c9c47de9e",
+    "cases_commit": "f1746a657872f105e6c5249f66afa8b829ae6813",
+    "execution_protocol_commit": "46167168c8b1a51f3cc6099e30811f16445882e4",
+    "target_calculus_sha256": "af394081b10be84d7fd4d0b1f03e4ab13f4839d0ed661e812d3b8d81fd54aa40",
+    "target_certificate_schema_sha256": "cff76ed9a30a45a99612e15b0846e34351405e8241594f2b7769d1ba3800b642"
+  },
+  "aggregate": {
+    "cases": 4,
+    "exact_transport_oracle_matches": 3,
+    "invalid_transitions_authorized": 0,
+    "local_valid_transitions_destroyed": 0,
+    "unproven_revoked_collapses_exposed": 1,
+    "composition_rule_inferred": false,
+    "formal_soundness_defect_identified": false,
+    "formal_interface_expressive_gap_identified": true
+  },
+  "cases": [
+    {
+      "id": "TW-F3-001",
+      "expected": "UNPROVEN",
+      "observed": "UNPROVEN",
+      "match": true,
+      "target_basis": "CA-R1 exact target candidate-domain obligation fails; target license not established",
+      "preserved": ["source_judgment", "endpoint_membership_fact"]
+    },
+    {
+      "id": "TW-F1-001",
+      "expected": "UNPROVEN",
+      "observed": "UNPROVEN",
+      "match": true,
+      "target_basis": "C_auth^12 AND C_auth^23 !=> C_auth^13; certificate composition is a non-rule",
+      "preserved": ["local_transition_12", "local_transition_23"]
+    },
+    {
+      "id": "TW-F2-001",
+      "expected": "UNPROVEN",
+      "observed": "UNPROVEN",
+      "match": true,
+      "target_basis": "CA-R1 refinement containment cannot be witnessed and no unconditional cross-jurisdiction transfer rule exists",
+      "preserved": ["source_judgment"]
+    },
+    {
+      "id": "TW-F4-001",
+      "expected": "REVOKED",
+      "observed": "UNPROVEN",
+      "match": false,
+      "classification": "H2_TARGET_FORMAL_INTERFACE_EXPRESSIVE_INSUFFICIENCY",
+      "shallowest_failure_locus": "COMPOSED_BOUNDARY_INTERACTION_DEFEATER_NOT_REPRESENTABLE",
+      "invalid_composition_authorized": false,
+      "preserved": ["local_transition_12", "local_transition_23"]
+    }
+  ],
+  "supported_bounded_claims": [
+    "candidate-domain laundering is rejected by the existing CA-R1 boundary",
+    "nested local certificates do not manufacture direct transitivity",
+    "incomparable jurisdictions do not acquire a generic transfer relation",
+    "the frozen calculus does not authorize invalid certificate composition in TW-F4-001",
+    "the frozen authority interface cannot distinguish an active composed-boundary interaction defeat from an unproven longer crossing in TW-F4-001"
+  ],
+  "not_claimed": [
+    "universal transport theorem",
+    "formal soundness of the Relicense Calculus",
+    "necessity or sufficiency of a particular W_comp schema",
+    "certificate composition rule",
+    "empirical validation",
+    "SSI-CALC modification"
+  ],
+  "next_research_target": "smallest composition/interaction witness interface that distinguishes active composed-boundary defeat from absence of proof",
+  "authority_ceiling": {
+    "W_comp": "SEPARATE_RESEARCH_TARGET_NOW_MOTIVATED_NOT_DEFINED",
+    "composition_rule": "NOT_ADMITTED",
+    "formal_soundness": "UNESTABLISHED",
+    "empirical_validity": "NOT_CLAIMED",
+    "ssi_calc_kernel_delta": 0,
+    "jepa": "PARKED",
+    "behavioral_experiment_authority": "NONE"
+  }
+}
