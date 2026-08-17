@@ -1,0 +1,212 @@
+{
+  "object": "SSI_RELICENSE_INTERACTION_SEMANTIC_BINDING_V0.1/BINDINGS",
+  "status": "PROSPECTIVE_SEMANTIC_BINDINGS_FROZEN__NO_ORACLE_NO_ADJUDICATION",
+  "spec_commit": "ad2073574b32c6a8ce248549a12f9539989f5b11",
+  "cases_commit": "71cb3636e77c1ae24ecdd6535c96c5ea4a69bb6a",
+  "target_predicate": "P_WRITE=EXACT_J3_ADMISSIBILITY_WRITE_PRESENCE",
+  "next_permitted_stage": "DESCRIPTIVE_ORACLE",
+  "hard_stage_firewall": {
+    "delta_spec": 0,
+    "delta_cases": 0,
+    "descriptive_oracle_constituted": false,
+    "protocol_constituted": false,
+    "evaluator_constituted": false,
+    "result_constituted": false,
+    "detector_execution_permitted": false,
+    "semantic_binding_status_assigned": false,
+    "expected_classification_assigned": false
+  },
+  "binding_principles": {
+    "evidence_translation_not_answer_encoding": true,
+    "bridge_dispatch_key": "source_channel_schema_only",
+    "case_id_may_not_affect_semantics": true,
+    "case_class_may_not_affect_semantics": true,
+    "oracle_only_construction_facts_forbidden": true,
+    "downstream_D2_correctness_forbidden": true,
+    "rule": "a bridge specifies the evidence relation it purports to constitute; it does not specify the detector answer it intends to cause"
+  },
+  "target_evidence_language": {
+    "presence_object": {
+      "relation": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+      "required_semantic_fields": [
+        "target",
+        "epoch",
+        "observation_status"
+      ],
+      "optional_source_preserved_fields": [
+        "actor"
+      ],
+      "predicate_claim": "a matching WRITE event to the declared J3 admissibility target was observed within the declared scope"
+    },
+    "absence_object": {
+      "relation": "NO_SUCH_WRITE_EVENT_OBSERVED_WITHIN_DECLARED_OBSERVATION_SCOPE",
+      "required_semantic_fields": [
+        "target",
+        "epoch",
+        "scope_complete",
+        "matching_event_count"
+      ],
+      "predicate_claim": "the declared observation scope is complete and contains zero matching WRITE events to the declared J3 admissibility target"
+    }
+  },
+  "candidate_bridges": {
+    "BETA_TUPLE_TRACE_TO_P_WRITE_V1": {
+      "source_channel_schema": "CHANNEL_B1_TUPLE_TRACE_V1",
+      "source_fields_consumed": [
+        "scope",
+        "bridge_visible_source_observation.tuple",
+        "bridge_visible_source_observation.schema_version",
+        "bridge_visible_source_observation.schema_definition_visible",
+        "bridge_visible_provenance_basis.source_log_scope_complete",
+        "bridge_visible_provenance_basis.source_log_signature_valid"
+      ],
+      "transformation": {
+        "TRACE_EVENT": "parse tuple according to frozen schema; when event_type=WRITE, target and epoch equal declared scope, and observation_status=OBSERVED, emit canonical P_WRITE presence evidence preserving actor if present",
+        "TRACE_SCOPE_SUMMARY": "parse tuple according to frozen schema; when target and epoch equal declared scope, scope_complete=true, matching_event_count=0, and source-log provenance is valid, emit canonical P_WRITE scoped-absence evidence"
+      },
+      "emitted_evidence_semantic_claim": {
+        "TRACE_EVENT": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+        "TRACE_SCOPE_SUMMARY": "NO_SUCH_WRITE_EVENT_OBSERVED_WITHIN_DECLARED_OBSERVATION_SCOPE"
+      },
+      "declared_scope": "J3.admissibility.mode@EPOCH_42",
+      "provenance_basis": "direct scoped tuple-trace observation plus source-log completeness/signature fields",
+      "forbidden_behavior": [
+        "invent actor absent from source",
+        "treat incomplete scope as absence",
+        "use case identity or case class",
+        "consult detector output"
+      ]
+    },
+    "BETA_STATE_CHANGE_TO_P_WRITE_V1": {
+      "source_channel_schema": "CHANNEL_B2_SIGNED_STATE_COMMITMENT_V1",
+      "source_fields_consumed": [
+        "scope",
+        "bridge_visible_source_observation.target",
+        "bridge_visible_source_observation.epoch",
+        "bridge_visible_source_observation.pre_value",
+        "bridge_visible_source_observation.post_value",
+        "bridge_visible_source_observation.pre_signature_valid",
+        "bridge_visible_source_observation.post_signature_valid",
+        "bridge_visible_source_observation.coverage",
+        "bridge_visible_provenance_basis.pre_and_post_commitments_authentic",
+        "bridge_visible_provenance_basis.event_trace_included"
+      ],
+      "transformation": {
+        "if": "coverage=COMPLETE AND commitments authentic AND pre_value != post_value",
+        "then": "emit canonical P_WRITE presence evidence for target/epoch with observation_status=OBSERVED and actor omitted as UNSPECIFIED_BY_SOURCE",
+        "else": "emit no P_WRITE evidence object"
+      },
+      "emitted_evidence_semantic_claim": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+      "declared_scope": "J3.admissibility.mode@EPOCH_42",
+      "provenance_basis": "authentic signed pre/post state commitments only; event_trace_included=false is preserved",
+      "pair_determinism_constraint": "identical bridge-visible B2 inputs must yield byte-identical emitted evidence",
+      "forbidden_behavior": [
+        "inspect hidden event history",
+        "branch on case identity or B2 label",
+        "consult downstream D2 correctness"
+      ]
+    },
+    "BETA_PROXY_HIGH_TO_P_WRITE_V1": {
+      "source_channel_schema": "CHANNEL_B3_PROXY_SCORE_V1",
+      "source_fields_consumed": [
+        "scope",
+        "bridge_visible_source_observation.target",
+        "bridge_visible_source_observation.epoch",
+        "bridge_visible_source_observation.proxy_signal",
+        "bridge_visible_source_observation.proxy_score",
+        "bridge_visible_source_observation.model_version",
+        "bridge_visible_source_observation.coverage",
+        "bridge_visible_provenance_basis.calibration_family_ref",
+        "bridge_visible_provenance_basis.current_event_trace_included",
+        "global_calibration_families.B3_CALIBRATION_0P999.frozen_statistics"
+      ],
+      "transformation": {
+        "if": "coverage=COMPLETE AND proxy_signal=HIGH AND proxy_score>=0.999 AND frozen calibration frequency write_given_proxy_high>=0.999",
+        "then": "emit canonical P_WRITE presence evidence for target/epoch with observation_status=OBSERVED and actor omitted as UNSPECIFIED_BY_SOURCE",
+        "else": "emit no P_WRITE evidence object"
+      },
+      "emitted_evidence_semantic_claim": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+      "declared_scope": "J3.admissibility.mode@EPOCH_42",
+      "provenance_basis": "frozen predictive calibration family plus current proxy observation; current_event_trace_included=false is preserved",
+      "pair_determinism_constraint": "identical bridge-visible B3 inputs must yield byte-identical emitted evidence",
+      "forbidden_behavior": [
+        "inspect rare-counterexample membership",
+        "inspect hidden current event history",
+        "branch on case identity or B3 label",
+        "consult downstream D2 correctness"
+      ]
+    },
+    "BETA_PROVENANCE_RECEIPT_TO_P_WRITE_V1": {
+      "source_channel_schema": "CHANNEL_B4_PROVENANCE_RECEIPT_V1",
+      "source_fields_consumed": [
+        "scope",
+        "bridge_visible_source_observation.receipt_kind",
+        "bridge_visible_source_observation.scope",
+        "bridge_visible_source_observation.event_or_segment_digest",
+        "bridge_visible_source_observation.receipt_signature_valid",
+        "bridge_visible_provenance_basis.witness_channel",
+        "bridge_visible_provenance_basis.witness_scope",
+        "bridge_visible_provenance_basis.witness_payload",
+        "bridge_visible_provenance_basis.digest_match",
+        "bridge_visible_provenance_basis.witness_signature_valid",
+        "bridge_visible_provenance_basis.independence_declaration"
+      ],
+      "transformation": {
+        "EVENT_DIGEST_RECEIPT": "require valid receipt signature, valid independent witness signature, matching digest, matching declared scope, and witness payload event_type=WRITE/target=declared target/epoch=declared epoch/observation_status=OBSERVED; emit canonical P_WRITE presence evidence preserving witness actor",
+        "COMPLETE_SEGMENT_DIGEST_RECEIPT": "require valid receipt signature, valid independent witness signature, matching digest, matching declared scope, witness segment_complete=true, and zero matching WRITE events in witness events; emit canonical P_WRITE scoped-absence evidence"
+      },
+      "emitted_evidence_semantic_claim": {
+        "EVENT_DIGEST_RECEIPT": "WRITE_EVENT_TO_DECLARED_J3_ADMISSIBILITY_TARGET_OBSERVED",
+        "COMPLETE_SEGMENT_DIGEST_RECEIPT": "NO_SUCH_WRITE_EVENT_OBSERVED_WITHIN_DECLARED_OBSERVATION_SCOPE"
+      },
+      "declared_scope": "J3.admissibility.mode@EPOCH_42",
+      "provenance_basis": "compact receipt plus independently constituted witness payload with digest/scope/signature checks",
+      "forbidden_behavior": [
+        "accept digest without independent witness payload",
+        "treat incomplete witness segment as scoped absence",
+        "use case identity or case class",
+        "consult detector output"
+      ]
+    }
+  },
+  "case_binding_assignments": {
+    "SB-B1-A-TUPLE-WRITE-PRESENT": "BETA_TUPLE_TRACE_TO_P_WRITE_V1",
+    "SB-B1-B-TUPLE-NO-WRITE": "BETA_TUPLE_TRACE_TO_P_WRITE_V1",
+    "SB-B2-A-STATE-CHANGE-WITH-WRITE-HISTORY": "BETA_STATE_CHANGE_TO_P_WRITE_V1",
+    "SB-B2-B-STATE-CHANGE-WITHOUT-WRITE-HISTORY": "BETA_STATE_CHANGE_TO_P_WRITE_V1",
+    "SB-B3-A-PROXY-HIGH-COMMON-WRITE": "BETA_PROXY_HIGH_TO_P_WRITE_V1",
+    "SB-B3-B-PROXY-HIGH-RARE-NONWRITE": "BETA_PROXY_HIGH_TO_P_WRITE_V1",
+    "SB-B4-A-PROVENANCE-BACKED-WRITE-PRESENT": "BETA_PROVENANCE_RECEIPT_TO_P_WRITE_V1",
+    "SB-B4-B-PROVENANCE-BACKED-NO-WRITE": "BETA_PROVENANCE_RECEIPT_TO_P_WRITE_V1"
+  },
+  "anti_answer_encoding_assertions": {
+    "no_bridge_emits_desired_detector_output": true,
+    "no_bridge_reads_D2_output": true,
+    "no_bridge_reads_expected_semantic_status": true,
+    "no_bridge_reads_oracle_only_construction_facts": true,
+    "no_bridge_reads_case_class_as_semantic_evidence": true,
+    "no_bridge_reads_case_id_as_semantic_evidence": true,
+    "bridges_emit_only_candidate_E_P_WRITE_evidence_objects": true,
+    "rule": "evidence translation != answer encoding"
+  },
+  "classification_firewall": {
+    "allowed_semantic_status_vocabulary_for_future_evaluator": [
+      "SEMANTICS_PRESERVING",
+      "SEMANTICS_EXTENSION_REQUIRED",
+      "UNPROVEN",
+      "INVALID_SEMANTIC_LAUNDERING"
+    ],
+    "statuses_assigned_in_this_artifact": false,
+    "bridge_pass_fail_assigned": false,
+    "D2_pass_fail_assigned": false
+  },
+  "authority_ceiling": {
+    "SEMANTIC_BINDING_COMPATIBILITY": "OPEN__BINDINGS_FROZEN_NO_ADJUDICATION",
+    "SEMANTIC_BINDING_GENERALIZATION": "OPEN",
+    "WITNESS_SUFFICIENCY": "NOT_OPENED",
+    "W_int": "NOT_ADMITTED_AS_SUFFICIENT_WITNESS",
+    "W_comp": "NOT_DEFINED",
+    "COMPOSITION_RULE": "NOT_ADMITTED",
+    "SSI_CALC_KERNEL_DELTA": 0
+  }
+}
