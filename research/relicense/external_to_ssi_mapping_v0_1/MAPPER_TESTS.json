@@ -1,0 +1,38 @@
+{
+  "authority_ceiling": {
+    "certificate_projection_loss": "NOT_TESTED",
+    "composition_theorem": "NOT_EARNED",
+    "interface_authority_boundary": "UNKNOWN",
+    "new_coordinate": "NOT_EARNED",
+    "path_level_inadequacy": "NOT_ESTABLISHED",
+    "relational_composition_failure": "NOT_TESTED",
+    "repair": "NOT_EARNED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "baseline": {
+    "action": {"arguments":["target-A"],"authority_requested":"SCOPED","recipient":"consumer-A","scope_jurisdiction":"J1","verb":"operate"},
+    "annotations": {"display_label":"baseline"},
+    "claims": [{"arguments":["target-A","ready"],"claim_id":"claim-1","predicate":"state","scope_jurisdiction":"J1","source_provenance":"source-A","standing":"constituted"}],
+    "entities": [{"class":"actor","external_id":"actor-A","properties":{"mode":"ready"}},{"class":"resource","external_id":"target-A"}],
+    "external_transition_id": "EXT-001",
+    "licenses": [{"allowed_operations":["operate"],"conditions":["claim-1"],"edge_id":"edge-1","grantee":"target-A","grantor":"actor-A","must_preserve":["claim-1"],"scope_jurisdiction":"J1","source_provenance":"source-A","supporting_claims":["claim-1"]}]
+  },
+  "cases": [
+    {"expect_status":"MAPPED","id":"M01_BASELINE","kind":"single","mutations":[]},
+    {"expect_relation":"DIFFERENT","id":"M02_ENTITY_DISTINCTION_SURVIVES","kind":"pair","right_mutations":[{"op":"set","path":["entities",0,"external_id"],"value":"actor-B"}]},
+    {"expect_relation":"DIFFERENT","id":"M03_CLAIM_ARGUMENT_DISTINCTION_SURVIVES","kind":"pair","right_mutations":[{"op":"set","path":["claims",0,"arguments"],"value":["target-A","not-ready"]}]},
+    {"expect_relation":"DIFFERENT","id":"M04_AUTHORITY_EDGE_DISTINCTION_SURVIVES","kind":"pair","right_mutations":[{"op":"set","path":["licenses",0,"supporting_claims"],"value":["claim-1","claim-2"]}]},
+    {"expect_relation":"DIFFERENT","id":"M05_ACTION_DISTINCTION_SURVIVES","kind":"pair","right_mutations":[{"op":"set","path":["action","arguments"],"value":["target-B"]}]},
+    {"expect_relation":"SAME","id":"M06_ENUM_NORMALIZATION_ONLY","kind":"pair","right_mutations":[{"op":"set","path":["claims",0,"standing"],"value":"CONSTITUTED"}]},
+    {"expect_audit_basis":"B_HUMAN_ANNOTATION","expect_relation":"SAME","id":"M07_ANNOTATION_EXCLUSION_WITH_BASIS","kind":"pair","right_mutations":[{"op":"set","path":["annotations","display_label"],"value":"different-human-label"}]},
+    {"expect_status":"NOT_EVALUABLE","id":"M08_UNKNOWN_FIELD_FAILS_CLOSED","kind":"single","mutations":[{"op":"set","path":["unconstituted_extra"],"value":"value"}]},
+    {"expect_status":"NOT_EVALUABLE","id":"M09_PATH_RELATION_NOT_EVALUABLE","kind":"single","mutations":[{"op":"set","path":["path_relations"],"value":[{"relation":"cross-transition"}]}]},
+    {"expect_status":"CONTRACT_VIOLATION","id":"M10_BACKWARD_FLOW_CONTRACT_VIOLATION","kind":"single","mutations":[{"op":"set","path":["path_consequence"],"value":"downstream-value"}]},
+    {"expect_status":"NOT_EVALUABLE","id":"M11_MISSING_REQUIRED_STRUCTURE","kind":"single","mutations":[{"op":"delete","path":["action"]}]},
+    {"expect_status":"NOT_EVALUABLE","id":"M12_UNKNOWN_STANDING_NOT_EVALUABLE","kind":"single","mutations":[{"op":"set","path":["claims",0,"standing"],"value":"asserted-but-unmapped"}]}
+  ],
+  "forbidden_dependencies": ["Y_path","Cert_F","Psi_F","collision_expectation","desired_diagnosis"],
+  "object": "SSI_EXTERNAL_TO_LOCAL_INPUT_MAPPING_V0.1",
+  "stage": "MAPPER_TESTS",
+  "status": "PRE_EXECUTION_FROZEN_CANDIDATE"
+}

@@ -1,0 +1,135 @@
+{
+  "backward_flow_rule": {
+    "basis": "B_BACKWARD_FLOW_FIREWALL",
+    "disposition": "CONTRACT_VIOLATION",
+    "reserved_keys": [
+      "path_consequence",
+      "Y_path",
+      "certificate_output",
+      "Cert_F",
+      "psi_output",
+      "Psi_F",
+      "collision_expectation",
+      "desired_diagnosis"
+    ]
+  },
+  "bases": {
+    "B_BACKWARD_FLOW_FIREWALL": {
+      "claim": "Downstream path/certificate/collision information is prohibited input to M_F.",
+      "source": "SPEC.md#5",
+      "type": "CONTRACT_FIREWALL"
+    },
+    "B_EXTERNAL_RECORD_ID": {
+      "claim": "external_transition_id is a source record locator, not admitted as local decision evidence by V0.1.",
+      "nonclaim": "Does not establish irrelevance to external path analysis.",
+      "source": "SPEC.md#2",
+      "type": "JURISDICTION_EXCLUSION"
+    },
+    "B_HUMAN_ANNOTATION": {
+      "claim": "Human-facing annotations are not admitted into frozen SSI local decision fields by V0.1.",
+      "nonclaim": "Does not establish external irrelevance.",
+      "source": "SPEC.md#2.5",
+      "type": "JURISDICTION_EXCLUSION"
+    },
+    "B_PATH_RELATION_UNCONSTITUTED": {
+      "claim": "No V0.1 local-input route is constituted for a cross-transition relation not already constituted as a local claim.",
+      "source": "SPEC.md#2.6",
+      "type": "NOT_EVALUABLE_BOUNDARY"
+    },
+    "B_SCHEMA_AUTHORITY_EDGE": {
+      "claim": "External license fields map to frozen SSI authority_edge fields without value rewriting.",
+      "source": "ssi_schema_blob_sha",
+      "type": "TARGET_SCHEMA_BINDING"
+    },
+    "B_SCHEMA_FACT": {
+      "claim": "External claim fields map to frozen SSI fact fields; standing may use only the enumerated enum normalization.",
+      "source": "ssi_schema_blob_sha",
+      "type": "TARGET_SCHEMA_BINDING"
+    },
+    "B_SCHEMA_OBJECT": {
+      "claim": "External entity fields map to frozen SSI object fields without value rewriting.",
+      "source": "ssi_schema_blob_sha",
+      "type": "TARGET_SCHEMA_BINDING"
+    },
+    "B_SCHEMA_REQUEST": {
+      "claim": "External action fields map to frozen SSI request fields without value rewriting.",
+      "source": "ssi_schema_blob_sha",
+      "type": "TARGET_SCHEMA_BINDING"
+    },
+    "B_STANDING_ENUM": {
+      "claim": "Only case/canonical spelling variants explicitly listed in standing_normalization may collapse.",
+      "source": "ssi_schema_blob_sha",
+      "type": "ENUM_NORMALIZATION"
+    },
+    "B_UNKNOWN_FIELD_FAIL_CLOSED": {
+      "claim": "Unknown external fields are not silently discarded.",
+      "source": "SPEC.md#4",
+      "type": "NOT_EVALUABLE_BOUNDARY"
+    }
+  },
+  "field_rules": [
+    {"basis":"B_EXTERNAL_RECORD_ID","disposition":"EXCLUDE_WITH_BASIS","external":"external_transition_id","target":null},
+    {"basis":"B_SCHEMA_OBJECT","disposition":"NORMALIZE","external":"entities","normalization":"structural rename only","target":"objects"},
+    {"basis":"B_SCHEMA_OBJECT","disposition":"PRESERVE","external":"entities[].external_id","target":"objects[].id"},
+    {"basis":"B_SCHEMA_OBJECT","disposition":"PRESERVE","external":"entities[].class","target":"objects[].type"},
+    {"basis":"B_SCHEMA_OBJECT","disposition":"PRESERVE","external":"entities[].properties","target":"objects[].attributes"},
+    {"basis":"B_SCHEMA_FACT","disposition":"NORMALIZE","external":"claims","normalization":"structural rename only","target":"facts"},
+    {"basis":"B_SCHEMA_FACT","disposition":"PRESERVE","external":"claims[].claim_id","target":"facts[].id"},
+    {"basis":"B_SCHEMA_FACT","disposition":"PRESERVE","external":"claims[].predicate","target":"facts[].kind"},
+    {"basis":"B_SCHEMA_FACT","disposition":"PRESERVE","external":"claims[].arguments","target":"facts[].args"},
+    {"basis":"B_SCHEMA_FACT","disposition":"PRESERVE","external":"claims[].scope_jurisdiction","target":"facts[].jurisdiction"},
+    {"basis":"B_SCHEMA_FACT","disposition":"PRESERVE","external":"claims[].source_provenance","target":"facts[].provenance"},
+    {"basis":"B_STANDING_ENUM","disposition":"NORMALIZE","external":"claims[].standing","normalization":"standing_normalization exact table","target":"facts[].authority"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"NORMALIZE","external":"licenses","normalization":"structural rename only","target":"authority_edges"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"PRESERVE","external":"licenses[].edge_id","target":"authority_edges[].id"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"PRESERVE","external":"licenses[].grantor","target":"authority_edges[].source"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"PRESERVE","external":"licenses[].grantee","target":"authority_edges[].target"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"PRESERVE","external":"licenses[].scope_jurisdiction","target":"authority_edges[].jurisdiction"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"PRESERVE","external":"licenses[].source_provenance","target":"authority_edges[].provenance"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"PRESERVE","external":"licenses[].supporting_claims","target":"authority_edges[].evidence"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"PRESERVE","external":"licenses[].allowed_operations","target":"authority_edges[].scope"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"PRESERVE","external":"licenses[].conditions","target":"authority_edges[].preconditions"},
+    {"basis":"B_SCHEMA_AUTHORITY_EDGE","disposition":"PRESERVE","external":"licenses[].must_preserve","target":"authority_edges[].preservation"},
+    {"basis":"B_SCHEMA_REQUEST","disposition":"NORMALIZE","external":"action","normalization":"structural rename only","target":"request"},
+    {"basis":"B_SCHEMA_REQUEST","disposition":"PRESERVE","external":"action.verb","target":"request.operation"},
+    {"basis":"B_SCHEMA_REQUEST","disposition":"PRESERVE","external":"action.arguments","target":"request.args"},
+    {"basis":"B_SCHEMA_REQUEST","disposition":"PRESERVE","external":"action.scope_jurisdiction","target":"request.jurisdiction"},
+    {"basis":"B_SCHEMA_REQUEST","disposition":"PRESERVE","external":"action.recipient","target":"request.consumer"},
+    {"basis":"B_SCHEMA_REQUEST","disposition":"PRESERVE","external":"action.authority_requested","target":"request.requested_authority"},
+    {"basis":"B_HUMAN_ANNOTATION","disposition":"EXCLUDE_WITH_BASIS","external":"annotations","target":null},
+    {"basis":"B_PATH_RELATION_UNCONSTITUTED","condition":"non-empty","disposition":"NOT_EVALUABLE","external":"path_relations","target":null}
+  ],
+  "nonrules": [
+    "EXCLUDE_WITH_BASIS != IRRELEVANT",
+    "NOT_EVALUABLE != EXCLUDE",
+    "NORMALIZE != SILENT_MERGE",
+    "MAPPED_EQUALITY != EXTERNAL_EQUALITY"
+  ],
+  "object": "SSI_EXTERNAL_TO_LOCAL_INPUT_MAPPING_V0.1",
+  "parent": {
+    "checker_resolved_blob_sha": "f1258d401bcc5d107938bbd37d031fe993119278",
+    "main_head": "5ea0d32208ae15adc7bda970bdb6fb9d724a380f",
+    "repo": "bjoern-janson/ssi",
+    "ssi_schema_blob_sha": "5c37ed034708f0968a44782866ef2741dbd51c3b"
+  },
+  "stage": "MAPPING_PROVENANCE",
+  "standing_normalization": {
+    "CONSTITUTED": "CONSTITUTED",
+    "PROVENANCE_ONLY": "PROVENANCE_ONLY",
+    "SCOPED": "SCOPED",
+    "UNRESOLVED": "UNRESOLVED",
+    "WITHDRAWN": "WITHDRAWN",
+    "constituted": "CONSTITUTED",
+    "provenance_only": "PROVENANCE_ONLY",
+    "scoped": "SCOPED",
+    "unresolved": "UNRESOLVED",
+    "withdrawn": "WITHDRAWN"
+  },
+  "status": "PRE_EXECUTION_FROZEN_CANDIDATE",
+  "target_jurisdiction": {
+    "excluded_benchmark_envelope": ["spec_version","id","family","title","description","expected"],
+    "included_local_input_roots": ["objects","facts","authority_edges","request"],
+    "rule": "M_F maps only derivation-visible local evidence/authority/request content; benchmark oracle/envelope fields are outside mapper jurisdiction."
+  },
+  "unknown_field_rule": {"basis":"B_UNKNOWN_FIELD_FAIL_CLOSED","disposition":"NOT_EVALUABLE"}
+}
