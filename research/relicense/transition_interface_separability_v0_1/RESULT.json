@@ -1,0 +1,225 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_V0.1",
+  "stage": "RESULT",
+  "status": "FIRST_RESULT_FROZEN__CLEAN_POSITIVE_WITHIN_FROZEN_CONSTRUCTED_SCOPE",
+  "frozen_dependencies": {
+    "SPEC": "0178c84388e6bb6e7f866f9af79846c62a63b78c",
+    "CASES": "571f447b50a4d18b12442f752d7feb3ba64fb0ac",
+    "BINDINGS": "4199cb0c9fd7607ee15fabdcca63f7ea05e9c356",
+    "DESCRIPTIVE_ORACLE": "93d3f4ca55102e77f08dfd4091cef92748ac768a",
+    "PROTOCOL": "1ec9ef86e3f4066d5d55fed00867d177f3f73912",
+    "EVALUATOR": "7eb9a7070037202467b5e2308385c33ec76c59ca"
+  },
+  "execution_firewall": {
+    "upstream_artifacts_modified_after_first_run": false,
+    "candidate_repaired_after_first_run": false,
+    "oracle_reinterpreted_after_first_run": false,
+    "protocol_reinterpreted_after_first_run": false,
+    "evaluator_reinterpreted_after_first_run": false,
+    "fifth_coordinate_added": false,
+    "boundary_semantics_opened": false,
+    "scalar_score_used": false,
+    "principle": "EXECUTE_FROZEN_BINDING_PROTOCOL_AND_EVALUATOR_ONCE_AND_PRESERVE_THE_RESULT"
+  },
+  "execution_domain": {
+    "cube_worlds": 16,
+    "complete_world_coordinate_comparisons": 64,
+    "unordered_cube_pairs": 120,
+    "pair_hamming_distance_counts": {
+      "1": 32,
+      "2": 48,
+      "3": 32,
+      "4": 8
+    },
+    "pure_edges": 32,
+    "multi_coordinate_pairs": 88,
+    "uncertainty_controls": 3
+  },
+  "world_coordinate_relations": {
+    "total": 64,
+    "EQUIVALENT": 64,
+    "NON_EQUIVALENT": 0,
+    "UNRESOLVED_DUE_TO_COVERAGE": 0,
+    "per_coordinate": {
+      "S": {"EQUIVALENT": 16, "NON_EQUIVALENT": 0, "UNRESOLVED_DUE_TO_COVERAGE": 0},
+      "L": {"EQUIVALENT": 16, "NON_EQUIVALENT": 0, "UNRESOLVED_DUE_TO_COVERAGE": 0},
+      "V": {"EQUIVALENT": 16, "NON_EQUIVALENT": 0, "UNRESOLVED_DUE_TO_COVERAGE": 0},
+      "Lambda": {"EQUIVALENT": 16, "NON_EQUIVALENT": 0, "UNRESOLVED_DUE_TO_COVERAGE": 0}
+    }
+  },
+  "pairwise_delta_execution": {
+    "total_pairs": 120,
+    "exact_vector_matches": 120,
+    "vector_mismatches": 0,
+    "pure_edge_exact_matches": 32,
+    "pure_edge_mismatches": 0,
+    "multi_coordinate_exact_matches": 88,
+    "multi_coordinate_mismatches": 0,
+    "per_coordinate_obligations": {
+      "S": {
+        "oracle_change_pairs": 64,
+        "candidate_change_preserved": 64,
+        "under_resolution_witnesses": 0,
+        "oracle_invariant_pairs": 56,
+        "candidate_invariance_preserved": 56,
+        "coordinate_contamination_witnesses": 0,
+        "pure_edges": 8
+      },
+      "L": {
+        "oracle_change_pairs": 64,
+        "candidate_change_preserved": 64,
+        "under_resolution_witnesses": 0,
+        "oracle_invariant_pairs": 56,
+        "candidate_invariance_preserved": 56,
+        "coordinate_contamination_witnesses": 0,
+        "pure_edges": 8
+      },
+      "V": {
+        "oracle_change_pairs": 64,
+        "candidate_change_preserved": 64,
+        "under_resolution_witnesses": 0,
+        "oracle_invariant_pairs": 56,
+        "candidate_invariance_preserved": 56,
+        "coordinate_contamination_witnesses": 0,
+        "pure_edges": 8
+      },
+      "Lambda": {
+        "oracle_change_pairs": 64,
+        "candidate_change_preserved": 64,
+        "under_resolution_witnesses": 0,
+        "oracle_invariant_pairs": 56,
+        "candidate_invariance_preserved": 56,
+        "coordinate_contamination_witnesses": 0,
+        "pure_edges": 8
+      }
+    }
+  },
+  "A1_RELEVANT_SEPARATION": {
+    "status": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "per_coordinate": {
+      "S": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "L": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "V": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "Lambda": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE"
+    },
+    "under_resolution_witnesses": [],
+    "pure_edge_under_resolution_witnesses": [],
+    "multi_coordinate_under_resolution_witnesses": []
+  },
+  "A2_ORTHOGONAL_INVARIANCE": {
+    "status": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "per_coordinate": {
+      "S": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "L": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "V": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "Lambda": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE"
+    },
+    "coordinate_contamination_witnesses": [],
+    "pure_edge_coordinate_contamination_witnesses": [],
+    "multi_coordinate_coordinate_contamination_witnesses": []
+  },
+  "A3_COORDINATE_RECOVERABILITY": {
+    "status": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "per_coordinate": {
+      "S": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "L": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "V": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "Lambda": "SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE"
+    },
+    "equivalent_world_coordinate_relations": 64,
+    "non_equivalent_world_coordinate_witnesses": [],
+    "unresolved_complete_world_coordinate_witnesses": []
+  },
+  "A4_UNCERTAINTY_PRESERVATION": {
+    "status": "SUPPORTED_ON_FROZEN_CONSTRUCTED_CONTROLS",
+    "controls": {
+      "u_001": {
+        "candidate_changed_projection_coordinates": ["L", "V"],
+        "candidate_unresolved_identity_coordinates": ["L", "V"],
+        "candidate_union_set": ["L", "V"],
+        "oracle_supported_candidate_coordinates": ["L", "V"],
+        "protocol_set_relation": "EQUAL",
+        "classification": "UNCERTAINTY_SET_PRESERVED"
+      },
+      "u_002": {
+        "candidate_changed_projection_coordinates": ["V", "Lambda"],
+        "candidate_unresolved_identity_coordinates": ["V", "Lambda"],
+        "candidate_union_set": ["V", "Lambda"],
+        "oracle_supported_candidate_coordinates": ["V", "Lambda"],
+        "protocol_set_relation": "EQUAL",
+        "classification": "UNCERTAINTY_SET_PRESERVED"
+      },
+      "u_003": {
+        "candidate_changed_projection_coordinates": ["S", "L", "V", "Lambda"],
+        "candidate_unresolved_identity_coordinates": ["S", "L", "V", "Lambda"],
+        "candidate_union_set": ["S", "L", "V", "Lambda"],
+        "oracle_supported_candidate_coordinates": ["S", "L", "V", "Lambda"],
+        "protocol_set_relation": "EQUAL",
+        "classification": "UNCERTAINTY_SET_PRESERVED"
+      }
+    },
+    "under_localization_witnesses": [],
+    "over_localization_witnesses": [],
+    "partial_overlap_witnesses": [],
+    "disjoint_witnesses": []
+  },
+  "MULTI_COORDINATE_IDENTIFIABILITY": {
+    "status": "MULTI_COORDINATE_IDENTIFIABILITY_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+    "multi_coordinate_pairs": 88,
+    "exact_delta_vector_matches": 88,
+    "mismatches": 0,
+    "non_rule": "MULTI_COORDINATE_IDENTIFIABILITY != REPAIR_COMPOSABILITY"
+  },
+  "FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY": {
+    "status": "FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY_SUPPORTED_ON_FROZEN_SUITE",
+    "basis": [
+      "A1_RELEVANT_SEPARATION_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "A2_ORTHOGONAL_INVARIANCE_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "A3_COORDINATE_RECOVERABILITY_SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE",
+      "A4_UNCERTAINTY_PRESERVATION_SUPPORTED_ON_FROZEN_CONSTRUCTED_CONTROLS"
+    ],
+    "scalar_score": "NOT_USED"
+  },
+  "failure_witnesses": {
+    "UNDER_RESOLUTION": [],
+    "COORDINATE_CONTAMINATION": [],
+    "A3_RECOVERABILITY_DEFECT": [],
+    "A4_UNCERTAINTY_MISMATCH": []
+  },
+  "scientific_interpretation": {
+    "strongest_claim": "FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY_SUPPORTED_ON_FROZEN_SUITE",
+    "bounded_interpretation": "Within the frozen constructed 16-world hypercube and three frozen uncertainty controls, the candidate preserves state, response-law, validity, and authority coordinate distinctions without observed under-resolution, coordinate contamination, complete-world recoverability failure, or uncertainty-set mismatch.",
+    "frozen_result_sentence": "The first execution measures whether the candidate preserved the frozen geometry; it does not decide whether that geometry is sufficient for transition governance.",
+    "non_rules": [
+      "SEPARABILITY_SUPPORTED != FOUR_COORDINATE_COMPLETENESS",
+      "SEPARABILITY_SUPPORTED != REAL_WORLD_BOUNDARY_GENERALIZATION",
+      "SEPARABILITY_SUPPORTED != FORMAL_TRANSITION_CALCULUS",
+      "SEPARABILITY_SUPPORTED != BOUNDARY_SEMANTICS",
+      "SEPARABILITY_SUPPORTED != BOUNDARY_RESPONSE",
+      "SEPARABILITY_SUPPORTED != REPAIR_COMPOSABILITY",
+      "SEPARABILITY_SUPPORTED != REPAIR_AUTHORITY"
+    ]
+  },
+  "authority_ceiling": {
+    "four_coordinate_completeness": "NOT_ESTABLISHED",
+    "real_world_boundary_generalization": "NOT_ESTABLISHED",
+    "boundary_detection_generalization": "NOT_ESTABLISHED",
+    "boundary_localization_generalization": "NOT_ESTABLISHED",
+    "boundary_semantics": "NOT_CONSTITUTED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "repair_composability": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "BINDINGS": "FROZEN",
+    "DESCRIPTIVE_ORACLE": "FROZEN",
+    "PROTOCOL": "FROZEN",
+    "EVALUATOR": "FROZEN",
+    "RESULT": "FROZEN"
+  }
+}
