@@ -1,407 +1,318 @@
-# Safe Self-Improvement: A Theory of Corrective Dynamics
+# SSI — Safe Self-Improvement
 
-Safe self-improvement studies how adaptive systems can change while preserving the pathways by which future evidence can still correct what they become.
+> **Research on reality-tracking interfaces, scoped authority, evidence typing, and corrigible transformation.**
 
-The central hypothesis is:
+SSI studies a recurring failure mode in adaptive systems: a system can produce a locally correct answer, transformation, or certificate while still lacking the authority or information needed to generalize that success across a boundary.
 
-> **Adaptive improvement depends on preserving and refining the pathways by which reality can constrain, distinguish, authorize, and revise future commitments.**
-
-The stronger empirical wager is:
-
-> **Preserved and generatively refinable corrective topology predicts future adaptation beyond present capability and standard adaptability measures.**
-
----
-
-## Current authority dashboard
-
-SSI intentionally preserves multiple scientific lineages at different authority levels. “Newest file wins” is not a valid reading rule.
-
-| Lineage | Current state | Authority ceiling |
-|---|---|---|
-| **Synthetic V0.x** | `CLOSED` | localization calculus in controlled constructions |
-| **VFA-0.2 / Packet 7** | `AUTHORIZED_FUTURE_NOT_YET_REALIZED` | frozen prospective object; future obligation not yet accessed |
-| **Jurisdiction S0** | `OPERATIONALIZATION_INADEQUATE` | preserved executed failure; no Stage-1 authority |
-| **Semantic Phase V** | `DEMONSTRATED_IN_FROZEN_SYNTHETIC_FORMAL_SCOPE` | scoped semantic-equivalence admission/audit demonstrated; identity and future sufficiency remain out of scope |
-
-The current Phase-V semantic milestone is:
+The program therefore separates questions that are often collapsed:
 
 ```text
-R_behavior^eq in R_constituted^eq = true
-R_behavior^eq in R_audited^eq = true
-R_behavior^eq in R_constituted^id = false
-
-E2A_MOORE_BEHAVIOR_AUDIT = PASS
-IDENTITY_AUTHORIZATION = NOT_IN_SCOPE
-FUTURE_SUFFICIENCY = NOT_IN_SCOPE
-CROSS_REGIME_COMPARISON = NOT_IN_SCOPE
+Can != May != Did
+information != evidence != authority
+representation != legitimacy of representation
+semantic identity != evidence admission != provenance != uncertainty
+local preservation != path preservation
 ```
 
-The demonstrated semantic-authority path is:
-
-\[
-\boxed{
-\textbf{receive}
-\rightarrow
-\textbf{scope}
-\rightarrow
-\textbf{audit}
-\rightarrow
-\textbf{use}
-\rightarrow
-\textbf{stop}.
-}
-\]
-
-For exact lineage routing, hashes, PR topology, and preservation rules, start with [`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md).
+The repository is empirical-first. Claims are frozen at the narrowest scope actually supported by preregistered or independently constituted cases, oracles, protocols, evaluators, and first results.
 
 ---
 
-## Phase V: semantic authority without ontology laundering
+## Current frontier
 
-The semantic-constitution lineage no longer treats universal identity construction as the next required object.
+The newest transition/relicense sequence has earned three distinct rungs:
 
-The key distinction is:
+```mermaid
+flowchart LR
+    A[Representation] --> B[Role separation]
+    B --> C[Held-out structural transport]
+    C --> D[Semantic / evidential transport]
+    D --> E[?]
 
-\[
-\boxed{
-\textbf{semantic equivalence regime}
-\neq
-\textbf{identity regime}.
-}
-\]
+    style E stroke-dasharray: 5 5
+```
 
-For an externally admitted regime \(r\) and declared semantic purpose \(\kappa\),
+| Rung | Experiment | Strongest earned result | Explicit ceiling |
+|---|---|---|---|
+| **Role separation** | [`transition_interface_separability_v0_1`](research/relicense/transition_interface_separability_v0_1/) | `FOUR_COORDINATE_TRANSITION_INTERFACE_SEPARABILITY = SUPPORTED_ON_FROZEN_CONSTRUCTED_SUITE` | completeness, real-world boundary generalization, boundary semantics: **not established** |
+| **Held-out structural transport** | [`transition_interface_separability_heldout_stress_v0_1`](research/relicense/transition_interface_separability_heldout_stress_v0_1/) | G1/G3/G4/G5 supported on frozen held-out axes | G2 novel-channel transport: **not evaluable under the frozen binding**; full generalization: **not established** |
+| **Semantic / evidential transport** | [`transition_semantic_transport_v0_1`](research/relicense/transition_semantic_transport_v0_1/) | `TRANSITION_SEMANTIC_TRANSPORT = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE` | held-out semantic transport, universal carrier equivalence, boundary semantics: **not established** |
+| **Post-PR61 frontier** | — | **structured ignorance** | deliberately **unconstituted** |
 
-\[
-x\equiv_{r,\kappa}y
-\]
+The blank is intentional. The strongest surviving constraint is:
 
-means only that \(x\) and \(y\) are interchangeable under \(r\) for purpose \(\kappa\).
+> **A system may preserve every locally certified object while still failing to preserve the legitimacy of the path connecting them.**
 
-No automatic transfer is licensed:
+This supports the non-rule
 
-\[
-\boxed{
-=_{\rm ref}
-\not\Rightarrow
-\equiv_{r,\kappa}
-\not\Rightarrow
-\equiv_{I,S},
-}
-\]
+```text
+Legit(T1) AND Legit(T2) !=> Legit(T2 ∘ T1)
+```
 
-and:
-
-\[
-\boxed{
-\equiv_{r,\kappa}
-\not\Rightarrow
-\equiv_{r,\kappa'}
-\not\Rightarrow
-\text{future sufficiency}.
-}
-\]
-
-The first executed instance uses a standard deterministic Moore/coalgebraic behavioral regime on the frozen E2-A transition/interface world. The executable audit computes:
-
-\[
-\boxed{
-\equiv_{\rm beh}
-=
-\{q_1,q_2\}^2
-\cup
-\{q_3,q_4\}^2
-=
-\equiv_\omega,
-}
-\]
-
-and verifies preservation under every licensed action and therefore every finite action word.
-
-Crucially:
-
-\[
-\boxed{
-\texttt{IDENTITY\_AUTHORIZATION}
-=
-\texttt{NOT\_IN\_SCOPE}.
-}
-\]
-
-The milestone is therefore not “behavior solved identity.” It is:
-
-> **SSI successfully admitted and consumed an external semantic equivalence without allowing that equivalence to acquire identity authority.**
-
-Current semantic routing:
-
-- [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md) — current semantic authority index.
-- [`research/semantic_constitution/phase_v/PHASE_V_SEMANTIC_EQUIVALENCE.md`](research/semantic_constitution/phase_v/PHASE_V_SEMANTIC_EQUIVALENCE.md) — Phase-V architecture.
-- [`research/semantic_constitution/phase_v/E2A_MOORE_BEHAVIOR_AUDIT.md`](research/semantic_constitution/phase_v/E2A_MOORE_BEHAVIOR_AUDIT.md) — first executable audit.
-- [`research/semantic_constitution/BOTTLENECK_HISTORY.md`](research/semantic_constitution/BOTTLENECK_HISTORY.md) — twenty-stage history compressed into five bottleneck phases.
+but does **not** identify composition, certificate interaction, authority interaction, challenge topology, mutability, or any other candidate as the next research object.
 
 ---
 
-## Core state object
+## What SSI is trying to measure
 
-We represent an adaptive system at time \(t\) as
+A central object in the current transition work is the task-relative tuple
 
-\[
-\mathcal K_t=(R_t,\mathfrak C_t,\Lambda_t),
-\]
+```text
+K = (S, L, V, Lambda)
+```
 
 where:
 
-- \(R_t\) is the authoritative present state;
-- \(\mathfrak C_t=\operatorname{CorrCont}(R_t,P,h)\) is the space of reachable corrective continuations under contract \(P\) and horizon \(h\);
-- \(\Lambda_t\) is preserved lineage: failed attempts, collision witnesses, provenance, and reopenable evidence.
+- `S` — current state/configuration,
+- `L` — response law,
+- `V` — applicability / validity envelope,
+- `Lambda` — authority envelope.
 
-The object of interest is not merely how good \(R_t\) is now, but the structure of what remains correctable from it.
+The program asks whether these coordinates can remain separately identifiable, whether that separation survives unfamiliar realizations, and whether constituted meaning can cross a changed carrier without silently changing its evidential type.
 
-We write:
-
-\[
-\Phi_t=\Phi(\mathfrak C_t,\Lambda_t;P,h)
-\]
-
-for the structure and quality of future corrective options: reachability, coverage, reconfigurability, challengeability, and lineage.
-
-\(\Phi\) is structural. It is not a primitive scalar “amount of optionality,” and SSI does not currently license maximizing it as a universal objective.
-
----
-
-## Corrective dynamics
-
-The promoted empirical architecture developed in the V0.x benchmark ladder remains:
-
-\[
-W
-\rightarrow
-O
-\rightarrow
-\widehat\Phi
-\rightarrow
-\mathcal E
-\rightarrow
-\mathrm{Auth}
-\rightarrow
-\mathrm{Select}
-\rightarrow
-\Gamma
-\rightarrow
-H_{\rm future}.
-\]
-
-A collision with reality can generate or refine distinctions; those distinctions must survive representation, semantic learning, evidence aggregation, authority allocation, selection, and transition into the future.
-
-Phase V is currently a **research-layer semantic authority boundary upstream of possible uses of \(O\)**. Its demonstrated success does not silently replace or extend the promoted core pipeline.
-
----
-
-## Dual failure laws
-
-### 1. Premature merging
-
-If an interface identifies states whose future corrective consequences still differ,
-
-\[
-\ker O\not\subseteq\ker T_{\rm future},
-\]
-
-then the interface has collapsed a distinction that future correction still requires.
-
-> **Do not merge what future correction still distinguishes.**
-
-### 2. Unauthorized splitting
-
-If commitment distinguishes alternatives that the evidence itself has not separated,
-
-\[
-\ker\mathcal E\not\subseteq\ker A,
-\]
-
-then commitment has manufactured authority beyond its warrant.
-
-> **Do not distinguish in commitment what present evidence still merges.**
-
-Together:
-
-> **Preserve distinctions until their future consequences are exhausted; grant commitment authority only to the level the evidence identifies.**
-
-This is not preservation-maximalism. Gratuitous permanent distinctions are an error just as premature merging is.
-
----
-
-## FS, CCA, and CARS
-
-Three jurisdictions remain distinct:
-
-- **Future Sufficiency (FS):** does the pipeline preserve the distinctions and reachable transformations still required for correction?
-- **Contradiction-Correction Architecture (CCA):** what does current evidence actually warrant changing or distinguishing?
-- **Controlled Adaptive Reasoning System (CARS):** what authority may those warranted distinctions acquire and retain in commitment?
-
-A lucky outcome does not retroactively create warrant.
-
-The Phase-V semantic layer adds a complementary jurisdictional rule:
-
-> **An equivalence relation carries authority only together with the semantic purpose that constituted it.**
-
----
-
-## Closed synthetic program
-
-The synthetic **V0.x ladder is closed**. Its role was localization, not indefinite benchmark escalation.
-
-Across V0.1–V0.8, controlled interventions separated:
-
-- contact from useful representation;
-- local stability from future usefulness;
-- candidate preservation from transition topology;
-- present sufficiency from future transformability;
-- selection from the selector's interface;
-- relational interface sufficiency from relational semantics acquisition;
-- semantic acquisition from semantic-to-selection sufficiency;
-- evidential warrant from commitment authority.
-
-These results establish a **localization calculus in controlled constructions**. They do not establish general safe self-improvement.
-
-See:
-
-- [`retrospective/LOCALIZATION_CALCULUS.md`](retrospective/LOCALIZATION_CALCULUS.md)
-- [`benchmarks/V0X_LINEAGE.md`](benchmarks/V0X_LINEAGE.md)
-- [`results/FROZEN_RESULTS.md`](results/FROZEN_RESULTS.md)
-
----
-
-## Current prospective test: VFA-0.2
-
-The active prospective benchmark is:
+The governing transport decomposition is:
 
 ```text
-BENCHMARK = VFA-0.2-QUOTIENT-REVISION-TOPOLOGY
-PACKET = VFA-0.2-FROZEN-PACKET-7
-A = PASS
-B = PASS
-C = PASS
-D = PASS
-E = PASS
-F = PASS
-G = PASS
-H = PASS
-I = PASS
-STATE = AUTHORIZED_FUTURE_NOT_YET_REALIZED
-FUTURE_OBLIGATION_ACCESSED = FALSE
-FUTURE_RUN = NOT_EXECUTED
+carrier != semantic object != evidence type != provenance
 ```
 
-The authorized scientific object is frozen. The next scientific information must come from the preregistered external source; Packet 7 is not to be tuned, extended, or repaired in response to imagined or realized future outcomes.
-
-The construction holds the validated factual substrate and ordinary forward behavior fixed:
-
-\[
-\mathcal W_A=\mathcal W_B,
-\qquad
-F\circ q=F,
-\]
-
-while varying revision-path equivalence structure:
-
-\[
-\Gamma_B=q(\Gamma_A).
-\]
-
-The logically prior prospective question is:
-
-\[
-\boxed{
-\ker q\stackrel{?}{\subseteq}\ker T_{\rm future}.
-}
-\]
-
-A future non-inclusion witness would establish that a distinction with zero measured ordinary-domain behavioral value became consequential under the independently realized future obligation.
-
-Current execution authority lives in:
-
-- [`empirical/benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json`](empirical/benchmark_v0_2_quotient/AUTHORIZATION_STATUS.json)
-- [`empirical/INDEPENDENT_FUTURE_ADAPTATION.md`](empirical/INDEPENDENT_FUTURE_ADAPTATION.md)
-
----
-
-## Preserved jurisdiction-falsification failure
-
-The first SSI jurisdiction-falsification Stage-0 assay remains a preserved negative result:
+and the governing epistemic discipline is:
 
 ```text
-constitution = 8/11
-fresh = 38/48
-S0_VALID = false
-terminal = OPERATIONALIZATION_INADEQUATE
-Stage 1 = NONE_STOP
+semantic transport != evidence-type admission != authority transport
 ```
 
-The frozen leverage test made leverage inseparable from reachability under an `R↓` break. That lineage is not repaired in place.
-
-The semantic lineage that followed it moved upstream and ultimately produced the current Phase-V semantic-authority architecture.
+This is why a `0.999`-confidence prediction is still not automatically an observation, why an empty observed fragment is not automatically a complete empty envelope, and why unverified provenance can change admissibility without changing semantic identity.
 
 ---
 
-## Interpretive guardrails
+## Read the repository in the right order
 
-Several tempting summaries are stronger than the repository earns:
+This repository contains frozen experimental artifacts, evolving research ledgers, executable prototypes, historical lineages, and reader-facing navigation. They do **not** all carry the same authority.
 
-- **Corrective topology is structural, not a primitive scalar amount.**
-- **SSI is not preservation-maximalist.**
-- **Semantic equivalence is not identity.** Equality in a denotation domain does not silently become identity of presentation objects.
-- **Congruence is not future sufficiency.** A relation may be stable under its licensed operation family while still being unsafe for a later future obligation.
-- **Different purpose-indexed equivalences are not automatically regime disagreement.** Cross-regime comparison requires constituted purpose compatibility, carrier alignment, typing compatibility, and target-independent transport.
-- **External semantic admission is scoped, not metaphysical endorsement.**
-- **Provenance levels are not interchangeable.** Packet 7 has content-addressed executable provenance; reconstructed historical semantic entries must remain labeled as such.
-- **FSO is post-authorization theory, not a validated optimization law.**
+### Fast route — understand the current program
 
-Compactly:
+1. **This README** — orientation and current frontier.
+2. **[`RESEARCH_MAP.md`](RESEARCH_MAP.md)** — visual map of the major research tracks.
+3. **[`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md)** — current administrative status and authority ceilings.
+4. **[`ARCHITECTURE.md`](ARCHITECTURE.md)** — broader architecture and conceptual vocabulary.
+5. **[`research/relicense/README.md`](research/relicense/README.md)** — index of the relicense / transition experiment chain.
 
-\[
-\boxed{
-\textbf{No downstream convenience may create upstream semantic authority.}
-}
-\]
+### Evidence route — inspect what was actually earned
+
+For a frozen experiment, read in dependency order whenever those artifacts exist:
+
+```text
+SPEC
+  -> CASES
+  -> BINDINGS / candidate
+  -> independent ORACLE
+  -> PROTOCOL
+  -> EVALUATOR
+  -> RESULT
+```
+
+A later file does not retroactively rewrite an earlier frozen stage.
+
+### Historical route
+
+- [`benchmarks/V0X_LINEAGE.md`](benchmarks/V0X_LINEAGE.md) — synthetic benchmark lineage.
+- [`empirical/`](empirical/) — empirical benchmark and quotient work.
+- [`research/semantic_constitution/`](research/semantic_constitution/) — semantic-constitution lineage.
+- [`research/ssi_calc/`](research/ssi_calc/) — SSI-CALC compiler/checker research and frozen audits.
+- [`energy/`](energy/) — corrective-economy / energy experiments.
+- [`retrospective/LOCALIZATION_CALCULUS.md`](retrospective/LOCALIZATION_CALCULUS.md) — retrospective failure-localization calculus.
 
 ---
 
-## Post-authorization theory and interpretation
+## Research discipline
 
-Two artifacts were added after Packet 7 authorization and before any real future obligation was accessed:
+SSI uses a strict freeze-and-attack workflow.
 
-- [`research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json`](research/post_authorization/VFA_0_2_BLIND_OUTCOME_ADJUDICATION.json) — blind outcome interpretation tree;
-- [`theory/FUTURE_SAFE_OPTION_STRUCTURE.md`](theory/FUTURE_SAFE_OPTION_STRUCTURE.md) — Future-Safe Option Structure as a set-valued corrective-option object.
+### 1. Constitute before evaluating
 
-Neither artifact may modify Packet 7 or broaden its execution authority.
+The candidate must not define the criterion that certifies it.
+
+```text
+candidate output != oracle truth != evaluator judgment
+```
+
+Where possible, case geometry, target evidence contracts, semantic oracles, protocols, and evaluators are frozen before first execution.
+
+### 2. Preserve typed negative results
+
+The repository distinguishes states such as:
+
+```text
+SUPPORTED
+NOT_SUPPORTED
+NOT_EVALUABLE_UNDER_FROZEN_BINDING
+UNPROVEN
+REVOKED
+NOT_ESTABLISHED
+NOT_OPENED
+```
+
+These are not interchangeable. In particular:
+
+```text
+not evaluable != failed
+unproven != revoked
+correct output != legitimate evidence path
+```
+
+### 3. Repair minimally and prospectively
+
+A contradiction is a diagnostic signal, not permission to rewrite history. The default procedure is:
+
+```text
+observe failure
+-> localize the shallowest supported locus
+-> preserve the failed first result
+-> constitute a prospective repair separately
+-> retest on held-out evidence
+```
+
+### 4. No authority leakage
+
+SSI repeatedly enforces:
+
+```text
+validity != transportability != composability
+role license != execution license
+successful parsing != semantic transport
+semantic equivalence != evidence-type admission
+```
+
+A useful result is not automatically a mechanism claim, a transport claim, a composition claim, or an authorization.
+
+---
+
+## Current transition result in one view
+
+The PR61 semantic-transport experiment froze a 44-case constructed cross-carrier suite with separate obligations for meaning, evidence admission, provenance, uncertainty, and role identity.
+
+```text
+ST-A1  semantic identity preservation                 SUPPORTED
+ST-A2  semantic separation                            SUPPORTED
+ST-A3  evidence-type legitimacy                       SUPPORTED
+ST-A4  provenance factor separation / recoverability  SUPPORTED
+ST-A5  uncertainty preservation                       SUPPORTED
+ROLE_PRESERVATION_FIREWALL                            SUPPORTED
+```
+
+Admission matched the independently frozen target-evidence oracle across the entire suite:
+
+```text
+ADMIT       24 / 24
+REJECT      12 / 12
+UNRESOLVED   8 /  8
+TOTAL       44 / 44
+```
+
+No frozen failure trigger fired for semantic under-resolution, semantic contamination, evidence-type laundering, evidence-type under-admission, provenance conflation, uncertainty laundering, or role crossing.
+
+The bounded promotion is therefore:
+
+```text
+TRANSITION_SEMANTIC_TRANSPORT
+    = SUPPORTED_ON_FROZEN_CONSTRUCTED_CROSS_CARRIER_SUITE
+```
+
+Nothing stronger is implied.
+
+---
+
+## What is deliberately **not** established
+
+```text
+UNIVERSAL_CARRIER_EQUIVALENCE          = NOT_ESTABLISHED
+ARBITRARY_REAL_WORLD_SEMANTIC_TRANSPORT = NOT_ESTABLISHED
+HELDOUT_SEMANTIC_TRANSPORT_GENERALIZATION = NOT_ESTABLISHED
+LOCAL_PRESERVATION_TO_PATH_PRESERVATION = NOT_ESTABLISHED
+TRANSFORMATION_COMPOSITION              = NOT_OPENED
+CERTIFICATE_COMPOSITION                 = NOT_OPENED
+AUTHORITY_COMPOSITION                   = NOT_OPENED
+CHALLENGE_PATH_PRESERVATION             = NOT_OPENED
+MUTABILITY                              = NOT_OPENED
+BOUNDARY_SEMANTICS                      = NOT_OPENED
+BOUNDARY_RESPONSE                       = NOT_OPENED
+BOUNDARY_REPAIR                         = NOT_OPENED
+FORMAL_TRANSITION_CALCULUS              = NOT_CONSTITUTED
+SSI_CALC_KERNEL_DELTA                   = 0
+```
+
+The absence of a claim is part of the scientific state, not an invitation to infer it.
 
 ---
 
 ## Repository map
 
-- [`REPOSITORY_STATUS.md`](REPOSITORY_STATUS.md) — current authority state, stacked PR topology, parallel tracks, and preservation rules.
-- [`ARCHITECTURE.md`](ARCHITECTURE.md) — promoted core SSI architecture plus the bounded Phase-V research extension.
-- [`research/semantic_constitution/README.md`](research/semantic_constitution/README.md) — current semantic authority index.
-- [`research/semantic_constitution/phase_v/`](research/semantic_constitution/phase_v/) — Phase-V architecture, frozen E2-A input, executable verifier, result, and audit.
-- [`research/semantic_constitution/BOTTLENECK_HISTORY.md`](research/semantic_constitution/BOTTLENECK_HISTORY.md) — bottleneck migration from representation to jurisdiction.
-- [`research/semantic_constitution/V1_V8_RECONSTRUCTED_HANDOFF.md`](research/semantic_constitution/V1_V8_RECONSTRUCTED_HANDOFF.md) — preserved historical semantic handoff.
-- [`retrospective/LOCALIZATION_CALCULUS.md`](retrospective/LOCALIZATION_CALCULUS.md) — V0.x localization grammar.
-- [`benchmarks/V0X_LINEAGE.md`](benchmarks/V0X_LINEAGE.md) — benchmark-by-benchmark V0.x lineage.
-- [`empirical/README.md`](empirical/README.md) — empirical lineage index.
-- [`empirical/benchmark_v0_2_quotient/`](empirical/benchmark_v0_2_quotient/) — active authorized VFA lineage.
-- [`theory/FUTURE_SAFE_OPTION_STRUCTURE.md`](theory/FUTURE_SAFE_OPTION_STRUCTURE.md) — FSO theory outside Packet 7.
+```text
+.
+├── README.md                    # front door
+├── RESEARCH_MAP.md              # research topology / navigation
+├── REPOSITORY_STATUS.md         # current administrative status
+├── ARCHITECTURE.md              # architecture and conceptual frame
+├── CONTRIBUTING.md              # research + contribution protocol
+├── benchmarks/                  # benchmark lineage
+├── empirical/                   # empirical benchmark work
+├── energy/                      # corrective-economy experiments
+├── research/
+│   ├── ledger/                  # evolving research ledger
+│   ├── relicense/               # authority / interaction / transition experiments
+│   ├── semantic_constitution/   # semantic-constitution lineage
+│   └── ssi_calc/                # executable checker/compiler research
+├── results/                     # frozen result summaries
+├── retrospective/              # retrospective diagnostics
+└── theory/                     # theory candidates and option structure
+```
+
+See [`RESEARCH_MAP.md`](RESEARCH_MAP.md) for the annotated version.
 
 ---
 
-## Governing invariant
+## Reproducing executable experiments
 
-> **No committed transformation may consume the evidential, representational, or authority pathway required to correct that transformation later.**
+There is no single monolithic test command: different frozen lineages have different environments and execution contracts. Start from the local `SPEC`, `README`, `RUN_MANIFEST`, `requirements.txt`, or verification script for the experiment you are inspecting.
 
-The Phase-V semantic counterpart is:
+Examples of executable areas include:
 
-> **Receive external semantic authority only under its declared jurisdiction; use exactly what that jurisdiction licenses; stop where it stops.**
+- [`research/ssi_calc/v0_1/`](research/ssi_calc/v0_1/)
+- [`research/ssi_calc/compiler/`](research/ssi_calc/compiler/)
+- [`energy/experiments/`](energy/experiments/)
+- [`empirical/`](empirical/)
 
-Or, in billiards:
+Do not rerun a frozen experiment and silently replace its first result. A new run that changes scientific interpretation should receive explicit lineage and provenance.
 
-> **Do not erase a line on the table while future shots still depend on it. Do not call one shot uniquely justified while the evidence still shows two. And do not change the rules of the table merely because a particular shot would become easier.**
+---
+
+## Contributing
+
+Read [`CONTRIBUTING.md`](CONTRIBUTING.md) before changing scientific material. The short version:
+
+- preserve frozen artifacts,
+- separate scientific changes from administrative polish,
+- state the exact parent commit / branch,
+- constitute evaluation criteria before execution,
+- preserve negative results,
+- state the strongest earned claim and the authority ceiling,
+- never treat a later successful repair as if the earlier failure never happened.
+
+---
+
+## Status of this README
+
+This README is **navigation**, not a scientific authority source. If a summary here conflicts with a frozen experiment artifact, the frozen artifact and its provenance lineage govern.
+
+In particular:
+
+> **“Newest file wins” is not a valid epistemic rule in this repository.**
+
+Authority comes from the frozen dependency structure, not file recency.
+
+---
+
+## License
+
+See [`LICENSE`](LICENSE).
