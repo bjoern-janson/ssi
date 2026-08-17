@@ -1,0 +1,281 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_INTERFACE_SEPARABILITY_HELDOUT_STRESS_V0.1",
+  "stage": "EVALUATOR",
+  "status": "EVALUATOR_FROZEN__NO_RESULT",
+  "parent_protocol_commit": "c067de1b1a019bed77adbb7faefeb84d659769d4",
+  "frozen_dependencies": {
+    "SPEC": "19e60eb255f754925f7d7ece0d60c25285266dde",
+    "CASES": "690b760cf739bc8d6e2ddb1807d3e14d84c84863",
+    "STRESS_ORACLE": "e252222b0526e28f7ae11732da7bcea1a4151875",
+    "PROTOCOL": "c067de1b1a019bed77adbb7faefeb84d659769d4",
+    "INHERITED_BINDING": "4199cb0c9fd7607ee15fabdcca63f7ea05e9c356",
+    "PARENT_EVALUATOR_REFERENCE": "7eb9a7070037202467b5e2308385c33ec76c59ca"
+  },
+  "scientific_scope": "CLASSIFY_FROZEN_HELDOUT_PROTOCOL_OUTPUTS_ONLY",
+  "purpose": "MAP_FROZEN_STRESS_PROTOCOL_RELATIONS_TO_AXIS_EVALUABILITY_SUPPORT_AND_TYPED_INTERFACE_FAILURE_STATUSES_WITHOUT_MODIFYING_UPSTREAM_ARTIFACTS_OR_OPENING_BOUNDARY_SEMANTICS",
+  "dependency_firewall": {
+    "may_modify_spec": false,
+    "may_modify_cases": false,
+    "may_modify_stress_oracle": false,
+    "may_modify_protocol": false,
+    "may_modify_inherited_binding": false,
+    "may_translate_novel_channel_visible_into_accepted_candidate_evidence": false,
+    "may_redefine_coordinate_semantics": false,
+    "may_redecode_candidate_outside_protocol": false,
+    "may_repair_candidate": false,
+    "may_invent_new_transition_coordinate": false,
+    "may_open_boundary_semantics": false,
+    "may_open_boundary_response": false,
+    "may_open_repair_authority": false,
+    "result_available_to_evaluator_at_freeze": false
+  },
+  "axis_status_vocabulary": [
+    "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "NOT_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "NOT_EVALUABLE_UNDER_FROZEN_BINDING"
+  ],
+  "axis_status_noncollapse": [
+    "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS != NOT_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "NOT_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS != NOT_EVALUABLE_UNDER_FROZEN_BINDING",
+    "OUT_OF_CONTRACT_SEMANTIC_CARRIER != COORDINATE_NONSEPARABILITY",
+    "BINDING_INCOMPATIBILITY != NEGATIVE_SEPARABILITY_WITNESS"
+  ],
+  "comparison_eligibility_gate": {
+    "principle": "SEMANTIC_COMPARISON_ELIGIBILITY_PRECEDES_SEPARABILITY_CLASSIFICATION",
+    "per_required_case_rule": {
+      "IN_CONTRACT_COMPLETE_SEMANTIC_COMPARISON": "EVALUABLE",
+      "IN_CONTRACT_PARTIAL_OR_UNRESOLVED_COMPARISON": "EVALUABLE",
+      "IN_CONTRACT_CONFLICT_PRESERVATION_COMPARISON": "EVALUABLE",
+      "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT": "NOT_EVALUABLE_UNDER_FROZEN_BINDING"
+    },
+    "axis_aggregation_precedence": [
+      {
+        "rank": 1,
+        "condition": "any legitimately evaluable required case or comparison contains a frozen failure witness sufficient to falsify an axis obligation",
+        "axis_status": "NOT_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+        "note": "preserve any simultaneously not-evaluable subcases, but an observed in-contract counterexample is sufficient negative evidence for the axis"
+      },
+      {
+        "rank": 2,
+        "condition": "no legitimately evaluable required case fails, but one or more required target comparisons are outside the frozen input contract",
+        "axis_status": "NOT_EVALUABLE_UNDER_FROZEN_BINDING",
+        "note": "do not coerce absence of admissible comparison into support or failure"
+      },
+      {
+        "rank": 3,
+        "condition": "all required comparisons are evaluable and every frozen obligation for the axis is satisfied",
+        "axis_status": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS"
+      }
+    ]
+  },
+  "inherited_pairwise_failure_mapping": {
+    "if_oracle_delta_1_and_candidate_delta_0": "UNDER_RESOLUTION",
+    "if_oracle_delta_0_and_candidate_delta_1": "COORDINATE_CONTAMINATION",
+    "if_oracle_delta_equals_candidate_delta": "NO_PAIRWISE_FAILURE_ON_THIS_COORDINATE",
+    "non_rule": "DELTA_FAILURE_CLASSIFICATION_DOES_NOT_IDENTIFY_CAUSAL_MECHANISM"
+  },
+  "G1_WORLD_NOVELTY": {
+    "required_evidence": [
+      "novel cube world-coordinate relations",
+      "novel cube pairwise delta records",
+      "novel cube recoverability vectors"
+    ],
+    "evaluability_condition": "all 16 novel complete worlds are IN_CONTRACT_COMPLETE_SEMANTIC_COMPARISON",
+    "A1_relevant_separation": {
+      "support_condition": "for every held-out cube pair and every coordinate i with oracle Delta_K[i] == 1, candidate Delta_q[i] == 1",
+      "failure_condition": "exists held-out cube pair and coordinate i with oracle Delta_K[i] == 1 and candidate Delta_q[i] == 0",
+      "failure_class": "UNDER_RESOLUTION"
+    },
+    "A2_orthogonal_invariance": {
+      "support_condition": "for every held-out cube pair and every coordinate i with oracle Delta_K[i] == 0, candidate Delta_q[i] == 0",
+      "failure_condition": "exists held-out cube pair and coordinate i with oracle Delta_K[i] == 0 and candidate Delta_q[i] == 1",
+      "failure_class": "COORDINATE_CONTAMINATION"
+    },
+    "A3_coordinate_recoverability": {
+      "support_condition": "all 64 complete-world coordinate relations are EQUIVALENT",
+      "failure_condition": "any complete-world coordinate relation is NON_EQUIVALENT, UNRESOLVED_DUE_TO_COVERAGE, or UNRESOLVED_DUE_TO_CONFLICT",
+      "non_rule": "PAIRWISE_DELTA_SUCCESS_DOES_NOT_OVERRIDE_COMPLETE_WORLD_RECOVERABILITY_FAILURE"
+    },
+    "joint_variation": {
+      "support_condition": "candidate Delta_q vector exactly equals oracle Delta_K vector on all 88 multi-coordinate pairs",
+      "failure_reporting": "retain underlying UNDER_RESOLUTION and/or COORDINATE_CONTAMINATION witnesses without inventing a composition failure type",
+      "non_rule": "MULTI_COORDINATE_IDENTIFIABILITY != REPAIR_COMPOSABILITY"
+    },
+    "axis_support_condition": "A1 supported AND A2 supported AND A3 supported AND joint_variation supported",
+    "axis_negative_condition": "any A1, A2, A3, or joint_variation failure witness exists"
+  },
+  "G2_OBSERVATION_CHANNEL_NOVELTY": {
+    "required_evidence": [
+      "four target-role descriptive contract relations",
+      "non-target ordinary comparisons where applicable"
+    ],
+    "target_role_classification": {
+      "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT": "NOT_EVALUABLE_UNDER_FROZEN_BINDING",
+      "IN_CONTRACT_COMPLETE_SEMANTIC_COMPARISON": "EVALUABLE_FOR_ORDINARY_SEPARABILITY_COMPARISON",
+      "IN_CONTRACT_PARTIAL_OR_UNRESOLVED_COMPARISON": "EVALUABLE_ONLY_FOR_PRESERVATION_OF_PARTIAL_OR_UNRESOLVED_STATUS"
+    },
+    "axis_support_condition": "every required G2 target-role case is evaluable under the frozen binding and all corresponding semantic/separability obligations are satisfied",
+    "axis_not_supported_condition": "at least one required target-role case is legitimately evaluable and contains a frozen semantic/separability counterexample",
+    "axis_not_evaluable_condition": "no legitimately evaluable required target-role case fails, and at least one required target-role semantic carrier remains outside the frozen input contract",
+    "forbidden_inference": "TARGET_SEMANTICS_CARRIED_OUTSIDE_FROZEN_INPUT_CONTRACT -> NOT_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS"
+  },
+  "G3_COVERAGE_DEGRADATION": {
+    "required_evidence": [
+      "four uncertainty-set relations",
+      "after-coordinate identity-status records"
+    ],
+    "oracle_sets": {
+      "g3_u_s_l": ["S", "L"],
+      "g3_u_l_v_lambda": ["L", "V", "Lambda"],
+      "g3_u_s_v": ["S", "V"],
+      "g3_u_lambda_only": ["Lambda"]
+    },
+    "per_control_support_condition": "candidate_set relation == EQUAL AND candidate unresolved-identity coordinates exactly equal the oracle-supported incomplete-coordinate set",
+    "per_control_negative_conditions": {
+      "PROPER_SUBSET": "UNDER_LOCALIZATION",
+      "PROPER_SUPERSET": "OVER_LOCALIZATION",
+      "PARTIAL_OVERLAP": "PRESERVE_PROTOCOL_PARTIAL_OVERLAP_AS_UNCERTAINTY_PRESERVATION_COUNTEREXAMPLE",
+      "DISJOINT": "PRESERVE_PROTOCOL_DISJOINT_RELATION_AS_UNCERTAINTY_PRESERVATION_COUNTEREXAMPLE",
+      "oracle_incomplete_coordinate_resolved_as_complete": "UNCERTAINTY_PRESERVATION_COUNTEREXAMPLE_WITHOUT_INVENTING_A_NEW_FAILURE_TYPE"
+    },
+    "axis_support_condition": "all four controls satisfy the per-control support condition",
+    "axis_negative_condition": "any one of the four controls violates the per-control support condition",
+    "non_rules": [
+      "UNRESOLVED_IDENTITY != NO_CHANGE",
+      "SINGLE_ROLE_CANDIDATE_SET != COMPLETE_COORDINATE_IDENTITY",
+      "PARTIAL_OBSERVED_EMPTY_ALLOWED_SET != COMPLETE_EMPTY_AUTHORITY_ENVELOPE"
+    ]
+  },
+  "G4_FAILURE_STRUCTURE_NOVELTY": {
+    "required_evidence": [
+      "novel cube comparison products",
+      "mixed L-change plus V-conflict descriptive record"
+    ],
+    "novel_cube_component": "reuse G1 A1/A2/A3 and joint-variation rules on the held-out semantic realizations",
+    "mixed_component_support_condition": "for g5_law_validity_competing_pressure, definite-change set relation == EQUAL with {L} and conflict-set relation == EQUAL with {V}; the candidate must preserve definite L change while preserving unresolved V conflict",
+    "mixed_component_negative_condition": "definite-change set relation != EQUAL OR conflict-set relation != EQUAL OR the candidate coerces the V conflict into a unique resolved validity identity",
+    "axis_support_condition": "novel_cube_component supported AND mixed_component_support_condition satisfied",
+    "axis_negative_condition": "novel_cube_component has any frozen failure witness OR mixed_component_negative_condition holds",
+    "non_rules": [
+      "SAME_ROLE != SAME_PARENT_VARIANT",
+      "NOVEL_FAILURE_STRUCTURE != NEW_TRANSITION_COORDINATE",
+      "DEFINITE_L_CHANGE != RESOLUTION_OF_ORTHOGONAL_V_CONFLICT"
+    ]
+  },
+  "G5_COORDINATE_CONTRADICTION_OR_CONFLICTING_CHANNELS": {
+    "required_evidence": [
+      "three conflict-set relations",
+      "three definite-change-set relations"
+    ],
+    "per_control_support_condition": "definite-change set relation == EQUAL AND conflict-set relation == EQUAL, with no conflicted coordinate coerced into a unique resolved semantic identity",
+    "per_control_negative_condition": "definite-change set relation != EQUAL OR conflict-set relation != EQUAL OR a conflicted coordinate is coerced into a unique resolved semantic identity",
+    "axis_support_condition": "all three conflict controls satisfy the per-control support condition",
+    "axis_negative_condition": "any conflict control satisfies the per-control negative condition",
+    "negative_reporting_rule": "preserve the exact definite-change and conflict set relations; do not invent a truth-adjudication or causal failure class",
+    "non_rules": [
+      "CONFLICT_PRESERVATION != TRUTH_ADJUDICATION",
+      "CONFLICT_PRESERVATION != BOUNDARY_RESPONSE",
+      "KNOWN_CHANGE_ON_ONE_COORDINATE != RESOLUTION_OF_AN_ORTHOGONAL_CONFLICT"
+    ]
+  },
+  "shallowest_failure_ordering": {
+    "principle": "CLASSIFY_COMPARISON_ELIGIBILITY_BEFORE_SEPARABILITY_AND_REPORT_THE_SHALLOWEST_DIRECTLY_SUPPORTED_INTERFACE_DEFECT_WITHOUT_ERASING_OTHER_SIGNATURES",
+    "ordering": [
+      {
+        "rank": 0,
+        "evidence": "required target semantics carried outside the frozen input contract",
+        "interpretation": "NOT_EVALUABLE_UNDER_FROZEN_BINDING",
+        "failure": false
+      },
+      {
+        "rank": 1,
+        "evidence": "complete-world in-contract oracle/candidate coordinate relation NON_EQUIVALENT or unresolved",
+        "interpretation": "A3_COORDINATE_RECOVERABILITY_COUNTEREXAMPLE"
+      },
+      {
+        "rank": 2,
+        "evidence": "in-contract pairwise oracle/candidate delta mismatch",
+        "interpretation": "UNDER_RESOLUTION_OR_COORDINATE_CONTAMINATION_AS_DEFINED_BY_DELTA_DIRECTION"
+      },
+      {
+        "rank": 3,
+        "evidence": "coverage uncertainty-set or unresolved-identity mismatch",
+        "interpretation": "G3_UNCERTAINTY_PRESERVATION_COUNTEREXAMPLE_WITH_DIRECTION_ONLY_IF_SUBSET_OR_SUPERSET"
+      },
+      {
+        "rank": 4,
+        "evidence": "definite-change/conflict product mismatch",
+        "interpretation": "G5_CONFLICT_PRESERVATION_COUNTEREXAMPLE_WITH_EXACT_PROTOCOL_RELATIONS_PRESERVED"
+      }
+    ],
+    "non_suppression_rule": "later descriptive signatures remain reported when a shallower supported boundary or defect exists",
+    "no_causal_overclaim": "ordering is diagnostic precedence within this frozen stress experiment, not a proof of causal mechanism"
+  },
+  "axis_result_vector": {
+    "shape": "(G1,G2,G3,G4,G5)",
+    "each_entry": "SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS | NOT_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS | NOT_EVALUABLE_UNDER_FROZEN_BINDING",
+    "scalarization": "FORBIDDEN",
+    "cross_axis_compensation": "FORBIDDEN"
+  },
+  "overall_generalization_judgment": {
+    "positive_condition": "G1,G2,G3,G4,G5 are all SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS",
+    "positive_status": "FOUR_COORDINATE_SEPARABILITY_GENERALIZATION_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_SUITE",
+    "otherwise_status": "FULL_FOUR_COORDINATE_SEPARABILITY_GENERALIZATION_NOT_ESTABLISHED",
+    "negative_evidence_rule": "if any axis is NOT_SUPPORTED_ON_FROZEN_HELDOUT_STRESS_AXIS, preserve all typed counterexample witnesses",
+    "evaluability_boundary_rule": "if no axis is unsupported but one or more axes are NOT_EVALUABLE_UNDER_FROZEN_BINDING, full generalization remains not established because required transport was not adjudicable",
+    "parent_result_preservation": "PR59_CONSTRUCTED_SUITE_SUPPORT_REMAINS_UNCHANGED_REGARDLESS_OF_PR60_RESULT",
+    "non_rules": [
+      "HELDOUT_GENERALIZATION_SUPPORTED != FOUR_COORDINATE_COMPLETENESS",
+      "HELDOUT_GENERALIZATION_SUPPORTED != ARBITRARY_REAL_WORLD_GENERALIZATION",
+      "HELDOUT_GENERALIZATION_SUPPORTED != BOUNDARY_SEMANTICS",
+      "HELDOUT_GENERALIZATION_SUPPORTED != BOUNDARY_RESPONSE",
+      "HELDOUT_GENERALIZATION_SUPPORTED != REPAIR_AUTHORITY",
+      "PR60_STRESS_FAILURE != RETROACTIVE_INVALIDATION_OF_PR59"
+    ]
+  },
+  "result_output_contract": {
+    "result_stage_may_execute_evaluator": true,
+    "result_stage_must_preserve_first_run": true,
+    "required_top_level_fields": [
+      "G1_WORLD_NOVELTY",
+      "G2_OBSERVATION_CHANNEL_NOVELTY",
+      "G3_COVERAGE_DEGRADATION",
+      "G4_FAILURE_STRUCTURE_NOVELTY",
+      "G5_COORDINATE_CONTRADICTION_OR_CONFLICTING_CHANNELS",
+      "AXIS_RESULT_VECTOR",
+      "FOUR_COORDINATE_SEPARABILITY_GENERALIZATION",
+      "failure_witnesses",
+      "not_evaluable_witnesses",
+      "authority_ceiling"
+    ],
+    "forbidden_result_repairs": [
+      "MODIFY_INHERITED_BINDING_AFTER_SEEING_STRESS_OUTPUT",
+      "TRANSLATE_NOVEL_CHANNEL_INTO_LEGACY_EVIDENCE_AFTER_SEEING_STRESS_OUTPUT",
+      "MODIFY_STRESS_ORACLE_AFTER_SEEING_STRESS_OUTPUT",
+      "MODIFY_PROTOCOL_AFTER_SEEING_STRESS_OUTPUT",
+      "MODIFY_EVALUATOR_AFTER_SEEING_STRESS_OUTPUT",
+      "ADD_FIFTH_TRANSITION_COORDINATE_TO_RESCUE_RESULT",
+      "OPEN_BOUNDARY_SEMANTICS_TO_RESCUE_RESULT"
+    ]
+  },
+  "authority_ceiling": {
+    "four_coordinate_separability_generalization": "NOT_YET_EVALUATED",
+    "four_coordinate_completeness": "NOT_ESTABLISHED",
+    "arbitrary_real_world_generalization": "NOT_ESTABLISHED",
+    "boundary_semantics": "NOT_OPENED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "repair_composability": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "STRESS_ORACLE": "FROZEN",
+    "PROTOCOL": "FROZEN",
+    "EVALUATOR": "FROZEN",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}
