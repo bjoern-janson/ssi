@@ -1,0 +1,213 @@
+{
+  "object": "SSI_RELICENSE_TRANSITION_SEMANTIC_TRANSPORT_V0.1",
+  "stage": "SEMANTIC_ORACLE",
+  "status": "SEMANTIC_ORACLE_FROZEN__NO_PROTOCOL_NO_EVALUATOR_NO_RESULT",
+  "authoritative_inputs": {
+    "SPEC.md": "36f3411da55cb713585a66a4417071698ac32a69",
+    "CASES.json": "7c2984c0bb74d088864c1b6a861197339077c23e",
+    "case_family_blobs": {
+      "C1.json": "a334467991ea8c1ecc99fcae9db211cef255ff40",
+      "C2.json": "bcdfee0fa4234194deb9c2cb09e561efd58c1a3e",
+      "C3.json": "94500ae7688bd791255dee738834f21d67a43474",
+      "C4.json": "1930e1245cb2452cf63182763164c3232391759b",
+      "C5.json": "d165e7982d4344cb6d8b73099d50faf43994bd56",
+      "C6.json": "2f90cbe460ed49535f07109acf72b337dcbfbb81",
+      "C7.json": "ddb36580edb431d44e4ea34acf395badc17ebcf0"
+    }
+  },
+  "explicitly_non_authoritative": [
+    "BINDINGS.json",
+    "candidate outputs",
+    "PROTOCOL.json",
+    "EVALUATOR.json",
+    "RESULT.json"
+  ],
+  "scope": "DESCRIBE_SOURCE_SEMANTICS__TARGET_TYPE_REQUIREMENTS__PROVENANCE__AND_EPISTEMIC_LIMITS_ONLY",
+  "principle": "SOURCE_SEMANTIC_IDENTITY_AND_TARGET_TYPE_ADMISSIBILITY_ARE_INDEPENDENTLY_DESCRIBED_FROM_SPEC_PLUS_CASES_ONLY",
+  "target_types": {
+    "S": {
+      "type": "TAU_S_CURRENT_CONFIGURATION_V1",
+      "required_constitution_mode": "DIRECT_OBSERVATION",
+      "measurement_scope": "CURRENT_CONFIGURATION",
+      "coverage": "COMPLETE",
+      "conflict": "NONE",
+      "authenticity": "VERIFIED",
+      "required_semantics": ["load", "buffer", "mode"]
+    },
+    "L": {
+      "type": "TAU_L_COUNTERFACTUAL_RESPONSE_RELATION_V1",
+      "required_constitution_mode": "CONTROLLED_INTERVENTION_OBSERVATION",
+      "measurement_scope": "PROBE_RESPONSE_RELATION",
+      "coverage": "COMPLETE_-1_0_1",
+      "conflict": "NONE",
+      "authenticity": "VERIFIED",
+      "required_semantics": "responses for probes -1,0,+1"
+    },
+    "V": {
+      "type": "TAU_V_APPLICABILITY_BASIS_V1",
+      "required_constitution_mode": "DIRECT_OBSERVATION_PLUS_CONSTITUTED_ATTESTATION",
+      "measurement_scope": "APPLICABILITY_CONTEXT_AND_ENVELOPE",
+      "coverage": "COMPLETE",
+      "conflict": "NONE",
+      "authenticity": "VERIFIED",
+      "required_semantics": "context(zone,sensor,epoch)+applicability envelope(zone_in,sensor_in,epoch)"
+    },
+    "Lambda": {
+      "type": "TAU_LAMBDA_ALLOWED_EFFECT_ENVELOPE_V1",
+      "required_constitution_mode": "CONSTITUTED_AUTHORITY_REGISTRY_ASSERTION",
+      "measurement_scope": "ALLOWED_EFFECT_ENVELOPE",
+      "coverage": "COMPLETE",
+      "conflict": "NONE",
+      "authenticity": "VERIFIED",
+      "required_semantics": "authority context(source,epoch)+complete allowed effect envelope"
+    }
+  },
+  "descriptive_statuses": {
+    "semantic": [
+      "COMPLETE_TARGET_SEMANTIC_IDENTITY_CONSTITUTED",
+      "TARGET_LIKE_CONTENT_WITHOUT_TARGET_CONSTITUTION",
+      "PREDICTIVE_PROXY_ONLY",
+      "PARTIAL_TARGET_SEMANTICS",
+      "CONFLICTED_TARGET_SEMANTICS"
+    ],
+    "type": [
+      "TARGET_TYPE_REQUIREMENTS_SATISFIED",
+      "TARGET_TYPE_REQUIREMENTS_NOT_SATISFIED",
+      "SOURCE_SEMANTICS_INSUFFICIENT_FOR_COMPLETE_TARGET_TYPE"
+    ]
+  },
+  "case_groups": [
+    {
+      "group": "C1_SAME_SEMANTICS_DIFFERENT_CARRIERS",
+      "type_status": "TARGET_TYPE_REQUIREMENTS_SATISFIED",
+      "semantic_status": "COMPLETE_TARGET_SEMANTIC_IDENTITY_CONSTITUTED",
+      "pairs": [
+        {"role":"S","semantic_identity":"S(BURST,RECOVERING,ACTIVE)","cases":["c1_s_same_sem_carrier_1","c1_s_same_sem_carrier_2"]},
+        {"role":"L","semantic_identity":"L(-1=LIMITED,0=STEADY,+1=BOOST)","cases":["c1_l_same_sem_carrier_1","c1_l_same_sem_carrier_2"]},
+        {"role":"V","semantic_identity":"V(FIELD/DRIFTED/NEXT;zone{FIELD,LAB};sensor{DRIFTED};NEXT)","cases":["c1_v_same_sem_carrier_1","c1_v_same_sem_carrier_2"]},
+        {"role":"Lambda","semantic_identity":"Lambda(RECOVERY_LOOP/NEXT;allowed{LIMITED,STEADY})","cases":["c1_lambda_same_sem_carrier_1","c1_lambda_same_sem_carrier_2"]}
+      ]
+    },
+    {
+      "group": "C2_DIFFERENT_SEMANTICS_SAME_CARRIER",
+      "type_status": "TARGET_TYPE_REQUIREMENTS_SATISFIED",
+      "semantic_status": "COMPLETE_TARGET_SEMANTIC_IDENTITY_CONSTITUTED",
+      "cases": [
+        {"case":"c2_s_different_sem_same_carrier","role":"S","semantic_identity":"S(BURST,DRAINING,ACTIVE)","contrasts_with":"c1_s_same_sem_carrier_1"},
+        {"case":"c2_l_different_sem_same_carrier","role":"L","semantic_identity":"L(-1=LIMITED,0=STEADY,+1=LIMITED)","contrasts_with":"c1_l_same_sem_carrier_1"},
+        {"case":"c2_v_different_sem_same_carrier","role":"V","semantic_identity":"V(FIELD/DRIFTED/NEXT;zone{FIELD,LAB};sensor{CALIBRATED};NEXT)","contrasts_with":"c1_v_same_sem_carrier_1"},
+        {"case":"c2_lambda_different_sem_same_carrier","role":"Lambda","semantic_identity":"Lambda(RECOVERY_LOOP/NEXT;allowed{BOOST})","contrasts_with":"c1_lambda_same_sem_carrier_1"}
+      ]
+    },
+    {
+      "group": "C3_SAME_SHAPE_WRONG_EVIDENCE_TYPE",
+      "semantic_status": "TARGET_LIKE_CONTENT_WITHOUT_TARGET_CONSTITUTION",
+      "type_status": "TARGET_TYPE_REQUIREMENTS_NOT_SATISFIED",
+      "cases": [
+        {"case":"c3_s_shape_match_wrong_constitution","role_subject":"S","same_target_like_content_as":"c1_s_same_sem_carrier_1","reason":"MODEL_PREDICTION != DIRECT_OBSERVATION"},
+        {"case":"c3_l_shape_match_wrong_constitution","role_subject":"L","same_target_like_content_as":"c1_l_same_sem_carrier_1","reason":"SIMULATED_RESPONSE != CONTROLLED_INTERVENTION_OBSERVATION"},
+        {"case":"c3_v_shape_match_wrong_constitution","role_subject":"V","same_target_like_content_as":"c1_v_same_sem_carrier_1","reason":"RISK_MODEL_DERIVATION != DIRECT_OBSERVATION_PLUS_CONSTITUTED_ATTESTATION"},
+        {"case":"c3_lambda_shape_match_wrong_constitution","role_subject":"Lambda","same_target_like_content_as":"c1_lambda_same_sem_carrier_1","reason":"RECOMMENDATION != CONSTITUTED_AUTHORITY_REGISTRY_ASSERTION"}
+      ]
+    },
+    {
+      "group": "C4_PROXY_OR_PREDICTION",
+      "semantic_status": "PREDICTIVE_PROXY_ONLY",
+      "type_status": "TARGET_TYPE_REQUIREMENTS_NOT_SATISFIED",
+      "cases": [
+        {"case":"c4_s_high_confidence_proxy","target_like_subject":"S"},
+        {"case":"c4_l_high_confidence_proxy","target_like_subject":"L"},
+        {"case":"c4_v_high_confidence_proxy","target_like_subject":"V"},
+        {"case":"c4_lambda_high_confidence_proxy","target_like_subject":"Lambda"}
+      ],
+      "common_reason": "MODEL_PREDICTION + PREDICTED_TARGET_LIKE_CONTENT + confidence=0.999 + independent target constitution NOT_PROVIDED"
+    },
+    {
+      "group": "C5_PROVENANCE_VARIATION",
+      "semantic_status": "COMPLETE_TARGET_SEMANTIC_IDENTITY_CONSTITUTED",
+      "triplets": [
+        {"role":"S","semantic_identity":"S(BURST,RECOVERING,ACTIVE)","verified_admissible":["c5_s_primary","c5_s_independent"],"unverified_not_admissible":"c5_s_unverified_relay"},
+        {"role":"L","semantic_identity":"L(-1=LIMITED,0=STEADY,+1=BOOST)","verified_admissible":["c5_l_primary","c5_l_independent"],"unverified_not_admissible":"c5_l_unverified_relay"},
+        {"role":"V","semantic_identity":"V(FIELD/DRIFTED/NEXT;zone{FIELD,LAB};sensor{DRIFTED};NEXT)","verified_admissible":["c5_v_primary","c5_v_independent"],"unverified_not_admissible":"c5_v_unverified_relay"},
+        {"role":"Lambda","semantic_identity":"Lambda(RECOVERY_LOOP/NEXT;allowed{LIMITED,STEADY})","verified_admissible":["c5_lambda_primary","c5_lambda_independent"],"unverified_not_admissible":"c5_lambda_unverified_relay"}
+      ],
+      "verified_status": "TARGET_TYPE_REQUIREMENTS_SATISFIED",
+      "unverified_status": "TARGET_TYPE_REQUIREMENTS_NOT_SATISFIED",
+      "unverified_reason": "provenance.authenticity=UNVERIFIED != VERIFIED",
+      "nonrule": "UNVERIFIED_PROVENANCE_DOES_NOT_CHANGE_SEMANTIC_IDENTITY"
+    },
+    {
+      "group": "C6_INCOMPLETE_OR_CONFLICTING_SOURCE",
+      "type_status": "SOURCE_SEMANTICS_INSUFFICIENT_FOR_COMPLETE_TARGET_TYPE",
+      "cases": [
+        {"case":"c6_s_partial","role":"S","semantic_status":"PARTIAL_TARGET_SEMANTICS","residual":"buffer unresolved; coverage PARTIAL"},
+        {"case":"c6_s_conflict","role":"S","semantic_status":"CONFLICTED_TARGET_SEMANTICS","residual":"load in {BURST,NOMINAL}; unresolved conflict"},
+        {"case":"c6_l_partial","role":"L","semantic_status":"PARTIAL_TARGET_SEMANTICS","residual":"+1 probe missing"},
+        {"case":"c6_l_conflict","role":"L","semantic_status":"CONFLICTED_TARGET_SEMANTICS","residual":"+1 response in {BOOST,LIMITED}"},
+        {"case":"c6_v_partial","role":"V","semantic_status":"PARTIAL_TARGET_SEMANTICS","residual":"envelope.sensor_in unresolved"},
+        {"case":"c6_v_conflict","role":"V","semantic_status":"CONFLICTED_TARGET_SEMANTICS","residual":"context sensor in {DRIFTED,CALIBRATED}"},
+        {"case":"c6_lambda_partial","role":"Lambda","semantic_status":"PARTIAL_TARGET_SEMANTICS","residual":"observed_allowed_fragment={} is not complete empty envelope"},
+        {"case":"c6_lambda_conflict","role":"Lambda","semantic_status":"CONFLICTED_TARGET_SEMANTICS","residual":"allowed envelope in {{LIMITED,STEADY},{BOOST}}"}
+      ]
+    },
+    {
+      "group": "C7_ROLE_CROSSING_NEGATIVE",
+      "semantic_status": "COMPLETE_TARGET_SEMANTIC_IDENTITY_CONSTITUTED",
+      "type_status": "TARGET_TYPE_REQUIREMENTS_SATISFIED",
+      "cases": [
+        {"case":"c7_state_tempt_validity","constituted_role":"S","semantic_identity":"S(BURST,RECOVERING,ACTIVE)","orthogonal_nonconstitution":"diagnostic_context does not constitute V"},
+        {"case":"c7_law_tempt_lambda","constituted_role":"L","semantic_identity":"L(-1=LIMITED,0=STEADY,+1=BOOST)","orthogonal_nonconstitution":"effect_names do not constitute Lambda"},
+        {"case":"c7_validity_tempt_lambda","constituted_role":"V","semantic_identity":"V(FIELD/DRIFTED/NEXT;zone{FIELD,LAB};sensor{DRIFTED};NEXT)","orthogonal_nonconstitution":"generic context/envelope shape does not constitute Lambda"},
+        {"case":"c7_lambda_tempt_validity","constituted_role":"Lambda","semantic_identity":"Lambda(RECOVERY_LOOP/NEXT;allowed{LIMITED,STEADY})","orthogonal_nonconstitution":"generic context/envelope shape does not constitute V"}
+      ]
+    }
+  ],
+  "counts": {
+    "total_cases": 44,
+    "complete_target_semantic_identity_constituted": 28,
+    "target_like_without_target_constitution": 4,
+    "predictive_proxy_only": 4,
+    "partial_target_semantics": 4,
+    "conflicted_target_semantics": 4,
+    "target_type_requirements_satisfied": 24,
+    "target_type_requirements_not_satisfied": 12,
+    "source_semantics_insufficient_for_complete_target_type": 8,
+    "verified_provenance_cases": 40,
+    "unverified_provenance_cases": 4
+  },
+  "non_rules": [
+    "TARGET_LIKE_CONTENT != CONSTITUTED_TARGET_SEMANTIC_IDENTITY",
+    "CONSTITUTED_TARGET_SEMANTIC_IDENTITY != TARGET_EVIDENCE_TYPE_ADMISSION",
+    "SEMANTIC_EQUIVALENCE != PROVENANCE_EQUIVALENCE",
+    "VERIFIED_PROVENANCE != TARGET_SEMANTIC_IDENTITY",
+    "UNVERIFIED_PROVENANCE != SEMANTIC_DIFFERENCE",
+    "PREDICTION != OBSERVATION",
+    "SIMULATION != CONTROLLED_INTERVENTION_OBSERVATION",
+    "RECOMMENDATION != AUTHORITY_REGISTRY_ASSERTION",
+    "PARTIAL_EMPTY_FRAGMENT != COMPLETE_EMPTY_AUTHORITY_ENVELOPE",
+    "CONFLICT != RESOLUTION",
+    "GENERIC_SHAPE != ROLE_IDENTITY",
+    "SEMANTIC_ORACLE != CANDIDATE_SCORE",
+    "SEMANTIC_ORACLE != EVALUATOR_JUDGMENT"
+  ],
+  "authority_ceiling": {
+    "transition_semantic_transport": "NOT_YET_EVALUATED",
+    "universal_carrier_equivalence": "NOT_ESTABLISHED",
+    "arbitrary_real_world_semantic_transport": "NOT_ESTABLISHED",
+    "boundary_semantics": "NOT_OPENED",
+    "boundary_response": "NOT_OPENED",
+    "boundary_repair": "NOT_OPENED",
+    "formal_transition_calculus": "NOT_CONSTITUTED",
+    "ssi_calc_instrumentation": "NOT_CHANGED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "stage_firewall": {
+    "SPEC": "FROZEN",
+    "CASES": "FROZEN",
+    "BINDINGS": "FROZEN",
+    "SEMANTIC_ORACLE": "FROZEN",
+    "PROTOCOL": "NOT_CONSTITUTED",
+    "EVALUATOR": "NOT_CONSTITUTED",
+    "RESULT": "NOT_CONSTITUTED"
+  }
+}
