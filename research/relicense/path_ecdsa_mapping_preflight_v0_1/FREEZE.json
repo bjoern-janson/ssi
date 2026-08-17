@@ -1,0 +1,67 @@
+{
+  "authority_ceiling": {
+    "certificate_projection_loss": "NOT_TESTED",
+    "composition_insufficiency": "NOT_ESTABLISHED",
+    "composition_theorem": "NOT_EARNED",
+    "new_coordinate": "NOT_EARNED",
+    "path_level_inadequacy": "NOT_ESTABLISHED",
+    "relational_composition_failure": "NOT_TESTED",
+    "repair": "NOT_EARNED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "branch_parent_mf_result_commit": "82fb8b76a6f2bd62a25ff3c0ff2c65ad04aafd29",
+  "decision_space": [
+    "MAPPING_PREFLIGHT_PASSED",
+    "MAPPING_BOUNDARY",
+    "MAPPING_CONTRACT_VIOLATION",
+    "UNKNOWN"
+  ],
+  "execution_contract": {
+    "apply_mapper_to_exact_raw_transition_records_only": true,
+    "execute_ssi_checker_if_any_contract_violation": false,
+    "execute_ssi_checker_if_any_mapping_not_evaluable": false,
+    "first_result_must_not_exist": true,
+    "modify_witness_to_fit": false,
+    "read_path_oracles_during_preflight": false
+  },
+  "files": {
+    "PATH_A_EXTERNAL.json": {
+      "git_blob": "ed6b40c03f35c9f13d6c1fbe77df4abb14011bcf",
+      "sha256": "d19411ffefb4ce9b8b81e6fd1a61ef0e4d4fbd7c700b4ab77804592172b574a5"
+    },
+    "PATH_A_ORACLE.json": {
+      "git_blob": "01c5a5baa593f5412dc77e1648fcbf8616a07914",
+      "sha256": "7fffc12915ae968434f72f97691b5d87ef2d04ca258dcc14fb92d0baa3a1b8c3"
+    },
+    "PATH_B_EXTERNAL.json": {
+      "git_blob": "5f3e70e1c67a095436354baabdf4dacd6fd0a86c",
+      "sha256": "80a79ae43880ccb0db7f36e8ee5d3f8f3f4c4f91ff117fc6e9f1734aedc0310a"
+    },
+    "PATH_B_ORACLE.json": {
+      "git_blob": "e67f294728cc2fa1fe34321f0c80fce12c0a9ce2",
+      "sha256": "78e144c5d9d2b129797ebc37b68f28664e4d361a21f140834db9b2e191f5096d"
+    },
+    "RUN_MAPPING_PREFLIGHT.py": {
+      "git_blob": "3d85e074e56893631aaad5f0ee8fbc6a3770ed0e",
+      "sha256": "85e97fc64e15a621886996ca16daa8667124673364cdd406ee563f4cd7c26846"
+    },
+    "SPEC.md": {
+      "git_blob": "e543938ab47c86abe54efd9c4819012498b4b5f1",
+      "sha256": "cd1368f173e991a1ed9822e7fdaa47177cb051629945afe103d44b53f0578344"
+    }
+  },
+  "object": "SSI_PATH_WITNESS_MAPPING_PREFLIGHT_RUN_FREEZE_V0.1",
+  "parent_mapping_contract": {
+    "mapper_git_blob": "75c8d6c058013cb8418b3e8aef155bbf33315279",
+    "mapper_sha256": "87e42ef32167d3ac45d8d2b31d1ad5fdcc1fbaed25c3ef5ba86bb08d1b82a800",
+    "mf_first_result_git_blob": "fa6aa7f7ae8b2d6d2ea73976a5f79c723b20c43f",
+    "mf_first_result_sha256": "3e82d85e483915e74f2e4c21c826f71b70b1ffab2a1346640a46fe7c73d6f001",
+    "mf_status": "SUPPORTED_ON_FROZEN_ABSTRACT_MAPPING_SUITE"
+  },
+  "pre_freeze_branch_head": "d59799f109ecec8e4108f58887b8020bae6db800",
+  "prior_path_experiment": {
+    "first_result_sha256": "2241fa4a47f9c41ee7c399e71e66f683c7a1e32ce827c64ce2923cdfac098842",
+    "localized_status": "PRE_CERTIFICATE_MAPPING_COLLAPSE_SUPPORTED"
+  },
+  "status": "FROZEN_PRE_EXECUTION"
+}

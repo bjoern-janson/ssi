@@ -1,0 +1,28 @@
+{
+  "path_id": "P_A_DISTINCT_NONCES",
+  "scheme": "ECDSA/secp256k1",
+  "public_key": {
+    "x": "1e1e84957bcbabb736c2cb5901d9861d572a82db78792f23f8e76ff62416b132",
+    "y": "12e1949def3f22ac6aa5825e82e906d2c18bbcec5e42e54e54aa90c46f767e4d"
+  },
+  "transitions": [
+    {
+      "transition_id": "T1",
+      "message_utf8": "SSI path attack transition one",
+      "signature": {
+        "r": "f0481e2cf9896f99a3752130c1c12e659dccd8ecba02453fde0926fcfe05804d",
+        "s": "41f9ddeec1c2dae20ba1f8054cebee9d52c55cd466ef1bac0767ce8ae9305f9b"
+      },
+      "message_hash_z": "89cdb37475679b9a90a63c860cc7eea021bc5d4f15773b740e4074925b3fd2be"
+    },
+    {
+      "transition_id": "T2",
+      "message_utf8": "SSI path attack transition two",
+      "signature": {
+        "r": "05601d64d1c00f8e0a377de152489c9981a285a05a943dbfd1dd236c65400e05",
+        "s": "2080d2d56c03faac0d3731e6c1613f3ad5410e4d777627791511066decdb80ba"
+      },
+      "message_hash_z": "8f0f05c3730db66224607638d3a8e29027eda422bbb049c84b343f58616380ea"
+    }
+  ]
+}

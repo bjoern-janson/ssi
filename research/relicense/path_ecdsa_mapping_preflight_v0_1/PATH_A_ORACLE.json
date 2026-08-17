@@ -1,0 +1,11 @@
+{
+  "all_local_signatures_verify": true,
+  "path_id": "P_A_DISTINCT_NONCES",
+  "path_property": "NO_REPEATED_NONCE_KEY_RECOVERY_WITNESS",
+  "recovered_private_key_matches_public_key": false,
+  "same_r_across_transitions": false,
+  "signature_verify": [
+    true,
+    true
+  ]
+}
