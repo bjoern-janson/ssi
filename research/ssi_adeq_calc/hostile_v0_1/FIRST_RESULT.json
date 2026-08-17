@@ -1,0 +1,272 @@
+{
+  "all_passed": false,
+  "authority_ceiling": "GOVERNOR_EVALUATION_ONLY",
+  "failed": 2,
+  "frozen_calculator_blob": "ab991327d3b3aac298abda9d612d2a9565263498",
+  "frozen_governor_commit": "00812d117bc083de78408a1f0d78fb54fb806228",
+  "passed": 8,
+  "repair_permitted": false,
+  "results": [
+    {
+      "attack_class": "MISSED_INADEQUACY",
+      "expected": {
+        "property": "P:h1",
+        "scope": "sigma:h1",
+        "search_license": "LOCAL",
+        "status": "INADEQUATE",
+        "witness_case_ids": [
+          "h1_a",
+          "h1_b"
+        ]
+      },
+      "external_oracle": null,
+      "id": "H1_GENUINE_CONSEQUENTIAL_COLLISION",
+      "mismatches": [],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h1",
+        "scope": "sigma:h1",
+        "search_license": "LOCAL",
+        "status": "INADEQUATE",
+        "witness": {
+          "case_a": "h1_a",
+          "case_b": "h1_b",
+          "consequence_provenance_a": "external://hostile-v0.1/h1_a",
+          "consequence_provenance_b": "external://hostile-v0.1/h1_b",
+          "external_consequence_a": "ALLOW",
+          "external_consequence_b": "DENY",
+          "frozen_signature_a_equals_b": [
+            "same"
+          ]
+        }
+      },
+      "pass": true,
+      "tension": null
+    },
+    {
+      "attack_class": "FALSE_INADEQUACY_OR_STATUS_OVERREACH",
+      "expected": {
+        "property": "P:h2",
+        "scope": "sigma:h2",
+        "search_license": "NONE",
+        "status": "UNKNOWN"
+      },
+      "external_oracle": null,
+      "id": "H2_UNPROVEN_CONSEQUENCE_COLLISION_SHAPE",
+      "mismatches": [
+        "status: expected 'UNKNOWN', observed 'NOT_EVALUABLE'"
+      ],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h2",
+        "reason": "case h2_b consequence is not an admissible discriminator",
+        "scope": "sigma:h2",
+        "search_license": "NONE",
+        "status": "NOT_EVALUABLE",
+        "witness": null
+      },
+      "pass": false,
+      "tension": "Frozen PR63 maps any inadmissible consequence to NOT_EVALUABLE; the hostile oracle asks whether an otherwise legitimate unresolved comparison should remain scientific UNKNOWN."
+    },
+    {
+      "attack_class": "FALSE_INADEQUACY",
+      "expected": {
+        "property": "P:h3",
+        "scope": "sigma:h3",
+        "search_license": "NONE",
+        "status": "NOT_EVALUABLE"
+      },
+      "external_oracle": null,
+      "id": "H3_MISSING_FROZEN_SIGNATURE",
+      "mismatches": [],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h3",
+        "reason": "case h3_a is missing a frozen representation signature",
+        "scope": "sigma:h3",
+        "search_license": "NONE",
+        "status": "NOT_EVALUABLE",
+        "witness": null
+      },
+      "pass": true,
+      "tension": null
+    },
+    {
+      "attack_class": "FALSE_INADEQUACY",
+      "expected": {
+        "property": "P:h4",
+        "scope": "sigma:h4",
+        "search_license": "NONE",
+        "status": "NOT_EVALUABLE"
+      },
+      "external_oracle": null,
+      "id": "H4_SSI_DERIVED_EXTERNAL_CONSEQUENCE",
+      "mismatches": [],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h4",
+        "reason": "case h4_a consequence is not independently constituted",
+        "scope": "sigma:h4",
+        "search_license": "NONE",
+        "status": "NOT_EVALUABLE",
+        "witness": null
+      },
+      "pass": true,
+      "tension": null
+    },
+    {
+      "attack_class": "FREEZE_VIOLATION",
+      "expected": {
+        "property": "P:h5",
+        "scope": "sigma:h5",
+        "search_license": "NONE",
+        "status": "NOT_EVALUABLE"
+      },
+      "external_oracle": null,
+      "id": "H5_REPRESENTATION_CHANGED_AFTER_CASE_SELECTION",
+      "mismatches": [],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h5",
+        "reason": "representation changed after case selection",
+        "scope": "sigma:h5",
+        "search_license": "NONE",
+        "status": "NOT_EVALUABLE",
+        "witness": null
+      },
+      "pass": true,
+      "tension": null
+    },
+    {
+      "attack_class": "FALSE_ADEQUACY",
+      "expected": {
+        "property": "P:h6",
+        "scope": "sigma:h6",
+        "search_license": "NONE",
+        "status": "UNKNOWN"
+      },
+      "external_oracle": null,
+      "id": "H6_INSUFFICIENT_POSITIVE_COVERAGE",
+      "mismatches": [],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h6",
+        "scope": "sigma:h6",
+        "search_license": "NONE",
+        "status": "UNKNOWN",
+        "witness": null
+      },
+      "pass": true,
+      "tension": null
+    },
+    {
+      "attack_class": "ADEQUACY_SCOPE_CONTROL",
+      "expected": {
+        "property": "P:h7",
+        "scope": "sigma:h7",
+        "search_license": "NONE",
+        "status": "SUPPORTED_ADEQUATE_ON_TESTED_SCOPE"
+      },
+      "external_oracle": null,
+      "id": "H7_BOUNDED_POSITIVE_TESTED_COVERAGE",
+      "mismatches": [],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h7",
+        "scope": "sigma:h7",
+        "search_license": "NONE",
+        "status": "SUPPORTED_ADEQUATE_ON_TESTED_SCOPE",
+        "witness": null
+      },
+      "pass": true,
+      "tension": null
+    },
+    {
+      "attack_class": "SCOPE_LEAKAGE",
+      "expected": {
+        "property": "P:h8/local",
+        "scope": "sigma:h8/local",
+        "search_license": "LOCAL",
+        "status": "INADEQUATE",
+        "witness_case_ids": [
+          "h8_a",
+          "h8_b"
+        ]
+      },
+      "external_oracle": null,
+      "id": "H8_LOCAL_COLLISION_SCOPE_BINDING",
+      "mismatches": [],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h8/local",
+        "scope": "sigma:h8/local",
+        "search_license": "LOCAL",
+        "status": "INADEQUATE",
+        "witness": {
+          "case_a": "h8_a",
+          "case_b": "h8_b",
+          "consequence_provenance_a": "external://hostile-v0.1/h8_a",
+          "consequence_provenance_b": "external://hostile-v0.1/h8_b",
+          "external_consequence_a": "ALLOW",
+          "external_consequence_b": "DENY",
+          "frozen_signature_a_equals_b": {
+            "bucket": 1
+          }
+        }
+      },
+      "pass": true,
+      "tension": null
+    },
+    {
+      "attack_class": "FALSE_ADEQUACY",
+      "expected": {
+        "property": "P:h9",
+        "scope": "sigma:h9",
+        "search_license": "NONE",
+        "status": "UNKNOWN"
+      },
+      "external_oracle": {
+        "coverage_independently_constituted": false,
+        "note": "PR63 has no coverage-provenance input. The request deliberately self-asserts coverage.constituted=true."
+      },
+      "id": "H9_SELF_ASSERTED_COVERAGE_PROVENANCE",
+      "mismatches": [
+        "status: expected 'UNKNOWN', observed 'SUPPORTED_ADEQUATE_ON_TESTED_SCOPE'"
+      ],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h9",
+        "scope": "sigma:h9",
+        "search_license": "NONE",
+        "status": "SUPPORTED_ADEQUATE_ON_TESTED_SCOPE",
+        "witness": null
+      },
+      "pass": false,
+      "tension": "If PR63 returns SUPPORTED_ADEQUATE_ON_TESTED_SCOPE, preserve it as a possible coverage-provenance/interface witness; do not repair."
+    },
+    {
+      "attack_class": "UNKNOWN_CONTROL",
+      "expected": {
+        "property": "P:h10",
+        "scope": "sigma:h10",
+        "search_license": "NONE",
+        "status": "UNKNOWN"
+      },
+      "external_oracle": null,
+      "id": "H10_NO_COLLISION_NO_COVERAGE_CONTROL",
+      "mismatches": [],
+      "observed": {
+        "ceiling": "ADEQUACY_ONLY",
+        "property": "P:h10",
+        "scope": "sigma:h10",
+        "search_license": "NONE",
+        "status": "UNKNOWN",
+        "witness": null
+      },
+      "pass": true,
+      "tension": null
+    }
+  ],
+  "suite_id": "SSI_ADEQ_GOVERNOR_HOSTILE_V0_1",
+  "total": 10
+}
