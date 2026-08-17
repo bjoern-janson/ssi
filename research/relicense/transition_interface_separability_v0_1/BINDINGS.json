@@ -139,8 +139,8 @@
   },
   "uncertainty_policy": {
     "principle": "MISSING_OR_PARTIAL_COORDINATE_EVIDENCE_MUST_REMAIN_MISSING_OR_PARTIAL_IN_ITS_OWN_PROJECTION",
-    "no_change_inference_from_missingness": false,
-    "single_coordinate_localization_from_missingness": false,
+    "infer_no_change_from_missingness": false,
+    "infer_single_coordinate_from_missingness": false,
     "cross_coordinate_imputation": false,
     "before_after_diagnosis": "NOT_PERFORMED_BY_BINDING",
     "boundary_classification": "NOT_PERFORMED_BY_BINDING"
