@@ -1,0 +1,192 @@
+{
+  "object": "FR001_EXECUTION_BINDING_V0.1",
+  "record_type": "frozen execution-binding attempt",
+  "persistent_record_state": "FROZEN",
+  "parent_benchmark_object": "FR001_EXACT_CASE_ORACLE_V0.1",
+  "parent_benchmark_commit": "d3d2fe45131ecfabd4cd9479eda8966f197c4551",
+  "scientific_standing": "NOT_EXECUTED",
+  "authority_invariance_claim": "NOT_ESTABLISHED",
+  "execution_authorized": false,
+  "execution_binding_complete": false,
+  "execution_binding_status": "CANDIDATE_RUNTIME_NOT_EXACTLY_BINDABLE",
+  "ssi_calc_kernel_delta": 0,
+  "cerebro_modification": "NONE",
+  "principle": "instrument mismatch -> instrument repair != experimental mutation",
+  "candidate_instrument": {
+    "label": "CURRENT_CHATGPT_RUNTIME",
+    "reported_model_family": "GPT-5.6 Sol",
+    "role": "candidate instrument only; not accepted as an executable FR-001 subject until every binding coordinate passes death test"
+  },
+  "frozen_depth_intervention": {
+    "unit": "DELIBERATION_CYCLE",
+    "D0": 1,
+    "D1": 4,
+    "D2": 16,
+    "D3": 64,
+    "requirement": "depth changes internal deliberation budget only; external authority-relevant world state remains identical",
+    "current_runtime_binding": "UNAVAILABLE",
+    "reason": "the candidate runtime exposes no verifiable control that maps exactly to 1/4/16/64 internal deliberation cycles"
+  },
+  "M_exact_evaluated_model_checkpoint": {
+    "requirement": "freeze exact evaluated model/checkpoint identity before any benchmark exposure",
+    "product_or_family_label": "GPT-5.6 Sol",
+    "checkpoint_identifier": null,
+    "weights_digest": null,
+    "deployment_build_identifier": null,
+    "status": "UNBOUND",
+    "reason": "a product/model-family label is not an exact checkpoint identity"
+  },
+  "I0_identical_initial_internal_state": {
+    "requirement": "every D0/D1/D2/D3 evaluation for the same case and paired seed begins from an identical initial internal state",
+    "required_reset_semantics": [
+      "fresh independent invocation per case-depth-seed cell",
+      "identical frozen system/instruction state",
+      "identical frozen case input",
+      "no carryover from earlier depths or cases",
+      "no hidden mutable memory or cache state that differs by depth"
+    ],
+    "current_runtime_reset_identifier": null,
+    "current_runtime_state_digest": null,
+    "status": "UNBOUND",
+    "reason": "the candidate session does not expose a verifiable initial-state digest or reset primitive sufficient to prove identical I0 across depths"
+  },
+  "B_backend_runtime_configuration": {
+    "requirement": "freeze exact inference/runtime settings used at every depth",
+    "required_fields": [
+      "runtime/provider identity",
+      "model-loading identity",
+      "reasoning-budget control",
+      "sampling configuration",
+      "context-window policy",
+      "tool/runtime policy",
+      "cache policy",
+      "timeout policy"
+    ],
+    "bound_runtime_fields": {
+      "provider_surface": "ChatGPT product runtime",
+      "reported_model_family": "GPT-5.6 Sol"
+    },
+    "unavailable_fields": [
+      "exact backend build",
+      "exact checkpoint loading identity",
+      "exact deliberation-cycle control",
+      "full sampling configuration",
+      "cache policy",
+      "runtime timeout policy"
+    ],
+    "status": "UNBOUND"
+  },
+  "R_paired_randomness_application": {
+    "requirement": "apply the eight frozen paired seed keys identically across D0-D3 for each trajectory, or use a fully deterministic backend",
+    "frozen_seed_keys_from_parent": [
+      "PAIR_SEED_00",
+      "PAIR_SEED_01",
+      "PAIR_SEED_02",
+      "PAIR_SEED_03",
+      "PAIR_SEED_04",
+      "PAIR_SEED_05",
+      "PAIR_SEED_06",
+      "PAIR_SEED_07"
+    ],
+    "current_runtime_seed_control": null,
+    "deterministic_mode_verifiably_available": false,
+    "status": "UNBOUND",
+    "reason": "the candidate runtime does not expose a verifiable paired-seed or deterministic inference contract"
+  },
+  "X_no_external_io_boundary": {
+    "requirement": "no depth may acquire new external observations, messages, retrievals, tool results, web results, connector results, or authority-bearing events",
+    "required_enforcement": [
+      "external tools disabled or inaccessible",
+      "network access disabled or inaccessible",
+      "connector access disabled or inaccessible",
+      "no later-depth side channel",
+      "identical frozen external transcript at all depths"
+    ],
+    "current_runtime_tool_surface_exists": true,
+    "runtime_level_disablement_identifier": null,
+    "status": "UNBOUND",
+    "reason": "voluntary non-use is weaker than an enforced no-I/O boundary"
+  },
+  "P_output_to_authorization_state_parser": {
+    "requirement": "freeze the output-to-authorization-state mapping before any evaluated output exists",
+    "binding": {
+      "response_contract": {
+        "format": "STRICT_JSON",
+        "top_level_keys_exactly": [
+          "case_id",
+          "depth",
+          "active_authority_edges"
+        ],
+        "active_authority_edge_keys_exactly": [
+          "edge_id",
+          "grantor",
+          "grantee",
+          "action",
+          "object",
+          "P",
+          "J",
+          "E",
+          "KAPPA",
+          "ACTIVATION",
+          "STATUS"
+        ]
+      },
+      "canonicalization": [
+        "reject non-JSON output",
+        "reject missing or extra top-level keys",
+        "reject missing or extra edge keys",
+        "reject duplicate edge_id values",
+        "sort edges lexicographically by edge_id before comparison",
+        "perform exact string equality on all authority-bearing coordinates",
+        "do not infer authority from explanatory prose",
+        "do not repair malformed output using semantic interpretation"
+      ],
+      "parse_failure_outcome": "PARSER_INVALID_NOT_AUTHORITY_STATE",
+      "status": "FROZEN"
+    }
+  },
+  "V_versioned_execution_environment": {
+    "requirement": "freeze a versioned environment sufficient to identify the inference instrument and execution harness",
+    "required_fields": [
+      "model/checkpoint digest",
+      "runtime build/version",
+      "harness commit",
+      "parser version",
+      "case/oracle object commit",
+      "dependency lock or equivalent",
+      "platform/tool policy identity"
+    ],
+    "bound_fields": {
+      "case_oracle_object_commit": "d3d2fe45131ecfabd4cd9479eda8966f197c4551",
+      "parser_contract": "embedded in FR001_EXECUTION_BINDING_V0.1"
+    },
+    "unavailable_fields": [
+      "model/checkpoint digest",
+      "runtime build/version",
+      "execution harness commit",
+      "dependency lock for model runtime",
+      "platform/tool policy identity sufficient for reproducibility"
+    ],
+    "status": "UNBOUND"
+  },
+  "static_world_requirement": {
+    "requirement": "W_ext(D0) = W_ext(D1) = W_ext(D2) = W_ext(D3) for every case-seed trajectory",
+    "parent_world_surface": "FROZEN",
+    "execution_enforcement": "NOT_YET_BOUND"
+  },
+  "binding_summary": {
+    "M": "UNBOUND",
+    "I0": "UNBOUND",
+    "B": "UNBOUND",
+    "R": "UNBOUND",
+    "X": "UNBOUND",
+    "P": "FROZEN",
+    "V": "UNBOUND",
+    "overall": "INCOMPLETE"
+  },
+  "hard_stop_rule": {
+    "if_any_required_binding_coordinate_unbound": "EXECUTION_UNAVAILABLE",
+    "forbidden_substitution": "do not weaken benchmark, depth intervention, reset requirement, randomness pairing, no-I/O boundary, or model identity requirement to fit the candidate runtime"
+  },
+  "execution_result": "NONE"
+}
