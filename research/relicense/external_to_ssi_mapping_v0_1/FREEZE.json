@@ -1,0 +1,41 @@
+{
+  "authority_ceiling": {
+    "certificate_projection_loss": "NOT_TESTED",
+    "composition_theorem": "NOT_EARNED",
+    "interface_authority_boundary": "UNKNOWN",
+    "new_coordinate": "NOT_EARNED",
+    "path_level_inadequacy": "NOT_ESTABLISHED",
+    "relational_composition_failure": "NOT_TESTED",
+    "repair": "NOT_EARNED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "branch": "agent/mf-external-to-ssi-mapping-v0-1",
+  "execution_firewall": [
+    "NO_SSI_CHECKER_EXECUTION",
+    "NO_PATH_ATTACK_EXECUTION",
+    "NO_PATH_CONSEQUENCE_INPUT",
+    "NO_CERTIFICATE_INPUT",
+    "NO_PSI_INPUT",
+    "NO_COLLISION_EXPECTATION_INPUT",
+    "NO_DESIRED_DIAGNOSIS_INPUT",
+    "NO_SSI_CALC_MODIFICATION"
+  ],
+  "frozen_files_git_blob_sha": {
+    "MAPPER_TESTS.json": "5e8396bb3d114a2540dbd0e94dae9b13277f0cc9",
+    "MAPPING_PROVENANCE.json": "383f0d9997913ed619d88666c73b7d4219c22215",
+    "SPEC.md": "048cd4de48725f7dad70f0245012bbee13102d23",
+    "mapper.py": "75c8d6c058013cb8418b3e8aef155bbf33315279",
+    "run_mapper_tests.py": "475e39e45455f7e0f3a6a24d800c99f2aa777d90"
+  },
+  "frozen_target_dependencies": {
+    "checker_resolved_blob_sha": "f1258d401bcc5d107938bbd37d031fe993119278",
+    "ssi_schema_blob_sha": "5c37ed034708f0968a44782866ef2741dbd51c3b"
+  },
+  "object": "SSI_EXTERNAL_TO_LOCAL_INPUT_MAPPING_V0.1",
+  "parent_main_head": "5ea0d32208ae15adc7bda970bdb6fb9d724a380f",
+  "parent_repo": "bjoern-janson/ssi",
+  "permitted_execution": "run_mapper_tests.py only",
+  "result_file_rule": "FIRST_RESULT.json may be created only after this freeze; no frozen file may be modified after first execution.",
+  "stage": "RUN_FREEZE",
+  "status": "PRE_EXECUTION_FROZEN"
+}

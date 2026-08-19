@@ -1,0 +1,118 @@
+{
+  "authority_ceiling": {
+    "certificate_projection_loss": "NOT_TESTED",
+    "composition_theorem": "NOT_EARNED",
+    "interface_authority_boundary": "UNKNOWN",
+    "new_coordinate": "NOT_EARNED",
+    "path_level_inadequacy": "NOT_ESTABLISHED",
+    "relational_composition_failure": "NOT_TESTED",
+    "repair": "NOT_EARNED",
+    "ssi_calc_kernel_delta": 0
+  },
+  "case_count": 12,
+  "failure_ids": [],
+  "mapper_sha256": "87e42ef32167d3ac45d8d2b31d1ad5fdcc1fbaed25c3ef5ba86bb08d1b82a800",
+  "object": "SSI_EXTERNAL_TO_LOCAL_INPUT_MAPPING_V0.1",
+  "records": [
+    {
+      "expected_status": "MAPPED",
+      "id": "M01_BASELINE",
+      "kind": "single",
+      "observed_status": "MAPPED",
+      "ok": true
+    },
+    {
+      "expected_relation": "DIFFERENT",
+      "id": "M02_ENTITY_DISTINCTION_SURVIVES",
+      "kind": "pair",
+      "left_status": "MAPPED",
+      "local_input_relation": "DIFFERENT",
+      "ok": true,
+      "right_status": "MAPPED"
+    },
+    {
+      "expected_relation": "DIFFERENT",
+      "id": "M03_CLAIM_ARGUMENT_DISTINCTION_SURVIVES",
+      "kind": "pair",
+      "left_status": "MAPPED",
+      "local_input_relation": "DIFFERENT",
+      "ok": true,
+      "right_status": "MAPPED"
+    },
+    {
+      "expected_relation": "DIFFERENT",
+      "id": "M04_AUTHORITY_EDGE_DISTINCTION_SURVIVES",
+      "kind": "pair",
+      "left_status": "MAPPED",
+      "local_input_relation": "DIFFERENT",
+      "ok": true,
+      "right_status": "MAPPED"
+    },
+    {
+      "expected_relation": "DIFFERENT",
+      "id": "M05_ACTION_DISTINCTION_SURVIVES",
+      "kind": "pair",
+      "left_status": "MAPPED",
+      "local_input_relation": "DIFFERENT",
+      "ok": true,
+      "right_status": "MAPPED"
+    },
+    {
+      "expected_relation": "SAME",
+      "id": "M06_ENUM_NORMALIZATION_ONLY",
+      "kind": "pair",
+      "left_status": "MAPPED",
+      "local_input_relation": "SAME",
+      "ok": true,
+      "right_status": "MAPPED"
+    },
+    {
+      "expected_relation": "SAME",
+      "id": "M07_ANNOTATION_EXCLUSION_WITH_BASIS",
+      "kind": "pair",
+      "left_status": "MAPPED",
+      "local_input_relation": "SAME",
+      "ok": true,
+      "right_status": "MAPPED"
+    },
+    {
+      "expected_status": "NOT_EVALUABLE",
+      "id": "M08_UNKNOWN_FIELD_FAILS_CLOSED",
+      "kind": "single",
+      "observed_status": "NOT_EVALUABLE",
+      "ok": true
+    },
+    {
+      "expected_status": "NOT_EVALUABLE",
+      "id": "M09_PATH_RELATION_NOT_EVALUABLE",
+      "kind": "single",
+      "observed_status": "NOT_EVALUABLE",
+      "ok": true
+    },
+    {
+      "expected_status": "CONTRACT_VIOLATION",
+      "id": "M10_BACKWARD_FLOW_CONTRACT_VIOLATION",
+      "kind": "single",
+      "observed_status": "CONTRACT_VIOLATION",
+      "ok": true
+    },
+    {
+      "expected_status": "NOT_EVALUABLE",
+      "id": "M11_MISSING_REQUIRED_STRUCTURE",
+      "kind": "single",
+      "observed_status": "NOT_EVALUABLE",
+      "ok": true
+    },
+    {
+      "expected_status": "NOT_EVALUABLE",
+      "id": "M12_UNKNOWN_STANDING_NOT_EVALUABLE",
+      "kind": "single",
+      "observed_status": "NOT_EVALUABLE",
+      "ok": true
+    }
+  ],
+  "result": "MAPPING_SUPPORTED_ON_FROZEN_ABSTRACT_SUITE",
+  "stage": "MAPPER_ONLY_FIRST_EXECUTION",
+  "strongest_earned_claim": "EXTERNAL_TO_SSI_MAPPING_CONSTITUTION = SUPPORTED_ON_FROZEN_ABSTRACT_MAPPING_SUITE",
+  "suite_sha256": "d144f74361b2edeaee26d8afe6017cf44f87a6f2699ac91fa3a0a95405afbe74"
+}
